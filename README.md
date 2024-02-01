@@ -1,2 +1,3 @@
-# Imbricate-CLI
-CLI tool for Imbricate
+# Imbricate-Core
+
+Core for Imbricate
