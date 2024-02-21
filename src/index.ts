@@ -3,6 +3,5 @@
  * @description Index
  */
 
-export * from "./schema/definition/api/api";
-export * from "./schema/definition/api/http";
+export * from "./schema/interface";
 
