@@ -5,8 +5,8 @@
  */
 
 export interface IImbricateInterface<
-    InputSchema,
-    OutputSchema,
+    InputSchema = unknown,
+    OutputSchema = unknown,
 > {
 
     readonly identifier: string;
