@@ -4,6 +4,13 @@
  * @description Interface
  */
 
-export interface IImbricateInterface {
+export interface IImbricateInterface<
+    InputSchema,
+    OutputSchema,
+> {
 
+    readonly protocol: string;
+
+    readonly input: InputSchema;
+    readonly output: OutputSchema;
 }
