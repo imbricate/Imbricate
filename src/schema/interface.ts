@@ -9,7 +9,14 @@ export interface IImbricateInterface<
     OutputSchema,
 > {
 
+    readonly identifier: string;
+    readonly version: string;
+
     readonly protocol: string;
+    readonly matcher: string;
+
+    readonly humanFriendlyName?: string;
+    readonly description?: string;
 
     readonly input: InputSchema;
     readonly output: OutputSchema;
