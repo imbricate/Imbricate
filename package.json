@@ -1,7 +1,7 @@
 {
   "name": "@imbricate/core",
   "packageManager": "yarn@4.1.1",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Core for Imbricate",
   "scripts": {
     "test": "jest",
