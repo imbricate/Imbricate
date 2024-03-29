@@ -1,15 +1,16 @@
 {
     "compilerOptions": {
-        "target": "es5",
+        "target": "ES6",
         "lib": [
             "esnext"
         ],
         "outDir": "../app",
-        "allowJs": true,
+        "downlevelIteration": true,
         "skipLibCheck": true,
         "strict": true,
         "esModuleInterop": true,
-        "module": "esnext",
+        "module": "CommonJS",
+        "moduleResolution": "node",
         "isolatedModules": true
     },
     "include": [
