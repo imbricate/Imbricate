@@ -6,9 +6,10 @@
         ],
         "outDir": "../app",
         "downlevelIteration": true,
+        "declaration": true,
+        "esModuleInterop": true,
         "skipLibCheck": true,
         "strict": true,
-        "esModuleInterop": true,
         "module": "CommonJS",
         "moduleResolution": "node",
         "isolatedModules": true
