@@ -3,11 +3,11 @@
  * @description Index
  */
 
+export * from "./collection/interface";
+export * from "./collection/least-common-identifier";
 export * from "./definition/listable";
 export * from "./definition/promise";
-export * from "./definition/script";
-export * from "./origin/collection/interface";
-export * from "./origin/collection/least-common-identifier";
+export * from "./script/definition";
 export * from "./origin/interface";
 export * from "./page/definition";
 export * from "./sandbox/definition/config";

@@ -1,10 +1,10 @@
 /**
  * @author WMXPY
- * @namespace Definition
- * @description Script
+ * @namespace Script
+ * @description Definition
  */
 
-export type ImbricateScriptMetadata = {
+export type ImbricateScriptSnapshot = {
 
     readonly scriptName: string;
     readonly identifier: string;

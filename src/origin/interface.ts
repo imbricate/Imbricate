@@ -5,10 +5,10 @@
  */
 
 import { MarkedResult } from "@sudoo/marked";
+import { IImbricateOriginCollection } from "../collection/interface";
 import { PromiseOr } from "../definition/promise";
-import { ImbricateScriptMetadata } from "../definition/script";
 import { SandboxExecuteConfig } from "../sandbox/definition/config";
-import { IImbricateOriginCollection } from "./collection/interface";
+import { ImbricateScriptSnapshot } from "../script/definition";
 
 export type ImbricateOriginMetadata = {
 
@@ -26,12 +26,12 @@ export interface IImbricateOrigin {
     listCollections(): PromiseOr<IImbricateOriginCollection[]>;
     removeCollection(): PromiseOr<void>;
 
-    createScript(scriptName: string, description?: string): PromiseOr<ImbricateScriptMetadata>;
+    createScript(scriptName: string, description?: string): PromiseOr<ImbricateScriptSnapshot>;
+    deleteScript(identifier: string, scriptName: string): PromiseOr<void>;
     hasScript(scriptName: string): PromiseOr<boolean>;
-    getScript(scriptIdentifier: string): PromiseOr<string | null>;
-    openScript(scriptIdentifier: string): PromiseOr<string>;
-    listScripts(): PromiseOr<ImbricateScriptMetadata[]>;
-    removeScript(scriptIdentifier: string, scriptName: string): PromiseOr<void>;
+    readScript(identifier: string): PromiseOr<string | null>;
+    writeScript(identifier: string, content: string): PromiseOr<string>;
+    listScripts(): PromiseOr<ImbricateScriptSnapshot[]>;
 
-    executeScript(scriptIdentifier: string, config: SandboxExecuteConfig): PromiseOr<MarkedResult | null>;
+    executeScript(identifier: string, config: SandboxExecuteConfig): PromiseOr<MarkedResult | null>;
 }

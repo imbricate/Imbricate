@@ -4,9 +4,9 @@
  * @description Interface
  */
 
-import { PromiseOr } from "../../definition/promise";
-import { ImbricatePageSnapshot } from "../../page/definition";
-import { IMBRICATE_SEARCH_SNIPPET_TYPE, ImbricateSearchSnippet } from "../../search/snippet";
+import { PromiseOr } from "../definition/promise";
+import { ImbricatePageSnapshot } from "../page/definition";
+import { IMBRICATE_SEARCH_SNIPPET_TYPE, ImbricateSearchSnippet } from "../search/snippet";
 
 type PageSnippet = ImbricateSearchSnippet<IMBRICATE_SEARCH_SNIPPET_TYPE.PAGE>;
 
@@ -20,8 +20,8 @@ export interface IImbricateOriginCollection {
     listPages(): PromiseOr<ImbricatePageSnapshot[]>;
     createPage(title: string, initialContent?: string): PromiseOr<ImbricatePageSnapshot>;
     deletePage(identifier: string, title: string): PromiseOr<void>;
-    readPage(identifier: string): PromiseOr<string>;
-    writePage(identifier: string, content: string): PromiseOr<void>;
     hasPage(title: string): PromiseOr<boolean>;
+    readPage(identifier: string): PromiseOr<string | null>;
+    writePage(identifier: string, content: string): PromiseOr<void>;
     searchPages(keyword: string): PromiseOr<PageSnippet>;
 }

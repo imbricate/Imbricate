@@ -5,7 +5,7 @@
  * @override Unit Test
  */
 
-import { mapLeastCommonIdentifier } from "../../../../src";
+import { mapLeastCommonIdentifier } from "../../../src";
 
 describe("Given [Least Common Identifier] Origin Collection Helper Methods", (): void => {
 
