@@ -4,13 +4,9 @@
  * @description Interface
  */
 
+import { PromiseOr } from "../../definition/promise";
+import { ImbricatePageSnapshot } from "../../page/definition";
 import { IMBRICATE_SEARCH_SNIPPET_TYPE, ImbricateSearchSnippet } from "../../search/snippet";
-
-export type ImbricateOriginCollectionListPagesResponse = {
-
-    readonly title: string;
-    readonly identifier: string;
-};
 
 type PageSnippet = ImbricateSearchSnippet<IMBRICATE_SEARCH_SNIPPET_TYPE.PAGE>;
 
@@ -19,13 +15,13 @@ export interface IImbricateOriginCollection {
     readonly collectionName: string;
     readonly description?: string;
 
-    findScripts(...onActivities: string[]): Promise<void>;
+    findScripts(...onActivities: string[]): PromiseOr<void>;
 
-    listPages(): Promise<ImbricateOriginCollectionListPagesResponse[]>;
-    createPage(title: string, initialContent?: string): Promise<ImbricateOriginCollectionListPagesResponse>;
-    deletePage(identifier: string, title: string): Promise<void>;
-    readPage(identifier: string): Promise<string>;
-    writePage(identifier: string, content: string): Promise<void>;
-    hasPage(title: string): Promise<boolean>;
-    searchPages(keyword: string): Promise<PageSnippet>;
+    listPages(): PromiseOr<ImbricatePageSnapshot[]>;
+    createPage(title: string, initialContent?: string): PromiseOr<ImbricatePageSnapshot>;
+    deletePage(identifier: string, title: string): PromiseOr<void>;
+    readPage(identifier: string): PromiseOr<string>;
+    writePage(identifier: string, content: string): PromiseOr<void>;
+    hasPage(title: string): PromiseOr<boolean>;
+    searchPages(keyword: string): PromiseOr<PageSnippet>;
 }

@@ -9,6 +9,7 @@ export * from "./definition/script";
 export * from "./origin/collection/interface";
 export * from "./origin/collection/least-common-identifier";
 export * from "./origin/interface";
+export * from "./page/definition";
 export * from "./sandbox/definition/config";
 export * from "./sandbox/definition/environment";
 export * from "./sandbox/definition/implementation";
