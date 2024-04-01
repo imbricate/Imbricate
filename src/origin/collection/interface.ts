@@ -19,36 +19,13 @@ export interface IImbricateOriginCollection {
     readonly collectionName: string;
     readonly description?: string;
 
-    // Collection Scripts
     findScripts(...onActivities: string[]): Promise<void>;
 
-    // Collection Pages
     listPages(): Promise<ImbricateOriginCollectionListPagesResponse[]>;
-
-    createPage(
-        title: string,
-        initialContent?: string,
-    ): Promise<ImbricateOriginCollectionListPagesResponse>;
-
-    deletePage(
-        identifier: string,
-        title: string,
-    ): Promise<void>;
-
-    readPage(
-        identifier: string,
-    ): Promise<string>;
-
-    writePage(
-        identifier: string,
-        content: string,
-    ): Promise<void>;
-
-    hasPage(
-        title: string,
-    ): Promise<boolean>;
-
-    searchPages(
-        keyword: string,
-    ): Promise<PageSnippet>;
+    createPage(title: string, initialContent?: string): Promise<ImbricateOriginCollectionListPagesResponse>;
+    deletePage(identifier: string, title: string): Promise<void>;
+    readPage(identifier: string): Promise<string>;
+    writePage(identifier: string, content: string): Promise<void>;
+    hasPage(title: string): Promise<boolean>;
+    searchPages(keyword: string): Promise<PageSnippet>;
 }
