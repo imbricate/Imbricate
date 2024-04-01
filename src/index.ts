@@ -7,7 +7,6 @@ export * from "./collection/interface";
 export * from "./collection/least-common-identifier";
 export * from "./definition/listable";
 export * from "./definition/promise";
-export * from "./script/definition";
 export * from "./origin/interface";
 export * from "./page/definition";
 export * from "./sandbox/definition/config";
@@ -16,6 +15,7 @@ export * from "./sandbox/definition/implementation";
 export * from "./sandbox/feature/builder";
 export * from "./sandbox/feature/feature";
 export * from "./sandbox/sandbox";
+export * from "./script/definition";
 export * from "./search/prefix";
 export * from "./search/snippet";
 
