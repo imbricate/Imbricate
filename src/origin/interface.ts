@@ -30,7 +30,7 @@ export interface IImbricateOrigin {
     deleteScript(identifier: string, scriptName: string): PromiseOr<void>;
     hasScript(scriptName: string): PromiseOr<boolean>;
     readScript(identifier: string): PromiseOr<string | null>;
-    writeScript(identifier: string, content: string): PromiseOr<string>;
+    writeScript(identifier: string, content: string): PromiseOr<void>;
     listScripts(): PromiseOr<ImbricateScriptSnapshot[]>;
 
     executeScript(identifier: string, config: SandboxExecuteConfig): PromiseOr<MarkedResult | null>;
