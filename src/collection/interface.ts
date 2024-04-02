@@ -8,7 +8,7 @@ import { PromiseOr } from "../definition/promise";
 import { ImbricatePageSnapshot } from "../page/definition";
 import { IMBRICATE_SEARCH_SNIPPET_TYPE, ImbricateSearchSnippet } from "../search/snippet";
 
-type ImbricatePageSearchSnippet = ImbricateSearchSnippet<IMBRICATE_SEARCH_SNIPPET_TYPE.PAGE>;
+export type ImbricatePageSearchSnippet = ImbricateSearchSnippet<IMBRICATE_SEARCH_SNIPPET_TYPE.PAGE>;
 
 export interface IImbricateOriginCollection {
 
