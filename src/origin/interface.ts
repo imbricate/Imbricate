@@ -28,6 +28,6 @@ export interface IImbricateOrigin {
     createScript(scriptName: string, description?: string): PromiseOr<ImbricateScriptSnapshot>;
     deleteScript(identifier: string, scriptName: string): PromiseOr<void>;
     hasScript(scriptName: string): PromiseOr<boolean>;
-    get(identifier: string): PromiseOr<IImbricateScript | null>;
+    getScript(identifier: string): PromiseOr<IImbricateScript | null>;
     listScripts(): PromiseOr<ImbricateScriptSnapshot[]>;
 }

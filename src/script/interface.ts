@@ -21,5 +21,5 @@ export interface IImbricateScript {
 
     refreshUpdatedAt(updatedAt: Date): PromiseOr<void>;
 
-    execute(config: SandboxExecuteConfig): PromiseOr<MarkedResult | null>
+    execute(config: SandboxExecuteConfig): PromiseOr<MarkedResult>
 }
