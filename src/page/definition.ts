@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Origin_Page
+ * @namespace Page
  * @description Definition
  */
 

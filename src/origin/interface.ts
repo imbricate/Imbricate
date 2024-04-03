@@ -4,11 +4,10 @@
  * @description Interface
  */
 
-import { MarkedResult } from "@sudoo/marked";
 import { IImbricateOriginCollection } from "../collection/interface";
 import { PromiseOr } from "../definition/promise";
-import { SandboxExecuteConfig } from "../sandbox/definition/config";
 import { ImbricateScriptSnapshot } from "../script/definition";
+import { IImbricateScript } from "../script/interface";
 
 export type ImbricateOriginMetadata = {
 
@@ -29,9 +28,6 @@ export interface IImbricateOrigin {
     createScript(scriptName: string, description?: string): PromiseOr<ImbricateScriptSnapshot>;
     deleteScript(identifier: string, scriptName: string): PromiseOr<void>;
     hasScript(scriptName: string): PromiseOr<boolean>;
-    readScript(identifier: string): PromiseOr<string | null>;
-    writeScript(identifier: string, content: string): PromiseOr<void>;
+    get(identifier: string): PromiseOr<IImbricateScript | null>;
     listScripts(): PromiseOr<ImbricateScriptSnapshot[]>;
-
-    executeScript(identifier: string, config: SandboxExecuteConfig): PromiseOr<MarkedResult | null>;
 }
