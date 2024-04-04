@@ -20,10 +20,10 @@ export interface IImbricateOrigin {
     readonly payloads: Record<string, any>;
 
     createCollection(collectionName: string, description?: string): PromiseOr<void>;
+    deleteCollection(collectionName: string): PromiseOr<void>;
     hasCollection(collectionName: string): PromiseOr<boolean>;
     getCollection(collectionName: string): PromiseOr<IImbricateOriginCollection | null>;
     listCollections(): PromiseOr<IImbricateOriginCollection[]>;
-    removeCollection(): PromiseOr<void>;
 
     createScript(scriptName: string, description?: string): PromiseOr<IImbricateScript>;
     deleteScript(identifier: string, scriptName: string): PromiseOr<void>;
