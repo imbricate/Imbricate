@@ -17,7 +17,7 @@ export interface IImbricateOriginCollection {
     readonly description?: string;
 
     listPages(): PromiseOr<ImbricatePageSnapshot[]>;
-    createPage(title: string, initialContent?: string): PromiseOr<ImbricatePageSnapshot>;
+    createPage(title: string, initialContent?: string): PromiseOr<IImbricatePage>;
     deletePage(identifier: string, title: string): PromiseOr<void>;
     hasPage(title: string): PromiseOr<boolean>;
     getPage(identifier: string): PromiseOr<IImbricatePage | null>;
