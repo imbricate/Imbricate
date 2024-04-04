@@ -16,10 +16,11 @@ export interface IImbricateOriginCollection {
     readonly collectionName: string;
     readonly description?: string;
 
-    listPages(): PromiseOr<ImbricatePageSnapshot[]>;
     createPage(title: string, initialContent?: string): PromiseOr<IImbricatePage>;
+    retitlePage(identifier: string, newTitle: string): PromiseOr<void>;
     deletePage(identifier: string, title: string): PromiseOr<void>;
     hasPage(title: string): PromiseOr<boolean>;
     getPage(identifier: string): PromiseOr<IImbricatePage | null>;
+    listPages(): PromiseOr<ImbricatePageSnapshot[]>;
     searchPages(keyword: string): PromiseOr<ImbricatePageSearchSnippet[]>;
 }
