@@ -9,11 +9,7 @@ import { PromiseOr } from "../definition/promise";
 import { ImbricateScriptSnapshot } from "../script/definition";
 import { IImbricateScript } from "../script/interface";
 import { IMBRICATE_SEARCH_SNIPPET_TYPE, ImbricateSearchSnippet } from "../search/snippet";
-
-export type ImbricateOriginMetadata = {
-
-    readonly type: string;
-};
+import { ImbricateOriginMetadata } from "./definition";
 
 export type ImbricateScriptSearchSnippet = ImbricateSearchSnippet<IMBRICATE_SEARCH_SNIPPET_TYPE.SCRIPT>;
 
