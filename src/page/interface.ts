@@ -6,15 +6,6 @@
 
 import { PromiseOr } from "../definition/promise";
 
-export type ImbricatePageMetadata = {
-
-    readonly title: string;
-    readonly identifier: string;
-
-    readonly createdAt: Date;
-    readonly updatedAt: Date;
-};
-
 export interface IImbricatePage {
 
     readonly title: string;

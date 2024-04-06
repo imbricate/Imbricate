@@ -5,8 +5,8 @@
  */
 
 import { PromiseOr } from "../definition/promise";
-import { ImbricatePageSearchSnippet, ImbricatePageSnapshot } from "../page/definition";
-import { IImbricatePage, ImbricatePageMetadata } from "../page/interface";
+import { ImbricatePageMetadata, ImbricatePageSearchSnippet, ImbricatePageSnapshot } from "../page/definition";
+import { IImbricatePage } from "../page/interface";
 
 export interface IImbricateOriginCollection {
 

@@ -6,7 +6,7 @@
 
 import { IImbricateOriginCollection } from "../collection/interface";
 import { PromiseOr } from "../definition/promise";
-import { ImbricateScriptSnapshot } from "../script/definition";
+import { ImbricateScriptMetadata, ImbricateScriptSnapshot } from "../script/definition";
 import { IImbricateScript } from "../script/interface";
 import { ImbricateOriginMetadata, ImbricateScriptSearchSnippet } from "./definition";
 
@@ -23,6 +23,7 @@ export interface IImbricateOrigin {
     listCollections(): PromiseOr<IImbricateOriginCollection[]>;
 
     createScript(scriptName: string, description?: string): PromiseOr<IImbricateScript>;
+    putScript(scriptMetadata: ImbricateScriptMetadata, script: string): PromiseOr<IImbricateScript>;
     renameScript(identifier: string, newScriptName: string): PromiseOr<void>;
     deleteScript(identifier: string, scriptName: string): PromiseOr<void>;
     hasScript(scriptName: string): PromiseOr<boolean>;
