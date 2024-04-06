@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Origin_Collection
+ * @namespace Collection
  * @description Least Common Identifier
  */
 
