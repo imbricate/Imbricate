@@ -4,16 +4,16 @@
  * @description Prefix
  */
 
-import { IMBRICATE_SEARCH_SNIPPET_PAGE_SNIPPET_SOURCE, IMBRICATE_SEARCH_SNIPPET_SCRIPT_SNIPPET_SOURCE, IMBRICATE_SEARCH_SNIPPET_TYPE, ImbricateSearchSnippet } from "./snippet";
+import { IMBRICATE_SEARCH_SNIPPET_PAGE_SNIPPET_SOURCE, IMBRICATE_SEARCH_SNIPPET_SCRIPT_SNIPPET_SOURCE, IMBRICATE_SEARCH_RESULT_TYPE, ImbricateSearchSnippet } from "./snippet";
 
-export const getShortPrefixOfSnippet = <T extends IMBRICATE_SEARCH_SNIPPET_TYPE>(
+export const getShortPrefixOfSnippet = <T extends IMBRICATE_SEARCH_RESULT_TYPE>(
     type: T,
     snippet: ImbricateSearchSnippet<T>,
 ): string => {
 
     switch (type) {
 
-        case IMBRICATE_SEARCH_SNIPPET_TYPE.PAGE: {
+        case IMBRICATE_SEARCH_RESULT_TYPE.PAGE: {
 
             switch (snippet.source) {
 
@@ -26,7 +26,7 @@ export const getShortPrefixOfSnippet = <T extends IMBRICATE_SEARCH_SNIPPET_TYPE>
             }
             break;
         }
-        case IMBRICATE_SEARCH_SNIPPET_TYPE.SCRIPT: {
+        case IMBRICATE_SEARCH_RESULT_TYPE.SCRIPT: {
 
             switch (snippet.source) {
 

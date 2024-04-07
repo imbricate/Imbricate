@@ -4,7 +4,7 @@
  * @description Snippet
  */
 
-export enum IMBRICATE_SEARCH_SNIPPET_TYPE {
+export enum IMBRICATE_SEARCH_RESULT_TYPE {
 
     PAGE = "PAGE",
     SCRIPT = "SCRIPT",
@@ -22,31 +22,39 @@ export enum IMBRICATE_SEARCH_SNIPPET_SCRIPT_SNIPPET_SOURCE {
     SCRIPT = "DESCRIPTION",
 }
 
-type IMBRICATE_SEARCH_SNIPPET_SNIPPET_SOURCE<T extends IMBRICATE_SEARCH_SNIPPET_TYPE> =
-    T extends IMBRICATE_SEARCH_SNIPPET_TYPE.PAGE
+type IMBRICATE_SEARCH_SNIPPET_SNIPPET_SOURCE<T extends IMBRICATE_SEARCH_RESULT_TYPE> =
+    T extends IMBRICATE_SEARCH_RESULT_TYPE.PAGE
     ? IMBRICATE_SEARCH_SNIPPET_PAGE_SNIPPET_SOURCE
-    : T extends IMBRICATE_SEARCH_SNIPPET_TYPE.SCRIPT
+    : T extends IMBRICATE_SEARCH_RESULT_TYPE.SCRIPT
     ? IMBRICATE_SEARCH_SNIPPET_SCRIPT_SNIPPET_SOURCE
     : never;
 
-type ImbricateSearchSnippetSwitch<T extends IMBRICATE_SEARCH_SNIPPET_TYPE> =
-    T extends IMBRICATE_SEARCH_SNIPPET_TYPE.PAGE
+type ImbricateSearchSnippetSwitch<T extends IMBRICATE_SEARCH_RESULT_TYPE> =
+    T extends IMBRICATE_SEARCH_RESULT_TYPE.PAGE
     ? {
         readonly scope: string;
     }
-    : T extends IMBRICATE_SEARCH_SNIPPET_TYPE.SCRIPT
+    : T extends IMBRICATE_SEARCH_RESULT_TYPE.SCRIPT
     ? {
         // No Specific Configuration for Script
     }
     : never;
 
-export type ImbricateSearchSnippet<T extends IMBRICATE_SEARCH_SNIPPET_TYPE> = {
+export type ImbricateSearchSnippetHighlight = {
+
+    readonly start: number;
+    readonly length: number;
+};
+
+export type ImbricateSearchSnippet<T extends IMBRICATE_SEARCH_RESULT_TYPE> = {
 
     readonly source: IMBRICATE_SEARCH_SNIPPET_SNIPPET_SOURCE<T>;
     readonly snippet: string;
+
+    readonly highlight: ImbricateSearchSnippetHighlight;
 };
 
-export type ImbricateSearchResult<T extends IMBRICATE_SEARCH_SNIPPET_TYPE> = {
+export type ImbricateSearchResult<T extends IMBRICATE_SEARCH_RESULT_TYPE> = {
 
     readonly type: T;
 
