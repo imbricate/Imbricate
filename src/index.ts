@@ -3,7 +3,6 @@
  * @description Index
  */
 
-export * from "./collection/definition";
 export * from "./collection/interface";
 export * from "./collection/least-common-identifier";
 export * from "./definition/listable";
