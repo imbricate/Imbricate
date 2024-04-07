@@ -29,5 +29,5 @@ export interface IImbricateOrigin {
     hasScript(scriptName: string): PromiseOr<boolean>;
     getScript(identifier: string): PromiseOr<IImbricateScript | null>;
     listScripts(): PromiseOr<ImbricateScriptSnapshot[]>;
-    searchPages(keyword: string): PromiseOr<ImbricateScriptSearchSnippet[]>;
+    searchScripts(keyword: string): PromiseOr<ImbricateScriptSearchSnippet[]>;
 }
