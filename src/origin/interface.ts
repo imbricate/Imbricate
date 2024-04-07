@@ -6,9 +6,8 @@
 
 import { IImbricateOriginCollection } from "../collection/interface";
 import { PromiseOr } from "../definition/promise";
-import { ImbricateScriptMetadata, ImbricateScriptSnapshot } from "../script/definition";
+import { ImbricateScriptMetadata, ImbricateScriptSearchResult, ImbricateScriptSnapshot } from "../script/definition";
 import { IImbricateScript } from "../script/interface";
-import { ImbricateScriptSearchResult } from "../search/definition";
 import { ImbricateOriginMetadata } from "./definition";
 
 export interface IImbricateOrigin {
