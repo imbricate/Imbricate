@@ -5,7 +5,7 @@
  */
 
 import { PromiseOr } from "../definition/promise";
-import { ImbricatePageMetadata, ImbricatePageSearchSnippet, ImbricatePageSnapshot } from "../page/definition";
+import { ImbricatePageMetadata, ImbricatePageSearchResult, ImbricatePageSnapshot } from "../page/definition";
 import { IImbricatePage } from "../page/interface";
 
 export interface IImbricateOriginCollection {
@@ -20,5 +20,5 @@ export interface IImbricateOriginCollection {
     hasPage(title: string): PromiseOr<boolean>;
     getPage(identifier: string): PromiseOr<IImbricatePage | null>;
     listPages(): PromiseOr<ImbricatePageSnapshot[]>;
-    searchPages(keyword: string): PromiseOr<ImbricatePageSearchSnippet[]>;
+    searchPages(keyword: string): PromiseOr<ImbricatePageSearchResult[]>;
 }

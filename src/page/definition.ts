@@ -4,9 +4,13 @@
  * @description Definition
  */
 
-import { IMBRICATE_SEARCH_SNIPPET_TYPE, ImbricateSearchSnippet } from "../search/snippet";
+import { IMBRICATE_SEARCH_SNIPPET_TYPE, ImbricateSearchResult, ImbricateSearchSnippet } from "../search/snippet";
 
-export type ImbricatePageSearchSnippet = ImbricateSearchSnippet<IMBRICATE_SEARCH_SNIPPET_TYPE.PAGE>;
+export type ImbricatePageSearchResult =
+    ImbricateSearchResult<IMBRICATE_SEARCH_SNIPPET_TYPE.PAGE>;
+
+export type ImbricatePageSearchSnippet =
+    ImbricateSearchSnippet<IMBRICATE_SEARCH_SNIPPET_TYPE.PAGE>;
 
 export type ImbricatePageSnapshot = {
 

@@ -8,7 +8,8 @@ import { IImbricateOriginCollection } from "../collection/interface";
 import { PromiseOr } from "../definition/promise";
 import { ImbricateScriptMetadata, ImbricateScriptSnapshot } from "../script/definition";
 import { IImbricateScript } from "../script/interface";
-import { ImbricateOriginMetadata, ImbricateScriptSearchSnippet } from "./definition";
+import { ImbricateScriptSearchResult } from "../search/definition";
+import { ImbricateOriginMetadata } from "./definition";
 
 export interface IImbricateOrigin {
 
@@ -29,5 +30,5 @@ export interface IImbricateOrigin {
     hasScript(scriptName: string): PromiseOr<boolean>;
     getScript(identifier: string): PromiseOr<IImbricateScript | null>;
     listScripts(): PromiseOr<ImbricateScriptSnapshot[]>;
-    searchScripts(keyword: string): PromiseOr<ImbricateScriptSearchSnippet[]>;
+    searchScripts(keyword: string): PromiseOr<ImbricateScriptSearchResult[]>;
 }
