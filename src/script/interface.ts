@@ -6,7 +6,7 @@
 
 import { MarkedResult } from "@sudoo/marked";
 import { PromiseOr } from "../definition/promise";
-import { SandboxExecuteConfig } from "../sandbox/definition/config";
+import { SandboxExecuteConfig, SandboxExecuteParameter } from "../sandbox/definition/config";
 
 export interface IImbricateScript {
 
@@ -21,5 +21,5 @@ export interface IImbricateScript {
 
     refreshUpdatedAt(updatedAt: Date): PromiseOr<void>;
 
-    execute(config: SandboxExecuteConfig): PromiseOr<MarkedResult>
+    execute(config: SandboxExecuteConfig, parameter: SandboxExecuteParameter): PromiseOr<MarkedResult>
 }

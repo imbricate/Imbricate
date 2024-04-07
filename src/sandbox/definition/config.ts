@@ -5,3 +5,4 @@
  */
 
 export type SandboxExecuteConfig = Record<string, any>;
+export type SandboxExecuteParameter = Record<string, any>;
