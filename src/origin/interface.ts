@@ -10,6 +10,11 @@ import { ImbricateScriptMetadata, ImbricateScriptSearchResult, ImbricateScriptSn
 import { IImbricateScript } from "../script/interface";
 import { ImbricateOriginMetadata } from "./definition";
 
+export type ImbricateSearchScriptConfig = {
+
+    readonly exact?: boolean;
+};
+
 export interface IImbricateOrigin {
 
     readonly metadata: ImbricateOriginMetadata;
@@ -29,5 +34,6 @@ export interface IImbricateOrigin {
     hasScript(scriptName: string): PromiseOr<boolean>;
     getScript(identifier: string): PromiseOr<IImbricateScript | null>;
     listScripts(): PromiseOr<ImbricateScriptSnapshot[]>;
-    searchScripts(keyword: string): PromiseOr<ImbricateScriptSearchResult[]>;
+
+    searchScripts(keyword: string, config: ImbricateSearchScriptConfig): PromiseOr<ImbricateScriptSearchResult[]>;
 }
