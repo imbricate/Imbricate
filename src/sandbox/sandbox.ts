@@ -10,7 +10,7 @@ import { markedJsonMixinFactory } from "@sudoo/marked-mixin-json";
 import { markedMathMixinFactory } from "@sudoo/marked-mixin-math";
 import { markedObjectMixinFactory } from "@sudoo/marked-mixin-object";
 import { markedParseMixinFactory } from "@sudoo/marked-mixin-parse";
-import { SandboxExecuteConfig } from "./definition/config";
+import { SandboxExecuteConfig, SandboxExecuteParameter } from "./definition/config";
 import { SandboxEnvironment } from "./definition/environment";
 import { SandboxFeature } from "./feature/feature";
 import { sandboxProvideFeatures } from "./provide/feature";
@@ -36,13 +36,15 @@ export const executeSandboxScript = async (
     script: string,
     features: SandboxFeature[],
     environment: SandboxEnvironment,
-    config: SandboxExecuteConfig,
+    configuration: SandboxExecuteConfig,
+    parameters: SandboxExecuteParameter,
 ): Promise<MarkedResult> => {
 
     const sandbox: Sandbox = createSandbox(features);
 
     sandbox.inject("environment", environment);
-    sandbox.inject("config", config);
+    sandbox.inject("configuration", configuration);
+    sandbox.inject("parameters", parameters);
 
     return await sandbox.evaluate(script);
 };
