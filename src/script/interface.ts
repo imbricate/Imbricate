@@ -8,6 +8,7 @@ import { MarkedResult } from "@sudoo/marked";
 import { PromiseOr } from "../definition/promise";
 import { SandboxExecuteConfig, SandboxExecuteParameter } from "../sandbox/definition/config";
 import { SandboxFeature } from "../sandbox/feature/feature";
+import { ImbricateScriptAttributes } from "./definition";
 
 export interface IImbricateScript {
 
@@ -19,6 +20,9 @@ export interface IImbricateScript {
 
     readScript(): PromiseOr<string>;
     writeScript(script: string): PromiseOr<void>;
+
+    readAttributes(): PromiseOr<ImbricateScriptAttributes>;
+    writeAttribute(key: string, value: string): PromiseOr<void>;
 
     refreshUpdatedAt(updatedAt: Date): PromiseOr<void>;
 
