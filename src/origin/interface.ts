@@ -15,6 +15,11 @@ export type ImbricateSearchScriptConfig = {
     readonly exact?: boolean;
 };
 
+export type ImbricateScriptQuery = {
+
+    readonly limit: number;
+};
+
 export interface IImbricateOrigin {
 
     readonly metadata: ImbricateOriginMetadata;
@@ -36,4 +41,5 @@ export interface IImbricateOrigin {
     listScripts(): PromiseOr<ImbricateScriptSnapshot[]>;
 
     searchScripts(keyword: string, config: ImbricateSearchScriptConfig): PromiseOr<ImbricateScriptSearchResult[]>;
+    queryScripts(query: ImbricateScriptQuery): PromiseOr<IImbricateScript[]>;
 }
