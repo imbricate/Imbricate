@@ -5,6 +5,7 @@
  */
 
 import { PromiseOr } from "../definition/promise";
+import { ImbricatePageAttributes } from "./definition";
 
 export interface IImbricatePage {
 
@@ -16,6 +17,8 @@ export interface IImbricatePage {
 
     readContent(): PromiseOr<string>;
     writeContent(content: string): PromiseOr<void>;
+
+    readAttributes(): PromiseOr<ImbricatePageAttributes>;
 
     refreshUpdatedAt(updatedAt: Date): PromiseOr<void>;
 }

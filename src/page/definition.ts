@@ -6,6 +6,8 @@
 
 import { IMBRICATE_SEARCH_RESULT_TYPE, ImbricateSearchResult, ImbricateSearchSnippet } from "../search/snippet";
 
+export type ImbricatePageAttributes = Record<string, string>;
+
 export type ImbricatePageSearchResult =
     ImbricateSearchResult<IMBRICATE_SEARCH_RESULT_TYPE.PAGE>;
 
