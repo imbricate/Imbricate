@@ -19,6 +19,7 @@ export interface IImbricatePage {
     writeContent(content: string): PromiseOr<void>;
 
     readAttributes(): PromiseOr<ImbricatePageAttributes>;
+    writeAttribute(key: string, value: string): PromiseOr<void>;
 
     refreshUpdatedAt(updatedAt: Date): PromiseOr<void>;
 }
