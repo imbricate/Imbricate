@@ -13,6 +13,11 @@ export type ImbricateSearchPageConfig = {
     readonly exact?: boolean;
 };
 
+export type ImbricatePageQuery = {
+
+    readonly limit: number;
+};
+
 export interface IImbricateOriginCollection {
 
     readonly collectionName: string;
@@ -27,4 +32,5 @@ export interface IImbricateOriginCollection {
     listPages(): PromiseOr<ImbricatePageSnapshot[]>;
 
     searchPages(keyword: string, config: ImbricateSearchPageConfig): PromiseOr<ImbricatePageSearchResult[]>;
+    queryPages(query: ImbricatePageQuery): PromiseOr<IImbricatePage[]>;
 }
