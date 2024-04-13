@@ -17,7 +17,7 @@ export type ImbricateSearchScriptConfig = {
 
 export type ImbricateScriptQuery = {
 
-    readonly limit: number;
+    readonly limit?: number;
 };
 
 export interface IImbricateOrigin {

@@ -15,7 +15,7 @@ export type ImbricateSearchPageConfig = {
 
 export type ImbricatePageQuery = {
 
-    readonly limit: number;
+    readonly limit?: number;
 };
 
 export interface IImbricateOriginCollection {
