@@ -15,6 +15,8 @@ export interface IImbricateScript {
     readonly scriptName: string;
     readonly identifier: string;
 
+    readonly description?: string;
+
     readonly createdAt: Date;
     readonly updatedAt: Date;
 
