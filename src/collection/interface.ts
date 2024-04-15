@@ -7,7 +7,7 @@
 import { PromiseOr } from "../definition/promise";
 import { ImbricatePageMetadata, ImbricatePageSearchResult, ImbricatePageSnapshot } from "../page/definition";
 import { IImbricatePage } from "../page/interface";
-import { ImbricatePageQuery } from "../query/page";
+import { ImbricatePageQuery, ImbricatePageQueryConfig } from "../query/page";
 
 export type ImbricateSearchPageConfig = {
 
@@ -28,5 +28,5 @@ export interface IImbricateOriginCollection {
     listPages(): PromiseOr<ImbricatePageSnapshot[]>;
 
     searchPages(keyword: string, config: ImbricateSearchPageConfig): PromiseOr<ImbricatePageSearchResult[]>;
-    queryPages(query: ImbricatePageQuery): PromiseOr<IImbricatePage[]>;
+    queryPages(query: ImbricatePageQuery, config: ImbricatePageQueryConfig): PromiseOr<IImbricatePage[]>;
 }

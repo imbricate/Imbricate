@@ -6,7 +6,7 @@
 
 import { IImbricateOriginCollection } from "../collection/interface";
 import { PromiseOr } from "../definition/promise";
-import { ImbricateScriptQuery } from "../query/script";
+import { ImbricateScriptQuery, ImbricateScriptQueryConfig } from "../query/script";
 import { ImbricateScriptMetadata, ImbricateScriptSearchResult, ImbricateScriptSnapshot } from "../script/definition";
 import { IImbricateScript } from "../script/interface";
 import { ImbricateOriginMetadata } from "./definition";
@@ -37,5 +37,5 @@ export interface IImbricateOrigin {
     listScripts(): PromiseOr<ImbricateScriptSnapshot[]>;
 
     searchScripts(keyword: string, config: ImbricateSearchScriptConfig): PromiseOr<ImbricateScriptSearchResult[]>;
-    queryScripts(query: ImbricateScriptQuery): PromiseOr<IImbricateScript[]>;
+    queryScripts(query: ImbricateScriptQuery, config: ImbricateScriptQueryConfig): PromiseOr<IImbricateScript[]>;
 }
