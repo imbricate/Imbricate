@@ -13,6 +13,6 @@ export type ImbricateQueryTime = {
 export type ImbricateQueryString = {
 
     readonly equal?: string;
-    readonly include?: string;
-    readonly exclude?: string;
+    readonly include?: string[];
+    readonly exclude?: string[];
 };
