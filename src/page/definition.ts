@@ -18,12 +18,12 @@ export type ImbricatePageSnapshot = {
 
     readonly title: string;
     readonly identifier: string;
-
-    readonly description?: string;
 };
 
 export type ImbricatePageMetadata = {
 
     readonly createdAt: Date;
     readonly updatedAt: Date;
+
+    readonly description?: string;
 } & ImbricatePageSnapshot;
