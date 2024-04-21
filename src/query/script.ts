@@ -15,6 +15,11 @@ export type ImbricateScriptQuery = {
     readonly updatedAt?: ImbricateQueryTime;
 };
 
+export type ImbricateSearchScriptConfig = {
+
+    readonly exact?: boolean;
+};
+
 export type ImbricateScriptQueryConfig = {
 
     readonly limit?: number;

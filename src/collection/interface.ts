@@ -7,12 +7,7 @@
 import { PromiseOr } from "../definition/promise";
 import { ImbricatePageMetadata, ImbricatePageSearchResult, ImbricatePageSnapshot } from "../page/definition";
 import { IImbricatePage } from "../page/interface";
-import { ImbricatePageQuery, ImbricatePageQueryConfig } from "../query/page";
-
-export type ImbricateSearchPageConfig = {
-
-    readonly exact?: boolean;
-};
+import { ImbricatePageQuery, ImbricatePageQueryConfig, ImbricateSearchPageConfig } from "../query/page";
 
 export interface IImbricateOriginCollection {
 

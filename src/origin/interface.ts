@@ -6,15 +6,10 @@
 
 import { IImbricateOriginCollection } from "../collection/interface";
 import { PromiseOr } from "../definition/promise";
-import { ImbricateScriptQuery, ImbricateScriptQueryConfig } from "../query/script";
+import { ImbricateScriptQuery, ImbricateScriptQueryConfig, ImbricateSearchScriptConfig } from "../query/script";
 import { ImbricateScriptMetadata, ImbricateScriptSearchResult, ImbricateScriptSnapshot } from "../script/definition";
 import { IImbricateScript } from "../script/interface";
 import { ImbricateOriginMetadata } from "./definition";
-
-export type ImbricateSearchScriptConfig = {
-
-    readonly exact?: boolean;
-};
 
 export interface IImbricateOrigin {
 

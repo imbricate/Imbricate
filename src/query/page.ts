@@ -15,6 +15,11 @@ export type ImbricatePageQuery = {
     readonly updatedAt?: ImbricateQueryTime;
 };
 
+export type ImbricateSearchPageConfig = {
+
+    readonly exact?: boolean;
+};
+
 export type ImbricatePageQueryConfig = {
 
     readonly limit?: number;
