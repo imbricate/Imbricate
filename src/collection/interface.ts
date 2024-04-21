@@ -22,7 +22,7 @@ export interface IImbricateOriginCollection {
     createPage(title: string, initialContent?: string): PromiseOr<IImbricatePage>;
     putPage(pageMetadata: ImbricatePageMetadata, content: string): PromiseOr<IImbricatePage>;
     retitlePage(identifier: string, newTitle: string): PromiseOr<void>;
-    deletePage(identifier: string, title: string): PromiseOr<void>;
+    deletePage(identifier: string): PromiseOr<void>;
     hasPage(title: string): PromiseOr<boolean>;
     getPage(identifier: string): PromiseOr<IImbricatePage | null>;
     listPages(): PromiseOr<ImbricatePageSnapshot[]>;
