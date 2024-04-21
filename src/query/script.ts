@@ -18,6 +18,7 @@ export type ImbricateScriptQuery = {
 export type ImbricateSearchScriptConfig = {
 
     readonly exact?: boolean;
+    readonly limit?: number;
 };
 
 export type ImbricateScriptQueryConfig = {
