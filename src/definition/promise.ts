@@ -4,4 +4,4 @@
  * @description Promise
  */
 
-export type PromiseOr<T> = T | Promise<T>;
+export type PromiseOr<T> = T | PromiseLike<T>;
