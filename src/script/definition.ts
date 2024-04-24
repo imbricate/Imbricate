@@ -20,10 +20,19 @@ export type ImbricateScriptSnapshot = {
     readonly identifier: string;
 };
 
+export type ImbricateScriptHistory = {
+
+    readonly updatedAt: Date;
+    readonly digest: string;
+};
+
 export type ImbricateScriptMetadata = {
 
     readonly createdAt: Date;
     readonly updatedAt: Date;
+
+    readonly digest: string;
+    readonly histories: ImbricateScriptHistory[];
 
     readonly description?: string;
 } & ImbricateScriptSnapshot;
