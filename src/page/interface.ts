@@ -5,12 +5,15 @@
  */
 
 import { PromiseOr } from "../definition/promise";
-import { ImbricatePageAttributes } from "./definition";
+import { ImbricatePageAttributes, ImbricatePageHistory } from "./definition";
 
 export interface IImbricatePage {
 
     readonly title: string;
     readonly identifier: string;
+
+    readonly digest: string;
+    readonly histories: ImbricatePageHistory[];
 
     readonly description?: string;
 
