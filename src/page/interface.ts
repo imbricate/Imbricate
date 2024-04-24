@@ -5,7 +5,7 @@
  */
 
 import { PromiseOr } from "../definition/promise";
-import { ImbricatePageAttributes, ImbricatePageHistory } from "./definition";
+import { ImbricatePageAttributes, ImbricatePageHistoryRecord } from "./definition";
 
 export interface IImbricatePage {
 
@@ -13,7 +13,7 @@ export interface IImbricatePage {
     readonly identifier: string;
 
     readonly digest: string;
-    readonly histories: ImbricatePageHistory[];
+    readonly historyRecords: ImbricatePageHistoryRecord[];
 
     readonly description?: string;
 

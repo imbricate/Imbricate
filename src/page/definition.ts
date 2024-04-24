@@ -20,7 +20,7 @@ export type ImbricatePageSnapshot = {
     readonly identifier: string;
 };
 
-export type ImbricatePageHistory = {
+export type ImbricatePageHistoryRecord = {
 
     readonly updatedAt: Date;
     readonly digest: string;
@@ -32,7 +32,7 @@ export type ImbricatePageMetadata = {
     readonly updatedAt: Date;
 
     readonly digest: string;
-    readonly histories: ImbricatePageHistory[];
+    readonly historyRecords: ImbricatePageHistoryRecord[];
 
     readonly description?: string;
 } & ImbricatePageSnapshot;
