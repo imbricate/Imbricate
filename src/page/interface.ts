@@ -27,4 +27,6 @@ export interface IImbricatePage {
     writeAttribute(key: string, value: string): PromiseOr<void>;
 
     refreshUpdatedAt(updatedAt: Date): PromiseOr<void>;
+    refreshDigest(digest: string): PromiseOr<void>;
+    addHistoryRecord(record: ImbricatePageHistoryRecord): PromiseOr<void>;
 }

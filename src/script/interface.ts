@@ -30,6 +30,8 @@ export interface IImbricateScript {
     writeAttribute(key: string, value: string): PromiseOr<void>;
 
     refreshUpdatedAt(updatedAt: Date): PromiseOr<void>;
+    refreshDigest(digest: string): PromiseOr<void>;
+    addHistoryRecord(record: ImbricateScriptHistoryRecord): PromiseOr<void>;
 
     execute(
         features: SandboxFeature[],
