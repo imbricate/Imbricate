@@ -29,6 +29,8 @@ export interface IImbricateScript {
     readAttributes(): PromiseOr<ImbricateScriptAttributes>;
     writeAttribute(key: string, value: string): PromiseOr<void>;
 
+    refreshUpdateMetadata(updatedAt: Date, digest: string): PromiseOr<void>;
+
     refreshUpdatedAt(updatedAt: Date): PromiseOr<void>;
     refreshDigest(digest: string): PromiseOr<void>;
     addHistoryRecord(record: ImbricateScriptHistoryRecord): PromiseOr<void>;
