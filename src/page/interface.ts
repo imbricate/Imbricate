@@ -10,6 +10,7 @@ import { ImbricatePageAttributes, ImbricatePageHistoryRecord } from "./definitio
 export interface IImbricatePage {
 
     readonly title: string;
+    readonly directories: string[];
     readonly identifier: string;
 
     readonly digest: string;
