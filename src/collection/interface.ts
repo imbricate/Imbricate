@@ -20,7 +20,7 @@ export interface IImbricateOriginCollection {
     deletePage(identifier: string): PromiseOr<void>;
     hasPage(paths: string[], title: string): PromiseOr<boolean>;
     getPage(identifier: string): PromiseOr<IImbricatePage | null>;
-    listPages(paths: string[], limit: number): PromiseOr<ImbricatePageSnapshot[]>;
+    listPages(paths: string[]): PromiseOr<ImbricatePageSnapshot[]>;
 
     searchPages(keyword: string, config: ImbricateSearchPageConfig): PromiseOr<ImbricatePageSearchResult[]>;
     queryPages(query: ImbricatePageQuery, config: ImbricatePageQueryConfig): PromiseOr<IImbricatePage[]>;
