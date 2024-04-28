@@ -14,13 +14,14 @@ export interface IImbricateOriginCollection {
     readonly collectionName: string;
     readonly description?: string;
 
-    createPage(directories: string[], title: string, initialContent?: string): PromiseOr<IImbricatePage>;
+    createPage(directories: string[], title: string, initialContent: string): PromiseOr<IImbricatePage>;
     putPage(pageMetadata: ImbricatePageMetadata, content: string): PromiseOr<IImbricatePage>;
     retitlePage(identifier: string, newTitle: string): PromiseOr<void>;
     deletePage(identifier: string): PromiseOr<void>;
     hasPage(directories: string[], title: string): PromiseOr<boolean>;
     getPage(identifier: string): PromiseOr<IImbricatePage | null>;
-    listPages(directories: string[]): PromiseOr<ImbricatePageSnapshot[]>;
+
+    listPages(directories: string[], recursive: boolean): PromiseOr<ImbricatePageSnapshot[]>;
     listDirectories(directories: string[]): PromiseOr<string[]>;
 
     searchPages(keyword: string, config: ImbricateSearchPageConfig): PromiseOr<ImbricatePageSearchResult[]>;
