@@ -17,7 +17,7 @@ export type ImbricatePageSearchSnippet =
 export type ImbricatePageSnapshot = {
 
     readonly title: string;
-    readonly paths: string[];
+    readonly directories: string[];
 
     readonly identifier: string;
 };
