@@ -17,3 +17,13 @@ export type ImbricateOriginMetadata = {
     readonly type: string;
     readonly digestAlgorithm: IMBRICATE_DIGEST_ALGORITHM;
 };
+
+export enum IMBRICATE_ORIGIN_FUNCTION_TARGET {
+
+    ORIGIN = "ORIGIN",
+}
+
+export type ImbricateOriginFunction = {
+
+    readonly target: IMBRICATE_ORIGIN_FUNCTION_TARGET;
+};
