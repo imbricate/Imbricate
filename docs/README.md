@@ -19,7 +19,11 @@ npm install @imbricate/core --save
 
 Visit [imbricate.io](https://imbricate.io/).
 
-## Using Imbricate CLI
+## Quick Start with Imbricate VSCode Extension
+
+Imbricate VSCode Extension is available through the Visual Studio Code Marketplace. See [Imbricate VSCode Extension](https://marketplace.visualstudio.com/items?itemName=imbricate.imbricate).
+
+## Quick Start with Imbricate CLI
 
 Imbricate CLI is available through NPM for package management. See https://github.com/imbricate/Imbricate-CLI.
 
