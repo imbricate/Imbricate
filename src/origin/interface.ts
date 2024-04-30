@@ -6,6 +6,7 @@
 
 import { IImbricateOriginCollection } from "../collection/interface";
 import { PromiseOr } from "../definition/promise";
+import { IImbricateFunctionManager } from "../function/interface";
 import { ImbricateScriptQuery, ImbricateScriptQueryConfig, ImbricateSearchScriptConfig } from "../query/script";
 import { ImbricateScriptMetadata, ImbricateScriptSearchResult, ImbricateScriptSnapshot } from "../script/definition";
 import { IImbricateScript } from "../script/interface";
@@ -15,6 +16,8 @@ export interface IImbricateOrigin {
 
     readonly metadata: ImbricateOriginMetadata;
     readonly payloads: Record<string, any>;
+
+    getFunctionManger(): IImbricateFunctionManager;
 
     createCollection(collectionName: string, description?: string, initialScript?: string): PromiseOr<void>;
     renameCollection(collectionName: string, newCollectionName: string): PromiseOr<void>;
