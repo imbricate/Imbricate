@@ -7,54 +7,54 @@
 import { PromiseOr } from "../definition/promise";
 import { IImbricateOrigin } from "./interface";
 
-export enum IMBRICATE_FUNCTION_TARGET {
+export enum IMBRICATE_FUNCTION_TARGET_TYPE {
 
     ORIGIN = "ORIGIN",
 }
 
 export type ImbricateFunction<
-    Target extends IMBRICATE_FUNCTION_TARGET,
+    TargetType extends IMBRICATE_FUNCTION_TARGET_TYPE,
     Asynchronous extends boolean
 > = {
 
-    readonly target: Target;
+    readonly target: TargetType;
 
     readonly asynchronousDeterminer: Asynchronous;
-    readonly determiner: ImbricateFunctionDeterminer<Target, Asynchronous>;
+    readonly determiner: ImbricateFunctionDeterminer<TargetType, Asynchronous>;
 
     readonly title: string;
     readonly description?: string;
 
-    readonly execute: (...args: any[]) => any;
+    readonly execute: ImbricateFunctionExecute<TargetType>;
 };
 
 export type ImbricateFunctionExecute<
-    Target extends IMBRICATE_FUNCTION_TARGET,
+    TargetType extends IMBRICATE_FUNCTION_TARGET_TYPE,
 > = (
-    target: ImbricateFunctionTargetParameter<Target>,
+    target: ImbricateFunctionTargetParameter<TargetType>,
 ) => PromiseOr<any>;
 
 export type ImbricateFunctionTargetParameter<
-    Target extends IMBRICATE_FUNCTION_TARGET
+    TargetType extends IMBRICATE_FUNCTION_TARGET_TYPE
 > =
-    Target extends IMBRICATE_FUNCTION_TARGET.ORIGIN ? IImbricateOrigin
+    TargetType extends IMBRICATE_FUNCTION_TARGET_TYPE.ORIGIN ? IImbricateOrigin
     : never;
 
 export type ImbricateAsynchronousDeterminer<
-    Target extends IMBRICATE_FUNCTION_TARGET
+    TargetType extends IMBRICATE_FUNCTION_TARGET_TYPE
 > = (
-    target: ImbricateFunctionTargetParameter<Target>,
+    target: ImbricateFunctionTargetParameter<TargetType>,
 ) => Promise<boolean>;
 
 export type ImbricateSynchronousDeterminer<
-    Target extends IMBRICATE_FUNCTION_TARGET
+    TargetType extends IMBRICATE_FUNCTION_TARGET_TYPE
 > = (
-    target: ImbricateFunctionTargetParameter<Target>,
+    target: ImbricateFunctionTargetParameter<TargetType>,
 ) => boolean;
 
 export type ImbricateFunctionDeterminer<
-    Target extends IMBRICATE_FUNCTION_TARGET,
+    TargetType extends IMBRICATE_FUNCTION_TARGET_TYPE,
     Asynchronous extends boolean
 > = Asynchronous extends true
-    ? ImbricateAsynchronousDeterminer<Target>
-    : ImbricateSynchronousDeterminer<Target>;
+    ? ImbricateAsynchronousDeterminer<TargetType>
+    : ImbricateSynchronousDeterminer<TargetType>;
