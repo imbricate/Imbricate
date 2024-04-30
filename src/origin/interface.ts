@@ -10,7 +10,6 @@ import { ImbricateScriptQuery, ImbricateScriptQueryConfig, ImbricateSearchScript
 import { ImbricateScriptMetadata, ImbricateScriptSearchResult, ImbricateScriptSnapshot } from "../script/definition";
 import { IImbricateScript } from "../script/interface";
 import { ImbricateOriginMetadata } from "./definition";
-import { IMBRICATE_FUNCTION_TARGET_TYPE, ImbricateFunction } from "./function";
 
 export interface IImbricateOrigin {
 
@@ -34,11 +33,4 @@ export interface IImbricateOrigin {
 
     searchScripts(keyword: string, config: ImbricateSearchScriptConfig): PromiseOr<ImbricateScriptSearchResult[]>;
     queryScripts(query: ImbricateScriptQuery, config: ImbricateScriptQueryConfig): PromiseOr<IImbricateScript[]>;
-
-    getAsynchronousFunctions<TargetType extends IMBRICATE_FUNCTION_TARGET_TYPE>(
-        targetType: TargetType,
-    ): PromiseOr<Array<ImbricateFunction<TargetType, true>>>;
-    getSynchronousFunctions<TargetType extends IMBRICATE_FUNCTION_TARGET_TYPE>(
-        targetType: TargetType,
-    ): Array<ImbricateFunction<TargetType, false>>;
 }

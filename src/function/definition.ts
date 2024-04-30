@@ -1,11 +1,11 @@
 /**
  * @author WMXPY
- * @namespace Origin
- * @description Function
+ * @namespace Function
+ * @description Definition
  */
 
 import { PromiseOr } from "../definition/promise";
-import { IImbricateOrigin } from "./interface";
+import { IImbricateOrigin } from "../origin/interface";
 
 export enum IMBRICATE_FUNCTION_TARGET_TYPE {
 
@@ -20,7 +20,6 @@ export type ImbricateFunction<
     readonly target: TargetType;
 
     readonly asynchronousDeterminer: Asynchronous;
-    readonly determiner: ImbricateFunctionDeterminer<TargetType, Asynchronous>;
 
     readonly title: string;
     readonly description?: string;
@@ -39,22 +38,3 @@ export type ImbricateFunctionTargetParameter<
 > =
     TargetType extends IMBRICATE_FUNCTION_TARGET_TYPE.ORIGIN ? IImbricateOrigin
     : never;
-
-export type ImbricateAsynchronousDeterminer<
-    TargetType extends IMBRICATE_FUNCTION_TARGET_TYPE
-> = (
-    target: ImbricateFunctionTargetParameter<TargetType>,
-) => Promise<boolean>;
-
-export type ImbricateSynchronousDeterminer<
-    TargetType extends IMBRICATE_FUNCTION_TARGET_TYPE
-> = (
-    target: ImbricateFunctionTargetParameter<TargetType>,
-) => boolean;
-
-export type ImbricateFunctionDeterminer<
-    TargetType extends IMBRICATE_FUNCTION_TARGET_TYPE,
-    Asynchronous extends boolean
-> = Asynchronous extends true
-    ? ImbricateAsynchronousDeterminer<TargetType>
-    : ImbricateSynchronousDeterminer<TargetType>;

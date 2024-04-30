@@ -8,7 +8,7 @@ export * from "./collection/least-common-identifier";
 export * from "./definition/listable";
 export * from "./definition/promise";
 export * from "./origin/definition";
-export * from "./origin/function";
+export * from "./function/interface";
 export * from "./origin/interface";
 export * from "./page/definition";
 export * from "./page/interface";
