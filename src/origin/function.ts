@@ -4,6 +4,7 @@
  * @description Function
  */
 
+import { PromiseOr } from "../definition/promise";
 import { IImbricateOrigin } from "./interface";
 
 export enum IMBRICATE_FUNCTION_TARGET {
@@ -18,12 +19,20 @@ export type ImbricateFunction<
 
     readonly target: Target;
 
-    readonly asynchronous: Asynchronous;
+    readonly asynchronousDeterminer: Asynchronous;
     readonly determiner: ImbricateFunctionDeterminer<Target, Asynchronous>;
 
     readonly title: string;
     readonly description?: string;
+
+    readonly execute: (...args: any[]) => any;
 };
+
+export type ImbricateFunctionExecute<
+    Target extends IMBRICATE_FUNCTION_TARGET,
+> = (
+    target: ImbricateFunctionTargetParameter<Target>,
+) => PromiseOr<any>;
 
 export type ImbricateFunctionTargetParameter<
     Target extends IMBRICATE_FUNCTION_TARGET
