@@ -19,7 +19,7 @@ export interface IImbricateOrigin {
 
     getFunctionManger(): IImbricateFunctionManager;
 
-    createCollection(collectionName: string, description?: string, initialScript?: string): PromiseOr<void>;
+    createCollection(collectionName: string, description?: string): PromiseOr<void>;
     renameCollection(collectionName: string, newCollectionName: string): PromiseOr<void>;
     deleteCollection(collectionName: string): PromiseOr<void>;
     hasCollection(collectionName: string): PromiseOr<boolean>;
