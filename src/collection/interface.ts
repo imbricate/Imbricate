@@ -14,8 +14,6 @@ export interface IImbricateOriginCollection {
     readonly collectionName: string;
     readonly description?: string;
 
-    readonly includeInSearch: boolean;
-
     createPage(directories: string[], title: string, initialContent: string): PromiseOr<IImbricatePage>;
     putPage(pageMetadata: ImbricatePageMetadata, content: string): PromiseOr<IImbricatePage>;
     retitlePage(identifier: string, newTitle: string): PromiseOr<void>;

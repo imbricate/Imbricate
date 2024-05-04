@@ -24,8 +24,6 @@ export interface IImbricateOrigin {
     deleteCollection(collectionName: string): PromiseOr<void>;
     hasCollection(collectionName: string): PromiseOr<boolean>;
     getCollection(collectionName: string): PromiseOr<IImbricateOriginCollection | null>;
-    includeCollectionInSearch(collectionName: string): PromiseOr<void>;
-    excludeCollectionInSearch(collectionName: string): PromiseOr<void>;
     listCollections(): PromiseOr<IImbricateOriginCollection[]>;
 
     createScript(scriptName: string, initialScript: string, description?: string): PromiseOr<IImbricateScript>;
