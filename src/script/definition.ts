@@ -18,6 +18,8 @@ export enum IMBRICATE_SCRIPT_CAPABILITY_KEY {
     WRITE_ATTRIBUTE = "imbricate.script.attribute.write",
     UPDATE_METADATA = "imbricate.script.metadata.update",
     UPDATE_HISTORY_RECORD = "imbricate.script.history.update",
+
+    EXECUTE = "imbricate.script.execute",
 }
 
 export type ImbricateScriptAttributes = Record<string, string>;
