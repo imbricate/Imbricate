@@ -5,7 +5,7 @@
  */
 
 import { PromiseOr } from "../definition/promise";
-import { ImbricatePageAttributes, ImbricatePageHistoryRecord } from "./definition";
+import { ImbricatePageAttributes, ImbricatePageCapability, ImbricatePageHistoryRecord } from "./definition";
 
 export interface IImbricatePage {
 
@@ -20,6 +20,8 @@ export interface IImbricatePage {
 
     readonly createdAt: Date;
     readonly updatedAt: Date;
+
+    readonly capabilities: ImbricatePageCapability;
 
     readContent(): PromiseOr<string>;
     writeContent(content: string): PromiseOr<void>;

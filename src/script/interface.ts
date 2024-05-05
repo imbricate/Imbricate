@@ -8,7 +8,7 @@ import { MarkedResult } from "@sudoo/marked";
 import { PromiseOr } from "../definition/promise";
 import { SandboxExecuteConfig, SandboxExecuteParameter } from "../sandbox/definition/config";
 import { SandboxFeature } from "../sandbox/feature/feature";
-import { ImbricateScriptAttributes, ImbricateScriptHistoryRecord } from "./definition";
+import { ImbricateScriptAttributes, ImbricateScriptCapability, ImbricateScriptHistoryRecord } from "./definition";
 
 export interface IImbricateScript {
 
@@ -22,6 +22,8 @@ export interface IImbricateScript {
 
     readonly createdAt: Date;
     readonly updatedAt: Date;
+
+    readonly capabilities: ImbricateScriptCapability;
 
     readScript(): PromiseOr<string>;
     writeScript(script: string): PromiseOr<void>;

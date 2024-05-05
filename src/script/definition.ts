@@ -4,7 +4,21 @@
  * @description Definition
  */
 
+import { ImbricateCapability } from "../capability/definition";
 import { IMBRICATE_SEARCH_RESULT_TYPE, ImbricateSearchResult, ImbricateSearchSnippet } from "../search/snippet";
+
+export type ImbricateScriptCapability =
+    Record<IMBRICATE_SCRIPT_CAPABILITY_KEY, ImbricateCapability>;
+
+export enum IMBRICATE_SCRIPT_CAPABILITY_KEY {
+
+    READ = "imbricate.script.read",
+    WRITE = "imbricate.script.write",
+    READ_ATTRIBUTE = "imbricate.script.attribute.read",
+    WRITE_ATTRIBUTE = "imbricate.script.attribute.write",
+    UPDATE_METADATA = "imbricate.script.metadata.update",
+    UPDATE_HISTORY_RECORD = "imbricate.script.history.update",
+}
 
 export type ImbricateScriptAttributes = Record<string, string>;
 
