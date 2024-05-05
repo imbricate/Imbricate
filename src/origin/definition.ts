@@ -39,7 +39,7 @@ export enum IMBRICATE_ORIGIN_CAPABILITY_KEY {
     LIST_SCRIPTS = "imbricate.origin.script.list",
 }
 
-export const createAllAllowOriginCapability = (): ImbricateOriginCapability => {
+export const createAllAllowImbricateOriginCapability = (): ImbricateOriginCapability => {
 
     return {
         [IMBRICATE_ORIGIN_CAPABILITY_KEY.CREATE_COLLECTION]: {

@@ -19,7 +19,7 @@ export enum IMBRICATE_COLLECTION_CAPABILITY_KEY {
     LIST_PAGES = "imbricate.collection.page.list",
 }
 
-export const createAllAllowCollectionCapability = (): ImbricateCollectionCapability => {
+export const createAllAllowImbricateCollectionCapability = (): ImbricateCollectionCapability => {
 
     return {
         [IMBRICATE_COLLECTION_CAPABILITY_KEY.CREATE_PAGE]: {
