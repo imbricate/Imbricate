@@ -8,11 +8,14 @@ import { PromiseOr } from "../definition/promise";
 import { ImbricatePageMetadata, ImbricatePageSearchResult, ImbricatePageSnapshot } from "../page/definition";
 import { IImbricatePage } from "../page/interface";
 import { ImbricatePageQuery, ImbricatePageQueryConfig, ImbricateSearchPageConfig } from "../query/page";
+import { ImbricateCollectionCapability } from "./definition";
 
 export interface IImbricateOriginCollection {
 
     readonly collectionName: string;
     readonly description?: string;
+
+    readonly capabilities: ImbricateCollectionCapability;
 
     createPage(directories: string[], title: string, initialContent: string): PromiseOr<IImbricatePage>;
     putPage(pageMetadata: ImbricatePageMetadata, content: string): PromiseOr<IImbricatePage>;

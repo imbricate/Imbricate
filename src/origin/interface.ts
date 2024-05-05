@@ -10,12 +10,14 @@ import { IImbricateFunctionManager } from "../function/interface";
 import { ImbricateScriptQuery, ImbricateScriptQueryConfig, ImbricateSearchScriptConfig } from "../query/script";
 import { ImbricateScriptMetadata, ImbricateScriptSearchResult, ImbricateScriptSnapshot } from "../script/definition";
 import { IImbricateScript } from "../script/interface";
-import { ImbricateOriginMetadata } from "./definition";
+import { ImbricateOriginCapability, ImbricateOriginMetadata } from "./definition";
 
 export interface IImbricateOrigin {
 
     readonly metadata: ImbricateOriginMetadata;
     readonly payloads: Record<string, any>;
+
+    readonly capabilities: ImbricateOriginCapability;
 
     getFunctionManger(): IImbricateFunctionManager;
 

@@ -11,18 +11,18 @@ export type ImbricateOriginCapability =
 
 export enum IMBRICATE_ORIGIN_CAPABILITY_KEY {
 
-    CREATE_COLLECTION = "CREATE_COLLECTION",
-    RENAME_COLLECTION = "RENAME_COLLECTION",
-    DELETE_COLLECTION = "DELETE_COLLECTION",
-    GET_COLLECTION = "GET_COLLECTION",
-    LIST_COLLECTIONS = "LIST_COLLECTIONS",
+    CREATE_COLLECTION = "imbricate.origin.collection.create",
+    RENAME_COLLECTION = "imbricate.origin.collection.rename",
+    DELETE_COLLECTION = "imbricate.origin.collection.delete",
+    GET_COLLECTION = "imbricate.origin.collection.get",
+    LIST_COLLECTIONS = "imbricate.origin.collection.list",
 
-    CREATE_SCRIPT = "CREATE_SCRIPT",
-    PUT_SCRIPT = "PUT_SCRIPT",
-    RENAME_SCRIPT = "RENAME_SCRIPT",
-    DELETE_SCRIPT = "DELETE_SCRIPT",
-    GET_SCRIPT = "GET_SCRIPT",
-    LIST_SCRIPTS = "LIST_SCRIPTS",
+    CREATE_SCRIPT = "imbricate.origin.script.create",
+    PUT_SCRIPT = "imbricate.origin.script.put",
+    RENAME_SCRIPT = "imbricate.origin.script.rename",
+    DELETE_SCRIPT = "imbricate.origin.script.delete",
+    GET_SCRIPT = "imbricate.origin.script.get",
+    LIST_SCRIPTS = "imbricate.origin.script.list",
 }
 
 export enum IMBRICATE_DIGEST_ALGORITHM {
