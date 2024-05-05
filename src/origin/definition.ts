@@ -4,7 +4,21 @@
  * @description Definition
  */
 
-import { ImbricateCapability } from "../capability/definition";
+import { IMBRICATE_CAPABILITY_EFFECT, ImbricateCapability } from "../capability/definition";
+
+export enum IMBRICATE_DIGEST_ALGORITHM {
+
+    MD5 = "MD5",
+
+    SHA1 = "SHA1",
+    SHA256 = "SHA256",
+}
+
+export type ImbricateOriginMetadata = {
+
+    readonly type: string;
+    readonly digestAlgorithm: IMBRICATE_DIGEST_ALGORITHM;
+};
 
 export type ImbricateOriginCapability =
     Record<IMBRICATE_ORIGIN_CAPABILITY_KEY, ImbricateCapability>;
@@ -25,16 +39,41 @@ export enum IMBRICATE_ORIGIN_CAPABILITY_KEY {
     LIST_SCRIPTS = "imbricate.origin.script.list",
 }
 
-export enum IMBRICATE_DIGEST_ALGORITHM {
+export const createAllAllowOriginCapability = (): ImbricateOriginCapability => {
 
-    MD5 = "MD5",
-
-    SHA1 = "SHA1",
-    SHA256 = "SHA256",
-}
-
-export type ImbricateOriginMetadata = {
-
-    readonly type: string;
-    readonly digestAlgorithm: IMBRICATE_DIGEST_ALGORITHM;
+    return {
+        [IMBRICATE_ORIGIN_CAPABILITY_KEY.CREATE_COLLECTION]: {
+            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
+        },
+        [IMBRICATE_ORIGIN_CAPABILITY_KEY.RENAME_COLLECTION]: {
+            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
+        },
+        [IMBRICATE_ORIGIN_CAPABILITY_KEY.DELETE_COLLECTION]: {
+            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
+        },
+        [IMBRICATE_ORIGIN_CAPABILITY_KEY.GET_COLLECTION]: {
+            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
+        },
+        [IMBRICATE_ORIGIN_CAPABILITY_KEY.LIST_COLLECTIONS]: {
+            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
+        },
+        [IMBRICATE_ORIGIN_CAPABILITY_KEY.CREATE_SCRIPT]: {
+            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
+        },
+        [IMBRICATE_ORIGIN_CAPABILITY_KEY.PUT_SCRIPT]: {
+            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
+        },
+        [IMBRICATE_ORIGIN_CAPABILITY_KEY.RENAME_SCRIPT]: {
+            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
+        },
+        [IMBRICATE_ORIGIN_CAPABILITY_KEY.DELETE_SCRIPT]: {
+            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
+        },
+        [IMBRICATE_ORIGIN_CAPABILITY_KEY.GET_SCRIPT]: {
+            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
+        },
+        [IMBRICATE_ORIGIN_CAPABILITY_KEY.LIST_SCRIPTS]: {
+            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
+        },
+    };
 };
