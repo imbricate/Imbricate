@@ -22,10 +22,10 @@ export interface IImbricateOrigin {
     getFunctionManger(): IImbricateFunctionManager;
 
     createCollection(collectionName: string, description?: string): PromiseOr<void>;
-    renameCollection(collectionName: string, newCollectionName: string): PromiseOr<void>;
-    deleteCollection(collectionName: string): PromiseOr<void>;
+    renameCollection(collectionUniqueIdentifier: string, newCollectionName: string): PromiseOr<void>;
+    deleteCollection(collectionUniqueIdentifier: string): PromiseOr<void>;
     hasCollection(collectionName: string): PromiseOr<boolean>;
-    getCollection(collectionName: string): PromiseOr<IImbricateOriginCollection | null>;
+    getCollection(collectionUniqueIdentifier: string): PromiseOr<IImbricateOriginCollection | null>;
     listCollections(): PromiseOr<IImbricateOriginCollection[]>;
 
     createScript(scriptName: string, initialScript: string, description?: string): PromiseOr<IImbricateScript>;
