@@ -13,6 +13,8 @@ import { ImbricateCollectionCapability } from "./definition";
 export interface IImbricateOriginCollection {
 
     readonly collectionName: string;
+    readonly uniqueIdentifier: string;
+
     readonly description?: string;
 
     readonly capabilities: ImbricateCollectionCapability;
