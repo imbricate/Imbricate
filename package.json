@@ -4,6 +4,7 @@
   "version": "1.17.2",
   "description": "Core for Imbricate",
   "scripts": {
+    "clean": "rm -rf app",
     "test": "jest",
     "coverage": "jest --coverage",
     "lint": "eslint src --ext .ts",
