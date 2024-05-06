@@ -16,7 +16,6 @@ export enum IMBRICATE_DIGEST_ALGORITHM {
 
 export type ImbricateOriginMetadata = {
 
-    readonly type: string;
     readonly digestAlgorithm: IMBRICATE_DIGEST_ALGORITHM;
 };
 

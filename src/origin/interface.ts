@@ -14,6 +14,9 @@ import { ImbricateOriginCapability, ImbricateOriginMetadata } from "./definition
 
 export interface IImbricateOrigin {
 
+    readonly originType: string;
+    readonly uniqueIdentifier: string;
+
     readonly metadata: ImbricateOriginMetadata;
     readonly payloads: Record<string, any>;
 
