@@ -4,7 +4,9 @@
  * @description Interface
  */
 
+import { PromiseOr } from "../definition/promise";
+
 export interface IImbricateBinaryStorage {
 
-    uploadBase64(binary: string): Promise<string>;
+    putBinaryBase64(binary: string, fileName: string): PromiseOr<string>;
 }
