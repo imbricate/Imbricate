@@ -12,6 +12,8 @@ export * from "./collection/interface";
 export * from "./collection/least-common-identifier";
 export * from "./definition/listable";
 export * from "./definition/promise";
+export * from "./error/imbricate-error";
+export * from "./error/not-implemented";
 export * from "./function/definition";
 export * from "./function/interface";
 export * from "./origin/definition";
