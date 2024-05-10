@@ -4,6 +4,7 @@
  * @description Interface
  */
 
-export interface IImbricateStorage {
+export interface IImbricateBinaryStorage {
 
+    uploadBase64(binary: string): Promise<string>;
 }

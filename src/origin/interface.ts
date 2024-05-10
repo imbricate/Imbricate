@@ -4,6 +4,7 @@
  * @description Interface
  */
 
+import { IImbricateBinaryStorage } from "../binary-storage/interface";
 import { IImbricateOriginCollection } from "../collection/interface";
 import { PromiseOr } from "../definition/promise";
 import { IImbricateFunctionManager } from "../function/interface";
@@ -23,6 +24,7 @@ export interface IImbricateOrigin {
     readonly capabilities: ImbricateOriginCapability;
 
     getFunctionManger(): IImbricateFunctionManager;
+    getBinaryStorage(): IImbricateBinaryStorage;
 
     createCollection(collectionName: string, description?: string): PromiseOr<void>;
     renameCollection(collectionUniqueIdentifier: string, newCollectionName: string): PromiseOr<void>;
