@@ -3,6 +3,8 @@
  * @description Index
  */
 
+export * from "./binary-storage/definition";
+export * from "./binary-storage/interface";
 export * from "./capability/definition";
 export * from "./capability/validate";
 export * from "./collection/definition";
