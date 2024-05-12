@@ -26,6 +26,12 @@ export interface IImbricateOrigin {
     getFunctionManger(): IImbricateFunctionManager;
     getBinaryStorage(): IImbricateBinaryStorage;
 
+    /**
+     * Create a collection
+     * 
+     * @param collectionName Collection name
+     * @param description Collection description
+     */
     createCollection(collectionName: string, description?: string): PromiseOr<void>;
     renameCollection(collectionUniqueIdentifier: string, newCollectionName: string): PromiseOr<void>;
     deleteCollection(collectionUniqueIdentifier: string): PromiseOr<void>;
@@ -44,4 +50,10 @@ export interface IImbricateOrigin {
 
     searchScripts(keyword: string, config: ImbricateSearchScriptConfig): PromiseOr<ImbricateScriptSearchResult[]>;
     queryScripts(query: ImbricateScriptQuery, config: ImbricateScriptQueryConfig): PromiseOr<IImbricateScript[]>;
+
+    /**
+     * Dispose the origin, optional
+     * This method will be called when the origin is no longer needed
+     */
+    dispose?(): PromiseOr<void>;
 }
