@@ -6,9 +6,13 @@
 
 import { PromiseOr } from "../definition/promise";
 import { IImbricateOrigin } from "../origin/interface";
-import { ImbricateFunction } from "./definition";
+import { ImbricateFunction, ImbricateFunctionCapability } from "./definition";
 
 export interface IImbricateFunctionManager {
+    /**
+     * Capabilities of the function manager
+     */
+    readonly capabilities: ImbricateFunctionCapability;
 
     findSynchronousOriginFunctions(): Array<ImbricateFunction<IImbricateOrigin>>;
     findAllOriginFunctions(): PromiseOr<Array<ImbricateFunction<IImbricateOrigin>>>;
