@@ -5,8 +5,13 @@
  */
 
 import { PromiseOr } from "../definition/promise";
+import { ImbricateBinaryStorageCapability } from "./definition";
 
 export interface IImbricateBinaryStorage {
+    /**
+     * Capabilities of the binary storage
+     */
+    readonly capabilities: ImbricateBinaryStorageCapability;
 
     /**
      * Store a binary file
