@@ -26,6 +26,7 @@ export enum IMBRICATE_ORIGIN_CAPABILITY_KEY {
 
     ORIGIN_FUNCTION = "imbricate.origin.function",
     ORIGIN_BINARY_STORAGE = "imbricate.origin.binary-storage",
+    ORIGIN_TRASH_STASH = "imbricate.origin.trash-stash",
 
     CREATE_COLLECTION = "imbricate.origin.collection.create",
     RENAME_COLLECTION = "imbricate.origin.collection.rename",
@@ -48,6 +49,9 @@ export const createAllAllowImbricateOriginCapability = (): ImbricateOriginCapabi
             effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
         },
         [IMBRICATE_ORIGIN_CAPABILITY_KEY.ORIGIN_BINARY_STORAGE]: {
+            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
+        },
+        [IMBRICATE_ORIGIN_CAPABILITY_KEY.ORIGIN_TRASH_STASH]: {
             effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
         },
         [IMBRICATE_ORIGIN_CAPABILITY_KEY.CREATE_COLLECTION]: {
