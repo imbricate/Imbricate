@@ -11,3 +11,10 @@ export type ImbricateVacantPage = {
     readonly contentDigest: string;
     readonly content: string;
 };
+
+export type ImbricateVacantScript = {
+
+    readonly scriptIdentifier: string;
+    readonly scriptDigest: string;
+    readonly script: string;
+};

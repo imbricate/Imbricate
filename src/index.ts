@@ -33,4 +33,6 @@ export * from "./script/definition";
 export * from "./script/interface";
 export * from "./search/prefix";
 export * from "./search/snippet";
+export * from "./trash/definition";
+export * from "./trash/interface";
 
