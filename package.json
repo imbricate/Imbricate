@@ -1,7 +1,7 @@
 {
   "name": "@imbricate/core",
   "packageManager": "yarn@4.1.1",
-  "version": "1.20.1",
+  "version": "1.21.0",
   "description": "Imbricate Core, Notebook for Engineers",
   "scripts": {
     "clean": "rm -rf app",
@@ -42,8 +42,8 @@
     "@babel/preset-env": "^7.24.5",
     "@babel/preset-typescript": "^7.24.1",
     "@types/jest": "^29.5.12",
-    "@typescript-eslint/eslint-plugin": "^7.8.0",
-    "@typescript-eslint/parser": "^7.8.0",
+    "@typescript-eslint/eslint-plugin": "^7.9.0",
+    "@typescript-eslint/parser": "^7.9.0",
     "babel-jest": "^29.7.0",
     "eslint": "^8.57.0",
     "jest": "^29.7.0",
