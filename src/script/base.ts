@@ -4,15 +4,41 @@
  * @description Base
  */
 
-import { MarkedResult } from "@sudoo/marked";
+import type { MarkedResult } from "@sudoo/marked";
+import { ImbricateCapabilityBuilder } from "../capability/builder";
+import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricateCapability } from "../capability/definition";
 import type { PromiseOr } from "../definition/promise";
 import { ImbricateNotImplemented } from "../error/not-implemented";
-import { SandboxExecuteConfig, SandboxExecuteParameter } from "../sandbox/definition/config";
-import { SandboxFeature } from "../sandbox/feature/feature";
-import { IMBRICATE_SCRIPT_CAPABILITY_KEY, ImbricateScriptAttributes, ImbricateScriptCapability, ImbricateScriptHistoryRecord } from "./definition";
-import { IImbricateScript } from "./interface";
+import type { SandboxExecuteConfig, SandboxExecuteParameter } from "../sandbox/definition/config";
+import type { SandboxFeature } from "../sandbox/feature/feature";
+import { IMBRICATE_SCRIPT_CAPABILITY_KEY, ImbricateScriptAttributes, ImbricateScriptCapability, ImbricateScriptCapabilityList, ImbricateScriptHistoryRecord } from "./definition";
+import type { IImbricateScript } from "./interface";
 
 export abstract class ImbricateScriptBase implements IImbricateScript {
+
+    public static buildCapability(
+        initial: ImbricateCapability = createDenyImbricateCapability(),
+    ): ImbricateCapabilityBuilder<IMBRICATE_SCRIPT_CAPABILITY_KEY> {
+
+        return ImbricateCapabilityBuilder.create<IMBRICATE_SCRIPT_CAPABILITY_KEY>(
+            ImbricateScriptCapabilityList,
+            initial,
+        );
+    }
+
+    public static allAllowCapability(): ImbricateScriptCapability {
+
+        return this.buildCapability(
+            createAllowImbricateCapability(),
+        ).build();
+    }
+
+    public static allDenyCapability(): ImbricateScriptCapability {
+
+        return this.buildCapability(
+            createDenyImbricateCapability(),
+        ).build();
+    }
 
     public abstract readonly scriptName: string;
     public abstract readonly identifier: string;

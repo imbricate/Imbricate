@@ -4,12 +4,38 @@
  * @description Base
  */
 
-import { PromiseOr } from "../definition/promise";
+import { ImbricateCapabilityBuilder } from "../capability/builder";
+import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricateCapability } from "../capability/definition";
+import type { PromiseOr } from "../definition/promise";
 import { ImbricateNotImplemented } from "../error/not-implemented";
-import { IMBRICATE_PAGE_CAPABILITY_KEY, ImbricatePageCapability, ImbricatePageHistoryRecord } from "./definition";
-import { IImbricatePage } from "./interface";
+import { IMBRICATE_PAGE_CAPABILITY_KEY, ImbricatePageCapability, ImbricatePageCapabilityList, ImbricatePageHistoryRecord } from "./definition";
+import type { IImbricatePage } from "./interface";
 
 export abstract class ImbricatePageBase implements IImbricatePage {
+
+    public static buildCapability(
+        initial: ImbricateCapability = createDenyImbricateCapability(),
+    ): ImbricateCapabilityBuilder<IMBRICATE_PAGE_CAPABILITY_KEY> {
+
+        return ImbricateCapabilityBuilder.create<IMBRICATE_PAGE_CAPABILITY_KEY>(
+            ImbricatePageCapabilityList,
+            initial,
+        );
+    }
+
+    public static allAllowCapability(): ImbricatePageCapability {
+
+        return this.buildCapability(
+            createAllowImbricateCapability(),
+        ).build();
+    }
+
+    public static allDenyCapability(): ImbricatePageCapability {
+
+        return this.buildCapability(
+            createDenyImbricateCapability(),
+        ).build();
+    }
 
     public abstract readonly title: string;
     public abstract readonly directories: string[];

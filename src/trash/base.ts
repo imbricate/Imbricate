@@ -4,12 +4,38 @@
  * @description Base
  */
 
+import { ImbricateCapabilityBuilder } from "../capability/builder";
+import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricateCapability } from "../capability/definition";
 import type { PromiseOr } from "../definition/promise";
 import { ImbricateNotImplemented } from "../error/not-implemented";
-import { IMBRICATE_TRASH_STASH_CAPABILITY_KEY, ImbricateTrashStashCapability, ImbricateVacantPage, ImbricateVacantScript } from "./definition";
+import { IMBRICATE_TRASH_STASH_CAPABILITY_KEY, ImbricateTrashStashCapability, ImbricateTrashStashCapabilityList, ImbricateVacantPage, ImbricateVacantScript } from "./definition";
 import type { IImbricateTrashStash } from "./interface";
 
 export abstract class ImbricateTrashStashBase implements IImbricateTrashStash {
+
+    public static buildCapability(
+        initial: ImbricateCapability = createDenyImbricateCapability(),
+    ): ImbricateCapabilityBuilder<IMBRICATE_TRASH_STASH_CAPABILITY_KEY> {
+
+        return ImbricateCapabilityBuilder.create<IMBRICATE_TRASH_STASH_CAPABILITY_KEY>(
+            ImbricateTrashStashCapabilityList,
+            initial,
+        );
+    }
+
+    public static allAllowCapability(): ImbricateTrashStashCapability {
+
+        return this.buildCapability(
+            createAllowImbricateCapability(),
+        ).build();
+    }
+
+    public static allDenyCapability(): ImbricateTrashStashCapability {
+
+        return this.buildCapability(
+            createDenyImbricateCapability(),
+        ).build();
+    }
 
     public abstract readonly capabilities: ImbricateTrashStashCapability;
 

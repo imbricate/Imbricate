@@ -5,17 +5,43 @@
  */
 
 import type { IImbricateBinaryStorage } from "../binary-storage/interface";
-import { IImbricateCollection } from "../collection/interface";
+import { ImbricateCapabilityBuilder } from "../capability/builder";
+import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricateCapability } from "../capability/definition";
+import type { IImbricateCollection } from "../collection/interface";
 import type { PromiseOr } from "../definition/promise";
 import { ImbricateNotImplemented } from "../error/not-implemented";
-import { IImbricateFunctionManager } from "../function/interface";
+import type { IImbricateFunctionManager } from "../function/interface";
 import type { IImbricateOrigin } from "../origin/interface";
 import { ImbricateScriptQuery, ImbricateScriptQueryConfig, ImbricateSearchScriptConfig } from "../query/script";
 import { ImbricateScriptMetadata } from "../script/definition";
 import type { IImbricateScript } from "../script/interface";
-import { IMBRICATE_ORIGIN_CAPABILITY_KEY, ImbricateOriginCapability, ImbricateOriginMetadata } from "./definition";
+import { IMBRICATE_ORIGIN_CAPABILITY_KEY, ImbricateOriginCapability, ImbricateOriginCapabilityList, ImbricateOriginMetadata } from "./definition";
 
 export abstract class ImbricateOriginBase implements IImbricateOrigin {
+
+    public static buildCapability(
+        initial: ImbricateCapability = createDenyImbricateCapability(),
+    ): ImbricateCapabilityBuilder<IMBRICATE_ORIGIN_CAPABILITY_KEY> {
+
+        return ImbricateCapabilityBuilder.create<IMBRICATE_ORIGIN_CAPABILITY_KEY>(
+            ImbricateOriginCapabilityList,
+            initial,
+        );
+    }
+
+    public static allAllowCapability(): ImbricateOriginCapability {
+
+        return this.buildCapability(
+            createAllowImbricateCapability(),
+        ).build();
+    }
+
+    public static allDenyCapability(): ImbricateOriginCapability {
+
+        return this.buildCapability(
+            createDenyImbricateCapability(),
+        ).build();
+    }
 
     public abstract readonly originType: string;
     public abstract readonly uniqueIdentifier: string;

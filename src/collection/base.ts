@@ -4,15 +4,41 @@
  * @description Base
  */
 
+import { ImbricateCapabilityBuilder } from "../capability/builder";
+import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricateCapability } from "../capability/definition";
 import type { PromiseOr } from "../definition/promise";
 import { ImbricateNotImplemented } from "../error/not-implemented";
 import type { ImbricatePageMetadata, ImbricatePageSearchResult } from "../page/definition";
 import type { IImbricatePage } from "../page/interface";
 import type { ImbricatePageQuery, ImbricatePageQueryConfig, ImbricateSearchPageConfig } from "../query/page";
-import { IMBRICATE_COLLECTION_CAPABILITY_KEY, ImbricateCollectionCapability } from "./definition";
+import { IMBRICATE_COLLECTION_CAPABILITY_KEY, ImbricateCollectionCapability, ImbricateCollectionCapabilityList } from "./definition";
 import type { IImbricateCollection } from "./interface";
 
 export abstract class ImbricateCollectionBase implements IImbricateCollection {
+
+    public static buildCapability(
+        initial: ImbricateCapability = createDenyImbricateCapability(),
+    ): ImbricateCapabilityBuilder<IMBRICATE_COLLECTION_CAPABILITY_KEY> {
+
+        return ImbricateCapabilityBuilder.create<IMBRICATE_COLLECTION_CAPABILITY_KEY>(
+            ImbricateCollectionCapabilityList,
+            initial,
+        );
+    }
+
+    public static allAllowCapability(): ImbricateCollectionCapability {
+
+        return this.buildCapability(
+            createAllowImbricateCapability(),
+        ).build();
+    }
+
+    public static allDenyCapability(): ImbricateCollectionCapability {
+
+        return this.buildCapability(
+            createDenyImbricateCapability(),
+        ).build();
+    }
 
     public abstract readonly collectionName: string;
     public abstract readonly uniqueIdentifier: string;
