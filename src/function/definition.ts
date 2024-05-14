@@ -27,6 +27,11 @@ export enum IMBRICATE_FUNCTION_CAPABILITY_KEY {
     FIND_ORIGIN_FUNCTIONS = "imbricate.function.origin.find",
 }
 
+export const ImbricateFunctionCapabilityList: IMBRICATE_FUNCTION_CAPABILITY_KEY[] = [
+
+    IMBRICATE_FUNCTION_CAPABILITY_KEY.FIND_ORIGIN_FUNCTIONS,
+];
+
 export const createAllAllowImbricateFunctionCapability = (): ImbricateFunctionCapability => {
 
     return {

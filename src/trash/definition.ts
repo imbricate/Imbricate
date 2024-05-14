@@ -33,6 +33,15 @@ export enum IMBRICATE_TRASH_STASH_CAPABILITY_KEY {
     RETRIEVE_SCRIPT = "imbricate.trash-stash.script.retrieve",
 }
 
+export const ImbricateTrashStashCapabilityList: IMBRICATE_TRASH_STASH_CAPABILITY_KEY[] = [
+
+    IMBRICATE_TRASH_STASH_CAPABILITY_KEY.TOSS_PAGE,
+    IMBRICATE_TRASH_STASH_CAPABILITY_KEY.RETRIEVE_PAGE,
+
+    IMBRICATE_TRASH_STASH_CAPABILITY_KEY.TOSS_SCRIPT,
+    IMBRICATE_TRASH_STASH_CAPABILITY_KEY.RETRIEVE_SCRIPT,
+];
+
 export const createAllAllowImbricateTrashStashCapability = (): ImbricateTrashStashCapability => {
 
     return {
