@@ -13,7 +13,7 @@ import { ImbricateNotImplemented } from "../error/not-implemented";
 import type { IImbricateFunctionManager } from "../function/interface";
 import type { IImbricateOrigin } from "../origin/interface";
 import { ImbricateScriptQuery, ImbricateScriptQueryConfig, ImbricateSearchScriptConfig } from "../query/script";
-import { ImbricateScriptMetadata } from "../script/definition";
+import { ImbricateScriptMetadata, ImbricateScriptSnapshot } from "../script/definition";
 import type { IImbricateScript } from "../script/interface";
 import { IMBRICATE_ORIGIN_CAPABILITY_KEY, ImbricateOriginCapability, ImbricateOriginCapabilityList, ImbricateOriginMetadata } from "./definition";
 
@@ -201,7 +201,7 @@ export abstract class ImbricateOriginBase implements IImbricateOrigin {
         );
     }
 
-    public listScripts(): PromiseOr<IImbricateScript[]> {
+    public listScripts(): PromiseOr<ImbricateScriptSnapshot[]> {
 
         throw ImbricateNotImplemented.create(
             "ListScripts",

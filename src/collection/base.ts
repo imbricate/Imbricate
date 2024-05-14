@@ -8,7 +8,7 @@ import { ImbricateCapabilityBuilder } from "../capability/builder";
 import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricateCapability } from "../capability/definition";
 import type { PromiseOr } from "../definition/promise";
 import { ImbricateNotImplemented } from "../error/not-implemented";
-import type { ImbricatePageMetadata, ImbricatePageSearchResult } from "../page/definition";
+import type { ImbricatePageMetadata, ImbricatePageSearchResult, ImbricatePageSnapshot } from "../page/definition";
 import type { IImbricatePage } from "../page/interface";
 import type { ImbricatePageQuery, ImbricatePageQueryConfig, ImbricateSearchPageConfig } from "../query/page";
 import { IMBRICATE_COLLECTION_CAPABILITY_KEY, ImbricateCollectionCapability, ImbricateCollectionCapabilityList } from "./definition";
@@ -113,7 +113,7 @@ export abstract class ImbricateCollectionBase implements IImbricateCollection {
     public listPages(
         _directories: string[],
         _recursive: boolean,
-    ): PromiseOr<IImbricatePage[]> {
+    ): PromiseOr<ImbricatePageSnapshot[]> {
 
         throw ImbricateNotImplemented.create(
             "ListPages",

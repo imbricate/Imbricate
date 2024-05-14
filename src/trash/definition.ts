@@ -4,7 +4,7 @@
  * @description Definition
  */
 
-import { IMBRICATE_CAPABILITY_EFFECT, ImbricateCapabilityRecord } from "../capability/definition";
+import { ImbricateCapabilityRecord } from "../capability/definition";
 
 export type ImbricateVacantPage = {
 
@@ -41,21 +41,3 @@ export const ImbricateTrashStashCapabilityList: IMBRICATE_TRASH_STASH_CAPABILITY
     IMBRICATE_TRASH_STASH_CAPABILITY_KEY.TOSS_SCRIPT,
     IMBRICATE_TRASH_STASH_CAPABILITY_KEY.RETRIEVE_SCRIPT,
 ];
-
-export const createAllAllowImbricateTrashStashCapability = (): ImbricateTrashStashCapability => {
-
-    return {
-        [IMBRICATE_TRASH_STASH_CAPABILITY_KEY.TOSS_PAGE]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_TRASH_STASH_CAPABILITY_KEY.RETRIEVE_PAGE]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_TRASH_STASH_CAPABILITY_KEY.TOSS_SCRIPT]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_TRASH_STASH_CAPABILITY_KEY.RETRIEVE_SCRIPT]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-    };
-};

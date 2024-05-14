@@ -4,7 +4,7 @@
  * @description Definition
  */
 
-import { IMBRICATE_CAPABILITY_EFFECT, ImbricateCapability } from "../capability/definition";
+import { ImbricateCapability } from "../capability/definition";
 
 export enum IMBRICATE_DIGEST_ALGORITHM {
 
@@ -61,51 +61,3 @@ export const ImbricateOriginCapabilityList: IMBRICATE_ORIGIN_CAPABILITY_KEY[] = 
     IMBRICATE_ORIGIN_CAPABILITY_KEY.GET_SCRIPT,
     IMBRICATE_ORIGIN_CAPABILITY_KEY.LIST_SCRIPTS,
 ];
-
-export const createAllAllowImbricateOriginCapability = (): ImbricateOriginCapability => {
-
-    return {
-        [IMBRICATE_ORIGIN_CAPABILITY_KEY.ORIGIN_FUNCTION]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_ORIGIN_CAPABILITY_KEY.ORIGIN_BINARY_STORAGE]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_ORIGIN_CAPABILITY_KEY.ORIGIN_TRASH_STASH]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_ORIGIN_CAPABILITY_KEY.CREATE_COLLECTION]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_ORIGIN_CAPABILITY_KEY.RENAME_COLLECTION]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_ORIGIN_CAPABILITY_KEY.DELETE_COLLECTION]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_ORIGIN_CAPABILITY_KEY.GET_COLLECTION]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_ORIGIN_CAPABILITY_KEY.LIST_COLLECTIONS]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_ORIGIN_CAPABILITY_KEY.CREATE_SCRIPT]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_ORIGIN_CAPABILITY_KEY.PUT_SCRIPT]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_ORIGIN_CAPABILITY_KEY.RENAME_SCRIPT]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_ORIGIN_CAPABILITY_KEY.DELETE_SCRIPT]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_ORIGIN_CAPABILITY_KEY.GET_SCRIPT]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_ORIGIN_CAPABILITY_KEY.LIST_SCRIPTS]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-    };
-};

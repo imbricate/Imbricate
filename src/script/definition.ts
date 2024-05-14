@@ -4,7 +4,7 @@
  * @description Definition
  */
 
-import { IMBRICATE_CAPABILITY_EFFECT, ImbricateCapability } from "../capability/definition";
+import { ImbricateCapability } from "../capability/definition";
 import { IMBRICATE_SEARCH_RESULT_TYPE, ImbricateSearchResult, ImbricateSearchSnippet } from "../search/snippet";
 
 export type ImbricateScriptAttributes = Record<string, string>;
@@ -64,30 +64,3 @@ export const ImbricateScriptCapabilityList: IMBRICATE_SCRIPT_CAPABILITY_KEY[] = 
 
     IMBRICATE_SCRIPT_CAPABILITY_KEY.EXECUTE,
 ];
-
-export const createAllAllowImbricateScriptCapability = (): ImbricateScriptCapability => {
-
-    return {
-        [IMBRICATE_SCRIPT_CAPABILITY_KEY.READ]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_SCRIPT_CAPABILITY_KEY.WRITE]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_SCRIPT_CAPABILITY_KEY.READ_ATTRIBUTE]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_SCRIPT_CAPABILITY_KEY.WRITE_ATTRIBUTE]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_SCRIPT_CAPABILITY_KEY.UPDATE_METADATA]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_SCRIPT_CAPABILITY_KEY.UPDATE_HISTORY_RECORD]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_SCRIPT_CAPABILITY_KEY.EXECUTE]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-    };
-};

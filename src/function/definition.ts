@@ -4,7 +4,7 @@
  * @description Definition
  */
 
-import { IMBRICATE_CAPABILITY_EFFECT, ImbricateCapability } from "../capability/definition";
+import { ImbricateCapability } from "../capability/definition";
 import { PromiseOr } from "../definition/promise";
 
 export type ImbricateFunction<Target> = {
@@ -31,12 +31,3 @@ export const ImbricateFunctionCapabilityList: IMBRICATE_FUNCTION_CAPABILITY_KEY[
 
     IMBRICATE_FUNCTION_CAPABILITY_KEY.FIND_ORIGIN_FUNCTIONS,
 ];
-
-export const createAllAllowImbricateFunctionCapability = (): ImbricateFunctionCapability => {
-
-    return {
-        [IMBRICATE_FUNCTION_CAPABILITY_KEY.FIND_ORIGIN_FUNCTIONS]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-    };
-};
