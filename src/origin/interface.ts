@@ -43,7 +43,7 @@ export interface IImbricateOrigin {
      * 
      * @returns Function manager
      */
-    getFunctionManger(): IImbricateFunctionManager;
+    getFunctionManager(): IImbricateFunctionManager;
 
     /**
      * Get binary storage

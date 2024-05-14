@@ -9,12 +9,12 @@ import { ImbricateError } from "./imbricate-error";
 export class ImbricateNotImplemented extends ImbricateError {
 
     public static create(
-        originName: string,
+        feature: string,
         capabilityIdentifier: string,
     ): ImbricateNotImplemented {
 
         return new ImbricateNotImplemented(
-            `Origin: ${originName} Capability: ${capabilityIdentifier} Not Implemented`,
+            `Feature: [${feature}], which correspond with capability: [${capabilityIdentifier}] is not Implemented`,
         );
     }
 
