@@ -6,6 +6,7 @@
 
 import { ImbricateCapabilityBuilder } from "../capability/builder";
 import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricateCapability } from "../capability/definition";
+import type { PromiseOr } from "../definition/promise";
 import { ImbricateNotImplemented } from "../error/not-implemented";
 import type { IImbricateOrigin } from "../origin/interface";
 import { IMBRICATE_FUNCTION_CAPABILITY_KEY, ImbricateFunction, ImbricateFunctionCapability, ImbricateFunctionCapabilityList } from "./definition";
@@ -47,7 +48,7 @@ export abstract class ImbricateFunctionManagerBase implements IImbricateFunction
         );
     }
 
-    public findAllOriginFunctions(): Array<ImbricateFunction<IImbricateOrigin>> {
+    public findAllOriginFunctions(): PromiseOr<Array<ImbricateFunction<IImbricateOrigin>>> {
 
         throw ImbricateNotImplemented.create(
             "FindAllOriginFunctions",

@@ -11,7 +11,7 @@ import { ImbricateNotImplemented } from "../error/not-implemented";
 import { IMBRICATE_BINARY_STORAGE_CAPABILITY_KEY, ImbricateBinaryStorageCapability, ImbricateBinaryStorageCapabilityList } from "./definition";
 import type { IImbricateBinaryStorage } from "./interface";
 
-export abstract class ImbricateBaseBinaryStorage implements IImbricateBinaryStorage {
+export abstract class ImbricateBinaryStorageBase implements IImbricateBinaryStorage {
 
     public static buildCapability(
         initial: ImbricateCapability = createDenyImbricateCapability(),
