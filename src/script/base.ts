@@ -1,0 +1,119 @@
+/**
+ * @author WMXPY
+ * @namespace Script
+ * @description Base
+ */
+
+import { MarkedResult } from "@sudoo/marked";
+import type { PromiseOr } from "../definition/promise";
+import { ImbricateNotImplemented } from "../error/not-implemented";
+import { SandboxExecuteConfig, SandboxExecuteParameter } from "../sandbox/definition/config";
+import { SandboxFeature } from "../sandbox/feature/feature";
+import { IMBRICATE_SCRIPT_CAPABILITY_KEY, ImbricateScriptAttributes, ImbricateScriptCapability, ImbricateScriptHistoryRecord } from "./definition";
+import { IImbricateScript } from "./interface";
+
+export abstract class ImbricateScriptBase implements IImbricateScript {
+
+    public abstract readonly scriptName: string;
+    public abstract readonly identifier: string;
+
+    public abstract readonly digest: string;
+    public abstract readonly historyRecords: ImbricateScriptHistoryRecord[];
+
+    public abstract readonly description?: string;
+
+    public abstract readonly createdAt: Date;
+    public abstract readonly updatedAt: Date;
+
+    public abstract readonly capabilities: ImbricateScriptCapability;
+
+    public readScript(): PromiseOr<string> {
+
+        throw ImbricateNotImplemented.create(
+            "ReadScript",
+            IMBRICATE_SCRIPT_CAPABILITY_KEY.READ,
+        );
+    }
+
+    public writeScript(
+        _script: string,
+    ): PromiseOr<void> {
+
+        throw ImbricateNotImplemented.create(
+            "WriteScript",
+            IMBRICATE_SCRIPT_CAPABILITY_KEY.WRITE,
+        );
+    }
+
+    public readAttributes(): PromiseOr<ImbricateScriptAttributes> {
+
+        throw ImbricateNotImplemented.create(
+            "ReadAttributes",
+            IMBRICATE_SCRIPT_CAPABILITY_KEY.READ_ATTRIBUTE,
+        );
+    }
+
+    public writeAttribute(
+        _key: string,
+        _value: string,
+    ): PromiseOr<void> {
+
+        throw ImbricateNotImplemented.create(
+            "WriteAttribute",
+            IMBRICATE_SCRIPT_CAPABILITY_KEY.WRITE_ATTRIBUTE,
+        );
+    }
+
+    public refreshUpdateMetadata(
+        _updatedAt: Date,
+        _digest: string,
+    ): PromiseOr<void> {
+
+        throw ImbricateNotImplemented.create(
+            "RefreshUpdateMetadata",
+            IMBRICATE_SCRIPT_CAPABILITY_KEY.UPDATE_METADATA,
+        );
+    }
+
+    public refreshUpdatedAt(
+        _updatedAt: Date,
+    ): PromiseOr<void> {
+
+        throw ImbricateNotImplemented.create(
+            "RefreshUpdatedAt",
+            IMBRICATE_SCRIPT_CAPABILITY_KEY.UPDATE_METADATA,
+        );
+    }
+
+    public refreshDigest(
+        _digest: string,
+    ): PromiseOr<void> {
+
+        throw ImbricateNotImplemented.create(
+            "RefreshDigest",
+            IMBRICATE_SCRIPT_CAPABILITY_KEY.UPDATE_METADATA,
+        );
+    }
+
+    public addHistoryRecord(
+        _record: ImbricateScriptHistoryRecord,
+    ): PromiseOr<void> {
+
+        throw ImbricateNotImplemented.create(
+            "AddHistoryRecord",
+            IMBRICATE_SCRIPT_CAPABILITY_KEY.UPDATE_HISTORY_RECORD,
+        );
+    }
+
+    public execute(
+        _features: SandboxFeature[],
+        _config: SandboxExecuteConfig,
+        _parameter: SandboxExecuteParameter,
+    ): PromiseOr<MarkedResult> {
+
+        throw ImbricateNotImplemented.create(
+            "Execute",
+            IMBRICATE_SCRIPT_CAPABILITY_KEY.EXECUTE,
+        );
+    }
+}

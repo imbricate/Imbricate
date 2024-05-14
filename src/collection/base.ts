@@ -8,7 +8,7 @@ import type { PromiseOr } from "../definition/promise";
 import { ImbricateNotImplemented } from "../error/not-implemented";
 import type { ImbricatePageMetadata, ImbricatePageSearchResult } from "../page/definition";
 import type { IImbricatePage } from "../page/interface";
-import type { ImbricateSearchPageConfig } from "../query/page";
+import type { ImbricatePageQuery, ImbricatePageQueryConfig, ImbricateSearchPageConfig } from "../query/page";
 import { IMBRICATE_COLLECTION_CAPABILITY_KEY, ImbricateCollectionCapability } from "./definition";
 import type { IImbricateCollection } from "./interface";
 
@@ -117,8 +117,8 @@ export abstract class ImbricateCollectionBase implements IImbricateCollection {
     }
 
     public queryPages(
-        _query: any,
-        _config: any,
+        _query: ImbricatePageQuery,
+        _config: ImbricatePageQueryConfig,
     ): PromiseOr<IImbricatePage[]> {
 
         throw ImbricateNotImplemented.create(
