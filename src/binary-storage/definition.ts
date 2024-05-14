@@ -4,10 +4,10 @@
  * @description Definition
  */
 
-import { IMBRICATE_CAPABILITY_EFFECT, ImbricateCapability } from "../capability/definition";
+import { IMBRICATE_CAPABILITY_EFFECT, ImbricateCapabilityRecord } from "../capability/definition";
 
 export type ImbricateBinaryStorageCapability =
-    Record<IMBRICATE_BINARY_STORAGE_CAPABILITY_KEY, ImbricateCapability>;
+    ImbricateCapabilityRecord<IMBRICATE_BINARY_STORAGE_CAPABILITY_KEY>;
 
 export enum IMBRICATE_BINARY_STORAGE_CAPABILITY_KEY {
 

@@ -4,12 +4,38 @@
  * @description Base
  */
 
-import { PromiseOr } from "../definition/promise";
+import { ImbricateCapabilityBuilder } from "../capability/builder";
+import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricateCapability } from "../capability/definition";
+import type { PromiseOr } from "../definition/promise";
 import { ImbricateNotImplemented } from "../error/not-implemented";
-import { IMBRICATE_BINARY_STORAGE_CAPABILITY_KEY, ImbricateBinaryStorageCapability } from "./definition";
+import { IMBRICATE_BINARY_STORAGE_CAPABILITY_KEY, ImbricateBinaryStorageCapability, ImbricateBinaryStorageCapabilityList } from "./definition";
 import { IImbricateBinaryStorage } from "./interface";
 
 export abstract class ImbricateBaseBinaryStorage implements IImbricateBinaryStorage {
+
+    public static buildCapability(
+        initial: ImbricateCapability = createDenyImbricateCapability(),
+    ): ImbricateCapabilityBuilder<IMBRICATE_BINARY_STORAGE_CAPABILITY_KEY> {
+
+        return ImbricateCapabilityBuilder.create<IMBRICATE_BINARY_STORAGE_CAPABILITY_KEY>(
+            ImbricateBinaryStorageCapabilityList,
+            initial,
+        );
+    }
+
+    public static allAllowCapability(): ImbricateBinaryStorageCapability {
+
+        return this.buildCapability(
+            createAllowImbricateCapability(),
+        ).build();
+    }
+
+    public static allDenyCapability(): ImbricateBinaryStorageCapability {
+
+        return this.buildCapability(
+            createDenyImbricateCapability(),
+        ).build();
+    }
 
     public abstract readonly capabilities: ImbricateBinaryStorageCapability;
 

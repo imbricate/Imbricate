@@ -4,9 +4,9 @@
  * @description Create
  */
 
-import { ImbricateCapability, ImbricateCapabilityRecord } from "./definition";
+import type { ImbricateCapability, ImbricateCapabilityKey, ImbricateCapabilityRecord } from "./definition";
 
-export const createImbricateCapabilityRecord = <T extends string>(
+export const createImbricateCapabilityRecord = <T extends ImbricateCapabilityKey>(
     list: T[],
     initialValue: ImbricateCapability,
 ): ImbricateCapabilityRecord<T> => {
