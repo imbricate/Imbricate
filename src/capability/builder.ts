@@ -5,7 +5,7 @@
  */
 
 import { createImbricateCapabilityRecord } from "./create";
-import type { ImbricateCapability, ImbricateCapabilityKey, ImbricateCapabilityRecord } from "./definition";
+import { ImbricateCapability, ImbricateCapabilityKey, ImbricateCapabilityRecord, createAllowImbricateCapability, createDenyImbricateCapability } from "./definition";
 
 export class ImbricateCapabilityBuilder<T extends ImbricateCapabilityKey> {
 
@@ -27,6 +27,24 @@ export class ImbricateCapabilityBuilder<T extends ImbricateCapabilityKey> {
     ) {
 
         this._capabilities = capabilities;
+    }
+
+    public set(key: T, value: ImbricateCapability): this {
+
+        this._capabilities[key] = value;
+        return this;
+    }
+
+    public allow(key: T): this {
+
+        this._capabilities[key] = createAllowImbricateCapability();
+        return this;
+    }
+
+    public deny(key: T): this {
+
+        this._capabilities[key] = createDenyImbricateCapability();
+        return this;
     }
 
     public build(): ImbricateCapabilityRecord<T> {
