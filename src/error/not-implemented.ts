@@ -6,14 +6,14 @@
 
 import { ImbricateError } from "./imbricate-error";
 
-export class ImbricateNoteImplemented extends ImbricateError {
+export class ImbricateNotImplemented extends ImbricateError {
 
     public static create(
         originName: string,
         capabilityIdentifier: string,
-    ): ImbricateNoteImplemented {
+    ): ImbricateNotImplemented {
 
-        return new ImbricateNoteImplemented(
+        return new ImbricateNotImplemented(
             `Origin: ${originName} Capability: ${capabilityIdentifier} Not Implemented`,
         );
     }
@@ -23,8 +23,8 @@ export class ImbricateNoteImplemented extends ImbricateError {
         reason?: any,
     ) {
 
-        super(message, "ImbricateNoteImplemented", reason);
+        super(message, "ImbricateNotImplemented", reason);
 
-        Object.setPrototypeOf(this, ImbricateNoteImplemented.prototype);
+        Object.setPrototypeOf(this, ImbricateNotImplemented.prototype);
     }
 }
