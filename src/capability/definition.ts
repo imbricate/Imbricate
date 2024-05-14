@@ -14,3 +14,5 @@ export type ImbricateCapability = {
 
     readonly effect: IMBRICATE_CAPABILITY_EFFECT;
 }
+
+export type ImbricateCapabilityRecord<T extends string> = Record<T, ImbricateCapability>;

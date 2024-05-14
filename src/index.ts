@@ -7,6 +7,7 @@ export * from "./binary-storage/base";
 export * from "./binary-storage/definition";
 export * from "./binary-storage/interface";
 export * from "./capability/builder";
+export * from "./capability/create";
 export * from "./capability/definition";
 export * from "./capability/validate";
 export * from "./collection/definition";

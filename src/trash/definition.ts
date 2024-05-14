@@ -4,7 +4,7 @@
  * @description Definition
  */
 
-import { IMBRICATE_CAPABILITY_EFFECT, ImbricateCapability } from "../capability/definition";
+import { IMBRICATE_CAPABILITY_EFFECT, ImbricateCapabilityRecord } from "../capability/definition";
 
 export type ImbricateVacantPage = {
 
@@ -22,7 +22,7 @@ export type ImbricateVacantScript = {
 };
 
 export type ImbricateTrashStashCapability =
-    Record<IMBRICATE_TRASH_STASH_CAPABILITY_KEY, ImbricateCapability>;
+    ImbricateCapabilityRecord<IMBRICATE_TRASH_STASH_CAPABILITY_KEY>;
 
 export enum IMBRICATE_TRASH_STASH_CAPABILITY_KEY {
 
