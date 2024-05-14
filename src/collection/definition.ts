@@ -4,7 +4,7 @@
  * @description Definition
  */
 
-import { IMBRICATE_CAPABILITY_EFFECT, ImbricateCapability } from "../capability/definition";
+import type { ImbricateCapability } from "../capability/definition";
 
 export type ImbricateCollectionCapability =
     Record<IMBRICATE_COLLECTION_CAPABILITY_KEY, ImbricateCapability>;
@@ -28,27 +28,3 @@ export const ImbricateCollectionCapabilityList: IMBRICATE_COLLECTION_CAPABILITY_
     IMBRICATE_COLLECTION_CAPABILITY_KEY.GET_PAGE,
     IMBRICATE_COLLECTION_CAPABILITY_KEY.LIST_PAGES,
 ];
-
-export const createAllAllowImbricateCollectionCapability = (): ImbricateCollectionCapability => {
-
-    return {
-        [IMBRICATE_COLLECTION_CAPABILITY_KEY.CREATE_PAGE]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_COLLECTION_CAPABILITY_KEY.PUT_PAGE]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_COLLECTION_CAPABILITY_KEY.RETITLE_PAGE]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_COLLECTION_CAPABILITY_KEY.DELETE_PAGE]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_COLLECTION_CAPABILITY_KEY.GET_PAGE]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-        [IMBRICATE_COLLECTION_CAPABILITY_KEY.LIST_PAGES]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-    };
-};

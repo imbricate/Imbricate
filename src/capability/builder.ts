@@ -33,7 +33,7 @@ export class ImbricateCapabilityBuilder<T extends ImbricateCapabilityKey> {
 
         return Object.keys(this._capabilities).map((key: string) => {
             return {
-                [key]: this._capabilities[key],
+                [key]: this._capabilities[key as T],
             };
         }) as ImbricateCapabilityRecord<T>;
     }

@@ -9,7 +9,7 @@ import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricat
 import type { PromiseOr } from "../definition/promise";
 import { ImbricateNotImplemented } from "../error/not-implemented";
 import { IMBRICATE_BINARY_STORAGE_CAPABILITY_KEY, ImbricateBinaryStorageCapability, ImbricateBinaryStorageCapabilityList } from "./definition";
-import { IImbricateBinaryStorage } from "./interface";
+import type { IImbricateBinaryStorage } from "./interface";
 
 export abstract class ImbricateBaseBinaryStorage implements IImbricateBinaryStorage {
 

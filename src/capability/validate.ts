@@ -5,7 +5,7 @@
  */
 
 import { IMBRICATE_COLLECTION_CAPABILITY_KEY } from "../collection/definition";
-import { IImbricateOriginCollection } from "../collection/interface";
+import type { IImbricateCollection } from "../collection/interface";
 import { IMBRICATE_ORIGIN_CAPABILITY_KEY } from "../origin/definition";
 import { IImbricateOrigin } from "../origin/interface";
 import { IMBRICATE_PAGE_CAPABILITY_KEY } from "../page/definition";
@@ -48,7 +48,7 @@ export const validateImbricateOriginCapability = (
 };
 
 export const validateImbricateCollectionCapability = (
-    collection: IImbricateOriginCollection,
+    collection: IImbricateCollection,
     capability: IMBRICATE_COLLECTION_CAPABILITY_KEY,
 ): boolean => {
 

@@ -4,13 +4,13 @@
  * @description Interface
  */
 
-import { PromiseOr } from "../definition/promise";
-import { ImbricatePageMetadata, ImbricatePageSearchResult, ImbricatePageSnapshot } from "../page/definition";
-import { IImbricatePage } from "../page/interface";
-import { ImbricatePageQuery, ImbricatePageQueryConfig, ImbricateSearchPageConfig } from "../query/page";
-import { ImbricateCollectionCapability } from "./definition";
+import type { PromiseOr } from "../definition/promise";
+import type { ImbricatePageMetadata, ImbricatePageSearchResult, ImbricatePageSnapshot } from "../page/definition";
+import type { IImbricatePage } from "../page/interface";
+import type { ImbricatePageQuery, ImbricatePageQueryConfig, ImbricateSearchPageConfig } from "../query/page";
+import type { ImbricateCollectionCapability } from "./definition";
 
-export interface IImbricateOriginCollection {
+export interface IImbricateCollection {
 
     readonly collectionName: string;
     readonly uniqueIdentifier: string;

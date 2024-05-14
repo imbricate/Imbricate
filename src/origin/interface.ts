@@ -5,7 +5,7 @@
  */
 
 import { IImbricateBinaryStorage } from "../binary-storage/interface";
-import { IImbricateOriginCollection } from "../collection/interface";
+import type { IImbricateCollection } from "../collection/interface";
 import { PromiseOr } from "../definition/promise";
 import { IImbricateFunctionManager } from "../function/interface";
 import { ImbricateScriptQuery, ImbricateScriptQueryConfig, ImbricateSearchScriptConfig } from "../query/script";
@@ -60,13 +60,13 @@ export interface IImbricateOrigin {
      * 
      * @returns Created collection
      */
-    createCollection(collectionName: string, description?: string): PromiseOr<IImbricateOriginCollection>;
+    createCollection(collectionName: string, description?: string): PromiseOr<IImbricateCollection>;
     renameCollection(collectionUniqueIdentifier: string, newCollectionName: string): PromiseOr<void>;
     deleteCollection(collectionUniqueIdentifier: string): PromiseOr<void>;
     hasCollection(collectionName: string): PromiseOr<boolean>;
-    findCollection(collectionName: string): PromiseOr<IImbricateOriginCollection | null>;
-    getCollection(collectionUniqueIdentifier: string): PromiseOr<IImbricateOriginCollection | null>;
-    listCollections(): PromiseOr<IImbricateOriginCollection[]>;
+    findCollection(collectionName: string): PromiseOr<IImbricateCollection | null>;
+    getCollection(collectionUniqueIdentifier: string): PromiseOr<IImbricateCollection | null>;
+    listCollections(): PromiseOr<IImbricateCollection[]>;
 
     /**
      * Create a script

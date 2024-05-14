@@ -4,7 +4,7 @@
  * @description Definition
  */
 
-import { IMBRICATE_CAPABILITY_EFFECT, ImbricateCapabilityRecord } from "../capability/definition";
+import type { ImbricateCapabilityRecord } from "../capability/definition";
 
 export type ImbricateBinaryStorageCapability =
     ImbricateCapabilityRecord<IMBRICATE_BINARY_STORAGE_CAPABILITY_KEY>;
@@ -18,12 +18,3 @@ export const ImbricateBinaryStorageCapabilityList: IMBRICATE_BINARY_STORAGE_CAPA
 
     IMBRICATE_BINARY_STORAGE_CAPABILITY_KEY.UPLOAD_FILE,
 ];
-
-export const createAllAllowImbricateBinaryStorageCapability = (): ImbricateBinaryStorageCapability => {
-
-    return {
-        [IMBRICATE_BINARY_STORAGE_CAPABILITY_KEY.UPLOAD_FILE]: {
-            effect: IMBRICATE_CAPABILITY_EFFECT.ALLOW,
-        },
-    };
-};
