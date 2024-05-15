@@ -33,6 +33,8 @@ export type ImbricateScriptMetadata = {
     readonly updatedAt: Date;
 
     readonly digest: string;
+
+    readonly attributes: ImbricateScriptAttributes;
     readonly historyRecords: ImbricateScriptHistoryRecord[];
 
     readonly description?: string;
