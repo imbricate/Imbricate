@@ -35,6 +35,8 @@ export type ImbricatePageMetadata = {
     readonly updatedAt: Date;
 
     readonly digest: string;
+
+    readonly attributes: ImbricatePageAttributes;
     readonly historyRecords: ImbricatePageHistoryRecord[];
 
     readonly description?: string;
