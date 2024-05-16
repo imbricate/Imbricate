@@ -18,7 +18,9 @@ export type ImbricatePageQuery = {
 export type ImbricateSearchPageConfig = {
 
     readonly exact?: boolean;
-    readonly limit?: number;
+
+    readonly itemLimit?: number;
+    readonly snippetLimit?: number;
 };
 
 export type ImbricatePageQueryConfig = {
