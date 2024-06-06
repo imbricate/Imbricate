@@ -12,9 +12,7 @@ import type { PromiseOr } from "../definition/promise";
 import { ImbricateNotImplemented } from "../error/not-implemented";
 import type { IImbricateFunctionManager } from "../function/interface";
 import type { IImbricateOrigin } from "../origin/interface";
-import { ImbricateScriptQuery, ImbricateScriptQueryConfig, ImbricateSearchScriptConfig } from "../query/script";
-import { ImbricateScriptMetadata, ImbricateScriptSnapshot } from "../script/definition";
-import type { IImbricateScript } from "../script/interface";
+import { IImbricateScriptManager } from "../script-manager/interface";
 import { IMBRICATE_ORIGIN_CAPABILITY_KEY, ImbricateOriginCapability, ImbricateOriginCapabilityList, ImbricateOriginMetadata } from "./definition";
 
 export abstract class ImbricateOriginBase implements IImbricateOrigin {
@@ -64,6 +62,14 @@ export abstract class ImbricateOriginBase implements IImbricateOrigin {
         throw ImbricateNotImplemented.create(
             "GetBinaryStorage",
             IMBRICATE_ORIGIN_CAPABILITY_KEY.ORIGIN_BINARY_STORAGE,
+        );
+    }
+
+    public getScriptManager(): IImbricateScriptManager {
+
+        throw ImbricateNotImplemented.create(
+            "GetScriptManager",
+            IMBRICATE_ORIGIN_CAPABILITY_KEY.ORIGIN_SCRIPT_MANAGER,
         );
     }
 
@@ -134,100 +140,6 @@ export abstract class ImbricateOriginBase implements IImbricateOrigin {
         throw ImbricateNotImplemented.create(
             "ListCollections",
             IMBRICATE_ORIGIN_CAPABILITY_KEY.LIST_COLLECTIONS,
-        );
-    }
-
-    public createScript(
-        _scriptName: string,
-        _initialScript: string,
-        _description?: string,
-    ): PromiseOr<IImbricateScript> {
-
-        throw ImbricateNotImplemented.create(
-            "CreateScript",
-            IMBRICATE_ORIGIN_CAPABILITY_KEY.CREATE_SCRIPT,
-        );
-    }
-
-    public putScript(
-        _scriptMetadata: ImbricateScriptMetadata,
-        _script: string,
-    ): PromiseOr<IImbricateScript> {
-
-        throw ImbricateNotImplemented.create(
-            "PutScript",
-            IMBRICATE_ORIGIN_CAPABILITY_KEY.PUT_SCRIPT,
-        );
-    }
-
-    public renameScript(
-        _identifier: string,
-        _newScriptName: string,
-    ): PromiseOr<void> {
-
-        throw ImbricateNotImplemented.create(
-            "RenameScript",
-            IMBRICATE_ORIGIN_CAPABILITY_KEY.RENAME_SCRIPT,
-        );
-    }
-
-    public deleteScript(
-        _identifier: string,
-    ): PromiseOr<void> {
-
-        throw ImbricateNotImplemented.create(
-            "DeleteScript",
-            IMBRICATE_ORIGIN_CAPABILITY_KEY.DELETE_SCRIPT,
-        );
-    }
-
-    public hasScript(
-        _scriptName: string,
-    ): PromiseOr<boolean> {
-
-        throw ImbricateNotImplemented.create(
-            "HasScript",
-            IMBRICATE_ORIGIN_CAPABILITY_KEY.LIST_SCRIPTS,
-        );
-    }
-
-    public getScript(
-        _identifier: string,
-    ): PromiseOr<IImbricateScript | null> {
-
-        throw ImbricateNotImplemented.create(
-            "GetScript",
-            IMBRICATE_ORIGIN_CAPABILITY_KEY.GET_SCRIPT,
-        );
-    }
-
-    public listScripts(): PromiseOr<ImbricateScriptSnapshot[]> {
-
-        throw ImbricateNotImplemented.create(
-            "ListScripts",
-            IMBRICATE_ORIGIN_CAPABILITY_KEY.LIST_SCRIPTS,
-        );
-    }
-
-    public searchScripts(
-        _keyword: string,
-        _config: ImbricateSearchScriptConfig,
-    ): PromiseOr<any[]> {
-
-        throw ImbricateNotImplemented.create(
-            "SearchScripts",
-            IMBRICATE_ORIGIN_CAPABILITY_KEY.LIST_SCRIPTS,
-        );
-    }
-
-    public queryScripts(
-        _query: ImbricateScriptQuery,
-        _config: ImbricateScriptQueryConfig,
-    ): PromiseOr<IImbricateScript[]> {
-
-        throw ImbricateNotImplemented.create(
-            "QueryScripts",
-            IMBRICATE_ORIGIN_CAPABILITY_KEY.LIST_SCRIPTS,
         );
     }
 }
