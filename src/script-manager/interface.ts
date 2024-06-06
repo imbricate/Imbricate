@@ -13,7 +13,7 @@ import { ImbricateScriptManagerCapability } from "./definition";
 export interface IImbricateScriptManager {
 
     /**
-     * Capabilities of the origin
+     * Capabilities of the script manager
      */
     readonly capabilities: ImbricateScriptManagerCapability;
 
