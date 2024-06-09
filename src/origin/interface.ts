@@ -5,7 +5,7 @@
  */
 
 import { IImbricateBinaryStorage } from "../binary-storage/interface";
-import type { IImbricateCollection } from "../collection/interface";
+import { IImbricateCollectionManager } from "../collection-manager/interface";
 import { PromiseOr } from "../definition/promise";
 import { IImbricateFunctionManager } from "../function/interface";
 import { IImbricateScriptManager } from "../script-manager/interface";
@@ -58,20 +58,11 @@ export interface IImbricateOrigin {
     getScriptManager(): IImbricateScriptManager;
 
     /**
-     * Create a collection
+     * Get collection manager
      * 
-     * @param collectionName Collection name
-     * @param description Collection description
-     * 
-     * @returns Created collection
+     * @returns Collection manager
      */
-    createCollection(collectionName: string, description?: string): PromiseOr<IImbricateCollection>;
-    renameCollection(collectionUniqueIdentifier: string, newCollectionName: string): PromiseOr<void>;
-    deleteCollection(collectionUniqueIdentifier: string): PromiseOr<void>;
-    hasCollection(collectionName: string): PromiseOr<boolean>;
-    findCollection(collectionName: string): PromiseOr<IImbricateCollection | null>;
-    getCollection(collectionUniqueIdentifier: string): PromiseOr<IImbricateCollection | null>;
-    listCollections(): PromiseOr<IImbricateCollection[]>;
+    getCollectionManager(): IImbricateCollectionManager;
 
     /**
      * Dispose the origin, optional

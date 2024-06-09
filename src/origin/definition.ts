@@ -28,12 +28,7 @@ export enum IMBRICATE_ORIGIN_CAPABILITY_KEY {
     ORIGIN_BINARY_STORAGE = "imbricate.origin.binary-storage",
     ORIGIN_TRASH_STASH = "imbricate.origin.trash-stash",
     ORIGIN_SCRIPT_MANAGER = "imbricate.origin.script-manager",
-
-    CREATE_COLLECTION = "imbricate.origin.collection.create",
-    RENAME_COLLECTION = "imbricate.origin.collection.rename",
-    DELETE_COLLECTION = "imbricate.origin.collection.delete",
-    GET_COLLECTION = "imbricate.origin.collection.get",
-    LIST_COLLECTIONS = "imbricate.origin.collection.list",
+    ORIGIN_COLLECTION_MANAGER = "imbricate.origin.collection-manager",
 }
 
 export const ImbricateOriginCapabilityList: IMBRICATE_ORIGIN_CAPABILITY_KEY[] = [
@@ -42,10 +37,5 @@ export const ImbricateOriginCapabilityList: IMBRICATE_ORIGIN_CAPABILITY_KEY[] = 
     IMBRICATE_ORIGIN_CAPABILITY_KEY.ORIGIN_BINARY_STORAGE,
     IMBRICATE_ORIGIN_CAPABILITY_KEY.ORIGIN_TRASH_STASH,
     IMBRICATE_ORIGIN_CAPABILITY_KEY.ORIGIN_SCRIPT_MANAGER,
-
-    IMBRICATE_ORIGIN_CAPABILITY_KEY.CREATE_COLLECTION,
-    IMBRICATE_ORIGIN_CAPABILITY_KEY.RENAME_COLLECTION,
-    IMBRICATE_ORIGIN_CAPABILITY_KEY.DELETE_COLLECTION,
-    IMBRICATE_ORIGIN_CAPABILITY_KEY.GET_COLLECTION,
-    IMBRICATE_ORIGIN_CAPABILITY_KEY.LIST_COLLECTIONS,
+    IMBRICATE_ORIGIN_CAPABILITY_KEY.ORIGIN_COLLECTION_MANAGER,
 ];

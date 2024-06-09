@@ -7,6 +7,7 @@
 import type { IImbricateBinaryStorage } from "../binary-storage/interface";
 import { ImbricateCapabilityBuilder } from "../capability/builder";
 import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricateCapability } from "../capability/definition";
+import { IImbricateCollectionManager } from "../collection-manager/interface";
 import { ImbricateNotImplemented } from "../error/not-implemented";
 import type { IImbricateFunctionManager } from "../function/interface";
 import type { IImbricateOrigin } from "../origin/interface";
@@ -68,6 +69,14 @@ export abstract class ImbricateOriginBase implements IImbricateOrigin {
         throw ImbricateNotImplemented.create(
             "GetScriptManager",
             IMBRICATE_ORIGIN_CAPABILITY_KEY.ORIGIN_SCRIPT_MANAGER,
+        );
+    }
+
+    public getCollectionManager(): IImbricateCollectionManager {
+
+        throw ImbricateNotImplemented.create(
+            "GetCollectionManager",
+            IMBRICATE_ORIGIN_CAPABILITY_KEY.ORIGIN_COLLECTION_MANAGER,
         );
     }
 }
