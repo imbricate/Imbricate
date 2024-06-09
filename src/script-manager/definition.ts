@@ -11,12 +11,12 @@ export type ImbricateScriptManagerCapability =
 
 export enum IMBRICATE_SCRIPT_MANAGER_CAPABILITY_KEY {
 
-    CREATE_SCRIPT = "imbricate.origin.script.create",
-    PUT_SCRIPT = "imbricate.origin.script.put",
-    RENAME_SCRIPT = "imbricate.origin.script.rename",
-    DELETE_SCRIPT = "imbricate.origin.script.delete",
-    GET_SCRIPT = "imbricate.origin.script.get",
-    LIST_SCRIPTS = "imbricate.origin.script.list",
+    CREATE_SCRIPT = "imbricate.script-manager.create",
+    PUT_SCRIPT = "imbricate.script-manager.put",
+    RENAME_SCRIPT = "imbricate.script-manager.rename",
+    DELETE_SCRIPT = "imbricate.script-manager.delete",
+    GET_SCRIPT = "imbricate.script-manager.get",
+    LIST_SCRIPTS = "imbricate.script-manager.list",
 }
 
 export const ImbricateScriptManagerCapabilityList: IMBRICATE_SCRIPT_MANAGER_CAPABILITY_KEY[] = [

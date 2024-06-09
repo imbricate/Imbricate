@@ -11,11 +11,11 @@ export type ImbricateCollectionManagerCapability =
 
 export enum IMBRICATE_COLLECTION_MANAGER_CAPABILITY_KEY {
 
-    CREATE_COLLECTION = "imbricate.origin.collection.create",
-    RENAME_COLLECTION = "imbricate.origin.collection.rename",
-    DELETE_COLLECTION = "imbricate.origin.collection.delete",
-    GET_COLLECTION = "imbricate.origin.collection.get",
-    LIST_COLLECTIONS = "imbricate.origin.collection.list",
+    CREATE_COLLECTION = "imbricate.collection-manager.create",
+    RENAME_COLLECTION = "imbricate.collection-manager.rename",
+    DELETE_COLLECTION = "imbricate.collection-manager.delete",
+    GET_COLLECTION = "imbricate.collection-manager.get",
+    LIST_COLLECTIONS = "imbricate.collection-manager.list",
 }
 
 export const ImbricateCollectionManagerCapabilityList: IMBRICATE_COLLECTION_MANAGER_CAPABILITY_KEY[] = [
