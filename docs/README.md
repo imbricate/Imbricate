@@ -1,5 +1,13 @@
 # Imbricate
 
+```
+┌───────┐
+│ I M B │
+│ R I C │
+│ A T E │
+└───────┘
+```
+
 [![Continuous Integration](https://github.com/Imbricate/Imbricate/actions/workflows/ci.yml/badge.svg)](https://github.com/Imbricate/Imbricate/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/Imbricate/Imbricate/branch/main/graph/badge.svg)](https://codecov.io/gh/Imbricate/Imbricate)
 [![npm version](https://badge.fury.io/js/%40imbricate%2Fcore.svg)](https://badge.fury.io/js/%40imbricate%2Fcore)
@@ -53,4 +61,10 @@ npm install -g imbricate
 
 ```sh
 imbricate --help
+```
+
+```
+┌───────────────────┐
+│ I M B R I C A T E │
+└───────────────────┘
 ```
