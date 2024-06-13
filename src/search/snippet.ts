@@ -32,7 +32,8 @@ type IMBRICATE_SEARCH_SNIPPET_SNIPPET_SOURCE<T extends IMBRICATE_SEARCH_RESULT_T
 type ImbricateSearchSnippetSwitch<T extends IMBRICATE_SEARCH_RESULT_TYPE> =
     T extends IMBRICATE_SEARCH_RESULT_TYPE.PAGE
     ? {
-        readonly scope: string;
+        readonly collectionName: string;
+        readonly collectionUniqueIdentifier: string;
     }
     : T extends IMBRICATE_SEARCH_RESULT_TYPE.SCRIPT
     ? {
