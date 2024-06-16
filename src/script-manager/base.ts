@@ -4,11 +4,14 @@
  * @description Base
  */
 
+import { MarkedResult } from "@sudoo/marked";
 import { ImbricateCapabilityBuilder } from "../capability/builder";
 import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricateCapability } from "../capability/definition";
 import type { PromiseOr } from "../definition/promise";
 import { ImbricateNotImplemented } from "../error/not-implemented";
 import { ImbricateScriptQuery, ImbricateScriptQueryConfig, ImbricateSearchScriptConfig } from "../query/script";
+import { SandboxExecuteConfig, SandboxExecuteParameter } from "../sandbox/definition/config";
+import { SandboxFeature } from "../sandbox/feature/feature";
 import { IImbricateScriptManager } from "../script-manager/interface";
 import { ImbricateScriptMetadata, ImbricateScriptSnapshot } from "../script/definition";
 import { IImbricateScript } from "../script/interface";
@@ -133,6 +136,19 @@ export abstract class ImbricateScriptManagerBase implements IImbricateScriptMana
         throw ImbricateNotImplemented.create(
             "QueryScripts",
             IMBRICATE_SCRIPT_MANAGER_CAPABILITY_KEY.LIST_SCRIPTS,
+        );
+    }
+
+    public executeScriptSnippet(
+        _snippet: string,
+        _features: SandboxFeature[],
+        _config: SandboxExecuteConfig,
+        _parameter: SandboxExecuteParameter,
+    ): PromiseOr<MarkedResult> {
+
+        throw ImbricateNotImplemented.create(
+            "ExecuteScriptSnippet",
+            IMBRICATE_SCRIPT_MANAGER_CAPABILITY_KEY.EXECUTE_SCRIPT_SNIPPET,
         );
     }
 }
