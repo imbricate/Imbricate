@@ -17,6 +17,8 @@ export enum IMBRICATE_SCRIPT_MANAGER_CAPABILITY_KEY {
     DELETE_SCRIPT = "imbricate.script-manager.delete",
     GET_SCRIPT = "imbricate.script-manager.get",
     LIST_SCRIPTS = "imbricate.script-manager.list",
+
+    EXECUTE_SCRIPT_SNIPPET = "imbricate.script-manager.execute-script-snippet",
 }
 
 export const ImbricateScriptManagerCapabilityList: IMBRICATE_SCRIPT_MANAGER_CAPABILITY_KEY[] = [
@@ -27,4 +29,6 @@ export const ImbricateScriptManagerCapabilityList: IMBRICATE_SCRIPT_MANAGER_CAPA
     IMBRICATE_SCRIPT_MANAGER_CAPABILITY_KEY.DELETE_SCRIPT,
     IMBRICATE_SCRIPT_MANAGER_CAPABILITY_KEY.GET_SCRIPT,
     IMBRICATE_SCRIPT_MANAGER_CAPABILITY_KEY.LIST_SCRIPTS,
+
+    IMBRICATE_SCRIPT_MANAGER_CAPABILITY_KEY.EXECUTE_SCRIPT_SNIPPET,
 ];
