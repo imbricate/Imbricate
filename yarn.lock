@@ -1874,6 +1874,8 @@ __metadata:
     jest: "npm:^29.7.0"
     ts-node: "npm:^10.9.2"
     typescript: "npm:^5.4.5"
+  peerDependencies:
+    "@sudoo/marked": "*"
   languageName: unknown
   linkType: soft
 
