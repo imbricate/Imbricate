@@ -30,11 +30,11 @@
   },
   "homepage": "https://imbricate.io",
   "dependencies": {
-    "@sudoo/marked-mixin-date": "^1.0.0",
-    "@sudoo/marked-mixin-json": "^1.0.0",
-    "@sudoo/marked-mixin-math": "^1.4.0",
-    "@sudoo/marked-mixin-object": "^1.3.0",
-    "@sudoo/marked-mixin-parse": "^1.0.0"
+    "@sudoo/marked-mixin-date": "1.0.0",
+    "@sudoo/marked-mixin-json": "1.0.0",
+    "@sudoo/marked-mixin-math": "1.4.0",
+    "@sudoo/marked-mixin-object": "1.3.0",
+    "@sudoo/marked-mixin-parse": "1.0.0"
   },
   "peerDependencies": {
     "@sudoo/marked": "*"
