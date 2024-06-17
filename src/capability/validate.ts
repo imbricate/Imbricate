@@ -26,10 +26,6 @@ export const validateImbricateCapability = <
         return false;
     }
 
-    if (!Array.isArray(capabilities)) {
-        return false;
-    }
-
     const capabilityValue: ImbricateCapability = capabilities[capability];
 
     if (!capabilityValue) {

@@ -49,10 +49,17 @@ export class ImbricateCapabilityBuilder<T extends ImbricateCapabilityKey> {
 
     public build(): ImbricateCapabilityRecord<T> {
 
-        return Object.keys(this._capabilities).map((key: string) => {
-            return {
-                [key]: this._capabilities[key as T],
-            };
-        }) as ImbricateCapabilityRecord<T>;
+        return Object.keys(this._capabilities).reduce(
+            (
+                previous: ImbricateCapabilityRecord<T>,
+                current: string,
+            ) => {
+                return {
+                    ...previous,
+                    [current]: this._capabilities[current as T],
+                };
+            },
+            {} as ImbricateCapabilityRecord<T>,
+        ) as ImbricateCapabilityRecord<T>;
     }
 }
