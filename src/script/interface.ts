@@ -6,7 +6,7 @@
 
 import { PromiseOr } from "../definition/promise";
 import { ImbricateScriptAttributes, ImbricateScriptCapability, ImbricateScriptHistoryRecord } from "./definition";
-import { ImbricateExecuteEnvironment, ImbricateExecuteParameters, ImbricateExecuteResult } from "./execute";
+import { ImbricateExecuteEnvironment, ImbricateExecuteParameters, ImbricateExecuteResult } from "../execute/definition";
 
 export interface IImbricateScript {
 

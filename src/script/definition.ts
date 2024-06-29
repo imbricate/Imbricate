@@ -5,6 +5,7 @@
  */
 
 import { ImbricateCapability } from "../capability/definition";
+import { IMBRICATE_EXECUTABLE_VARIANT } from "../execute/definition";
 import { IMBRICATE_SEARCH_RESULT_TYPE, ImbricateSearchResult, ImbricateSearchSnippet } from "../search/snippet";
 
 export type ImbricateScriptAttributes = Record<string, string>;
@@ -15,18 +16,13 @@ export type ImbricateScriptSearchResult =
 export type ImbricateScriptSearchSnippet =
     ImbricateSearchSnippet<IMBRICATE_SEARCH_RESULT_TYPE.SCRIPT>;
 
-export enum IMBRICATE_SCRIPT_VARIANT {
-
-    JAVASCRIPT_NODE = "javascript-node",
-}
-
 export type ImbricateScriptSnapshot = {
 
     readonly scriptName: string;
 
     readonly identifier: string;
 
-    readonly variant: IMBRICATE_SCRIPT_VARIANT;
+    readonly variant: IMBRICATE_EXECUTABLE_VARIANT;
 };
 
 export type ImbricateScriptHistoryRecord = {

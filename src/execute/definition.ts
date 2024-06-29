@@ -1,8 +1,20 @@
 /**
  * @author WMXPY
- * @namespace Script
- * @description Execute
+ * @namespace Execute
+ * @description Definition
  */
+
+export enum IMBRICATE_EXECUTABLE_VARIANT {
+
+    JAVASCRIPT_NODE = "javascript-node",
+    TYPESCRIPT_NODE = "typescript-node",
+}
+
+export const IMBRICATE_SCRIPT_VARIANT_LIST: IMBRICATE_EXECUTABLE_VARIANT[] = [
+
+    IMBRICATE_EXECUTABLE_VARIANT.JAVASCRIPT_NODE,
+    IMBRICATE_EXECUTABLE_VARIANT.TYPESCRIPT_NODE,
+];
 
 export enum IMBRICATE_EXECUTE_RESULT_CODE {
 

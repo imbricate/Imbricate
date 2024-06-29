@@ -21,6 +21,7 @@ export * from "./definition/listable";
 export * from "./definition/promise";
 export * from "./error/imbricate-error";
 export * from "./error/not-implemented";
+export * from "./execute/definition";
 export * from "./function/base";
 export * from "./function/definition";
 export * from "./function/interface";
