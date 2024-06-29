@@ -15,12 +15,19 @@ export type ImbricatePageSearchResult =
 export type ImbricatePageSearchSnippet =
     ImbricateSearchSnippet<IMBRICATE_SEARCH_RESULT_TYPE.PAGE>;
 
+export enum IMBRICATE_PAGE_VARIANT {
+
+    MARKDOWN = "markdown",
+}
+
 export type ImbricatePageSnapshot = {
 
     readonly title: string;
     readonly directories: string[];
 
     readonly identifier: string;
+
+    readonly variant: IMBRICATE_PAGE_VARIANT;
 };
 
 export type ImbricatePageHistoryRecord = {
