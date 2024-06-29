@@ -27,7 +27,12 @@ export interface IImbricateScriptManager {
      * 
      * @returns Created script
      */
-    createScript(scriptName: string, initialScript: string, description?: string): PromiseOr<IImbricateScript>;
+    createScript(
+        scriptName: string,
+        variant: IMBRICATE_EXECUTABLE_VARIANT,
+        initialScript: string,
+        description?: string,
+    ): PromiseOr<IImbricateScript>;
     putScript(scriptMetadata: ImbricateScriptMetadata, script: string): PromiseOr<IImbricateScript>;
     renameScript(identifier: string, newScriptName: string): PromiseOr<void>;
     deleteScript(identifier: string): PromiseOr<void>;

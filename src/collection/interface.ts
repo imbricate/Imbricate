@@ -5,7 +5,7 @@
  */
 
 import type { PromiseOr } from "../definition/promise";
-import type { ImbricatePageMetadata, ImbricatePageSearchResult, ImbricatePageSnapshot } from "../page/definition";
+import type { IMBRICATE_PAGE_VARIANT, ImbricatePageMetadata, ImbricatePageSearchResult, ImbricatePageSnapshot } from "../page/definition";
 import type { IImbricatePage } from "../page/interface";
 import type { ImbricatePageQuery, ImbricatePageQueryConfig, ImbricateSearchPageConfig } from "../query/page";
 import type { ImbricateCollectionCapability } from "./definition";
@@ -19,7 +19,12 @@ export interface IImbricateCollection {
 
     readonly capabilities: ImbricateCollectionCapability;
 
-    createPage(directories: string[], title: string, initialContent: string): PromiseOr<IImbricatePage>;
+    createPage(
+        directories: string[],
+        title: string,
+        variant: IMBRICATE_PAGE_VARIANT,
+        initialContent: string,
+    ): PromiseOr<IImbricatePage>;
     putPage(pageMetadata: ImbricatePageMetadata, content: string): PromiseOr<IImbricatePage>;
     retitlePage(identifier: string, newTitle: string): PromiseOr<void>;
     deletePage(identifier: string): PromiseOr<void>;
