@@ -6,8 +6,13 @@
 
 export enum IMBRICATE_EXECUTE_RESULT_CODE {
 
-    SUCCESS = 0,
-    ERROR = 1,
+    NOT_SUPPORT = "NOT_SUPPORT",
+
+    SUCCESS = "SUCCESS",
+
+    ERROR = "ERROR",
+    EXCEPTION = "EXCEPTION",
+    TIMEOUT = "TIMEOUT",
 }
 
 export type ImbricateExecuteResult = {
