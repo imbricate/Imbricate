@@ -45,6 +45,7 @@ export abstract class ImbricateScriptManagerBase implements IImbricateScriptMana
 
     public createScript(
         _scriptName: string,
+        _variant: IMBRICATE_EXECUTABLE_VARIANT,
         _initialScript: string,
         _description?: string,
     ): PromiseOr<IImbricateScript> {

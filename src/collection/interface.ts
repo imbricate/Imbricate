@@ -24,6 +24,7 @@ export interface IImbricateCollection {
         title: string,
         variant: IMBRICATE_PAGE_VARIANT,
         initialContent: string,
+        description?: string,
     ): PromiseOr<IImbricatePage>;
     putPage(pageMetadata: ImbricatePageMetadata, content: string): PromiseOr<IImbricatePage>;
     retitlePage(identifier: string, newTitle: string): PromiseOr<void>;
