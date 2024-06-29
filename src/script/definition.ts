@@ -15,10 +15,18 @@ export type ImbricateScriptSearchResult =
 export type ImbricateScriptSearchSnippet =
     ImbricateSearchSnippet<IMBRICATE_SEARCH_RESULT_TYPE.SCRIPT>;
 
+export enum IMBRICATE_SCRIPT_VARIANT {
+
+    JAVASCRIPT_NODE = "javascript-node",
+}
+
 export type ImbricateScriptSnapshot = {
 
     readonly scriptName: string;
+
     readonly identifier: string;
+
+    readonly variant: IMBRICATE_SCRIPT_VARIANT;
 };
 
 export type ImbricateScriptHistoryRecord = {
