@@ -10,7 +10,8 @@ import type { PromiseOr } from "../definition/promise";
 import { ImbricateNotImplemented } from "../error/not-implemented";
 import { ImbricateScriptQuery, ImbricateScriptQueryConfig, ImbricateSearchScriptConfig } from "../query/script";
 import { IImbricateScriptManager } from "../script-manager/interface";
-import { ImbricateScriptMetadata, ImbricateScriptSnapshot } from "../script/definition";
+import { IMBRICATE_SCRIPT_VARIANT, ImbricateScriptMetadata, ImbricateScriptSnapshot } from "../script/definition";
+import { ImbricateExecuteEnvironment, ImbricateExecuteParameters, ImbricateExecuteResult } from "../script/execute";
 import { IImbricateScript } from "../script/interface";
 import { IMBRICATE_SCRIPT_MANAGER_CAPABILITY_KEY, ImbricateScriptManagerCapability, ImbricateScriptManagerCapabilityList } from "./definition";
 
@@ -138,10 +139,10 @@ export abstract class ImbricateScriptManagerBase implements IImbricateScriptMana
 
     public executeScriptSnippet(
         _snippet: string,
-        _features: any,
-        _config: any,
-        _parameter: any,
-    ): PromiseOr<any> {
+        _variant: IMBRICATE_SCRIPT_VARIANT,
+        _parameters: ImbricateExecuteParameters,
+        _environment: ImbricateExecuteEnvironment,
+    ): PromiseOr<ImbricateExecuteResult> {
 
         throw ImbricateNotImplemented.create(
             "ExecuteScriptSnippet",
