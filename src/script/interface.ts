@@ -4,10 +4,7 @@
  * @description Interface
  */
 
-import { MarkedResult } from "@sudoo/marked";
 import { PromiseOr } from "../definition/promise";
-import { SandboxExecuteConfig, SandboxExecuteParameter } from "../sandbox/definition/config";
-import { SandboxFeature } from "../sandbox/feature/feature";
 import { ImbricateScriptAttributes, ImbricateScriptCapability, ImbricateScriptHistoryRecord } from "./definition";
 
 export interface IImbricateScript {
@@ -38,8 +35,8 @@ export interface IImbricateScript {
     addHistoryRecord(record: ImbricateScriptHistoryRecord): PromiseOr<void>;
 
     execute(
-        features: SandboxFeature[],
-        config: SandboxExecuteConfig,
-        parameter: SandboxExecuteParameter,
-    ): PromiseOr<MarkedResult>
+        features: any,
+        config: any,
+        parameter: any,
+    ): PromiseOr<null>
 }

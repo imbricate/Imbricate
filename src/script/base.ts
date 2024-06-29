@@ -4,13 +4,10 @@
  * @description Base
  */
 
-import type { MarkedResult } from "@sudoo/marked";
 import { ImbricateCapabilityBuilder } from "../capability/builder";
 import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricateCapability } from "../capability/definition";
 import type { PromiseOr } from "../definition/promise";
 import { ImbricateNotImplemented } from "../error/not-implemented";
-import type { SandboxExecuteConfig, SandboxExecuteParameter } from "../sandbox/definition/config";
-import type { SandboxFeature } from "../sandbox/feature/feature";
 import { IMBRICATE_SCRIPT_CAPABILITY_KEY, ImbricateScriptAttributes, ImbricateScriptCapability, ImbricateScriptCapabilityList, ImbricateScriptHistoryRecord } from "./definition";
 import type { IImbricateScript } from "./interface";
 
@@ -132,10 +129,10 @@ export abstract class ImbricateScriptBase implements IImbricateScript {
     }
 
     public execute(
-        _features: SandboxFeature[],
-        _config: SandboxExecuteConfig,
-        _parameter: SandboxExecuteParameter,
-    ): PromiseOr<MarkedResult> {
+        _features: any,
+        _config: any,
+        _parameter: any,
+    ): PromiseOr<null> {
 
         throw ImbricateNotImplemented.create(
             "Execute",
