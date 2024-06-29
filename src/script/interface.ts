@@ -5,13 +5,14 @@
  */
 
 import { PromiseOr } from "../definition/promise";
+import { IMBRICATE_EXECUTABLE_VARIANT, ImbricateExecuteEnvironment, ImbricateExecuteParameters, ImbricateExecuteResult } from "../execute/definition";
 import { ImbricateScriptAttributes, ImbricateScriptCapability, ImbricateScriptHistoryRecord } from "./definition";
-import { ImbricateExecuteEnvironment, ImbricateExecuteParameters, ImbricateExecuteResult } from "../execute/definition";
 
 export interface IImbricateScript {
 
     readonly scriptName: string;
     readonly identifier: string;
+    readonly variant: IMBRICATE_EXECUTABLE_VARIANT;
 
     readonly digest: string;
     readonly historyRecords: ImbricateScriptHistoryRecord[];
