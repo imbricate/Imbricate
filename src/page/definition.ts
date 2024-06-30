@@ -17,8 +17,23 @@ export type ImbricatePageSearchSnippet =
 
 export enum IMBRICATE_PAGE_VARIANT {
 
+    PLAIN_TEXT = "plain-text",
+
     MARKDOWN = "markdown",
 }
+
+export const IMBRICATE_PAGE_VARIANT_LIST: IMBRICATE_PAGE_VARIANT[] = [
+
+    IMBRICATE_PAGE_VARIANT.PLAIN_TEXT,
+    IMBRICATE_PAGE_VARIANT.MARKDOWN,
+];
+
+export const isValidImbricatePageVariant = (
+    variant: unknown,
+): variant is IMBRICATE_PAGE_VARIANT => {
+
+    return IMBRICATE_PAGE_VARIANT_LIST.includes(variant as any);
+};
 
 export type ImbricatePageSnapshot = {
 
