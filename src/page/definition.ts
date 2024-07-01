@@ -5,6 +5,7 @@
  */
 
 import { ImbricateCapability } from "../capability/definition";
+import { ImbricatePageVariant } from "../page-variant/definition";
 import { IMBRICATE_SEARCH_RESULT_TYPE, ImbricateSearchResult, ImbricateSearchSnippet } from "../search/snippet";
 
 export type ImbricatePageAttributes = Record<string, string>;
@@ -15,26 +16,6 @@ export type ImbricatePageSearchResult =
 export type ImbricatePageSearchSnippet =
     ImbricateSearchSnippet<IMBRICATE_SEARCH_RESULT_TYPE.PAGE>;
 
-export enum IMBRICATE_PAGE_VARIANT {
-
-    PLAIN_TEXT = "plain-text",
-
-    MARKDOWN = "markdown",
-}
-
-export const IMBRICATE_PAGE_VARIANT_LIST: IMBRICATE_PAGE_VARIANT[] = [
-
-    IMBRICATE_PAGE_VARIANT.PLAIN_TEXT,
-    IMBRICATE_PAGE_VARIANT.MARKDOWN,
-];
-
-export const isValidImbricatePageVariant = (
-    variant: unknown,
-): variant is IMBRICATE_PAGE_VARIANT => {
-
-    return IMBRICATE_PAGE_VARIANT_LIST.includes(variant as any);
-};
-
 export type ImbricatePageSnapshot = {
 
     readonly title: string;
@@ -42,7 +23,7 @@ export type ImbricatePageSnapshot = {
 
     readonly identifier: string;
 
-    readonly variant: IMBRICATE_PAGE_VARIANT;
+    readonly variant: ImbricatePageVariant;
 };
 
 export type ImbricatePageHistoryRecord = {
