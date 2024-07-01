@@ -29,6 +29,7 @@ export * from "./function/interface";
 export * from "./origin/base";
 export * from "./origin/definition";
 export * from "./origin/interface";
+export * from "./page-variant/definition";
 export * from "./page/base";
 export * from "./page/definition";
 export * from "./page/interface";
