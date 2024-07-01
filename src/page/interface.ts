@@ -5,14 +5,15 @@
  */
 
 import { PromiseOr } from "../definition/promise";
-import { IMBRICATE_PAGE_VARIANT, ImbricatePageAttributes, ImbricatePageCapability, ImbricatePageHistoryRecord } from "./definition";
+import { ImbricatePageVariant } from "../page-variant/definition";
+import { ImbricatePageAttributes, ImbricatePageCapability, ImbricatePageHistoryRecord } from "./definition";
 
 export interface IImbricatePage {
 
     readonly title: string;
     readonly directories: string[];
     readonly identifier: string;
-    readonly variant: IMBRICATE_PAGE_VARIANT;
+    readonly variant: ImbricatePageVariant;
 
     readonly digest: string;
     readonly historyRecords: ImbricatePageHistoryRecord[];

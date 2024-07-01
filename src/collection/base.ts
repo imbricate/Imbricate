@@ -8,7 +8,8 @@ import { ImbricateCapabilityBuilder } from "../capability/builder";
 import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricateCapability } from "../capability/definition";
 import type { PromiseOr } from "../definition/promise";
 import { ImbricateNotImplemented } from "../error/not-implemented";
-import type { IMBRICATE_PAGE_VARIANT, ImbricatePageMetadata, ImbricatePageSearchResult, ImbricatePageSnapshot } from "../page/definition";
+import { ImbricatePageVariant } from "../page-variant/definition";
+import type { ImbricatePageMetadata, ImbricatePageSearchResult, ImbricatePageSnapshot } from "../page/definition";
 import type { IImbricatePage } from "../page/interface";
 import type { ImbricatePageQuery, ImbricatePageQueryConfig, ImbricateSearchPageConfig } from "../query/page";
 import { IMBRICATE_COLLECTION_CAPABILITY_KEY, ImbricateCollectionCapability, ImbricateCollectionCapabilityList } from "./definition";
@@ -48,7 +49,7 @@ export abstract class ImbricateCollectionBase implements IImbricateCollection {
     public createPage(
         _directories: string[],
         _title: string,
-        _variant: IMBRICATE_PAGE_VARIANT,
+        _variant: ImbricatePageVariant,
         _initialContent: string,
         _description?: string,
     ): PromiseOr<IImbricatePage> {

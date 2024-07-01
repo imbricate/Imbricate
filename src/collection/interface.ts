@@ -5,7 +5,8 @@
  */
 
 import type { PromiseOr } from "../definition/promise";
-import type { IMBRICATE_PAGE_VARIANT, ImbricatePageMetadata, ImbricatePageSearchResult, ImbricatePageSnapshot } from "../page/definition";
+import { ImbricatePageVariant } from "../page-variant/definition";
+import type { ImbricatePageMetadata, ImbricatePageSearchResult, ImbricatePageSnapshot } from "../page/definition";
 import type { IImbricatePage } from "../page/interface";
 import type { ImbricatePageQuery, ImbricatePageQueryConfig, ImbricateSearchPageConfig } from "../query/page";
 import type { ImbricateCollectionCapability } from "./definition";
@@ -22,7 +23,7 @@ export interface IImbricateCollection {
     createPage(
         directories: string[],
         title: string,
-        variant: IMBRICATE_PAGE_VARIANT,
+        variant: ImbricatePageVariant,
         initialContent: string,
         description?: string,
     ): PromiseOr<IImbricatePage>;

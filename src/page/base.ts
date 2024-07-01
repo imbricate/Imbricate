@@ -8,7 +8,8 @@ import { ImbricateCapabilityBuilder } from "../capability/builder";
 import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricateCapability } from "../capability/definition";
 import type { PromiseOr } from "../definition/promise";
 import { ImbricateNotImplemented } from "../error/not-implemented";
-import { IMBRICATE_PAGE_CAPABILITY_KEY, IMBRICATE_PAGE_VARIANT, ImbricatePageCapability, ImbricatePageCapabilityList, ImbricatePageHistoryRecord } from "./definition";
+import { ImbricatePageVariant } from "../page-variant/definition";
+import { IMBRICATE_PAGE_CAPABILITY_KEY, ImbricatePageCapability, ImbricatePageCapabilityList, ImbricatePageHistoryRecord } from "./definition";
 import type { IImbricatePage } from "./interface";
 
 export abstract class ImbricatePageBase implements IImbricatePage {
@@ -40,7 +41,7 @@ export abstract class ImbricatePageBase implements IImbricatePage {
     public abstract readonly title: string;
     public abstract readonly directories: string[];
     public abstract readonly identifier: string;
-    public abstract readonly variant: IMBRICATE_PAGE_VARIANT;
+    public abstract readonly variant: ImbricatePageVariant;
 
     public abstract readonly digest: string;
     public abstract readonly historyRecords: ImbricatePageHistoryRecord[];
