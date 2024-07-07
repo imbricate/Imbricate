@@ -16,6 +16,12 @@ export const IMBRICATE_SCRIPT_LANGUAGE_LIST: IMBRICATE_SCRIPT_LANGUAGE[] = [
     IMBRICATE_SCRIPT_LANGUAGE.TYPESCRIPT,
 ];
 
+export enum IMBRICATE_SCRIPT_EXECUTE_LAYER {
+
+    ORIGIN = "ORIGIN",
+    INTERFACE = "INTERFACE",
+}
+
 export const isValidImbricateScriptLanguage = (
     language: unknown,
 ): language is IMBRICATE_SCRIPT_LANGUAGE => {
@@ -29,6 +35,8 @@ export type ImbricateScriptVariant = {
 
     readonly engine: string;
     readonly version: string;
+
+    readonly layer: IMBRICATE_SCRIPT_EXECUTE_LAYER;
 };
 
 export const isImbricateScriptVariant = (
