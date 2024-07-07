@@ -18,6 +18,17 @@ export interface IImbricateExecutableManager {
     readonly capabilities: ImbricateExecutableManagerCapability;
 
     /**
+     * Find supported variants
+     * 
+     * @param variant the partial variant to find, if not provided, find all
+     * 
+     * @returns supported variants
+     */
+    findSupportedVariants(
+        variant?: Partial<ImbricateScriptVariant>,
+    ): PromiseOr<ImbricateScriptVariant[]>;
+
+    /**
      * Execute a script
      * 
      * @param script 
