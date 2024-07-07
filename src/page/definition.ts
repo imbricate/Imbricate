@@ -28,17 +28,22 @@ export type ImbricatePageSnapshot = {
 
 export type ImbricatePageHistoryRecord = {
 
-    readonly updatedAt: Date;
+    readonly author: string;
+
     readonly digest: string;
+    readonly updatedAt: Date;
 };
 
 export type ImbricatePageMetadata = {
 
+    // Initial Version Data
     readonly createdAt: Date;
+
+    // Current Version Data
+    readonly digest: string;
     readonly updatedAt: Date;
 
-    readonly digest: string;
-
+    // Metadata
     readonly attributes: ImbricatePageAttributes;
     readonly historyRecords: ImbricatePageHistoryRecord[];
 
