@@ -27,17 +27,22 @@ export type ImbricateScriptSnapshot = {
 
 export type ImbricateScriptHistoryRecord = {
 
-    readonly updatedAt: Date;
+    readonly author: string;
+
     readonly digest: string;
+    readonly updatedAt: Date;
 };
 
 export type ImbricateScriptMetadata = {
 
+    // Initial Version Data
     readonly createdAt: Date;
+
+    // Current Version Data
+    readonly digest: string;
     readonly updatedAt: Date;
 
-    readonly digest: string;
-
+    // Metadata
     readonly attributes: ImbricateScriptAttributes;
     readonly historyRecords: ImbricateScriptHistoryRecord[];
 
