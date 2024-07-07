@@ -5,8 +5,8 @@
  */
 
 import { PromiseOr } from "../definition/promise";
-import { IMBRICATE_EXECUTABLE_VARIANT, ImbricateExecuteEnvironment, ImbricateExecuteParameters, ImbricateExecuteResult } from "../execute/definition";
 import { ImbricateScriptQuery, ImbricateScriptQueryConfig, ImbricateSearchScriptConfig } from "../query/script";
+import { ImbricateScriptVariant } from "../script-variant/definition";
 import { ImbricateScriptMetadata, ImbricateScriptSearchResult, ImbricateScriptSnapshot } from "../script/definition";
 import { IImbricateScript } from "../script/interface";
 import { ImbricateScriptManagerCapability } from "./definition";
@@ -29,7 +29,7 @@ export interface IImbricateScriptManager {
      */
     createScript(
         scriptName: string,
-        variant: IMBRICATE_EXECUTABLE_VARIANT,
+        variant: ImbricateScriptVariant,
         initialScript: string,
         description?: string,
     ): PromiseOr<IImbricateScript>;
@@ -42,11 +42,4 @@ export interface IImbricateScriptManager {
 
     searchScripts(keyword: string, config: ImbricateSearchScriptConfig): PromiseOr<ImbricateScriptSearchResult[]>;
     queryScripts(query: ImbricateScriptQuery, config: ImbricateScriptQueryConfig): PromiseOr<IImbricateScript[]>;
-
-    executeScriptSnippet(
-        snippet: string,
-        variant: IMBRICATE_EXECUTABLE_VARIANT,
-        parameters: ImbricateExecuteParameters,
-        environment: ImbricateExecuteEnvironment,
-    ): PromiseOr<ImbricateExecuteResult>;
 }
