@@ -8,6 +8,7 @@ import { ImbricateCapabilityBuilder } from "../capability/builder";
 import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricateCapability } from "../capability/definition";
 import { ImbricateNotImplemented } from "../error/not-implemented";
 import { ImbricateExecuteEnvironment, ImbricateExecuteParameters, ImbricateExecuteResult } from "../execute/definition";
+import { ImbricateScriptVariant } from "../script-variant/definition";
 import { IImbricateScript } from "../script/interface";
 import { IMBRICATE_EXECUTABLE_MANAGER_CAPABILITY_KEY, ImbricateExecutableManagerCapability, ImbricateExecutableManagerCapabilityList } from "./definition";
 import { IImbricateExecutableManager } from "./interface";
@@ -54,6 +55,7 @@ export abstract class ImbricateExecutableManagerBase implements IImbricateExecut
 
     public executeSnippet(
         _snippet: string,
+        _variant: ImbricateScriptVariant,
         _parameters: ImbricateExecuteParameters,
         _environment: ImbricateExecuteEnvironment,
     ): Promise<ImbricateExecuteResult> {

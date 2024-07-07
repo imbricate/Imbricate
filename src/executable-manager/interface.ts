@@ -6,6 +6,7 @@
 
 import { PromiseOr } from "../definition/promise";
 import { ImbricateExecuteEnvironment, ImbricateExecuteParameters, ImbricateExecuteResult } from "../execute/definition";
+import { ImbricateScriptVariant } from "../script-variant/definition";
 import { IImbricateScript } from "../script/interface";
 import { ImbricateExecutableManagerCapability } from "./definition";
 
@@ -42,6 +43,7 @@ export interface IImbricateExecutableManager {
      */
     executeSnippet(
         snippet: string,
+        variant: ImbricateScriptVariant,
         parameters: ImbricateExecuteParameters,
         environment: ImbricateExecuteEnvironment,
     ): PromiseOr<ImbricateExecuteResult>;
