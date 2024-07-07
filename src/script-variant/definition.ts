@@ -26,7 +26,9 @@ export const isValidImbricateScriptLanguage = (
 export type ImbricateScriptVariant = {
 
     readonly language: IMBRICATE_SCRIPT_LANGUAGE;
+
     readonly engine: string;
+    readonly version: string;
 };
 
 export const isImbricateScriptVariant = (
