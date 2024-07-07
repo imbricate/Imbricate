@@ -5,7 +5,7 @@
  */
 
 import { PromiseOr } from "../definition/promise";
-import { IMBRICATE_EXECUTABLE_VARIANT, ImbricateExecuteEnvironment, ImbricateExecuteParameters, ImbricateExecuteResult } from "../execute/definition";
+import { IMBRICATE_EXECUTABLE_VARIANT } from "../execute/definition";
 import { ImbricateScriptAttributes, ImbricateScriptCapability, ImbricateScriptHistoryRecord } from "./definition";
 
 export interface IImbricateScript {
@@ -35,9 +35,4 @@ export interface IImbricateScript {
     refreshUpdatedAt(updatedAt: Date): PromiseOr<void>;
     refreshDigest(digest: string): PromiseOr<void>;
     addHistoryRecord(record: ImbricateScriptHistoryRecord): PromiseOr<void>;
-
-    execute(
-        parameters: ImbricateExecuteParameters,
-        environment: ImbricateExecuteEnvironment,
-    ): PromiseOr<ImbricateExecuteResult>
 }

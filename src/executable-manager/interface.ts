@@ -16,8 +16,32 @@ export interface IImbricateExecutableManager {
      */
     readonly capabilities: ImbricateExecutableManagerCapability;
 
+    /**
+     * Execute a script
+     * 
+     * @param script 
+     * @param parameters 
+     * @param environment 
+     * 
+     * @returns result of the execution
+     */
     executeScript(
         script: IImbricateScript,
+        parameters: ImbricateExecuteParameters,
+        environment: ImbricateExecuteEnvironment,
+    ): PromiseOr<ImbricateExecuteResult>;
+
+    /**
+     * Execute a snippet
+     * 
+     * @param snippet 
+     * @param parameters 
+     * @param environment 
+     * 
+     * @returns result of the execution
+     */
+    executeSnippet(
+        snippet: string,
         parameters: ImbricateExecuteParameters,
         environment: ImbricateExecuteEnvironment,
     ): PromiseOr<ImbricateExecuteResult>;
