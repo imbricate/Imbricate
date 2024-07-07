@@ -33,6 +33,15 @@ export interface IImbricateScriptManager {
         initialScript: string,
         description?: string,
     ): PromiseOr<IImbricateScript>;
+
+    /**
+     * Put a script
+     * 
+     * @param scriptMetadata the metadata of the script
+     * @param script the script content
+     * 
+     * @returns the script
+     */
     putScript(scriptMetadata: ImbricateScriptMetadata, script: string): PromiseOr<IImbricateScript>;
     renameScript(identifier: string, newScriptName: string): PromiseOr<void>;
     deleteScript(identifier: string): PromiseOr<void>;

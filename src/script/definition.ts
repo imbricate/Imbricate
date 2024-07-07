@@ -5,7 +5,7 @@
  */
 
 import { ImbricateCapability } from "../capability/definition";
-import { IMBRICATE_EXECUTABLE_VARIANT } from "../execute/definition";
+import { ImbricateScriptVariant } from "../script-variant/definition";
 import { IMBRICATE_SEARCH_RESULT_TYPE, ImbricateSearchResult, ImbricateSearchSnippet } from "../search/snippet";
 
 export type ImbricateScriptAttributes = Record<string, string>;
@@ -22,7 +22,7 @@ export type ImbricateScriptSnapshot = {
 
     readonly identifier: string;
 
-    readonly variant: IMBRICATE_EXECUTABLE_VARIANT;
+    readonly variant: ImbricateScriptVariant;
 };
 
 export type ImbricateScriptHistoryRecord = {
