@@ -41,6 +41,13 @@ export abstract class ImbricateExecutableManagerBase implements IImbricateExecut
 
     public abstract readonly capabilities: ImbricateExecutableManagerCapability;
 
+    public async findSupportedVariants(
+        _variant?: Partial<ImbricateScriptVariant>,
+    ): Promise<ImbricateScriptVariant[]> {
+
+        return [];
+    }
+
     public executeScript(
         _script: IImbricateScript,
         _parameters: ImbricateExecuteParameters,

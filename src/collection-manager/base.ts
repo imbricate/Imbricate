@@ -9,6 +9,7 @@ import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricat
 import { IImbricateCollection } from "../collection/interface";
 import type { PromiseOr } from "../definition/promise";
 import { ImbricateNotImplemented } from "../error/not-implemented";
+import { ImbricatePageVariant } from "../page-variant/definition";
 import { IMBRICATE_COLLECTION_MANAGER_CAPABILITY_KEY, ImbricateCollectionManagerCapability, ImbricateCollectionManagerCapabilityList } from "./definition";
 import { IImbricateCollectionManager } from "./interface";
 
@@ -39,6 +40,13 @@ export abstract class ImbricateCollectionManagerBase implements IImbricateCollec
     }
 
     public abstract readonly capabilities: ImbricateCollectionManagerCapability;
+
+    public async findSupportedVariants(
+        _variant?: Partial<ImbricatePageVariant>,
+    ): Promise<ImbricatePageVariant[]> {
+
+        return [];
+    }
 
     public createCollection(
         _collectionName: string,
