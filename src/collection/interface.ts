@@ -38,4 +38,6 @@ export interface IImbricateCollection {
 
     searchPages(keyword: string, config: ImbricateSearchPageConfig): PromiseOr<ImbricatePageSearchResult[]>;
     queryPages(query: ImbricatePageQuery, config: ImbricatePageQueryConfig): PromiseOr<IImbricatePage[]>;
+
+    listSupportedVariants(): PromiseOr<ImbricatePageVariant[]>;
 }

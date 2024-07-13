@@ -51,4 +51,6 @@ export interface IImbricateScriptManager {
 
     searchScripts(keyword: string, config: ImbricateSearchScriptConfig): PromiseOr<ImbricateScriptSearchResult[]>;
     queryScripts(query: ImbricateScriptQuery, config: ImbricateScriptQueryConfig): PromiseOr<IImbricateScript[]>;
+
+    listSupportedVariants(): PromiseOr<ImbricateScriptVariant[]>;
 }
