@@ -155,4 +155,12 @@ export abstract class ImbricateCollectionBase implements IImbricateCollection {
             IMBRICATE_COLLECTION_CAPABILITY_KEY.LIST_PAGES,
         );
     }
+
+    public listSupportedVariants(): Promise<ImbricatePageVariant[]> {
+
+        throw ImbricateNotImplemented.create(
+            "ListSupportedVariants",
+            IMBRICATE_COLLECTION_CAPABILITY_KEY.LIST_SUPPORTED_VARIANTS,
+        );
+    }
 }

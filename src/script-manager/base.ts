@@ -137,4 +137,12 @@ export abstract class ImbricateScriptManagerBase implements IImbricateScriptMana
             IMBRICATE_SCRIPT_MANAGER_CAPABILITY_KEY.LIST_SCRIPTS,
         );
     }
+
+    public listSupportedVariants(): Promise<ImbricateScriptVariant[]> {
+
+        throw ImbricateNotImplemented.create(
+            "ListSupportedVariants",
+            IMBRICATE_SCRIPT_MANAGER_CAPABILITY_KEY.LIST_SUPPORTED_VARIANTS,
+        );
+    }
 }

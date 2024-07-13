@@ -17,6 +17,8 @@ export enum IMBRICATE_COLLECTION_CAPABILITY_KEY {
     DELETE_PAGE = "imbricate.collection.page.delete",
     GET_PAGE = "imbricate.collection.page.get",
     LIST_PAGES = "imbricate.collection.page.list",
+
+    LIST_SUPPORTED_VARIANTS = "imbricate.collection.page.list-supported-variants",
 }
 
 export const ImbricateCollectionCapabilityList: IMBRICATE_COLLECTION_CAPABILITY_KEY[] = [
@@ -27,4 +29,6 @@ export const ImbricateCollectionCapabilityList: IMBRICATE_COLLECTION_CAPABILITY_
     IMBRICATE_COLLECTION_CAPABILITY_KEY.DELETE_PAGE,
     IMBRICATE_COLLECTION_CAPABILITY_KEY.GET_PAGE,
     IMBRICATE_COLLECTION_CAPABILITY_KEY.LIST_PAGES,
+
+    IMBRICATE_COLLECTION_CAPABILITY_KEY.LIST_SUPPORTED_VARIANTS,
 ];

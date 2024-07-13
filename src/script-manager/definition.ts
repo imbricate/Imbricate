@@ -19,6 +19,8 @@ export enum IMBRICATE_SCRIPT_MANAGER_CAPABILITY_KEY {
     LIST_SCRIPTS = "imbricate.script-manager.list",
 
     EXECUTE_SCRIPT_SNIPPET = "imbricate.script-manager.execute-script-snippet",
+
+    LIST_SUPPORTED_VARIANTS = "imbricate.script-manager.list-supported-variants",
 }
 
 export const ImbricateScriptManagerCapabilityList: IMBRICATE_SCRIPT_MANAGER_CAPABILITY_KEY[] = [
@@ -31,4 +33,6 @@ export const ImbricateScriptManagerCapabilityList: IMBRICATE_SCRIPT_MANAGER_CAPA
     IMBRICATE_SCRIPT_MANAGER_CAPABILITY_KEY.LIST_SCRIPTS,
 
     IMBRICATE_SCRIPT_MANAGER_CAPABILITY_KEY.EXECUTE_SCRIPT_SNIPPET,
+
+    IMBRICATE_SCRIPT_MANAGER_CAPABILITY_KEY.LIST_SUPPORTED_VARIANTS,
 ];
