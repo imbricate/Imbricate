@@ -6,5 +6,8 @@
 
 export type ImbricateAuthor = {
 
+    readonly avatar: string;
+    readonly displayName: string;
+
     readonly identifier: string;
 };
