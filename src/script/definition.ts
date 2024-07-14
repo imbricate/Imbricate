@@ -4,6 +4,7 @@
  * @description Definition
  */
 
+import { ImbricateAuthor } from "../author/definition";
 import { ImbricateCapability } from "../capability/definition";
 import { ImbricateScriptVariant } from "../script-variant/definition";
 import { IMBRICATE_SEARCH_RESULT_TYPE, ImbricateSearchResult, ImbricateSearchSnippet } from "../search/snippet";
@@ -27,7 +28,7 @@ export type ImbricateScriptSnapshot = {
 
 export type ImbricateScriptHistoryRecord = {
 
-    readonly author: string;
+    readonly author: ImbricateAuthor;
 
     readonly digest: string;
     readonly updatedAt: Date;
