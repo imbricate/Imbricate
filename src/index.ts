@@ -3,6 +3,7 @@
  * @description Index
  */
 
+export * from "./author/definition";
 export * from "./binary-storage/base";
 export * from "./binary-storage/definition";
 export * from "./binary-storage/interface";
