@@ -48,7 +48,7 @@ yarn global add imbricate
 Yarn 2.x
 
 ```sh
-yarn dlx -p imbricate
+yarn dlx imbricate
 ```
 
 ### Using NPM
