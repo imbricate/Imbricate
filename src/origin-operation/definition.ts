@@ -23,7 +23,16 @@ export type ImbricateOriginOperation<T extends IMBRICATE_ORIGIN_OPERATION_SCOPE>
 };
 
 export type ImbricateOriginOperationParameter<T extends IMBRICATE_ORIGIN_OPERATION_SCOPE> =
-    T extends IMBRICATE_ORIGIN_OPERATION_SCOPE.ORIGIN ? any :
-    T extends IMBRICATE_ORIGIN_OPERATION_SCOPE.COLLECTION ? any :
-    T extends IMBRICATE_ORIGIN_OPERATION_SCOPE.PAGE ? any :
-    any;
+    T extends IMBRICATE_ORIGIN_OPERATION_SCOPE.ORIGIN ? {
+        readonly originUniqueIdentifier: string;
+    } :
+    T extends IMBRICATE_ORIGIN_OPERATION_SCOPE.COLLECTION ? {
+        readonly originUniqueIdentifier: string;
+        readonly collectionUniqueIdentifier: string
+    } :
+    T extends IMBRICATE_ORIGIN_OPERATION_SCOPE.PAGE ? {
+        readonly originUniqueIdentifier: string;
+        readonly collectionUniqueIdentifier: string;
+        readonly pageIdentifier: string;
+    } :
+    unknown;
