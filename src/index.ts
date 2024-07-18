@@ -29,6 +29,7 @@ export * from "./execute/definition";
 export * from "./function/base";
 export * from "./function/definition";
 export * from "./function/interface";
+export * from "./origin-operation/definition";
 export * from "./origin/base";
 export * from "./origin/definition";
 export * from "./origin/interface";
