@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace OperationOperationManager
+ * @namespace OriginOperationManager
  * @description Interface
  */
 
