@@ -4,6 +4,7 @@
  * @description Interface
  */
 
+import { IImbricateCollectionOperationManager } from "../collection-operation-manager/interface";
 import type { PromiseOr } from "../definition/promise";
 import { ImbricatePageVariant } from "../page-variant/definition";
 import type { ImbricatePageMetadata, ImbricatePageSearchResult, ImbricatePageSnapshot } from "../page/definition";
@@ -40,4 +41,6 @@ export interface IImbricateCollection {
     queryPages(query: ImbricatePageQuery, config: ImbricatePageQueryConfig): PromiseOr<IImbricatePage[]>;
 
     listSupportedVariants(): PromiseOr<ImbricatePageVariant[]>;
+
+    getOperationManager(): IImbricateCollectionOperationManager;
 }

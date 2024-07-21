@@ -10,6 +10,7 @@ import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricat
 import { IImbricateCollectionManager } from "../collection-manager/interface";
 import { ImbricateNotImplemented } from "../error/not-implemented";
 import type { IImbricateFunctionManager } from "../function/interface";
+import { IImbricateOriginOperationManager } from "../origin-operation-manager/interface";
 import type { IImbricateOrigin } from "../origin/interface";
 import { IImbricateScriptManager } from "../script-manager/interface";
 import { IMBRICATE_ORIGIN_CAPABILITY_KEY, ImbricateOriginCapability, ImbricateOriginCapabilityList, ImbricateOriginMetadata } from "./definition";
@@ -77,6 +78,14 @@ export abstract class ImbricateOriginBase implements IImbricateOrigin {
         throw ImbricateNotImplemented.create(
             "GetCollectionManager",
             IMBRICATE_ORIGIN_CAPABILITY_KEY.ORIGIN_COLLECTION_MANAGER,
+        );
+    }
+
+    public getOperationManager(): IImbricateOriginOperationManager {
+
+        throw ImbricateNotImplemented.create(
+            "GetOperationManager",
+            IMBRICATE_ORIGIN_CAPABILITY_KEY.ORIGIN_OPERATION_MANAGER,
         );
     }
 }

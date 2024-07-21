@@ -6,6 +6,7 @@
 
 import { ImbricateCapabilityBuilder } from "../capability/builder";
 import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricateCapability } from "../capability/definition";
+import { IImbricateCollectionOperationManager } from "../collection-operation-manager/interface";
 import type { PromiseOr } from "../definition/promise";
 import { ImbricateNotImplemented } from "../error/not-implemented";
 import { ImbricatePageVariant } from "../page-variant/definition";
@@ -161,6 +162,14 @@ export abstract class ImbricateCollectionBase implements IImbricateCollection {
         throw ImbricateNotImplemented.create(
             "ListSupportedVariants",
             IMBRICATE_COLLECTION_CAPABILITY_KEY.LIST_SUPPORTED_VARIANTS,
+        );
+    }
+
+    public getOperationManager(): IImbricateCollectionOperationManager {
+
+        throw ImbricateNotImplemented.create(
+            "GetOperationManager",
+            IMBRICATE_COLLECTION_CAPABILITY_KEY.COLLECTION_OPERATION_MANAGER,
         );
     }
 }

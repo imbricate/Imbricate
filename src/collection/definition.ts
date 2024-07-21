@@ -19,6 +19,8 @@ export enum IMBRICATE_COLLECTION_CAPABILITY_KEY {
     LIST_PAGES = "imbricate.collection.page.list",
 
     LIST_SUPPORTED_VARIANTS = "imbricate.collection.page.list-supported-variants",
+
+    COLLECTION_OPERATION_MANAGER = "imbricate.collection.operation-manager",
 }
 
 export const ImbricateCollectionCapabilityList: IMBRICATE_COLLECTION_CAPABILITY_KEY[] = [
@@ -31,4 +33,6 @@ export const ImbricateCollectionCapabilityList: IMBRICATE_COLLECTION_CAPABILITY_
     IMBRICATE_COLLECTION_CAPABILITY_KEY.LIST_PAGES,
 
     IMBRICATE_COLLECTION_CAPABILITY_KEY.LIST_SUPPORTED_VARIANTS,
+
+    IMBRICATE_COLLECTION_CAPABILITY_KEY.COLLECTION_OPERATION_MANAGER,
 ];

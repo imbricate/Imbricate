@@ -8,6 +8,7 @@ import { IImbricateBinaryStorage } from "../binary-storage/interface";
 import { IImbricateCollectionManager } from "../collection-manager/interface";
 import { PromiseOr } from "../definition/promise";
 import { IImbricateFunctionManager } from "../function/interface";
+import { IImbricateOriginOperationManager } from "../origin-operation-manager/interface";
 import { IImbricateScriptManager } from "../script-manager/interface";
 import { ImbricateOriginCapability, ImbricateOriginMetadata } from "./definition";
 
@@ -63,6 +64,13 @@ export interface IImbricateOrigin {
      * @returns Collection manager
      */
     getCollectionManager(): IImbricateCollectionManager;
+
+    /**
+     * Get operation manager
+     * 
+     * @returns Operation manager
+     */
+    getOperationManager(): IImbricateOriginOperationManager;
 
     /**
      * Dispose the origin, optional
