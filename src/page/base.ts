@@ -4,6 +4,7 @@
  * @description Base
  */
 
+import { ImbricateAuthor } from "../author/definition";
 import { ImbricateCapabilityBuilder } from "../capability/builder";
 import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricateCapability } from "../capability/definition";
 import type { PromiseOr } from "../definition/promise";
@@ -93,6 +94,7 @@ export abstract class ImbricatePageBase implements IImbricatePage {
     public refreshUpdateMetadata(
         _updatedAt: Date,
         _digest: string,
+        _author: ImbricateAuthor,
     ): PromiseOr<void> {
 
         throw ImbricateNotImplemented.create(

@@ -4,6 +4,7 @@
  * @description Interface
  */
 
+import { ImbricateAuthor } from "../author/definition";
 import { PromiseOr } from "../definition/promise";
 import { ImbricatePageVariant } from "../page-variant/definition";
 import { ImbricatePageAttributes, ImbricatePageCapability, ImbricatePageHistoryRecord } from "./definition";
@@ -37,8 +38,13 @@ export interface IImbricatePage {
      * 
      * @param updatedAt Updated At
      * @param digest Content Digest
+     * @param author Author
      */
-    refreshUpdateMetadata(updatedAt: Date, digest: string): PromiseOr<void>;
+    refreshUpdateMetadata(
+        updatedAt: Date,
+        digest: string,
+        author: ImbricateAuthor,
+    ): PromiseOr<void>;
 
     /**
      * Refresh Updated At
