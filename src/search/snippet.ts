@@ -36,6 +36,7 @@ type ImbricateSearchSnippetSwitch<T extends IMBRICATE_SEARCH_RESULT_TYPE> =
         readonly collectionUniqueIdentifier: string;
     }
     : T extends IMBRICATE_SEARCH_RESULT_TYPE.SCRIPT
+    // eslint-disable-next-line @typescript-eslint/no-empty-object-type
     ? {
         // No Specific Configuration for Script
     }
