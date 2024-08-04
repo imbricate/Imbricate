@@ -4,6 +4,7 @@
  * @description Interface
  */
 
+import { ImbricateAuthor } from "../author/definition";
 import { PromiseOr } from "../definition/promise";
 import { ImbricateScriptQuery, ImbricateScriptQueryConfig, ImbricateSearchScriptConfig } from "../query/script";
 import { ImbricateScriptVariant } from "../script-variant/definition";
@@ -22,6 +23,8 @@ export interface IImbricateScriptManager {
      * Create a script
      * 
      * @param scriptName Script name
+     * @param variant Script variant
+     * @param author Author
      * @param initialScript Initial script content
      * @param description Script description
      * 
@@ -30,6 +33,7 @@ export interface IImbricateScriptManager {
     createScript(
         scriptName: string,
         variant: ImbricateScriptVariant,
+        author: ImbricateAuthor,
         initialScript: string,
         description?: string,
     ): PromiseOr<IImbricateScript>;

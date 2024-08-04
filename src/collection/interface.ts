@@ -4,6 +4,7 @@
  * @description Interface
  */
 
+import { ImbricateAuthor } from "../author/definition";
 import { IImbricateCollectionOperationManager } from "../collection-operation-manager/interface";
 import type { PromiseOr } from "../definition/promise";
 import { ImbricatePageVariant } from "../page-variant/definition";
@@ -21,13 +22,27 @@ export interface IImbricateCollection {
 
     readonly capabilities: ImbricateCollectionCapability;
 
+    /**
+     * Create a page
+     * 
+     * @param directories Directories
+     * @param title Title
+     * @param variant Variant
+     * @param author Author
+     * @param initialContent Initial content
+     * @param description Description
+     * 
+     * @returns Created page
+     */
     createPage(
         directories: string[],
         title: string,
         variant: ImbricatePageVariant,
+        author: ImbricateAuthor,
         initialContent: string,
         description?: string,
     ): PromiseOr<IImbricatePage>;
+
     putPage(pageMetadata: ImbricatePageMetadata, content: string): PromiseOr<IImbricatePage>;
     retitlePage(identifier: string, newTitle: string): PromiseOr<void>;
     deletePage(identifier: string): PromiseOr<void>;

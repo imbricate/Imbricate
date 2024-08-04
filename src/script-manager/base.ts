@@ -4,6 +4,7 @@
  * @description Base
  */
 
+import { ImbricateAuthor } from "../author/definition";
 import { ImbricateCapabilityBuilder } from "../capability/builder";
 import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricateCapability } from "../capability/definition";
 import type { PromiseOr } from "../definition/promise";
@@ -46,6 +47,7 @@ export abstract class ImbricateScriptManagerBase implements IImbricateScriptMana
     public createScript(
         _scriptName: string,
         _variant: ImbricateScriptVariant,
+        _author: ImbricateAuthor,
         _initialScript: string,
         _description?: string,
     ): PromiseOr<IImbricateScript> {

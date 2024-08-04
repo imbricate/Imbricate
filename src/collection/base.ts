@@ -4,6 +4,7 @@
  * @description Base
  */
 
+import { ImbricateAuthor } from "../author/definition";
 import { ImbricateCapabilityBuilder } from "../capability/builder";
 import { ImbricateCapability, createAllowImbricateCapability, createDenyImbricateCapability } from "../capability/definition";
 import { IImbricateCollectionOperationManager } from "../collection-operation-manager/interface";
@@ -51,6 +52,7 @@ export abstract class ImbricateCollectionBase implements IImbricateCollection {
         _directories: string[],
         _title: string,
         _variant: ImbricatePageVariant,
+        _author: ImbricateAuthor,
         _initialContent: string,
         _description?: string,
     ): PromiseOr<IImbricatePage> {
