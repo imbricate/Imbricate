@@ -18,7 +18,7 @@ const fixExtension = (
     return extension;
 };
 
-export const getImbricateScriptLanguageExtension = (
+export const getImbricatePageVariantLanguageExtension = (
     language: IMBRICATE_PAGE_VARIANT_LANGUAGE,
     withDot: boolean = true,
 ): string => {
