@@ -4,18 +4,14 @@
  * @description Schema
  */
 
-export enum IMBRICATE_DATABASE_PROPERTY_TYPE {
-
-    STRING = "STRING",
-    MARKDOWN = "MARKDOWN",
-}
+import { DocumentPropertyUniqueIdentifier, IMBRICATE_PROPERTY_TYPE } from "../document/definition";
 
 export type ImbricateDatabaseSchemaProperty = {
 
-    readonly propertyIdentifier: string;
+    readonly propertyIdentifier: DocumentPropertyUniqueIdentifier;
     readonly propertyName: string;
 
-    readonly propertyType: IMBRICATE_DATABASE_PROPERTY_TYPE;
+    readonly propertyType: IMBRICATE_PROPERTY_TYPE;
 };
 
 export type ImbricateDatabaseSchema = {

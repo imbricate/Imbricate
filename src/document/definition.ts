@@ -4,12 +4,17 @@
  * @description Definition
  */
 
-import { IMBRICATE_DATABASE_PROPERTY_TYPE } from "../database/schema";
+export enum IMBRICATE_PROPERTY_TYPE {
 
-export type DocumentProperties = Record<string, DocumentPropertyValue>;
+    STRING = "STRING",
+    MARKDOWN = "MARKDOWN",
+}
 
+export type DocumentProperties = Record<DocumentPropertyUniqueIdentifier, DocumentPropertyValue>;
+
+export type DocumentPropertyUniqueIdentifier = string;
 export type DocumentPropertyValue = {
 
-    readonly type: IMBRICATE_DATABASE_PROPERTY_TYPE;
+    readonly type: IMBRICATE_PROPERTY_TYPE;
     readonly value: any;
 };
