@@ -4,6 +4,8 @@
  * @description Persistance
  */
 
+import { OriginPayload } from "../origin/definition";
+
 export enum IMBRICATE_ORIGIN_LOAD_TYPE {
 
     NPM_PACKAGE = "NPM_PACKAGE",
@@ -16,7 +18,7 @@ export type ImbricateOriginPersistanceOrigin = {
 
     readonly originName: string;
 
-    readonly originPayloads: Record<string, any>;
+    readonly originPayloads: OriginPayload;
 };
 
 export type ImbricateOriginPersistance = {

@@ -11,5 +11,6 @@ export * from "./loader/origin-loader";
 export * from "./loader/persistance";
 export * from "./origin/database-manager";
 export * from "./origin/interface";
+export * from "./origin/loader";
 export * from "./origin/static-manager";
 

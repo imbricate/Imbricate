@@ -18,7 +18,12 @@ export const loadImbricateOriginsFromPersistance = async (
 
             const originPackage = await import(origin.originLoadValue);
 
-            console.log(originPackage);
+            if (typeof originPackage.default === "function") {
+
+                const initialized = originPackage.default.call(null, origin.originPayloads);
+
+                origins.push(initialized);
+            }
         }
     }
 

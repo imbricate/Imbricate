@@ -5,6 +5,7 @@
  */
 
 import { IImbricateOriginDatabaseManager } from "./database-manager";
+import { OriginPayload } from "./definition";
 import { IImbricateOriginStaticManager } from "./static-manager";
 
 export interface IImbricateOrigin {
@@ -21,7 +22,7 @@ export interface IImbricateOrigin {
     /**
      * Payloads to initialize the origin
      */
-    readonly payloads: Record<string, any>;
+    readonly payloads: OriginPayload;
 
     /**
      * Get the database manager of the origin

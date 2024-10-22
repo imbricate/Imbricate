@@ -6,16 +6,25 @@
  */
 
 import { IMBRICATE_ORIGIN_LOAD_TYPE, loadImbricateOriginsFromPersistance } from "../../../src";
+import { ImbricateOriginLoader } from "../../../src/origin/loader";
 
 describe("Given [Origin Loader] methods", (): void => {
 
     test("should be able to initialize npm package", async (): Promise<void> => {
 
+        let mockPayload: any;
+
         jest.mock("mock-origin", () => {
 
-            return {
-                a: 1,
+            const loader: ImbricateOriginLoader = (payload: any) => {
+
+                mockPayload = payload;
+                return {
+                    name: "Mock",
+                } as any;
             };
+
+            return loader;
         }, {
             virtual: true,
         });
@@ -27,14 +36,17 @@ describe("Given [Origin Loader] methods", (): void => {
                     originLoadValue: "mock-origin",
 
                     originName: "Mock",
-                    originPayloads: {},
+                    originPayloads: {
+                        hello: "world",
+                    },
                 },
             ],
         });
 
-        console.log(origins);
-
-        expect("").toEqual("");
+        expect(origins).toHaveLength(1);
+        expect(mockPayload).toEqual({
+            hello: "world",
+        });
     });
 
     afterEach(() => {
