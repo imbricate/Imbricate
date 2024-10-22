@@ -18,7 +18,7 @@ export interface IImbricateOriginStaticManager {
      * 
      * @param content content of the static file
      * @param uniqueIdentifier unique identifier of the static file, optional
-     *   if not provided, a unique identifier will be generated
+     *  if not provided, a unique identifier will be generated
      * 
      * @returns a promise of the unique identifier of the static file
      */
