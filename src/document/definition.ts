@@ -10,9 +10,9 @@ export enum IMBRICATE_PROPERTY_TYPE {
     MARKDOWN = "MARKDOWN",
 }
 
-export type DocumentProperties = Record<DocumentPropertyUniqueIdentifier, DocumentPropertyValue>;
+export type DocumentProperties = Record<DocumentUniqueIdentifier, DocumentPropertyValue>;
 
-export type DocumentPropertyUniqueIdentifier = string;
+export type DocumentUniqueIdentifier = string;
 export type DocumentPropertyValue = {
 
     readonly type: IMBRICATE_PROPERTY_TYPE;
