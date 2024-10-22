@@ -4,21 +4,23 @@
  * @description Origin Loader
  */
 
-import { ImbricateOriginPersistance } from "./persistance";
+import { IImbricateOrigin } from "../origin/interface";
+import { IMBRICATE_ORIGIN_LOAD_TYPE, ImbricateOriginPersistance } from "./persistance";
 
-export class ImbricateOriginLoader {
+export const loadImbricateOriginsFromPersistance = async (
+    persistance: ImbricateOriginPersistance,
+): Promise<IImbricateOrigin[]> => {
 
-    public static fromPersistance(
-        persistance: ImbricateOriginPersistance,
-    ): ImbricateOriginLoader {
+    const origins: IImbricateOrigin[] = [];
 
-        return new ImbricateOriginLoader(persistance);
+    for (const origin of persistance.origins) {
+        if (origin.originLoadType === IMBRICATE_ORIGIN_LOAD_TYPE.NPM_PACKAGE) {
+
+            const originPackage = await import(origin.originLoadValue);
+
+            console.log(originPackage);
+        }
     }
 
-    private readonly _persistance: ImbricateOriginPersistance;
-
-    private constructor(persistance: ImbricateOriginPersistance) {
-
-        this._persistance = persistance;
-    }
-}
+    return origins;
+};
