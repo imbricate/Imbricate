@@ -4,8 +4,8 @@
  * @description Interface
  */
 
-import { IImbricateDatabase } from "../database/interface";
-import { ImbricateDatabaseSchema } from "../database/schema";
+import { IImbricateOriginDatabaseManager } from "./database-manager";
+import { IImbricateOriginStaticManager } from "./static-manager";
 
 export interface IImbricateOrigin {
 
@@ -24,24 +24,18 @@ export interface IImbricateOrigin {
     readonly payloads: Record<string, any>;
 
     /**
-     * Get databases from the origin
+     * Get the database manager of the origin
      * 
-     * @returns a promise of the databases in the origin
+     * @returns the database manager
      */
-    getDatabases(): PromiseLike<IImbricateDatabase[]>;
+    getDatabaseManager(): IImbricateOriginDatabaseManager;
 
     /**
-     * Create a new database
+     * Get the static manager of the origin
      * 
-     * @param databaseName name of the database
-     * @param schema schema of the database
-     * 
-     * @returns a promise of the created database
+     * @returns the static manager
      */
-    createDatabase(
-        databaseName: string,
-        schema: ImbricateDatabaseSchema,
-    ): PromiseLike<IImbricateDatabase>;
+    getStaticManager(): IImbricateOriginStaticManager;
 
     /**
      * Dispose the origin, optional
