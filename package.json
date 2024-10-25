@@ -30,7 +30,7 @@
   },
   "homepage": "https://imbricate.io",
   "devDependencies": {
-    "@babel/core": "^7.25.9",
+    "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.25.9",
     "@babel/preset-typescript": "^7.25.9",
     "@types/jest": "^29.5.13",
