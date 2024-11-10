@@ -23,7 +23,11 @@ export const loadImbricateOriginsFromPersistance = async (
 
                 if (typeof originPackage.default === "function") {
 
-                    const initialized = originPackage.default.call(null, origin.originPayloads);
+                    const initialized = originPackage.default.call(
+                        null,
+                        origin.uniqueIdentifier,
+                        origin.originPayloads,
+                    );
 
                     origins.push(initialized);
                 }
@@ -36,7 +40,11 @@ export const loadImbricateOriginsFromPersistance = async (
 
                 if (typeof originPackage.default === "function") {
 
-                    const initialized = originPackage.default.call(null, origin.originPayloads);
+                    const initialized = originPackage.default.call(
+                        null,
+                        origin.uniqueIdentifier,
+                        origin.originPayloads,
+                    );
 
                     origins.push(initialized);
                 }

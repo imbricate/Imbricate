@@ -14,6 +14,8 @@ export enum IMBRICATE_ORIGIN_LOAD_TYPE {
 
 export type ImbricateOriginPersistanceOrigin = {
 
+    readonly uniqueIdentifier: string;
+
     readonly originLoadType: IMBRICATE_ORIGIN_LOAD_TYPE;
     readonly originLoadValue: string;
 
