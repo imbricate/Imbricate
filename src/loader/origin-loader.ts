@@ -14,15 +14,33 @@ export const loadImbricateOriginsFromPersistance = async (
     const origins: IImbricateOrigin[] = [];
 
     for (const origin of persistance.origins) {
-        if (origin.originLoadType === IMBRICATE_ORIGIN_LOAD_TYPE.NPM_PACKAGE) {
 
-            const originPackage = await import(origin.originLoadValue);
+        switch (origin.originLoadType) {
 
-            if (typeof originPackage.default === "function") {
+            case IMBRICATE_ORIGIN_LOAD_TYPE.NPM_PACKAGE: {
 
-                const initialized = originPackage.default.call(null, origin.originPayloads);
+                const originPackage = await import(origin.originLoadValue);
 
-                origins.push(initialized);
+                if (typeof originPackage.default === "function") {
+
+                    const initialized = originPackage.default.call(null, origin.originPayloads);
+
+                    origins.push(initialized);
+                }
+                break;
+            }
+
+            case IMBRICATE_ORIGIN_LOAD_TYPE.FILE_SYSTEM: {
+
+                const originPackage = await import(origin.originLoadValue);
+
+                if (typeof originPackage.default === "function") {
+
+                    const initialized = originPackage.default.call(null, origin.originPayloads);
+
+                    origins.push(initialized);
+                }
+                break;
             }
         }
     }

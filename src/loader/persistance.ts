@@ -9,6 +9,7 @@ import { OriginPayload } from "../origin/definition";
 export enum IMBRICATE_ORIGIN_LOAD_TYPE {
 
     NPM_PACKAGE = "NPM_PACKAGE",
+    FILE_SYSTEM = "FILE_SYSTEM",
 }
 
 export type ImbricateOriginPersistanceOrigin = {
