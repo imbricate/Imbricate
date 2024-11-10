@@ -7,7 +7,7 @@
     "clean": "rm -rf app",
     "test": "jest",
     "coverage": "jest --coverage",
-    "lint": "eslint src --ext .ts",
+    "lint": "eslint src",
     "build": "tsc --project typescript/tsconfig.build.json",
     "license": "sdb license",
     "release": "yarn lint && yarn test && yarn license && yarn build",

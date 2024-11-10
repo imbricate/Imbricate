@@ -1,12 +1,12 @@
 /**
  * @author WMXPY
  * @namespace Loader
- * @description Origin Loader
+ * @description Definition
  * @override Unit Test
  */
 
 import { IMBRICATE_ORIGIN_LOAD_TYPE, loadImbricateOriginsFromPersistance } from "../../../src";
-import { ImbricateOriginLoader } from "../../../src/origin/loader";
+import { ImbricateOriginLoader } from "../../../src/loader/definition";
 
 describe("Given [Origin Loader] methods", (): void => {
 
