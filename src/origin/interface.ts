@@ -11,10 +11,6 @@ import { IImbricateOriginStaticManager } from "./static-manager";
 export interface IImbricateOrigin {
 
     /**
-     * Origin type
-     */
-    readonly originType: string;
-    /**
      * Unique identifier of the origin
      */
     readonly uniqueIdentifier: string;
