@@ -32,8 +32,6 @@ describe("Given [Origin Loader] methods", (): void => {
         const origins = await loadImbricateOriginsFromPersistance({
             origins: [
                 {
-                    uniqueIdentifier: "unique",
-
                     originLoadType: IMBRICATE_ORIGIN_LOAD_TYPE.NPM_PACKAGE,
                     originLoadValue: "mock-origin",
 
