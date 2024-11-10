@@ -31,5 +31,4 @@ export interface IImbricateOriginDatabaseManager {
         schema: ImbricateDatabaseSchema,
         uniqueIdentifier?: string,
     ): PromiseLike<IImbricateDatabase>;
-
 }
