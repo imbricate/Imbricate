@@ -6,6 +6,7 @@
 
 import { DocumentProperties } from "../document/definition";
 import { IImbricateDocument } from "../document/interface";
+import { ImbricateDocumentQuery } from "./definition";
 import { ImbricateDatabaseSchema } from "./schema";
 
 export interface IImbricateDatabase {
@@ -41,4 +42,15 @@ export interface IImbricateDatabase {
     getDocument(
         uniqueIdentifier: string,
     ): PromiseLike<IImbricateDocument | null>;
+
+    /**
+     * Query documents from the database
+     * 
+     * @param query query of the documents
+     * 
+     * @returns a promise of the documents in the database
+     */
+    queryDocuments(
+        query: ImbricateDocumentQuery,
+    ): PromiseLike<IImbricateDocument[]>;
 }
