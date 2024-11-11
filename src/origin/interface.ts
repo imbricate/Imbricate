@@ -5,6 +5,7 @@
  */
 
 import { IImbricateDatabaseManager } from "../database/manager";
+import { IImbricateStaticManager } from "../static/manager";
 import { IImbricateTextManager } from "../text/manager";
 import { OriginPayload } from "./definition";
 
@@ -29,10 +30,19 @@ export interface IImbricateOrigin {
 
     /**
      * Get the text manager of the origin
+     *  The text manager is used to manage text objects
      * 
      * @returns the text manager
      */
     getTextManager(): IImbricateTextManager;
+
+    /**
+     * Get the static manager of the origin
+     *  The static manager is used to manage static objects
+     * 
+     * @returns the static manager
+     */
+    getStaticManager(): IImbricateStaticManager;
 
     /**
      * Dispose the origin, optional
