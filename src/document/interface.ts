@@ -14,11 +14,6 @@ export interface IImbricateDocument {
     readonly uniqueIdentifier: string;
 
     /**
-     * Document Properties
-     */
-    readonly properties: DocumentProperties;
-
-    /**
      * Update a property from the document
      * 
      * @param key key of the property
@@ -28,6 +23,13 @@ export interface IImbricateDocument {
         key: DocumentPropertyKey,
         value: DocumentPropertyValue,
     ): PromiseLike<void>;
+
+    /**
+     * Get properties from the document
+     * 
+     * @returns a promise of the properties of the document
+     */
+    getProperties(): PromiseLike<DocumentProperties>;
 
     /**
      * Add edit records to the document
