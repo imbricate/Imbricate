@@ -18,11 +18,14 @@ export interface IImbricateDocument {
      * 
      * @param key key of the property
      * @param value value of the property
+     * 
+     * @returns a promise of the edit records of the document
+     *  Note: the edit records will not be added to the document, the best practice is to call addEditRecords to add the edit records.
      */
     putProperty(
         key: DocumentPropertyKey,
         value: DocumentPropertyValue,
-    ): PromiseLike<void>;
+    ): PromiseLike<DocumentEditRecord[]>;
 
     /**
      * Get properties from the document
@@ -39,4 +42,11 @@ export interface IImbricateDocument {
     addEditRecords(
         records: DocumentEditRecord[],
     ): PromiseLike<void>;
+
+    /**
+     * Get edit records of the document
+     * 
+     * @returns a promise of the edit records of the document
+     */
+    getEditRecords(): PromiseLike<DocumentEditRecord[]>;
 }
