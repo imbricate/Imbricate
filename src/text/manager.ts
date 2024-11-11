@@ -11,7 +11,7 @@ export interface IImbricateTextManager {
     /**
      * Get the text object from the origin
      * 
-     * @returns a promise of the static file in Base64
+     * @returns a promise of the text object
      */
     getText(uniqueIdentifier: string): PromiseLike<IImbricateText>;
 
@@ -19,10 +19,10 @@ export interface IImbricateTextManager {
      * Create a new text object in the origin
      * 
      * @param content content of the text
-     * @param uniqueIdentifier unique identifier of the text file, optional
+     * @param uniqueIdentifier unique identifier of the text object, optional
      *  if not provided, a unique identifier will be generated
      * 
-     * @returns a promise of the unique identifier of the static file
+     * @returns a promise of the text object
      */
     createText(
         content: string,

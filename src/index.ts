@@ -15,6 +15,8 @@ export * from "./loader/origin-loader";
 export * from "./loader/persistance";
 export * from "./origin/definition";
 export * from "./origin/interface";
+export * from "./static/interface";
+export * from "./static/manager";
 export * from "./text/interface";
 export * from "./text/manager";
 
