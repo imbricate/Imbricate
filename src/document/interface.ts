@@ -4,7 +4,7 @@
  * @description Interface
  */
 
-import { DocumentProperties } from "./definition";
+import { DocumentEditRecord, DocumentProperties, DocumentPropertyKey, DocumentPropertyValue } from "./definition";
 
 export interface IImbricateDocument {
 
@@ -13,5 +13,28 @@ export interface IImbricateDocument {
      */
     readonly uniqueIdentifier: string;
 
+    /**
+     * Document Properties
+     */
     readonly properties: DocumentProperties;
+
+    /**
+     * Update a property from the document
+     * 
+     * @param key key of the property
+     * @param value value of the property
+     */
+    putProperty(
+        key: DocumentPropertyKey,
+        value: DocumentPropertyValue,
+    ): PromiseLike<void>;
+
+    /**
+     * Add edit records to the document
+     * 
+     * @param records document edit records
+     */
+    addEditRecords(
+        records: DocumentEditRecord[],
+    ): PromiseLike<void>;
 }
