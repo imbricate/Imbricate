@@ -4,7 +4,7 @@
  * @description Interface
  */
 
-import { DocumentProperties, DocumentUniqueIdentifier } from "../document/definition";
+import { DocumentProperties } from "../document/definition";
 import { IImbricateDocument } from "../document/interface";
 import { ImbricateDatabaseSchema } from "./schema";
 
@@ -22,10 +22,15 @@ export interface IImbricateDatabase {
     /**
      * Create a new document in the database
      * 
+     * @param properties properties of the document
+     * @param uniqueIdentifier unique identifier of the document, optional
+     *  if not provided, a unique identifier will be generated
+     * 
      * @returns a promise of the created document
      */
     createDocument(
         properties: DocumentProperties,
+        uniqueIdentifier?: string,
     ): PromiseLike<IImbricateDocument>;
 
     /**
@@ -34,6 +39,6 @@ export interface IImbricateDatabase {
      * @returns a promise of the documents in the database, null if not found
      */
     getDocument(
-        uniqueIdentifier: DocumentUniqueIdentifier,
+        uniqueIdentifier: string,
     ): PromiseLike<IImbricateDocument | null>;
 }

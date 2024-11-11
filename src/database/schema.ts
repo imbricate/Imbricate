@@ -4,11 +4,11 @@
  * @description Schema
  */
 
-import { DocumentUniqueIdentifier, IMBRICATE_PROPERTY_TYPE } from "../document/definition";
+import { IMBRICATE_PROPERTY_TYPE } from "../document/definition";
 
 export type ImbricateDatabaseSchemaProperty = {
 
-    readonly propertyIdentifier: DocumentUniqueIdentifier;
+    readonly propertyIdentifier: string;
     readonly propertyName: string;
 
     readonly propertyType: IMBRICATE_PROPERTY_TYPE;
