@@ -4,8 +4,6 @@
  * @description Interface
  */
 
-import { TextEditRecord } from "./definition";
-
 export interface IImbricateText {
 
     /**
@@ -17,11 +15,8 @@ export interface IImbricateText {
      * Update the content of the text
      * 
      * @param content new content of the text
-     * 
-     * @returns a promise of the edit records of the text
-     *  Note: the edit records will not be added to the text, the best practice is to call addEditRecords to add the edit records.
      */
-    putContent(content: string): PromiseLike<TextEditRecord[]>;
+    putContent(content: string): PromiseLike<void>;
 
     /**
      * Get the content of the text
@@ -29,20 +24,4 @@ export interface IImbricateText {
      * @returns a promise of the content of the text
      */
     getContent(): PromiseLike<string>;
-
-    /**
-     * Add edit records to the text
-     * 
-     * @param records text edit records
-     */
-    addEditRecords(
-        records: TextEditRecord[],
-    ): PromiseLike<void>;
-
-    /**
-     * Get edit records of the text
-     * 
-     * @returns a promise of the edit records of the text
-     */
-    getEditRecords(): PromiseLike<TextEditRecord[]>;
 }
