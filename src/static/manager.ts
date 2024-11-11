@@ -17,6 +17,8 @@ export interface IImbricateStaticManager {
 
     /**
      * Create a new static object in the origin, encoded in base64
+     *  Static object is immutable, once created, it cannot be changed
+     *  Patch a new static object if you want to change the content
      * 
      * @param content content of the static object, encoded in base64
      * @param uniqueIdentifier unique identifier of the static object, optional

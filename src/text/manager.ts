@@ -17,6 +17,8 @@ export interface IImbricateTextManager {
 
     /**
      * Create a new text object in the origin
+     *  Text object is immutable, once created, it cannot be changed
+     *  Patch a new text object if you want to change the content
      * 
      * @param content content of the text
      * @param uniqueIdentifier unique identifier of the text object, optional
