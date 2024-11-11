@@ -28,6 +28,18 @@ export interface IImbricateDocument {
     ): PromiseLike<DocumentEditRecord[]>;
 
     /**
+     * Put and replace all properties of the document
+     * 
+     * @param properties properties of the document
+     * 
+     * @returns a promise of the edit records of the document
+     *  Note: the edit records will not be added to the document, the best practice is to call addEditRecords to add the edit records.
+     */
+    putProperties(
+        properties: DocumentProperties,
+    ): PromiseLike<DocumentEditRecord[]>;
+
+    /**
      * Get properties from the document
      * 
      * @returns a promise of the properties of the document
