@@ -1,13 +1,13 @@
 /**
  * @author WMXPY
- * @namespace Origin
- * @description Database Manager
+ * @namespace Database
+ * @description Manager
  */
 
-import { IImbricateDatabase } from "../database/interface";
-import { ImbricateDatabaseSchema } from "../database/schema";
+import { IImbricateDatabase } from "./interface";
+import { ImbricateDatabaseSchema } from "./schema";
 
-export interface IImbricateOriginDatabaseManager {
+export interface IImbricateDatabaseManager {
 
     /**
      * Get databases from the origin

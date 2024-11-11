@@ -4,9 +4,9 @@
  * @description Interface
  */
 
-import { IImbricateOriginDatabaseManager } from "./database-manager";
+import { IImbricateDatabaseManager } from "../database/manager";
+import { IImbricateTextManager } from "../text/manager";
 import { OriginPayload } from "./definition";
-import { IImbricateOriginStaticManager } from "./static-manager";
 
 export interface IImbricateOrigin {
 
@@ -25,14 +25,14 @@ export interface IImbricateOrigin {
      * 
      * @returns the database manager
      */
-    getDatabaseManager(): IImbricateOriginDatabaseManager;
+    getDatabaseManager(): IImbricateDatabaseManager;
 
     /**
-     * Get the static manager of the origin
+     * Get the text manager of the origin
      * 
-     * @returns the static manager
+     * @returns the text manager
      */
-    getStaticManager(): IImbricateOriginStaticManager;
+    getTextManager(): IImbricateTextManager;
 
     /**
      * Dispose the origin, optional
