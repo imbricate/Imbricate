@@ -11,9 +11,9 @@ export interface IImbricateTextManager {
     /**
      * Get the text object from the origin
      * 
-     * @returns a promise of the text object
+     * @returns a promise of the text object, null if not found
      */
-    getText(uniqueIdentifier: string): PromiseLike<IImbricateText>;
+    getText(uniqueIdentifier: string): PromiseLike<IImbricateText | null>;
 
     /**
      * Create a new text object in the origin

@@ -11,9 +11,9 @@ export interface IImbricateStaticManager {
     /**
      * Get the static object from the origin
      * 
-     * @returns a promise of the static object in Base64
+     * @returns a promise of the static object, null if not found
      */
-    getStatic(uniqueIdentifier: string): PromiseLike<IImbricateStatic>;
+    getStatic(uniqueIdentifier: string): PromiseLike<IImbricateStatic | null>;
 
     /**
      * Create a new static object in the origin, encoded in base64
