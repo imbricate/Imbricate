@@ -12,11 +12,6 @@ export interface IImbricateText {
     readonly uniqueIdentifier: string;
 
     /**
-     * Content of the text
-     */
-    readonly content: string;
-
-    /**
      * Update the content of the text
      * 
      * @param content new content of the text
@@ -29,4 +24,11 @@ export interface IImbricateText {
      * @param content content to append
      */
     appendContent(content: string): PromiseLike<void>;
+
+    /**
+     * Get the content of the text
+     * 
+     * @returns a promise of the content of the text
+     */
+    getContent(): PromiseLike<string>;
 }
