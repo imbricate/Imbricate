@@ -4,6 +4,7 @@
  */
 
 export * from "./author/definition";
+export * from "./database/definition";
 export * from "./database/interface";
 export * from "./database/manager";
 export * from "./database/schema";
