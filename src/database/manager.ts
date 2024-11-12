@@ -5,7 +5,7 @@
  */
 
 import { IImbricateDatabase } from "./interface";
-import { ImbricateDatabaseSchema } from "./schema";
+import { ImbricateDatabaseSchema_Creation } from "./schema";
 
 export interface IImbricateDatabaseManager {
 
@@ -28,7 +28,7 @@ export interface IImbricateDatabaseManager {
      */
     createDatabase(
         databaseName: string,
-        schema: ImbricateDatabaseSchema,
+        schema: ImbricateDatabaseSchema_Creation,
         uniqueIdentifier?: string,
     ): PromiseLike<IImbricateDatabase>;
 }
