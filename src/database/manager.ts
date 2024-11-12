@@ -5,16 +5,27 @@
  */
 
 import { IImbricateDatabase } from "./interface";
-import { ImbricateDatabaseSchema_Creation } from "./schema";
+import { ImbricateDatabaseSchemaForCreation } from "./schema";
 
 export interface IImbricateDatabaseManager {
 
     /**
-     * Get databases from the origin
+     * List all databases in the origin
      * 
      * @returns a promise of the databases in the origin
      */
-    getDatabases(): PromiseLike<IImbricateDatabase[]>;
+    listDatabases(): PromiseLike<IImbricateDatabase[]>;
+
+    /**
+     * Get one database from the origin
+     * 
+     * @param uniqueIdentifier unique identifier of the database
+     * 
+     * @returns a promise of the database, null if not found
+     */
+    getDatabase(
+        uniqueIdentifier: string,
+    ): PromiseLike<IImbricateDatabase | null>;
 
     /**
      * Create a new database
@@ -28,7 +39,7 @@ export interface IImbricateDatabaseManager {
      */
     createDatabase(
         databaseName: string,
-        schema: ImbricateDatabaseSchema_Creation,
+        schema: ImbricateDatabaseSchemaForCreation,
         uniqueIdentifier?: string,
     ): PromiseLike<IImbricateDatabase>;
 }

@@ -9,9 +9,9 @@ import { IMBRICATE_PROPERTY_TYPE } from "../document/definition";
 export type ImbricateDatabaseSchemaProperty = {
 
     readonly propertyIdentifier: string;
-} & ImbricateDatabaseSchemaProperty_Creation;
+} & ImbricateDatabaseSchemaPropertyForCreation;
 
-export type ImbricateDatabaseSchemaProperty_Creation = {
+export type ImbricateDatabaseSchemaPropertyForCreation = {
 
     readonly propertyName: string;
     readonly propertyType: IMBRICATE_PROPERTY_TYPE;
@@ -22,7 +22,7 @@ export type ImbricateDatabaseSchema = {
     readonly properties: ImbricateDatabaseSchemaProperty[];
 };
 
-export type ImbricateDatabaseSchema_Creation = {
+export type ImbricateDatabaseSchemaForCreation = {
 
-    readonly properties: ImbricateDatabaseSchemaProperty_Creation[];
+    readonly properties: ImbricateDatabaseSchemaPropertyForCreation[];
 };
