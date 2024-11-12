@@ -4,7 +4,8 @@
  * @description Interface
  */
 
-import { DocumentEditRecord, DocumentProperties, DocumentPropertyKey, DocumentPropertyValue } from "./definition";
+import { DocumentEditRecord } from "./definition";
+import { DocumentProperties, DocumentPropertyKey, DocumentPropertyValue } from "./property";
 
 export interface IImbricateDocument {
 

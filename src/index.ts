@@ -10,6 +10,7 @@ export * from "./database/manager";
 export * from "./database/schema";
 export * from "./document/definition";
 export * from "./document/interface";
+export * from "./document/property";
 export * from "./loader/definition";
 export * from "./loader/origin-loader";
 export * from "./loader/persistance";

@@ -4,8 +4,8 @@
  * @description Interface
  */
 
-import { DocumentProperties } from "../document/definition";
 import { IImbricateDocument } from "../document/interface";
+import { DocumentProperties } from "../document/property";
 import { ImbricateDocumentQuery } from "./definition";
 import { ImbricateDatabaseSchema } from "./schema";
 
