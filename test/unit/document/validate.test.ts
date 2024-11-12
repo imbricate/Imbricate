@@ -21,14 +21,14 @@ describe("Given [Document Validate] methods", (): void => {
             ],
         };
 
-        const result: boolean = validateImbricateProperties({
+        const result: string | null = validateImbricateProperties({
             test: {
                 type: IMBRICATE_PROPERTY_TYPE.STRING,
                 value: "test",
             },
         }, testSchema as any);
 
-        expect(result).toBeTruthy();
+        expect(result).toBeNull();
     });
 
     test("should be able to invalidate property - not object", (): void => {
@@ -43,9 +43,9 @@ describe("Given [Document Validate] methods", (): void => {
             ],
         };
 
-        const result: boolean = validateImbricateProperties("test" as any, testSchema as any);
+        const result: string | null = validateImbricateProperties("test" as any, testSchema as any);
 
-        expect(result).toBeFalsy();
+        expect(typeof result).toStrictEqual("string");
     });
 
     test("should be able to invalidate property - invalid property", (): void => {
@@ -60,14 +60,14 @@ describe("Given [Document Validate] methods", (): void => {
             ],
         };
 
-        const result: boolean = validateImbricateProperties({
+        const result: string | null = validateImbricateProperties({
             notExist: {
                 type: IMBRICATE_PROPERTY_TYPE.STRING,
                 value: "test",
             },
         }, testSchema as any);
 
-        expect(result).toBeFalsy();
+        expect(typeof result).toStrictEqual("string");
     });
 
     test("should be able to invalidate property - invalid property type", (): void => {
@@ -82,13 +82,13 @@ describe("Given [Document Validate] methods", (): void => {
             ],
         };
 
-        const result: boolean = validateImbricateProperties({
+        const result: string | null = validateImbricateProperties({
             test: {
                 type: "INVALID" as any,
                 value: "test",
             },
         }, testSchema as any);
 
-        expect(result).toBeFalsy();
+        expect(typeof result).toStrictEqual("string");
     });
 });

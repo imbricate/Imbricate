@@ -6,6 +6,7 @@
  */
 
 import { validateImbricateSchema } from "../../../src/database/schema";
+import { IMBRICATE_PROPERTY_TYPE } from "../../../src/document/property";
 
 describe("Given [Database Schema] methods", (): void => {
 
@@ -16,14 +17,14 @@ describe("Given [Database Schema] methods", (): void => {
                 {
                     propertyIdentifier: "test",
                     propertyName: "test",
-                    propertyType: "STRING",
+                    propertyType: IMBRICATE_PROPERTY_TYPE.STRING,
                 },
             ],
         };
 
-        const result: boolean = validateImbricateSchema(testSchema);
+        const result: string | null = validateImbricateSchema(testSchema);
 
-        expect(result).toBeTruthy();
+        expect(result).toBeNull();
     });
 
     test("should be able to invalidate schema - properties not array", (): void => {
@@ -32,9 +33,9 @@ describe("Given [Database Schema] methods", (): void => {
             properties: "test",
         };
 
-        const result: boolean = validateImbricateSchema(testSchema);
+        const result: string | null = validateImbricateSchema(testSchema);
 
-        expect(result).toBeFalsy();
+        expect(typeof result).toStrictEqual("string");
     });
 
     test("should be able to invalidate schema - invalid property", (): void => {
@@ -48,9 +49,9 @@ describe("Given [Database Schema] methods", (): void => {
             ],
         };
 
-        const result: boolean = validateImbricateSchema(testSchema);
+        const result: string | null = validateImbricateSchema(testSchema);
 
-        expect(result).toBeFalsy();
+        expect(typeof result).toStrictEqual("string");
     });
 
     test("should be able to invalidate schema - invalid property type", (): void => {
@@ -65,9 +66,9 @@ describe("Given [Database Schema] methods", (): void => {
             ],
         };
 
-        const result: boolean = validateImbricateSchema(testSchema);
+        const result: string | null = validateImbricateSchema(testSchema);
 
-        expect(result).toBeFalsy();
+        expect(typeof result).toStrictEqual("string");
     });
 
     test("should be able to invalidate schema - duplicate property name", (): void => {
@@ -77,18 +78,18 @@ describe("Given [Database Schema] methods", (): void => {
                 {
                     propertyIdentifier: "test",
                     propertyName: "test",
-                    propertyType: "STRING",
+                    propertyType: IMBRICATE_PROPERTY_TYPE.STRING,
                 },
                 {
                     propertyIdentifier: "test",
                     propertyName: "test",
-                    propertyType: "STRING",
+                    propertyType: IMBRICATE_PROPERTY_TYPE.STRING,
                 },
             ],
         };
 
-        const result: boolean = validateImbricateSchema(testSchema);
+        const result: string | null = validateImbricateSchema(testSchema);
 
-        expect(result).toBeFalsy();
+        expect(typeof result).toStrictEqual("string");
     });
 });

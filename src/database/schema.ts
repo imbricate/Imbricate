@@ -27,39 +27,60 @@ export type ImbricateDatabaseSchemaForCreation = {
     readonly properties: ImbricateDatabaseSchemaPropertyForCreation[];
 };
 
-export const validateImbricateSchemaProperty = (property: ImbricateDatabaseSchemaProperty): boolean => {
+/**
+ * Validate a schema property
+ * 
+ * @param property property to validate
+ * 
+ * @returns a string error message if validation failed
+ *      null if validation passed
+ */
+export const validateImbricateSchemaProperty = (
+    property: ImbricateDatabaseSchemaProperty,
+): string | null => {
 
     if (typeof property.propertyIdentifier !== "string") {
-        return false;
+        return "Property identifier must be a string";
     }
     if (typeof property.propertyName !== "string") {
-        return false;
+        return "Property name must be a string";
     }
     if (!Object.values(IMBRICATE_PROPERTY_TYPE).includes(property.propertyType)) {
-        return false;
+        return "Property type must be a valid type";
     }
 
-    return true;
+    return null;
 };
 
-export const validateImbricateSchema = (schema: ImbricateDatabaseSchema): boolean => {
+/**
+ * Validate a schema
+ * 
+ * @param schema database schema to validate
+ * 
+ * @returns a string error message if validation failed
+ *    null if validation passed
+ */
+export const validateImbricateSchema = (
+    schema: ImbricateDatabaseSchema,
+): string | null => {
 
     if (!Array.isArray(schema.properties)) {
-        return false;
+        return "Properties must be an array";
     }
 
     const propertyNames: Set<string> = new Set();
     for (const property of schema.properties) {
 
-        if (!validateImbricateSchemaProperty(property)) {
-            return false;
+        const propertyValidationResult: string | null = validateImbricateSchemaProperty(property);
+        if (typeof propertyValidationResult === "string") {
+            return `Invalid property ${property.propertyName}, ${propertyValidationResult}`;
         }
 
         if (propertyNames.has(property.propertyName)) {
-            return false;
+            return `Duplicated property name ${property.propertyName}`;
         }
         propertyNames.add(property.propertyName);
     }
 
-    return true;
+    return null;
 };
