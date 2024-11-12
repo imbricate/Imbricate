@@ -5,7 +5,7 @@
  */
 
 import { ImbricateDatabaseSchema } from "../database/schema";
-import { DocumentProperties, DocumentPropertyValue } from "./property";
+import { DocumentProperties, DocumentPropertyValue, IMBRICATE_PROPERTY_TYPE } from "./property";
 
 /**
  * Validate properties with schema
@@ -42,6 +42,22 @@ export const validateImbricateProperties = (
 
         if (value.type !== property.propertyType) {
             return `Property ${key} type must be ${property.propertyType}, but got ${value.type}`;
+        }
+
+        switch (value.type) {
+
+            case IMBRICATE_PROPERTY_TYPE.STRING: {
+                if (typeof value.value !== "string") {
+                    return `Property ${key} value must be a string`;
+                }
+                break;
+            }
+            case IMBRICATE_PROPERTY_TYPE.MARKDOWN: {
+                if (typeof value.value !== "string") {
+                    return `Property ${key} value must be a string of text object reference`;
+                }
+                break;
+            }
         }
     }
 
