@@ -19,25 +19,33 @@ export interface IImbricateDocument {
      * 
      * @param key key of the property
      * @param value value of the property
+     * @param noEditRecord do not add edit record, optional
+     *  Default to false, if set to true, the edit record will not be added to the document
      * 
      * @returns a promise of the edit records of the document
-     *  Note: the edit records will not be added to the document, the best practice is to call addEditRecords to add the edit records.
+     *  Note: the edit records will not be added to the document if `noEditRecord` is true,
+     *  Call `addEditRecords` to add the edit records manually.
      */
     putProperty(
         key: DocumentPropertyKey,
         value: DocumentPropertyValue,
+        noEditRecord?: boolean,
     ): PromiseLike<DocumentEditRecord[]>;
 
     /**
      * Put and replace all properties of the document
      * 
      * @param properties properties of the document
+     * @param noEditRecord do not add edit record, optional
+     *  Default to false, if set to true, the edit record will not be added to the document
      * 
      * @returns a promise of the edit records of the document
-     *  Note: the edit records will not be added to the document, the best practice is to call addEditRecords to add the edit records.
+     *  Note: the edit records will not be added to the document if `noEditRecord` is true,
+     *  Call `addEditRecords` to add the edit records manually.
      */
     putProperties(
         properties: DocumentProperties,
+        noEditRecord?: boolean,
     ): PromiseLike<DocumentEditRecord[]>;
 
     /**
