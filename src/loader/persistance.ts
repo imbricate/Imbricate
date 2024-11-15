@@ -6,6 +6,12 @@
 
 import { OriginPayload } from "../origin/definition";
 
+/**
+ * Imbricate Origin Load Type
+ * 
+ * NPM_PACKAGE - load origin from npm package, as package name
+ * FILE_SYSTEM - load origin from file system, as file path
+ */
 export enum IMBRICATE_ORIGIN_LOAD_TYPE {
 
     NPM_PACKAGE = "NPM_PACKAGE",

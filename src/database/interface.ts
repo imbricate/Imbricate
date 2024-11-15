@@ -44,6 +44,8 @@ export interface IImbricateDatabase {
     /**
      * Get one document from the database
      * 
+     * @param uniqueIdentifier unique identifier of the document
+     * 
      * @returns a promise of the documents in the database, null if not found
      */
     getDocument(

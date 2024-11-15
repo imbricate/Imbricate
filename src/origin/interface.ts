@@ -47,6 +47,11 @@ export interface IImbricateOrigin {
     /**
      * Dispose the origin, optional
      * This method will be called when the origin is no longer needed
+     * 
+     * If the origin needs to dispose resources, override this method
+     *  else, do not implement this method
+     * 
+     * Example: close database connection, or close file system
      */
     dispose?(): PromiseLike<void>;
 }

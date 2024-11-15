@@ -4,12 +4,21 @@
  * @description Property
  */
 
+/**
+ * Document properties
+ * 
+ * STRING - string, store as plain text
+ * MARKDOWN - markdown, store as text object unique identifier. Display as markdown
+ */
 export enum IMBRICATE_PROPERTY_TYPE {
 
     STRING = "STRING",
     MARKDOWN = "MARKDOWN",
 }
 
+/**
+ * Document properties
+ */
 export type DocumentProperties = Record<DocumentPropertyKey, DocumentPropertyValue>;
 
 export type DocumentPropertyKey = string;
