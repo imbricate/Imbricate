@@ -19,6 +19,9 @@ export type DocumentPropertyValue = {
     readonly value: any;
 };
 
+/**
+ * Edit record type of the document
+ */
 export enum IMBRICATE_DOCUMENT_EDIT_TYPE {
 
     PUT = "PUT",
