@@ -16,12 +16,16 @@ export interface IImbricateDatabase {
      */
     readonly uniqueIdentifier: string;
 
+    /**
+     * Name of the database
+     */
     readonly databaseName: string;
 
     readonly schema: ImbricateDatabaseSchema;
 
     /**
      * Create a new document in the database
+     *  If origin supports Document Edit Record, the edit record will be added by default
      * 
      * @param properties properties of the document
      * @param uniqueIdentifier unique identifier of the document, optional
