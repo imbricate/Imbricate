@@ -56,18 +56,24 @@ export interface IImbricateDocument {
     getProperties(): PromiseLike<DocumentProperties>;
 
     /**
-     * Add edit records to the document
+     * Add edit records to the document, optional
+     *  This method is optional, if not implemented, means the origin
+     *  1. The origin does not support edit records
+     *  2. The origin force to add edit records when put properties
      * 
      * @param records document edit records
      */
-    addEditRecords(
+    addEditRecords?(
         records: DocumentEditRecord[],
     ): PromiseLike<void>;
 
     /**
-     * Get edit records of the document
+     * Get edit records of the document, optional
+     *  This method is optional, if not implemented, means the origin
+     *  1. The origin does not support edit records
+     *  2. The origin force to add edit records when put properties
      * 
      * @returns a promise of the edit records of the document
      */
-    getEditRecords(): PromiseLike<DocumentEditRecord[]>;
+    getEditRecords?(): PromiseLike<DocumentEditRecord[]>;
 }
