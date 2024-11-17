@@ -19,14 +19,19 @@ export enum IMBRICATE_PROPERTY_TYPE {
 /**
  * Document properties
  */
-export type DocumentProperties = Record<DocumentPropertyKey, DocumentPropertyValue>;
+export type DocumentProperties = Record<DocumentPropertyKey, DocumentPropertyValue<IMBRICATE_PROPERTY_TYPE>>;
 
 export type DocumentPropertyKey = string;
-export type DocumentPropertyValue = {
+export type DocumentPropertyValue<T extends IMBRICATE_PROPERTY_TYPE> = {
 
     readonly type: IMBRICATE_PROPERTY_TYPE;
-    readonly value: any;
+    readonly value: DocumentPropertyValueObject<T>;
 };
+
+export type DocumentPropertyValueObject<T extends IMBRICATE_PROPERTY_TYPE> =
+    T extends IMBRICATE_PROPERTY_TYPE.STRING ? string :
+    T extends IMBRICATE_PROPERTY_TYPE.MARKDOWN ? string :
+    never;
 
 /**
  * Edit record type of the document
