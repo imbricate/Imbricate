@@ -28,6 +28,7 @@ export interface IImbricateDatabase {
 
     /**
      * Put and replace the schema of the database
+     *  Existing documents will still be kept, and stays unchanged
      * 
      * @param schema schema of the database
      * @param noEditRecord do not add edit record, optional
