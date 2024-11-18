@@ -52,7 +52,7 @@ export class ImbricateDocumentPropertyTriageManager<Result> {
         triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.STRING, Result>,
     ): this {
 
-        this._triageFunctionsByType[IMBRICATE_PROPERTY_TYPE.STRING] = triageFunction;
+        this._triageFunctionsByType.set(IMBRICATE_PROPERTY_TYPE.STRING, triageFunction);
         return this;
     }
 
@@ -60,7 +60,7 @@ export class ImbricateDocumentPropertyTriageManager<Result> {
         triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.MARKDOWN, Result>,
     ): this {
 
-        this._triageFunctionsByType[IMBRICATE_PROPERTY_TYPE.MARKDOWN] = triageFunction;
+        this._triageFunctionsByType.set(IMBRICATE_PROPERTY_TYPE.MARKDOWN, triageFunction);
         return this;
     }
 
@@ -113,15 +113,15 @@ export class ImbricateDocumentPropertyTriageManager<Result> {
             const property = this._properties[key];
             const triageFunction = this._triageFunctionsByKey.get(key);
 
-            if (triageFunction) {
+            if (typeof triageFunction === "function") {
 
                 const value: Result = triageFunction(key, property);
                 result.set(key, value);
                 continue;
             }
 
-            const typeFunction = this._triageFunctionsByType[property.type];
-            if (typeFunction) {
+            const typeFunction = this._triageFunctionsByType.get(property.type);
+            if (typeof typeFunction === "function") {
 
                 const value: Result = typeFunction(key, property);
                 result.set(key, value);

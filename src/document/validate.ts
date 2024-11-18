@@ -35,7 +35,7 @@ export const validateImbricateProperties = (
             return `Property ${key} not found in schema`;
         }
 
-        const value: DocumentPropertyValue = properties[key];
+        const value: DocumentPropertyValue<IMBRICATE_PROPERTY_TYPE> = properties[key];
         if (typeof value.type !== "string") {
             return `Property ${key} type must be a string`;
         }
