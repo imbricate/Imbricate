@@ -6,7 +6,7 @@
 
 import { IImbricateDocument } from "../document/interface";
 import { DocumentProperties } from "../document/property";
-import { ImbricateDocumentQuery } from "./definition";
+import { DatabaseEditRecord, ImbricateDocumentQuery } from "./definition";
 import { ImbricateDatabaseSchema } from "./schema";
 
 export interface IImbricateDatabase {
@@ -25,6 +25,21 @@ export interface IImbricateDatabase {
      * Schema of the database
      */
     readonly schema: ImbricateDatabaseSchema;
+
+    /**
+     * Put and replace the schema of the database
+     * 
+     * @param schema schema of the database
+     * @param noEditRecord do not add edit record, optional
+     * 
+     * @returns a promise of the updated schema
+     *  Note: if the origin supports Document Edit Record, the edit record will be added by default
+     *  If you do not want to add the edit record, set `noEditRecord` to true
+     */
+    putSchema(
+        schema: ImbricateDatabaseSchema,
+        noEditRecord?: boolean,
+    ): PromiseLike<void>;
 
     /**
      * Create a new document in the database
@@ -62,4 +77,26 @@ export interface IImbricateDatabase {
     queryDocuments(
         query: ImbricateDocumentQuery,
     ): PromiseLike<IImbricateDocument[]>;
+
+    /**
+     * Add edit records to the database, optional
+     *  This method is optional, if not implemented, means the origin
+     *  1. The origin does not support edit records
+     *  2. The origin force to add edit records when put properties
+     * 
+     * @param records database edit records
+     */
+    addEditRecords?(
+        records: DatabaseEditRecord[],
+    ): PromiseLike<void>;
+
+    /**
+     * Get edit records of the database, optional
+     *  This method is optional, if not implemented, means the origin
+     *  1. The origin does not support edit records
+     *  2. The origin force to add edit records when put properties
+     * 
+     * @returns a promise of the edit records of the database
+     */
+    getEditRecords?(): PromiseLike<DatabaseEditRecord[]>;
 }
