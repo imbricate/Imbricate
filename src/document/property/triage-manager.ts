@@ -5,7 +5,7 @@
  */
 
 import { IMBRICATE_PROPERTY_TYPE } from "../property";
-import { DocumentPropertyTriageFunction } from "./definiton";
+import { DocumentPropertyTriageFunction } from "./definition";
 
 export class ImbricateDocumentPropertyTriageManager<Result> {
 
