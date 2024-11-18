@@ -9,8 +9,8 @@ import { DocumentPropertyTriageFunction } from "./definition";
 
 export class ImbricateDocumentPropertyTriageBase<Result> {
 
-    private readonly _triageFunctionsByKey: Map<string, DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE, Result>>;
-    private readonly _triageFunctionsByType: Map<IMBRICATE_PROPERTY_TYPE, DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE, Result>>;
+    private readonly _triageFunctionsByKey: Map<string, DocumentPropertyTriageFunction<any, Result>>;
+    private readonly _triageFunctionsByType: Map<IMBRICATE_PROPERTY_TYPE, DocumentPropertyTriageFunction<any, Result>>;
 
     protected constructor() {
 

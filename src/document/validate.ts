@@ -4,7 +4,7 @@
  * @description Validate
  */
 
-import { ImbricateDatabaseSchema } from "../database/schema";
+import { ImbricateDatabaseSchema, ImbricateDatabaseSchemaProperty } from "../database/schema";
 import { DocumentProperties, DocumentPropertyValue, IMBRICATE_PROPERTY_TYPE } from "./property";
 
 /**
@@ -28,8 +28,8 @@ export const validateImbricateProperties = (
     const keys: string[] = Object.keys(properties);
     for (const key of keys) {
 
-        const property = schema.properties.find((each) => {
-            return each.propertyName === key;
+        const property = schema.properties.find((each: ImbricateDatabaseSchemaProperty) => {
+            return each.propertyIdentifier === key;
         });
         if (!property) {
             return `Property ${key} not found in schema`;

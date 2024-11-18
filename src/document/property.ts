@@ -18,13 +18,19 @@ export enum IMBRICATE_PROPERTY_TYPE {
 
 /**
  * Document properties
+ * 
+ * Key - Property key, which should match schema properties unique identifier
+ * Value - Property value, which should match schema properties type
  */
 export type DocumentProperties = Record<DocumentPropertyKey, DocumentPropertyValue<IMBRICATE_PROPERTY_TYPE>>;
 
+/**
+ * Document property key, which should match schema properties unique identifier
+ */
 export type DocumentPropertyKey = string;
 export type DocumentPropertyValue<T extends IMBRICATE_PROPERTY_TYPE> = {
 
-    readonly type: IMBRICATE_PROPERTY_TYPE;
+    readonly type: T;
     readonly value: DocumentPropertyValueObject<T>;
 };
 
