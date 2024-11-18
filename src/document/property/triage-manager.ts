@@ -9,8 +9,19 @@ import { DocumentPropertyTriageFunction } from "./definition";
 
 export class ImbricateDocumentPropertyTriageManager<Result> {
 
+    public static fromScratch<Result>(): ImbricateDocumentPropertyTriageManager<Result> {
+
+        return new ImbricateDocumentPropertyTriageManager<Result>();
+    }
+
     private readonly _triageFunctionsByKey: Map<string, DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE, Result>>;
     private readonly _triageFunctionsByType: Map<IMBRICATE_PROPERTY_TYPE, DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE, Result>>;
+
+    private constructor() {
+
+        this._triageFunctionsByKey = new Map();
+        this._triageFunctionsByType = new Map();
+    }
 
     /**
      * Set triage function for property key,
