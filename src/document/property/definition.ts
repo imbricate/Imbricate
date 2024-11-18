@@ -4,7 +4,9 @@
  * @description Definition
  */
 
-import { DocumentPropertyValue, IMBRICATE_PROPERTY_TYPE } from "../property";
+import { DocumentPropertyKey, DocumentPropertyValue, IMBRICATE_PROPERTY_TYPE } from "../property";
 
-export type DocumentPropertyTriageFunction<T extends IMBRICATE_PROPERTY_TYPE, Result> =
-    (value: DocumentPropertyValue<T>) => Result;
+export type DocumentPropertyTriageFunction<T extends IMBRICATE_PROPERTY_TYPE, Result> = (
+    propertyKey: DocumentPropertyKey,
+    value: DocumentPropertyValue<T>
+) => Result;
