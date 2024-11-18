@@ -17,7 +17,7 @@ export * from "./document/property/triage-manager";
 export * from "./document/validate";
 export * from "./loader/definition";
 export * from "./loader/origin-loader";
-export * from "./loader/persistance";
+export * from "./loader/persistence";
 export * from "./origin/definition";
 export * from "./origin/interface";
 export * from "./static/interface";

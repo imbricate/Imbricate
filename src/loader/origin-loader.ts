@@ -5,20 +5,20 @@
  */
 
 import { IImbricateOrigin } from "../origin/interface";
-import { IMBRICATE_ORIGIN_LOAD_TYPE, ImbricateOriginPersistance, ImbricateOriginPersistanceOrigin } from "./persistance";
+import { IMBRICATE_ORIGIN_LOAD_TYPE, ImbricateOriginPersistence, ImbricateOriginPersistenceOrigin } from "./persistence";
 
 /**
- * Load imbricate origin from persistance origin
- *  This function will load the origin from the persistance origin
+ * Load imbricate origin from persistence origin
+ *  This function will load the origin from the persistence origin
  *  and initialize the origin with the payloads
  * 
- * @param origin origin to persistance to load
+ * @param origin origin to persistence to load
  * 
  * @returns a promise of the loaded origin
  *  if the origin is not found, return null
  */
-export const loadImbricateOriginFromPersistanceOrigin = async (
-    origin: ImbricateOriginPersistanceOrigin,
+export const loadImbricateOriginFromPersistenceOrigin = async (
+    origin: ImbricateOriginPersistenceOrigin,
 ): Promise<IImbricateOrigin | null> => {
 
     switch (origin.originLoadType) {
@@ -60,24 +60,24 @@ export const loadImbricateOriginFromPersistanceOrigin = async (
 };
 
 /**
- * Load imbricate origins from persistance
- *  This function will load all origins from the persistance
+ * Load imbricate origins from persistence
+ *  This function will load all origins from the persistence
  *  and initialize the origins with the payloads
  *  If the origin is not found, it will be ignored
  * 
- * @param persistance persistance to load origins
+ * @param persistence persistence to load origins
  *  
  * @returns a promise of the loaded origins, if the origin is not found, return empty array
  */
-export const loadImbricateOriginsFromPersistance = async (
-    persistance: ImbricateOriginPersistance,
+export const loadImbricateOriginsFromPersistence = async (
+    persistence: ImbricateOriginPersistence,
 ): Promise<IImbricateOrigin[]> => {
 
     const origins: IImbricateOrigin[] = [];
 
-    for (const origin of persistance.origins) {
+    for (const origin of persistence.origins) {
 
-        const originInstance: IImbricateOrigin | null = await loadImbricateOriginFromPersistanceOrigin(origin);
+        const originInstance: IImbricateOrigin | null = await loadImbricateOriginFromPersistenceOrigin(origin);
 
         if (originInstance) {
             origins.push(originInstance);

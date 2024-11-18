@@ -1,7 +1,7 @@
 /**
  * @author WMXPY
  * @namespace Loader
- * @description Persistance
+ * @description Persistence
  */
 
 import { OriginPayload } from "../origin/definition";
@@ -18,7 +18,7 @@ export enum IMBRICATE_ORIGIN_LOAD_TYPE {
     FILE_SYSTEM = "FILE_SYSTEM",
 }
 
-export type ImbricateOriginPersistanceOrigin = {
+export type ImbricateOriginPersistenceOrigin = {
 
     readonly originLoadType: IMBRICATE_ORIGIN_LOAD_TYPE;
     readonly originLoadValue: string;
@@ -28,7 +28,7 @@ export type ImbricateOriginPersistanceOrigin = {
     readonly originPayloads: OriginPayload;
 };
 
-export type ImbricateOriginPersistance = {
+export type ImbricateOriginPersistence = {
 
-    readonly origins: ImbricateOriginPersistanceOrigin[];
+    readonly origins: ImbricateOriginPersistenceOrigin[];
 };

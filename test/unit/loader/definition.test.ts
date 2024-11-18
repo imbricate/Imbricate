@@ -5,7 +5,7 @@
  * @override Unit Test
  */
 
-import { IMBRICATE_ORIGIN_LOAD_TYPE, loadImbricateOriginsFromPersistance } from "../../../src";
+import { IMBRICATE_ORIGIN_LOAD_TYPE, loadImbricateOriginsFromPersistence } from "../../../src";
 import { ImbricateOriginLoader } from "../../../src/loader/definition";
 
 describe("Given [Origin Loader] methods", (): void => {
@@ -29,7 +29,7 @@ describe("Given [Origin Loader] methods", (): void => {
             virtual: true,
         });
 
-        const origins = await loadImbricateOriginsFromPersistance({
+        const origins = await loadImbricateOriginsFromPersistence({
             origins: [
                 {
                     originLoadType: IMBRICATE_ORIGIN_LOAD_TYPE.NPM_PACKAGE,
