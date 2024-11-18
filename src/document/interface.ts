@@ -5,7 +5,7 @@
  */
 
 import { DocumentEditRecord } from "./definition";
-import { DocumentProperties, DocumentPropertyKey, DocumentPropertyValue } from "./property";
+import { DocumentProperties, DocumentPropertyKey, DocumentPropertyValue, IMBRICATE_PROPERTY_TYPE } from "./property";
 
 export interface IImbricateDocument {
 
@@ -28,7 +28,7 @@ export interface IImbricateDocument {
      */
     putProperty(
         key: DocumentPropertyKey,
-        value: DocumentPropertyValue,
+        value: DocumentPropertyValue<IMBRICATE_PROPERTY_TYPE>,
         noEditRecord?: boolean,
     ): PromiseLike<DocumentEditRecord[]>;
 
