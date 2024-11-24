@@ -46,15 +46,38 @@ export const validateImbricateProperties = (
 
         switch (value.type) {
 
+            case IMBRICATE_PROPERTY_TYPE.BOOLEAN: {
+                if (typeof value.value !== "boolean") {
+                    return `Property ${key} value must be a boolean`;
+                }
+                break;
+            }
             case IMBRICATE_PROPERTY_TYPE.STRING: {
                 if (typeof value.value !== "string") {
                     return `Property ${key} value must be a string`;
                 }
                 break;
             }
+            case IMBRICATE_PROPERTY_TYPE.NUMBER: {
+                if (typeof value.value !== "number") {
+                    return `Property ${key} value must be a number`;
+                }
+                break;
+            }
             case IMBRICATE_PROPERTY_TYPE.MARKDOWN: {
                 if (typeof value.value !== "string") {
                     return `Property ${key} value must be a string of text object reference`;
+                }
+                break;
+            }
+            case IMBRICATE_PROPERTY_TYPE.REFERENCE: {
+                if (!Array.isArray(value.value)) {
+                    return `Property ${key} value must be an array of string`;
+                }
+                for (const reference of value.value) {
+                    if (typeof reference !== "string") {
+                        return `Property ${key} value must be an array of string, but got ${typeof reference}`;
+                    }
                 }
                 break;
             }

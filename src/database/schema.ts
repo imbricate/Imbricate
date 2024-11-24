@@ -11,17 +11,21 @@ export type ImbricateDatabaseSchemaProperty<T extends IMBRICATE_PROPERTY_TYPE> =
     readonly propertyIdentifier: string;
 } & ImbricateDatabaseSchemaPropertyForCreation<T>;
 
-export type ImbricateDatabaseSchemaPropertyOption<T extends IMBRICATE_PROPERTY_TYPE> =
-    T extends IMBRICATE_PROPERTY_TYPE.STRING ? string :
-    T extends IMBRICATE_PROPERTY_TYPE.NUMBER ? number :
-    T extends IMBRICATE_PROPERTY_TYPE.MARKDOWN ? string :
+export type ImbricateDatabaseSchemaPropertyOptions<T extends IMBRICATE_PROPERTY_TYPE> =
+    T extends IMBRICATE_PROPERTY_TYPE.BOOLEAN ? {} :
+    T extends IMBRICATE_PROPERTY_TYPE.STRING ? {} :
+    T extends IMBRICATE_PROPERTY_TYPE.NUMBER ? {} :
+    T extends IMBRICATE_PROPERTY_TYPE.MARKDOWN ? {} :
+    T extends IMBRICATE_PROPERTY_TYPE.REFERENCE ? {
+        readonly allowMultiple: boolean;
+    } :
     never;
 
 export type ImbricateDatabaseSchemaPropertyForCreation<T extends IMBRICATE_PROPERTY_TYPE> = {
 
     readonly propertyName: string;
     readonly propertyType: T;
-    readonly propertyOptions?: Record<string, any>;
+    readonly propertyOptions: ImbricateDatabaseSchemaPropertyOptions<T>;
 };
 
 export type ImbricateDatabaseSchema = {
