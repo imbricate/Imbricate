@@ -13,7 +13,9 @@
 export enum IMBRICATE_PROPERTY_TYPE {
 
     STRING = "STRING",
+    NUMBER = "NUMBER",
     MARKDOWN = "MARKDOWN",
+    REFERENCE = "REFERENCE",
 }
 
 /**
@@ -36,6 +38,7 @@ export type DocumentPropertyValue<T extends IMBRICATE_PROPERTY_TYPE> = {
 
 export type DocumentPropertyValueObject<T extends IMBRICATE_PROPERTY_TYPE> =
     T extends IMBRICATE_PROPERTY_TYPE.STRING ? string :
+    T extends IMBRICATE_PROPERTY_TYPE.NUMBER ? number :
     T extends IMBRICATE_PROPERTY_TYPE.MARKDOWN ? string :
     never;
 

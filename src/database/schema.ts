@@ -6,25 +6,32 @@
 
 import { IMBRICATE_PROPERTY_TYPE } from "../document/property";
 
-export type ImbricateDatabaseSchemaProperty = {
+export type ImbricateDatabaseSchemaProperty<T extends IMBRICATE_PROPERTY_TYPE> = {
 
     readonly propertyIdentifier: string;
-} & ImbricateDatabaseSchemaPropertyForCreation;
+} & ImbricateDatabaseSchemaPropertyForCreation<T>;
 
-export type ImbricateDatabaseSchemaPropertyForCreation = {
+export type ImbricateDatabaseSchemaPropertyOption<T extends IMBRICATE_PROPERTY_TYPE> =
+    T extends IMBRICATE_PROPERTY_TYPE.STRING ? string :
+    T extends IMBRICATE_PROPERTY_TYPE.NUMBER ? number :
+    T extends IMBRICATE_PROPERTY_TYPE.MARKDOWN ? string :
+    never;
+
+export type ImbricateDatabaseSchemaPropertyForCreation<T extends IMBRICATE_PROPERTY_TYPE> = {
 
     readonly propertyName: string;
-    readonly propertyType: IMBRICATE_PROPERTY_TYPE;
+    readonly propertyType: T;
+    readonly propertyOptions?: Record<string, any>;
 };
 
 export type ImbricateDatabaseSchema = {
 
-    readonly properties: ImbricateDatabaseSchemaProperty[];
+    readonly properties: Array<ImbricateDatabaseSchemaProperty<IMBRICATE_PROPERTY_TYPE>>
 };
 
 export type ImbricateDatabaseSchemaForCreation = {
 
-    readonly properties: ImbricateDatabaseSchemaPropertyForCreation[];
+    readonly properties: Array<ImbricateDatabaseSchemaPropertyForCreation<IMBRICATE_PROPERTY_TYPE>>
 };
 
 /**
@@ -36,7 +43,7 @@ export type ImbricateDatabaseSchemaForCreation = {
  *      null if validation passed
  */
 export const validateImbricateSchemaProperty = (
-    property: ImbricateDatabaseSchemaProperty,
+    property: ImbricateDatabaseSchemaProperty<IMBRICATE_PROPERTY_TYPE>,
 ): string | null => {
 
     if (typeof property.propertyIdentifier !== "string") {
