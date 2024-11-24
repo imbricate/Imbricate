@@ -28,7 +28,7 @@ export const validateImbricateProperties = (
     const keys: string[] = Object.keys(properties);
     for (const key of keys) {
 
-        const property = schema.properties.find((each: ImbricateDatabaseSchemaProperty) => {
+        const property = schema.properties.find((each: ImbricateDatabaseSchemaProperty<IMBRICATE_PROPERTY_TYPE>) => {
             return each.propertyIdentifier === key;
         });
         if (!property) {

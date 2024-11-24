@@ -6,15 +6,29 @@
 
 /**
  * Document properties
- * 
- * STRING - string, store as plain text
- * MARKDOWN - markdown, store as text object unique identifier. Display as markdown
  */
 export enum IMBRICATE_PROPERTY_TYPE {
 
+    /**
+     * BOOLEAN - boolean, store as boolean
+     */
+    BOOLEAN = "BOOLEAN",
+    /**
+     * STRING - string, store as plain text
+     */
     STRING = "STRING",
+    /**
+     * NUMBER - number, store as number
+     */
     NUMBER = "NUMBER",
+    /**
+     * MARKDOWN - markdown, store as text object unique identifier. Display as markdown
+     */
     MARKDOWN = "MARKDOWN",
+    /**
+     * REFERENCE - reference, store as a list of other document unique identifier
+     *  Note: Reference is always stored as an array, even if it is a single reference
+     */
     REFERENCE = "REFERENCE",
 }
 
@@ -37,9 +51,11 @@ export type DocumentPropertyValue<T extends IMBRICATE_PROPERTY_TYPE> = {
 };
 
 export type DocumentPropertyValueObject<T extends IMBRICATE_PROPERTY_TYPE> =
+    T extends IMBRICATE_PROPERTY_TYPE.BOOLEAN ? boolean :
     T extends IMBRICATE_PROPERTY_TYPE.STRING ? string :
     T extends IMBRICATE_PROPERTY_TYPE.NUMBER ? number :
     T extends IMBRICATE_PROPERTY_TYPE.MARKDOWN ? string :
+    T extends IMBRICATE_PROPERTY_TYPE.REFERENCE ? string[] :
     never;
 
 /**
