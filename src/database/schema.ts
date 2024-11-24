@@ -17,7 +17,15 @@ export type ImbricateDatabaseSchemaPropertyOptions<T extends IMBRICATE_PROPERTY_
     T extends IMBRICATE_PROPERTY_TYPE.NUMBER ? {} :
     T extends IMBRICATE_PROPERTY_TYPE.MARKDOWN ? {} :
     T extends IMBRICATE_PROPERTY_TYPE.REFERENCE ? {
+        /**
+         * Allow multiple references
+         */
         readonly allowMultiple: boolean;
+        /**
+         * Allow references from these databases
+         *  If empty, allow references from all databases
+         */
+        readonly databases: string[];
     } :
     never;
 
