@@ -60,6 +60,19 @@ export const validateImbricateSchemaProperty = (
         return "Property type must be a valid type";
     }
 
+    switch (property.propertyType) {
+
+        case IMBRICATE_PROPERTY_TYPE.REFERENCE: {
+            if (typeof property.propertyOptions !== "object") {
+                return "Property options must be an object";
+            }
+            if (typeof (property.propertyOptions as any).allowMultiple !== "boolean") {
+                return "Property options allowMultiple must be a boolean";
+            }
+            break;
+        }
+    }
+
     return null;
 };
 
