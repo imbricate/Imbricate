@@ -11,6 +11,12 @@ export type ImbricateDatabaseSchemaProperty<T extends IMBRICATE_PROPERTY_TYPE> =
     readonly propertyIdentifier: string;
 } & ImbricateDatabaseSchemaPropertyForCreation<T>;
 
+export type ImbricateDatabaseSchemaPropertyOptionsReferenceDatabase = {
+
+    readonly originUniqueIdentifier: string;
+    readonly databaseUniqueIdentifier: string;
+};
+
 export type ImbricateDatabaseSchemaPropertyOptions<T extends IMBRICATE_PROPERTY_TYPE> =
     T extends IMBRICATE_PROPERTY_TYPE.BOOLEAN ? {} :
     T extends IMBRICATE_PROPERTY_TYPE.STRING ? {} :
@@ -25,7 +31,7 @@ export type ImbricateDatabaseSchemaPropertyOptions<T extends IMBRICATE_PROPERTY_
          * Allow references from these databases
          *  If empty, allow references from all databases
          */
-        readonly databases: string[];
+        readonly databases: ImbricateDatabaseSchemaPropertyOptionsReferenceDatabase[];
     } :
     never;
 
@@ -76,6 +82,17 @@ export const validateImbricateSchemaProperty = (
             }
             if (typeof (property.propertyOptions as any).allowMultiple !== "boolean") {
                 return "Property options allowMultiple must be a boolean";
+            }
+            if (!Array.isArray((property.propertyOptions as any).databases)) {
+                return "Property options databases must be an array";
+            }
+            for (const database of (property.propertyOptions as any).databases) {
+                if (typeof database.originUniqueIdentifier !== "string") {
+                    return "Database originUniqueIdentifier must be a string";
+                }
+                if (typeof database.databaseUniqueIdentifier !== "string") {
+                    return "Database databaseUniqueIdentifier must be a string";
+                }
             }
             break;
         }

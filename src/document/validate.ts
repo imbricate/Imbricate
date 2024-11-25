@@ -75,8 +75,17 @@ export const validateImbricateProperties = (
                     return `Property ${key} value must be an array of string`;
                 }
                 for (const reference of value.value) {
-                    if (typeof reference !== "string") {
-                        return `Property ${key} value must be an array of string, but got ${typeof reference}`;
+                    if (typeof reference !== "object") {
+                        return `Property ${key} reference must be an object`;
+                    }
+                    if (typeof reference.originUniqueIdentifier !== "string") {
+                        return `Property ${key} reference originUniqueIdentifier must be a string`;
+                    }
+                    if (typeof reference.databaseUniqueIdentifier !== "string") {
+                        return `Property ${key} reference databaseUniqueIdentifier must be a string`;
+                    }
+                    if (typeof reference.documentUniqueIdentifier !== "string") {
+                        return `Property ${key} reference documentUniqueIdentifier must be a string`;
                     }
                 }
                 break;

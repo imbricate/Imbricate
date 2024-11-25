@@ -50,12 +50,19 @@ export type DocumentPropertyValue<T extends IMBRICATE_PROPERTY_TYPE> = {
     readonly value: DocumentPropertyValueObject<T>;
 };
 
+export type DocumentPropertyValueObjectReference = {
+
+    readonly originUniqueIdentifier: string;
+    readonly databaseUniqueIdentifier: string;
+    readonly documentUniqueIdentifier: string;
+};
+
 export type DocumentPropertyValueObject<T extends IMBRICATE_PROPERTY_TYPE> =
     T extends IMBRICATE_PROPERTY_TYPE.BOOLEAN ? boolean :
     T extends IMBRICATE_PROPERTY_TYPE.STRING ? string :
     T extends IMBRICATE_PROPERTY_TYPE.NUMBER ? number :
     T extends IMBRICATE_PROPERTY_TYPE.MARKDOWN ? string :
-    T extends IMBRICATE_PROPERTY_TYPE.REFERENCE ? string[] :
+    T extends IMBRICATE_PROPERTY_TYPE.REFERENCE ? DocumentPropertyValueObjectReference[] :
     never;
 
 /**
