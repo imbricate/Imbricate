@@ -8,7 +8,7 @@ import { IImbricateDatabaseManager } from "../database/manager";
 import { IImbricateStaticManager } from "../static/manager";
 import { IImbricateTextManager } from "../text/manager";
 import { OriginPayload } from "./definition";
-import { ImbricateSearchItem } from "./search";
+import { ImbricateSearchResult } from "./search";
 
 export interface IImbricateOrigin {
 
@@ -64,5 +64,5 @@ export interface IImbricateOrigin {
      */
     search(
         keyword: string,
-    ): PromiseLike<ImbricateSearchItem>;
+    ): PromiseLike<ImbricateSearchResult>;
 }
