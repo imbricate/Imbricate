@@ -17,22 +17,39 @@ export type ImbricateDatabaseSchemaPropertyOptionsReferenceDatabase = {
     readonly databaseUniqueIdentifier: string;
 };
 
+export type ImbricateDatabaseSchemaPropertyOptionsLabelOption = {
+
+    readonly labelIdentifier: string;
+    readonly labelName: string;
+};
+
+export type ImbricateDatabaseSchemaPropertyOptionsLabel = {
+
+    readonly allowMultiple: boolean;
+    readonly labelOptions: ImbricateDatabaseSchemaPropertyOptionsLabelOption[];
+};
+
+export type ImbricateDatabaseSchemaPropertyOptionsReference = {
+
+    /**
+     * Allow multiple references
+     */
+    readonly allowMultiple: boolean;
+    /**
+     * Allow references from these databases
+     *  If empty, allow references from all databases
+     */
+    readonly databases: ImbricateDatabaseSchemaPropertyOptionsReferenceDatabase[];
+};
+
+// IMBRICATE_PROPERTY_TYPE SWITCH
 export type ImbricateDatabaseSchemaPropertyOptions<T extends IMBRICATE_PROPERTY_TYPE> =
     T extends IMBRICATE_PROPERTY_TYPE.BOOLEAN ? {} :
     T extends IMBRICATE_PROPERTY_TYPE.STRING ? {} :
     T extends IMBRICATE_PROPERTY_TYPE.NUMBER ? {} :
     T extends IMBRICATE_PROPERTY_TYPE.MARKDOWN ? {} :
-    T extends IMBRICATE_PROPERTY_TYPE.REFERENCE ? {
-        /**
-         * Allow multiple references
-         */
-        readonly allowMultiple: boolean;
-        /**
-         * Allow references from these databases
-         *  If empty, allow references from all databases
-         */
-        readonly databases: ImbricateDatabaseSchemaPropertyOptionsReferenceDatabase[];
-    } :
+    T extends IMBRICATE_PROPERTY_TYPE.LABEL ? ImbricateDatabaseSchemaPropertyOptionsLabel :
+    T extends IMBRICATE_PROPERTY_TYPE.REFERENCE ? ImbricateDatabaseSchemaPropertyOptionsReference :
     never;
 
 export type ImbricateDatabaseSchemaPropertyForCreation<T extends IMBRICATE_PROPERTY_TYPE> = {

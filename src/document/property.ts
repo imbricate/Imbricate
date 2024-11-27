@@ -26,6 +26,11 @@ export enum IMBRICATE_PROPERTY_TYPE {
      */
     MARKDOWN = "MARKDOWN",
     /**
+     * LABEL - label, store as a list of label id
+     *  Note: Label is always stored as an array, even if it is a single label
+     */
+    LABEL = "LABEL",
+    /**
      * REFERENCE - reference, store as a list of other document unique identifier
      *  Note: Reference is always stored as an array, even if it is a single reference
      */
@@ -57,13 +62,14 @@ export type DocumentPropertyValueObjectReference = {
     readonly documentUniqueIdentifier: string;
 };
 
+// IMBRICATE_PROPERTY_TYPE SWITCH
 export type DocumentPropertyValueObject<T extends IMBRICATE_PROPERTY_TYPE> =
     T extends IMBRICATE_PROPERTY_TYPE.BOOLEAN ? boolean :
     T extends IMBRICATE_PROPERTY_TYPE.STRING ? string :
     T extends IMBRICATE_PROPERTY_TYPE.NUMBER ? number :
     T extends IMBRICATE_PROPERTY_TYPE.MARKDOWN ? string :
-    T extends IMBRICATE_PROPERTY_TYPE.REFERENCE ? DocumentPropertyValueObjectReference[] :
-    never;
+    T extends IMBRICATE_PROPERTY_TYPE.LABEL ? string[] :
+    T extends IMBRICATE_PROPERTY_TYPE.REFERENCE ? DocumentPropertyValueObjectReference[] : never;
 
 /**
  * Edit record type of the document
