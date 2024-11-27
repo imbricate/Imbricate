@@ -26,6 +26,11 @@ export enum IMBRICATE_PROPERTY_TYPE {
      */
     MARKDOWN = "MARKDOWN",
     /**
+     * DATE - date, store as string in ISO format
+     *  For example - 2000-01-01T00:00:00.000Z
+     */
+    DATE = "DATE",
+    /**
      * LABEL - label, store as a list of label id
      *  Note: Label is always stored as an array, even if it is a single label
      */
@@ -68,6 +73,7 @@ export type DocumentPropertyValueObject<T extends IMBRICATE_PROPERTY_TYPE> =
     T extends IMBRICATE_PROPERTY_TYPE.STRING ? string :
     T extends IMBRICATE_PROPERTY_TYPE.NUMBER ? number :
     T extends IMBRICATE_PROPERTY_TYPE.MARKDOWN ? string :
+    T extends IMBRICATE_PROPERTY_TYPE.DATE ? string :
     T extends IMBRICATE_PROPERTY_TYPE.LABEL ? string[] :
     T extends IMBRICATE_PROPERTY_TYPE.REFERENCE ? DocumentPropertyValueObjectReference[] : never;
 
