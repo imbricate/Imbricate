@@ -20,6 +20,7 @@ export * from "./loader/origin-loader";
 export * from "./loader/persistence";
 export * from "./origin/definition";
 export * from "./origin/interface";
+export * from "./origin/search";
 export * from "./static/interface";
 export * from "./static/manager";
 export * from "./text/interface";

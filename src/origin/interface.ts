@@ -8,6 +8,7 @@ import { IImbricateDatabaseManager } from "../database/manager";
 import { IImbricateStaticManager } from "../static/manager";
 import { IImbricateTextManager } from "../text/manager";
 import { OriginPayload } from "./definition";
+import { ImbricateSearchItem } from "./search";
 
 export interface IImbricateOrigin {
 
@@ -54,4 +55,14 @@ export interface IImbricateOrigin {
      * Example: close database connection, or close file system
      */
     dispose?(): PromiseLike<void>;
+
+    /**
+     * Search for items in the origin
+     * 
+     * @param keyword the keyword to search
+     * @returns the search
+     */
+    search(
+        keyword: string,
+    ): PromiseLike<ImbricateSearchItem>;
 }
