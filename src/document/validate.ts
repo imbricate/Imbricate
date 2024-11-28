@@ -12,6 +12,7 @@ import { DocumentProperties, DocumentPropertyValue, IMBRICATE_PROPERTY_TYPE } fr
  * 
  * @param properties properties to validate
  * @param schema database schema to validate
+ * @param allowExtraProperties allow extra properties, optional with default false
  * 
  * @returns a string error message if validation failed
  *        null if validation passed
@@ -19,6 +20,7 @@ import { DocumentProperties, DocumentPropertyValue, IMBRICATE_PROPERTY_TYPE } fr
 export const validateImbricateProperties = (
     properties: DocumentProperties,
     schema: ImbricateDatabaseSchema,
+    allowExtraProperties: boolean = false,
 ): string | null => {
 
     if (typeof properties !== "object") {
@@ -33,6 +35,9 @@ export const validateImbricateProperties = (
         });
 
         if (!property) {
+            if (allowExtraProperties) {
+                continue;
+            }
             return `Property ${key} not found in schema`;
         }
 
