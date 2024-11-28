@@ -31,6 +31,7 @@ export const validateImbricateProperties = (
         const property = schema.properties.find((each: ImbricateDatabaseSchemaProperty<IMBRICATE_PROPERTY_TYPE>) => {
             return each.propertyIdentifier === key;
         });
+
         if (!property) {
             return `Property ${key} not found in schema`;
         }
@@ -44,6 +45,7 @@ export const validateImbricateProperties = (
             return `Property ${key} type must be ${property.propertyType}, but got ${value.type}`;
         }
 
+        // IMBRICATE_PROPERTY_TYPE SWITCH
         switch (value.type) {
 
             case IMBRICATE_PROPERTY_TYPE.BOOLEAN: {
@@ -67,6 +69,27 @@ export const validateImbricateProperties = (
             case IMBRICATE_PROPERTY_TYPE.MARKDOWN: {
                 if (typeof value.value !== "string") {
                     return `Property ${key} value must be a string of text object reference`;
+                }
+                break;
+            }
+            case IMBRICATE_PROPERTY_TYPE.DATE: {
+                if (typeof value.value !== "string") {
+                    return `Property ${key} value must be a string of date in ISO format`;
+                }
+                const date: Date = new Date(value.value);
+                if (isNaN(date.getTime())) {
+                    return `Property ${key} value must be a string of date in ISO format`;
+                }
+                break;
+            }
+            case IMBRICATE_PROPERTY_TYPE.LABEL: {
+                if (!Array.isArray(value.value)) {
+                    return `Property ${key} value must be an array of string`;
+                }
+                for (const label of value.value) {
+                    if (typeof label !== "string") {
+                        return `Property ${key} label must be a string`;
+                    }
                 }
                 break;
             }
