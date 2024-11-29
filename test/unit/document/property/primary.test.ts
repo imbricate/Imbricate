@@ -5,31 +5,32 @@
  * @override Unit Test
  */
 
-import { IMBRICATE_PROPERTY_TYPE, findPrimaryProperty } from "../../../../src";
+import { DocumentProperties, IMBRICATE_PROPERTY_TYPE, ImbricateDatabaseSchema, findPrimaryProperty } from "../../../../src";
 
 describe("Given [Document-Property-Primary] helper methods", (): void => {
 
     it("should be able to find primary property", (): void => {
 
-        const schema: any = {
+        const schema: ImbricateDatabaseSchema = {
             properties: [
                 {
                     propertyIdentifier: "test",
                     propertyName: "test",
                     propertyType: IMBRICATE_PROPERTY_TYPE.STRING,
+                    propertyOptions: {},
                     isPrimaryKey: true,
                 },
             ],
         };
 
-        const properties: any = {
+        const properties: DocumentProperties = {
             test: {
                 type: IMBRICATE_PROPERTY_TYPE.STRING,
                 value: "test",
             },
         };
 
-        const result: any = findPrimaryProperty(schema, properties);
+        const result = findPrimaryProperty(schema, properties);
 
         expect(result).toStrictEqual({
             type: IMBRICATE_PROPERTY_TYPE.STRING,
@@ -39,20 +40,47 @@ describe("Given [Document-Property-Primary] helper methods", (): void => {
 
     it("should be able to find primary property - null", (): void => {
 
-        const schema: any = {
+        const schema: ImbricateDatabaseSchema = {
             properties: [
                 {
                     propertyIdentifier: "test",
                     propertyName: "test",
                     propertyType: IMBRICATE_PROPERTY_TYPE.STRING,
+                    propertyOptions: {},
                     isPrimaryKey: true,
                 },
             ],
         };
 
-        const properties: any = {};
+        const properties: DocumentProperties = {};
 
-        const result: any = findPrimaryProperty(schema, properties);
+        const result = findPrimaryProperty(schema, properties);
+
+        expect(result).toBeNull();
+    });
+
+    it("should be able to find primary property - not primary", (): void => {
+
+        const schema: ImbricateDatabaseSchema = {
+            properties: [
+                {
+                    propertyIdentifier: "test",
+                    propertyName: "test",
+                    propertyType: IMBRICATE_PROPERTY_TYPE.STRING,
+                    propertyOptions: {},
+                    isPrimaryKey: false,
+                },
+            ],
+        };
+
+        const properties: DocumentProperties = {
+            test: {
+                type: IMBRICATE_PROPERTY_TYPE.STRING,
+                value: "test",
+            },
+        };
+
+        const result = findPrimaryProperty(schema, properties);
 
         expect(result).toBeNull();
     });
