@@ -61,6 +61,8 @@ export type ImbricateDatabaseSchemaPropertyForCreation<T extends IMBRICATE_PROPE
     readonly propertyName: string;
     readonly propertyType: T;
     readonly propertyOptions: ImbricateDatabaseSchemaPropertyOptions<T>;
+
+    readonly isPrimaryKey?: boolean;
 };
 
 export type ImbricateDatabaseSchema = {
