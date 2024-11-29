@@ -12,6 +12,7 @@ export * from "./document/definition";
 export * from "./document/interface";
 export * from "./document/property";
 export * from "./document/property/definition";
+export * from "./document/property/primary";
 export * from "./document/property/triage";
 export * from "./document/property/triage-manager";
 export * from "./document/validate";
