@@ -7,6 +7,7 @@
 import { DocumentProperties, DocumentPropertyKey, IMBRICATE_PROPERTY_TYPE } from "../property";
 import { DocumentPropertyTriageFunction } from "./definition";
 
+// IMBRICATE_PROPERTY_TYPE SWITCH
 export class ImbricateDocumentPropertyTriageBase<Result> {
 
     private readonly _triageFunctionsByKey: Map<string, DocumentPropertyTriageFunction<any, Result>>;
@@ -35,6 +36,14 @@ export class ImbricateDocumentPropertyTriageBase<Result> {
         return this;
     }
 
+    public forBoolean(
+        triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.BOOLEAN, Result>,
+    ): this {
+
+        this._triageFunctionsByType.set(IMBRICATE_PROPERTY_TYPE.BOOLEAN, triageFunction);
+        return this;
+    }
+
     public forString(
         triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.STRING, Result>,
     ): this {
@@ -43,11 +52,43 @@ export class ImbricateDocumentPropertyTriageBase<Result> {
         return this;
     }
 
+    public forNumber(
+        triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.NUMBER, Result>,
+    ): this {
+
+        this._triageFunctionsByType.set(IMBRICATE_PROPERTY_TYPE.NUMBER, triageFunction);
+        return this;
+    }
+
     public forMarkdown(
         triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.MARKDOWN, Result>,
     ): this {
 
         this._triageFunctionsByType.set(IMBRICATE_PROPERTY_TYPE.MARKDOWN, triageFunction);
+        return this;
+    }
+
+    public forDate(
+        triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.DATE, Result>,
+    ): this {
+
+        this._triageFunctionsByType.set(IMBRICATE_PROPERTY_TYPE.DATE, triageFunction);
+        return this;
+    }
+
+    public forLabel(
+        triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.LABEL, Result>,
+    ): this {
+
+        this._triageFunctionsByType.set(IMBRICATE_PROPERTY_TYPE.LABEL, triageFunction);
+        return this;
+    }
+
+    public forReference(
+        triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.REFERENCE, Result>,
+    ): this {
+
+        this._triageFunctionsByType.set(IMBRICATE_PROPERTY_TYPE.REFERENCE, triageFunction);
         return this;
     }
 
