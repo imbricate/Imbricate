@@ -68,6 +68,14 @@ export class ImbricateDocumentPropertyTriageBase<Result> {
         return this;
     }
 
+    public forImbriscript(
+        triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.IMBRISCRIPT, Result>,
+    ): this {
+
+        this._triageFunctionsByType.set(IMBRICATE_PROPERTY_TYPE.IMBRISCRIPT, triageFunction);
+        return this;
+    }
+
     public forDate(
         triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.DATE, Result>,
     ): this {

@@ -51,6 +51,7 @@ export type ImbricateDatabaseSchemaPropertyOptions<T extends IMBRICATE_PROPERTY_
     T extends IMBRICATE_PROPERTY_TYPE.STRING ? {} :
     T extends IMBRICATE_PROPERTY_TYPE.NUMBER ? {} :
     T extends IMBRICATE_PROPERTY_TYPE.MARKDOWN ? {} :
+    T extends IMBRICATE_PROPERTY_TYPE.IMBRISCRIPT ? {} :
     T extends IMBRICATE_PROPERTY_TYPE.DATE ? {} :
     T extends IMBRICATE_PROPERTY_TYPE.LABEL ? ImbricateDatabaseSchemaPropertyOptionsLabel :
     T extends IMBRICATE_PROPERTY_TYPE.REFERENCE ? ImbricateDatabaseSchemaPropertyOptionsReference :

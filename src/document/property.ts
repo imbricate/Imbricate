@@ -26,6 +26,11 @@ export enum IMBRICATE_PROPERTY_TYPE {
      */
     MARKDOWN = "MARKDOWN",
     /**
+     * IMBRISCRIPT - imbricate script, store as text object unique identifier. Display as imbricate script
+     *  The script is executed in a sandbox environment, using customized javascript engine
+     */
+    IMBRISCRIPT = "IMBRISCRIPT",
+    /**
      * DATE - date, store as string in ISO format
      *  For example - 2000-01-01T00:00:00.000Z
      */
@@ -73,6 +78,7 @@ export type DocumentPropertyValueObject<T extends IMBRICATE_PROPERTY_TYPE> =
     T extends IMBRICATE_PROPERTY_TYPE.STRING ? string :
     T extends IMBRICATE_PROPERTY_TYPE.NUMBER ? number :
     T extends IMBRICATE_PROPERTY_TYPE.MARKDOWN ? string :
+    T extends IMBRICATE_PROPERTY_TYPE.IMBRISCRIPT ? string :
     T extends IMBRICATE_PROPERTY_TYPE.DATE ? string :
     T extends IMBRICATE_PROPERTY_TYPE.LABEL ? string[] :
     T extends IMBRICATE_PROPERTY_TYPE.REFERENCE ? DocumentPropertyValueObjectReference[] : never;

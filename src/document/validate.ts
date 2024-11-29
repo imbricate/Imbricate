@@ -77,6 +77,12 @@ export const validateImbricateProperties = (
                 }
                 break;
             }
+            case IMBRICATE_PROPERTY_TYPE.IMBRISCRIPT: {
+                if (typeof value.value !== "string") {
+                    return `Property ${key} value must be a string of text object reference`;
+                }
+                break;
+            }
             case IMBRICATE_PROPERTY_TYPE.DATE: {
                 if (typeof value.value !== "string") {
                     return `Property ${key} value must be a string of date in ISO format`;
