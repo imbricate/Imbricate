@@ -4,12 +4,19 @@
  * @description Interface
  */
 
+import { ImbricateAuthor } from "../author/definition";
+
 export interface IImbricateStatic {
 
     /**
      * Unique identifier of the static object
      */
     readonly uniqueIdentifier: string;
+
+    /**
+     * Author of the text object
+     */
+    readonly author?: ImbricateAuthor;
 
     /**
      * Get the content of the static object

@@ -4,6 +4,7 @@
  * @description Manager
  */
 
+import { ImbricateTextAuditOptions } from "./definition";
 import { IImbricateText } from "./interface";
 
 export interface IImbricateTextManager {
@@ -21,13 +22,12 @@ export interface IImbricateTextManager {
      *  Patch a new text object if you want to change the content
      * 
      * @param content content of the text
-     * @param uniqueIdentifier unique identifier of the text object, optional
-     *  if not provided, a unique identifier will be generated
+     * @param auditOptions audit options of the text
      * 
      * @returns a promise of the text object
      */
     createText(
         content: string,
-        uniqueIdentifier?: string,
+        auditOptions?: ImbricateTextAuditOptions,
     ): PromiseLike<IImbricateText>;
 }

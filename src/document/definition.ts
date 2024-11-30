@@ -18,7 +18,20 @@ export type DocumentEditRecord = {
 
     readonly uniqueIdentifier: string;
     readonly editAt: Date;
-    readonly author: ImbricateAuthor;
 
     readonly operations: DocumentEditOperation[];
+
+    readonly author?: ImbricateAuthor;
+};
+
+export type ImbricateDocumentAuditOptions = {
+
+    /**
+     * Do not add edit record, this is controlled an function may vary by origin
+     */
+    readonly noEditRecord?: boolean;
+    /**
+     * Use this author to add edit record, this is controlled an function may vary by origin
+     */
+    readonly author?: ImbricateAuthor;
 };

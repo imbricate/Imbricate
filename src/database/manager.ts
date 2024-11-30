@@ -4,6 +4,7 @@
  * @description Manager
  */
 
+import { ImbricateDatabaseAuditOptions } from "./definition";
 import { IImbricateDatabase } from "./interface";
 import { ImbricateDatabaseSchemaForCreation } from "./schema";
 
@@ -32,14 +33,13 @@ export interface IImbricateDatabaseManager {
      * 
      * @param databaseName name of the database
      * @param schema schema of the database
-     * @param uniqueIdentifier unique identifier of the database, optional
-     *  if not provided, a unique identifier will be generated
+     * @param auditOptions audit options of the database
      * 
      * @returns a promise of the created database
      */
     createDatabase(
         databaseName: string,
         schema: ImbricateDatabaseSchemaForCreation,
-        uniqueIdentifier?: string,
+        auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<IImbricateDatabase>;
 }

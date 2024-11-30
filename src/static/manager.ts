@@ -4,6 +4,7 @@
  * @description Manager
  */
 
+import { ImbricateStaticAuditOptions } from "./definition";
 import { IImbricateStatic } from "./interface";
 
 export interface IImbricateStaticManager {
@@ -21,13 +22,12 @@ export interface IImbricateStaticManager {
      *  Patch a new static object if you want to change the content
      * 
      * @param content content of the static object, encoded in base64
-     * @param uniqueIdentifier unique identifier of the static object, optional
-     *  if not provided, a unique identifier will be generated
+     * @param auditOptions audit options of the static object
      * 
      * @returns a promise of the created static object
      */
     createInBase64(
         content: string,
-        uniqueIdentifier?: string,
+        auditOptions?: ImbricateStaticAuditOptions,
     ): PromiseLike<IImbricateStatic>;
 }

@@ -23,8 +23,10 @@ export * from "./loader/persistence";
 export * from "./origin/definition";
 export * from "./origin/interface";
 export * from "./origin/search";
+export * from "./static/definition";
 export * from "./static/interface";
 export * from "./static/manager";
+export * from "./text/definition";
 export * from "./text/interface";
 export * from "./text/manager";
 

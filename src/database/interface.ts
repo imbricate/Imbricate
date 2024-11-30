@@ -4,9 +4,10 @@
  * @description Interface
  */
 
+import { ImbricateDocumentAuditOptions } from "../document/definition";
 import { IImbricateDocument } from "../document/interface";
 import { DocumentProperties } from "../document/property";
-import { DatabaseEditRecord, ImbricateDocumentQuery } from "./definition";
+import { DatabaseEditRecord, ImbricateDatabaseAuditOptions, ImbricateDocumentQuery } from "./definition";
 import { ImbricateDatabaseSchema } from "./schema";
 
 export interface IImbricateDatabase {
@@ -31,30 +32,29 @@ export interface IImbricateDatabase {
      *  Existing documents will still be kept, and stays unchanged
      * 
      * @param schema schema of the database
-     * @param noEditRecord do not add edit record, optional
+     * @param auditOptions audit options of the database 
      * 
-     * @returns a promise of the updated schema
+     * @returns a promise of the edit records of the database
      *  Note: if the origin supports Document Edit Record, the edit record will be added by default
      *  If you do not want to add the edit record, set `noEditRecord` to true
      */
     putSchema(
         schema: ImbricateDatabaseSchema,
-        noEditRecord?: boolean,
-    ): PromiseLike<void>;
+        auditOptions?: ImbricateDatabaseAuditOptions,
+    ): PromiseLike<DatabaseEditRecord[]>;
 
     /**
      * Create a new document in the database
      *  If origin supports Document Edit Record, the edit record will be added by default
      * 
      * @param properties properties of the document
-     * @param uniqueIdentifier unique identifier of the document, optional
-     *  if not provided, a unique identifier will be generated
+     * @param auditOptions audit options of the document
      * 
      * @returns a promise of the created document
      */
     createDocument(
         properties: DocumentProperties,
-        uniqueIdentifier?: string,
+        auditOptions?: ImbricateDocumentAuditOptions,
     ): PromiseLike<IImbricateDocument>;
 
     /**

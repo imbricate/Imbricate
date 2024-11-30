@@ -4,7 +4,7 @@
  * @description Interface
  */
 
-import { DocumentEditRecord } from "./definition";
+import { DocumentEditRecord, ImbricateDocumentAuditOptions } from "./definition";
 import { DocumentProperties, DocumentPropertyKey, DocumentPropertyValue, IMBRICATE_PROPERTY_TYPE } from "./property";
 
 export interface IImbricateDocument {
@@ -24,8 +24,7 @@ export interface IImbricateDocument {
      * 
      * @param key key of the property
      * @param value value of the property
-     * @param noEditRecord do not add edit record, optional
-     *  Default to false, if set to true, the edit record will not be added to the document
+     * @param auditOptions audit options of the document
      * 
      * @returns a promise of the edit records of the document
      *  Note: the edit records will not be added to the document if `noEditRecord` is true,
@@ -34,15 +33,14 @@ export interface IImbricateDocument {
     putProperty(
         key: DocumentPropertyKey,
         value: DocumentPropertyValue<IMBRICATE_PROPERTY_TYPE>,
-        noEditRecord?: boolean,
+        auditOptions?: ImbricateDocumentAuditOptions,
     ): PromiseLike<DocumentEditRecord[]>;
 
     /**
      * Put and replace all properties of the document
      * 
      * @param properties properties of the document
-     * @param noEditRecord do not add edit record, optional
-     *  Default to false, if set to true, the edit record will not be added to the document
+     * @param auditOptions audit options of the document
      * 
      * @returns a promise of the edit records of the document
      *  Note: the edit records will not be added to the document if `noEditRecord` is true,
@@ -50,7 +48,7 @@ export interface IImbricateDocument {
      */
     putProperties(
         properties: DocumentProperties,
-        noEditRecord?: boolean,
+        auditOptions?: ImbricateDocumentAuditOptions,
     ): PromiseLike<DocumentEditRecord[]>;
 
     /**
