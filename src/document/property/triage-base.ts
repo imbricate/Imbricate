@@ -68,6 +68,14 @@ export class ImbricateDocumentPropertyTriageBase<Result> {
         return this;
     }
 
+    public forJson(
+        triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.JSON, Result>,
+    ): this {
+
+        this._triageFunctionsByType.set(IMBRICATE_PROPERTY_TYPE.JSON, triageFunction);
+        return this;
+    }
+
     public forImbriscript(
         triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.IMBRISCRIPT, Result>,
     ): this {

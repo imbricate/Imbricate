@@ -26,6 +26,10 @@ export enum IMBRICATE_PROPERTY_TYPE {
      */
     MARKDOWN = "MARKDOWN",
     /**
+     * JSON - json, store as text object unique identifier. Display as JSON
+     */
+    JSON = "JSON",
+    /**
      * IMBRISCRIPT - imbricate script, store as text object unique identifier. Display as imbricate script
      *  The script is executed in a sandbox environment, using customized javascript engine
      */
@@ -78,6 +82,7 @@ export type DocumentPropertyValueObject<T extends IMBRICATE_PROPERTY_TYPE> =
     T extends IMBRICATE_PROPERTY_TYPE.STRING ? string :
     T extends IMBRICATE_PROPERTY_TYPE.NUMBER ? number :
     T extends IMBRICATE_PROPERTY_TYPE.MARKDOWN ? string :
+    T extends IMBRICATE_PROPERTY_TYPE.JSON ? string :
     T extends IMBRICATE_PROPERTY_TYPE.IMBRISCRIPT ? string :
     T extends IMBRICATE_PROPERTY_TYPE.DATE ? string :
     T extends IMBRICATE_PROPERTY_TYPE.LABEL ? string[] :
