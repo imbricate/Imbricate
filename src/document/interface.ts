@@ -4,7 +4,7 @@
  * @description Interface
  */
 
-import { DocumentAnnotations, DocumentEditRecord, ImbricateDocumentAuditOptions } from "./definition";
+import { DocumentAnnotationValue, DocumentAnnotations, DocumentEditRecord, ImbricateDocumentAuditOptions } from "./definition";
 import { DocumentProperties, DocumentPropertyKey, DocumentPropertyValue, IMBRICATE_PROPERTY_TYPE } from "./property";
 
 export interface IImbricateDocument {
@@ -71,7 +71,7 @@ export interface IImbricateDocument {
     putAnnotation(
         namespace: string,
         identifier: string,
-        value: any,
+        value: DocumentAnnotationValue,
         auditOptions?: ImbricateDocumentAuditOptions,
     ): PromiseLike<DocumentEditRecord[]>;
 

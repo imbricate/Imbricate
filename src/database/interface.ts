@@ -4,10 +4,9 @@
  * @description Interface
  */
 
-import { ImbricateDocumentAuditOptions } from "../document/definition";
 import { IImbricateDocument } from "../document/interface";
 import { DocumentProperties } from "../document/property";
-import { DatabaseAnnotations, DatabaseEditRecord, ImbricateDatabaseAuditOptions, ImbricateDocumentQuery } from "./definition";
+import { DatabaseAnnotationValue, DatabaseAnnotations, DatabaseEditRecord, ImbricateDatabaseAuditOptions, ImbricateDocumentQuery } from "./definition";
 import { ImbricateDatabaseSchema } from "./schema";
 
 export interface IImbricateDatabase {
@@ -59,7 +58,7 @@ export interface IImbricateDatabase {
      */
     createDocument(
         properties: DocumentProperties,
-        auditOptions?: ImbricateDocumentAuditOptions,
+        auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<IImbricateDocument>;
 
     /**
@@ -103,7 +102,7 @@ export interface IImbricateDatabase {
      */
     removeDocument(
         uniqueIdentifier: string,
-        auditOptions?: ImbricateDocumentAuditOptions,
+        auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<void>;
 
     /**
@@ -121,7 +120,7 @@ export interface IImbricateDatabase {
     putAnnotation(
         namespace: string,
         identifier: string,
-        value: any,
+        value: DatabaseAnnotationValue,
         auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<DatabaseEditRecord[]>;
 
