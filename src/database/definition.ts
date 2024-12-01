@@ -43,6 +43,17 @@ export type DatabaseEditRecord = {
     readonly author?: ImbricateAuthor;
 };
 
+export type DatabaseAnnotations = Record<DatabaseAnnotationKey, DatabaseAnnotationValue>;
+
+export type DatabaseAnnotationKey = string;
+export type DatabaseAnnotationValue = {
+
+    readonly namespace: string;
+    readonly identifier: string;
+
+    readonly data: any;
+};
+
 export type ImbricateDatabaseAuditOptions = {
 
     /**
