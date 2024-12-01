@@ -96,6 +96,17 @@ export interface IImbricateDatabase {
     ): PromiseLike<number>;
 
     /**
+     * Remove a document from the database
+     * 
+     * @param uniqueIdentifier unique identifier of the document
+     * @param auditOptions audit options of the document
+     */
+    removeDocument(
+        uniqueIdentifier: string,
+        auditOptions?: ImbricateDocumentAuditOptions,
+    ): PromiseLike<void>;
+
+    /**
      * put annotation to the database
      * 
      * @param namespace namespace of the annotation

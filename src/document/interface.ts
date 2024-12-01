@@ -4,7 +4,7 @@
  * @description Interface
  */
 
-import { DocumentEditRecord, ImbricateDocumentAuditOptions } from "./definition";
+import { DocumentAnnotations, DocumentEditRecord, ImbricateDocumentAuditOptions } from "./definition";
 import { DocumentProperties, DocumentPropertyKey, DocumentPropertyValue, IMBRICATE_PROPERTY_TYPE } from "./property";
 
 export interface IImbricateDocument {
@@ -18,6 +18,11 @@ export interface IImbricateDocument {
      * Properties of the document
      */
     readonly properties: DocumentProperties;
+
+    /**
+     * Annotations of the database
+     */
+    readonly annotations: DocumentAnnotations;
 
     /**
      * Update a property from the document
@@ -48,6 +53,42 @@ export interface IImbricateDocument {
      */
     putProperties(
         properties: DocumentProperties,
+        auditOptions?: ImbricateDocumentAuditOptions,
+    ): PromiseLike<DocumentEditRecord[]>;
+
+    /**
+     * put annotation to the document
+     * 
+     * @param namespace namespace of the annotation
+     * @param identifier identifier of the annotation
+     * @param value value of the annotation
+     * @param auditOptions audit options of the document
+     * 
+     * @returns a promise of the edit records of the document
+     *  Note: if the origin supports Document Edit Record, the edit record will be added by default
+     *  If you do not want to add the edit record, set `noEditRecord` to true in audit options
+     */
+    putAnnotation(
+        namespace: string,
+        identifier: string,
+        value: any,
+        auditOptions?: ImbricateDocumentAuditOptions,
+    ): PromiseLike<DocumentEditRecord[]>;
+
+    /**
+     * Delete annotation from the document
+     * 
+     * @param namespace namespace of the annotation
+     * @param identifier identifier of the annotation
+     * @param auditOptions audit options of the document
+     * 
+     * @returns a promise of the edit records of the document
+     *  Note: if the origin supports Document Edit Record, the edit record will be added by default
+     *  If you do not want to add the edit record, set `noEditRecord` to true in audit options
+     */
+    deleteAnnotation(
+        namespace: string,
+        identifier: string,
         auditOptions?: ImbricateDocumentAuditOptions,
     ): PromiseLike<DocumentEditRecord[]>;
 

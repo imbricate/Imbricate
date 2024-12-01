@@ -42,4 +42,15 @@ export interface IImbricateDatabaseManager {
         schema: ImbricateDatabaseSchemaForCreation,
         auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<IImbricateDatabase>;
+
+    /**
+     * Remove a database from the origin
+     * 
+     * @param uniqueIdentifier unique identifier of the database
+     * @param auditOptions audit options of deletion
+     */
+    removeDatabase(
+        uniqueIdentifier: string,
+        auditOptions?: ImbricateDatabaseAuditOptions,
+    ): PromiseLike<void>;
 }
