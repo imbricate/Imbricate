@@ -7,7 +7,7 @@
 import { ImbricateDocumentAuditOptions } from "../document/definition";
 import { IImbricateDocument } from "../document/interface";
 import { DocumentProperties } from "../document/property";
-import { DatabaseEditRecord, ImbricateDatabaseAuditOptions, ImbricateDocumentQuery } from "./definition";
+import { DatabaseAnnotations, DatabaseEditRecord, ImbricateDatabaseAuditOptions, ImbricateDocumentQuery } from "./definition";
 import { ImbricateDatabaseSchema } from "./schema";
 
 export interface IImbricateDatabase {
@@ -26,6 +26,11 @@ export interface IImbricateDatabase {
      * Schema of the database
      */
     readonly schema: ImbricateDatabaseSchema;
+
+    /**
+     * Annotations of the database
+     */
+    readonly annotations: DatabaseAnnotations;
 
     /**
      * Put and replace the schema of the database
@@ -78,6 +83,36 @@ export interface IImbricateDatabase {
     queryDocuments(
         query: ImbricateDocumentQuery,
     ): PromiseLike<IImbricateDocument[]>;
+
+    /**
+     * Count documents in the database
+     * 
+     * @param query query of the documents
+     * 
+     * @returns a promise of the count of the documents in the database
+     */
+    countDocuments(
+        query: ImbricateDocumentQuery,
+    ): PromiseLike<number>;
+
+    /**
+     * add annotation to the database
+     * 
+     * @param namespace namespace of the annotation
+     * @param identifier identifier of the annotation
+     * @param value value of the annotation
+     * @param auditOptions audit options of the database
+     * 
+     * @returns a promise of the edit records of the database
+     *  Note: if the origin supports Document Edit Record, the edit record will be added by default
+     *  If you do not want to add the edit record, set `noEditRecord` to true
+     */
+    addAnnotation(
+        namespace: string,
+        identifier: string,
+        value: any,
+        auditOptions?: ImbricateDatabaseAuditOptions,
+    ): PromiseLike<DatabaseEditRecord[]>;
 
     /**
      * Add edit records to the database, optional
