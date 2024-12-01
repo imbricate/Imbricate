@@ -96,7 +96,7 @@ export interface IImbricateDatabase {
     ): PromiseLike<number>;
 
     /**
-     * add annotation to the database
+     * put annotation to the database
      * 
      * @param namespace namespace of the annotation
      * @param identifier identifier of the annotation
@@ -107,7 +107,7 @@ export interface IImbricateDatabase {
      *  Note: if the origin supports Document Edit Record, the edit record will be added by default
      *  If you do not want to add the edit record, set `noEditRecord` to true
      */
-    addAnnotation(
+    putAnnotation(
         namespace: string,
         identifier: string,
         value: any,

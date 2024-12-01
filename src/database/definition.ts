@@ -32,9 +32,11 @@ export type DatabaseEditOperationPutAnnotation = {
 
     readonly annotationNamespace: string;
     readonly annotationIdentifier: string;
+
     readonly data: any;
 };
 
+// IMBRICATE_DATABASE_EDIT_TYPE SWITCH
 export type DatabaseEditOperationValue<T extends IMBRICATE_DATABASE_EDIT_TYPE> =
     T extends IMBRICATE_DATABASE_EDIT_TYPE.PUT_SCHEMA ? ImbricateDatabaseSchema :
     T extends IMBRICATE_DATABASE_EDIT_TYPE.PUT_ANNOTATION ? DatabaseEditOperationPutAnnotation : never;

@@ -86,7 +86,8 @@ export type DocumentPropertyValueObject<T extends IMBRICATE_PROPERTY_TYPE> =
     T extends IMBRICATE_PROPERTY_TYPE.IMBRISCRIPT ? string :
     T extends IMBRICATE_PROPERTY_TYPE.DATE ? string :
     T extends IMBRICATE_PROPERTY_TYPE.LABEL ? string[] :
-    T extends IMBRICATE_PROPERTY_TYPE.REFERENCE ? DocumentPropertyValueObjectReference[] : never;
+    T extends IMBRICATE_PROPERTY_TYPE.REFERENCE ? DocumentPropertyValueObjectReference[] :
+    never;
 
 /**
  * Edit record type of the document
