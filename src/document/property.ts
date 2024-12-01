@@ -88,11 +88,3 @@ export type DocumentPropertyValueObject<T extends IMBRICATE_PROPERTY_TYPE> =
     T extends IMBRICATE_PROPERTY_TYPE.LABEL ? string[] :
     T extends IMBRICATE_PROPERTY_TYPE.REFERENCE ? DocumentPropertyValueObjectReference[] :
     never;
-
-/**
- * Edit record type of the document
- */
-export enum IMBRICATE_DOCUMENT_EDIT_TYPE {
-
-    PUT = "PUT",
-}
