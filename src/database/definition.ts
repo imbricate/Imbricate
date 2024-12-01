@@ -26,6 +26,7 @@ export enum IMBRICATE_DATABASE_EDIT_TYPE {
 
     PUT_SCHEMA = "PUT_SCHEMA",
     PUT_ANNOTATION = "PUT_ANNOTATION",
+    DELETE_ANNOTATION = "DELETE_ANNOTATION",
 }
 
 export type DatabaseEditOperationPutAnnotation = {
@@ -36,10 +37,18 @@ export type DatabaseEditOperationPutAnnotation = {
     readonly data: any;
 };
 
+export type DatabaseEditOperationDeleteAnnotation = {
+
+    readonly annotationNamespace: string;
+    readonly annotationIdentifier: string;
+};
+
 // IMBRICATE_DATABASE_EDIT_TYPE SWITCH
 export type DatabaseEditOperationValue<T extends IMBRICATE_DATABASE_EDIT_TYPE> =
     T extends IMBRICATE_DATABASE_EDIT_TYPE.PUT_SCHEMA ? ImbricateDatabaseSchema :
-    T extends IMBRICATE_DATABASE_EDIT_TYPE.PUT_ANNOTATION ? DatabaseEditOperationPutAnnotation : never;
+    T extends IMBRICATE_DATABASE_EDIT_TYPE.PUT_ANNOTATION ? DatabaseEditOperationPutAnnotation :
+    T extends IMBRICATE_DATABASE_EDIT_TYPE.DELETE_ANNOTATION ? DatabaseEditOperationDeleteAnnotation :
+    never;
 
 export type DatabaseEditOperation<T extends IMBRICATE_DATABASE_EDIT_TYPE> = {
 

@@ -105,12 +105,29 @@ export interface IImbricateDatabase {
      * 
      * @returns a promise of the edit records of the database
      *  Note: if the origin supports Document Edit Record, the edit record will be added by default
-     *  If you do not want to add the edit record, set `noEditRecord` to true
+     *  If you do not want to add the edit record, set `noEditRecord` to true in audit options
      */
     putAnnotation(
         namespace: string,
         identifier: string,
         value: any,
+        auditOptions?: ImbricateDatabaseAuditOptions,
+    ): PromiseLike<DatabaseEditRecord[]>;
+
+    /**
+     * Delete annotation from the database
+     * 
+     * @param namespace namespace of the annotation
+     * @param identifier identifier of the annotation
+     * @param auditOptions audit options of the database
+     * 
+     * @returns a promise of the edit records of the database
+     *  Note: if the origin supports Document Edit Record, the edit record will be added by default
+     *  If you do not want to add the edit record, set `noEditRecord` to true in audit options
+     */
+    deleteAnnotation(
+        namespace: string,
+        identifier: string,
         auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<DatabaseEditRecord[]>;
 
