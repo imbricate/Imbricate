@@ -21,6 +21,8 @@ export type ImbricateDatabaseSchemaPropertyOptionsLabelOption = {
 
     readonly labelIdentifier: string;
     readonly labelName: string;
+
+    readonly labelColor: string;
 };
 
 export type ImbricateDatabaseSchemaPropertyOptionsLabel = {
