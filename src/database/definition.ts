@@ -10,6 +10,12 @@ import { ImbricateDatabaseSchema } from "./schema";
 export enum IMBRICATE_QUERY_COMPARE_CONDITION {
 
     EQUAL = "EQUAL",
+    EXIST = "EXIST",
+}
+
+export enum IMBRICATE_QUERY_ATTRIBUTE {
+
+    VALUE = "VALUE",
 }
 
 export enum IMBRICATE_QUERY_PROPERTY_CONDITION_TARGET {
@@ -18,23 +24,22 @@ export enum IMBRICATE_QUERY_PROPERTY_CONDITION_TARGET {
     PROPERTY_VALUE = "PROPERTY_VALUE",
 }
 
-export type ImbricateDocumentQueryPropertyFilterCondition = {
-
-    readonly target: IMBRICATE_QUERY_PROPERTY_CONDITION_TARGET;
-    readonly condition: IMBRICATE_QUERY_COMPARE_CONDITION;
-    readonly value: any;
-};
-
 export type ImbricateDocumentQueryPropertyFilter = {
 
     readonly propertyIdentifier: string;
-    readonly conditions: ImbricateDocumentQueryPropertyFilterCondition[];
+
+    readonly target: IMBRICATE_QUERY_PROPERTY_CONDITION_TARGET;
+    readonly attribute: IMBRICATE_QUERY_ATTRIBUTE;
+    readonly condition: IMBRICATE_QUERY_COMPARE_CONDITION;
+    readonly value: any;
 };
 
 export type ImbricateDocumentQueryAnnotationFilter = {
 
     readonly namespace: string;
     readonly identifier: string;
+
+    readonly attribute: IMBRICATE_QUERY_ATTRIBUTE;
     readonly condition: IMBRICATE_QUERY_COMPARE_CONDITION;
     readonly value: any;
 };
