@@ -12,7 +12,7 @@ export enum IMBRICATE_QUERY_COMPARE_CONDITION {
     EQUAL = "EQUAL",
 }
 
-export enum IMBRICATE_QUERY_CONDITION_TARGET {
+export enum IMBRICATE_QUERY_PROPERTY_CONDITION_TARGET {
 
     PROPERTY_TYPE = "PROPERTY_TYPE",
     PROPERTY_VALUE = "PROPERTY_VALUE",
@@ -20,7 +20,7 @@ export enum IMBRICATE_QUERY_CONDITION_TARGET {
 
 export type ImbricateDocumentQueryPropertyFilterCondition = {
 
-    readonly target: IMBRICATE_QUERY_CONDITION_TARGET;
+    readonly target: IMBRICATE_QUERY_PROPERTY_CONDITION_TARGET;
     readonly condition: IMBRICATE_QUERY_COMPARE_CONDITION;
     readonly value: any;
 };
@@ -29,6 +29,14 @@ export type ImbricateDocumentQueryPropertyFilter = {
 
     readonly propertyIdentifier: string;
     readonly conditions: ImbricateDocumentQueryPropertyFilterCondition[];
+};
+
+export type ImbricateDocumentQueryAnnotationFilter = {
+
+    readonly namespace: string;
+    readonly identifier: string;
+    readonly condition: IMBRICATE_QUERY_COMPARE_CONDITION;
+    readonly value: any;
 };
 
 /**
@@ -43,6 +51,7 @@ export type ImbricateDocumentQuery = {
     readonly skip?: number;
 
     readonly propertyFilters?: ImbricateDocumentQueryPropertyFilter[];
+    readonly annotationFilters?: ImbricateDocumentQueryAnnotationFilter[];
 };
 
 /**
