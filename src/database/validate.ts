@@ -4,7 +4,7 @@
  * @description Validate
  */
 
-import { ImbricateDocumentQuery } from "./definition";
+import { IMBRICATE_QUERY_ATTRIBUTE, IMBRICATE_QUERY_COMPARE_CONDITION, IMBRICATE_QUERY_PROPERTY_CONDITION_TARGET, ImbricateDocumentQuery } from "./definition";
 
 /**
  * Validate imbricate document query
@@ -38,18 +38,19 @@ export const validateImbricateDocumentQuery = (query: ImbricateDocumentQuery): s
                 return "Property identifier must be a string";
             }
 
-            if (!Array.isArray(filter.conditions)) {
-                return "Conditions must be an array";
+            if (typeof filter.target !== "string"
+                || !Object.values(IMBRICATE_QUERY_PROPERTY_CONDITION_TARGET).includes(filter.target)) {
+                return "Target must be a valid target";
             }
 
-            for (const condition of filter.conditions) {
+            if (typeof filter.attribute !== "string"
+                || !Object.values(IMBRICATE_QUERY_ATTRIBUTE).includes(filter.attribute)) {
+                return "Attribute must be a valid attribute";
+            }
 
-                if (typeof condition.target !== "string") {
-                    return "Target must be a string";
-                }
-                if (typeof condition.condition !== "string") {
-                    return "Condition must be a string";
-                }
+            if (typeof filter.condition !== "string"
+                || !Object.values(IMBRICATE_QUERY_COMPARE_CONDITION).includes(filter.condition)) {
+                return "Condition must be a valid condition";
             }
         }
     }
@@ -67,8 +68,15 @@ export const validateImbricateDocumentQuery = (query: ImbricateDocumentQuery): s
             if (typeof filter.identifier !== "string") {
                 return "Identifier must be a string";
             }
-            if (typeof filter.condition !== "string") {
-                return "Condition must be a string";
+
+            if (typeof filter.attribute !== "string"
+                || !Object.values(IMBRICATE_QUERY_ATTRIBUTE).includes(filter.attribute)) {
+                return "Attribute must be a valid attribute";
+            }
+
+            if (typeof filter.condition !== "string"
+                || !Object.values(IMBRICATE_QUERY_COMPARE_CONDITION).includes(filter.condition)) {
+                return "Condition must be a valid condition";
             }
         }
     }
