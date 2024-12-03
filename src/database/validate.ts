@@ -20,10 +20,10 @@ export const validateImbricateDocumentQuery = (query: ImbricateDocumentQuery): s
         return "Query must be an object";
     }
 
-    if (query.limit !== undefined && typeof query.limit !== "number" && query.limit <= 0) {
+    if (query.limit !== undefined && (typeof query.limit !== "number" || query.limit <= 0)) {
         return "Limit must be a number greater than 0 or undefined";
     }
-    if (query.skip !== undefined && typeof query.skip !== "number" && query.skip < 0) {
+    if (query.skip !== undefined && (typeof query.skip !== "number" || query.skip < 0)) {
         return "Skip must be a number greater than or equal to 0 or undefined";
     }
 
