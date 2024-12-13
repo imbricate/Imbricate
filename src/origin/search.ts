@@ -13,17 +13,20 @@ export enum IMBRICATE_SEARCH_TARGET_TYPE {
 
 export type ImbricateSearchTargetSwitch<T extends IMBRICATE_SEARCH_TARGET_TYPE> =
     T extends IMBRICATE_SEARCH_TARGET_TYPE.DATABASE ? {
-        databaseUniqueIdentifier: string;
+        readonly originUniqueIdentifier: string;
+        readonly databaseUniqueIdentifier: string;
     } :
     T extends IMBRICATE_SEARCH_TARGET_TYPE.DOCUMENT ? {
-        databaseUniqueIdentifier: string;
-        documentUniqueIdentifier: string;
+        readonly originUniqueIdentifier: string;
+        readonly databaseUniqueIdentifier: string;
+        readonly documentUniqueIdentifier: string;
     } :
     T extends IMBRICATE_SEARCH_TARGET_TYPE.MARKDOWN ? {
-        databaseUniqueIdentifier: string;
-        documentUniqueIdentifier: string;
-        propertyUniqueIdentifier: string;
-        lineNumber: number;
+        readonly originUniqueIdentifier: string;
+        readonly databaseUniqueIdentifier: string;
+        readonly documentUniqueIdentifier: string;
+        readonly propertyUniqueIdentifier: string;
+        readonly lineNumber: number;
     } :
     never;
 
