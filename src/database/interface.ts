@@ -24,7 +24,7 @@ export interface IImbricateDatabase {
     /**
      * Version of the database draft
      */
-    readonly databaseVersion: string;
+    readonly databaseVersion: number;
 
     /**
      * Schema of the database

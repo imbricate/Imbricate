@@ -17,7 +17,7 @@ export interface IImbricateDocument {
     /**
      * Version of the document draft
      */
-    readonly documentVersion: string;
+    readonly documentVersion: number;
 
     /**
      * Properties of the document
