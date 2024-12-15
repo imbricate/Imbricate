@@ -101,8 +101,8 @@ export type DatabaseEditRecord = {
     readonly uniqueIdentifier: string;
     readonly editAt: Date;
 
-    readonly beforeVersion: string;
-    readonly afterVersion: string;
+    readonly beforeVersion: number;
+    readonly afterVersion: number;
 
     readonly operations: Array<DatabaseEditOperation<IMBRICATE_DATABASE_EDIT_TYPE>>;
 
