@@ -22,6 +22,11 @@ export interface IImbricateDatabase {
     readonly databaseName: string;
 
     /**
+     * Version of the database draft
+     */
+    readonly databaseVersion: string;
+
+    /**
      * Schema of the database
      */
     readonly schema: ImbricateDatabaseSchema;

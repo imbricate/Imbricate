@@ -15,6 +15,11 @@ export interface IImbricateDocument {
     readonly uniqueIdentifier: string;
 
     /**
+     * Version of the document draft
+     */
+    readonly documentVersion: string;
+
+    /**
      * Properties of the document
      */
     readonly properties: DocumentProperties;
