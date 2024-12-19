@@ -90,12 +90,18 @@ export type DatabaseEditOperationValue<T extends IMBRICATE_DATABASE_EDIT_TYPE> =
     T extends IMBRICATE_DATABASE_EDIT_TYPE.DELETE_ANNOTATION ? DatabaseEditOperationDeleteAnnotation :
     never;
 
+/**
+ * Edit operation of the database
+ */
 export type DatabaseEditOperation<T extends IMBRICATE_DATABASE_EDIT_TYPE> = {
 
     readonly action: T;
     readonly value: DatabaseEditOperationValue<T>;
 };
 
+/**
+ * Edit record of the database
+ */
 export type DatabaseEditRecord = {
 
     readonly uniqueIdentifier: string;
@@ -109,9 +115,19 @@ export type DatabaseEditRecord = {
     readonly author?: ImbricateAuthor;
 };
 
+/**
+ * Annotations of the database
+ */
 export type DatabaseAnnotations = Record<DatabaseAnnotationKey, DatabaseAnnotationValue>;
 
+/**
+ * Annotation key of the database
+ */
 export type DatabaseAnnotationKey = string;
+
+/**
+ * Annotation value of the database
+ */
 export type DatabaseAnnotationValue = {
 
     readonly namespace: string;

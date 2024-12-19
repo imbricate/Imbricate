@@ -7,6 +7,7 @@
 import { IImbricateDocument } from "../document/interface";
 import { DocumentProperties } from "../document/property";
 import { DatabaseAnnotationValue, DatabaseAnnotations, DatabaseEditRecord, ImbricateDatabaseAuditOptions, ImbricateDocumentQuery } from "./definition";
+import { IMBRICATE_DATABASE_FEATURE } from "./feature";
 import { ImbricateDatabaseSchema } from "./schema";
 
 export interface IImbricateDatabase {
@@ -35,6 +36,11 @@ export interface IImbricateDatabase {
      * Annotations of the database
      */
     readonly annotations: DatabaseAnnotations;
+
+    /**
+     * Supported features of the database
+     */
+    readonly supportedFeatures: IMBRICATE_DATABASE_FEATURE[];
 
     /**
      * Put and replace the schema of the database
