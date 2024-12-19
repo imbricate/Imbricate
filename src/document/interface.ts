@@ -38,6 +38,8 @@ export interface IImbricateDocument {
     /**
      * Update a property from the document
      * 
+     * RequireFeature: DOCUMENT_PUT_PROPERTY
+     * 
      * @param key key of the property
      * @param value value of the property
      * @param auditOptions audit options of the document
@@ -53,7 +55,9 @@ export interface IImbricateDocument {
     ): PromiseLike<DocumentEditRecord[]>;
 
     /**
-     * Put and replace all properties of the document
+     * Put and replace all properties of the document, optional
+     * 
+     * RequireFeature: DOCUMENT_PUT_PROPERTIES
      * 
      * @param properties properties of the document
      * @param auditOptions audit options of the document
@@ -68,7 +72,9 @@ export interface IImbricateDocument {
     ): PromiseLike<DocumentEditRecord[]>;
 
     /**
-     * put annotation to the document
+     * Put annotation to the document, optional
+     * 
+     * RequireFeature: DOCUMENT_PUT_ANNOTATION
      * 
      * @param namespace namespace of the annotation
      * @param identifier identifier of the annotation
@@ -79,7 +85,7 @@ export interface IImbricateDocument {
      *  Note: if the origin supports Document Edit Record, the edit record will be added by default
      *  If you do not want to add the edit record, set `noEditRecord` to true in audit options
      */
-    putAnnotation(
+    putAnnotation?(
         namespace: string,
         identifier: string,
         value: DocumentAnnotationValue,
@@ -89,6 +95,8 @@ export interface IImbricateDocument {
     /**
      * Delete annotation from the document
      * 
+     * RequireFeature: DOCUMENT_REMOVE_ANNOTATION
+     * 
      * @param namespace namespace of the annotation
      * @param identifier identifier of the annotation
      * @param auditOptions audit options of the document
@@ -97,7 +105,7 @@ export interface IImbricateDocument {
      *  Note: if the origin supports Document Edit Record, the edit record will be added by default
      *  If you do not want to add the edit record, set `noEditRecord` to true in audit options
      */
-    deleteAnnotation(
+    deleteAnnotation?(
         namespace: string,
         identifier: string,
         auditOptions?: ImbricateDocumentAuditOptions,
@@ -108,6 +116,8 @@ export interface IImbricateDocument {
      *  This method is optional, if not implemented, means the origin
      *  1. The origin does not support edit records
      *  2. The origin force to add edit records when put properties
+     * 
+     * RequireFeature: DOCUMENT_PUT_EDIT_RECORD
      * 
      * @param records document edit records
      */
@@ -120,6 +130,8 @@ export interface IImbricateDocument {
      *  This method is optional, if not implemented, means the origin
      *  1. The origin does not support edit records
      *  2. The origin force to add edit records when put properties
+     * 
+     * RequireFeature: DOCUMENT_GET_EDIT_RECORD
      * 
      * @returns a promise of the edit records of the document
      */

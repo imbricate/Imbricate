@@ -46,6 +46,8 @@ export interface IImbricateDatabase {
      * Put and replace the schema of the database
      *  Existing documents will still be kept, and stays unchanged
      * 
+     * RequireFeature: DATABASE_PUT_SCHEMA
+     * 
      * @param schema schema of the database
      * @param auditOptions audit options of the database 
      * 
@@ -62,6 +64,8 @@ export interface IImbricateDatabase {
      * Create a new document in the database
      *  If origin supports Document Edit Record, the edit record will be added by default
      * 
+     * RequireFeature: DATABASE_CREATE_DOCUMENT
+     * 
      * @param properties properties of the document
      * @param auditOptions audit options of the document
      * 
@@ -75,6 +79,8 @@ export interface IImbricateDatabase {
     /**
      * Get one document from the database
      * 
+     * RequireFeature: DATABASE_GET_DOCUMENT
+     * 
      * @param uniqueIdentifier unique identifier of the document
      * 
      * @returns a promise of the documents in the database, null if not found
@@ -85,6 +91,8 @@ export interface IImbricateDatabase {
 
     /**
      * Query documents from the database
+     * 
+     * RequireFeature: DATABASE_QUERY_DOCUMENT
      * 
      * @param query query of the documents
      * 
@@ -97,6 +105,8 @@ export interface IImbricateDatabase {
     /**
      * Count documents in the database
      * 
+     * RequireFeature: DATABASE_COUNT_DOCUMENT
+     * 
      * @param query query of the documents
      * 
      * @returns a promise of the count of the documents in the database
@@ -108,6 +118,8 @@ export interface IImbricateDatabase {
     /**
      * Remove a document from the database
      * 
+     * RequireFeature: DATABASE_DELETE_DOCUMENT
+     * 
      * @param uniqueIdentifier unique identifier of the document
      * @param auditOptions audit options of the document
      */
@@ -117,7 +129,9 @@ export interface IImbricateDatabase {
     ): PromiseLike<void>;
 
     /**
-     * put annotation to the database
+     * Put annotation to the database, optional
+     * 
+     * RequireFeature: DATABASE_PUT_ANNOTATION
      * 
      * @param namespace namespace of the annotation
      * @param identifier identifier of the annotation
@@ -128,7 +142,7 @@ export interface IImbricateDatabase {
      *  Note: if the origin supports Document Edit Record, the edit record will be added by default
      *  If you do not want to add the edit record, set `noEditRecord` to true in audit options
      */
-    putAnnotation(
+    putAnnotation?(
         namespace: string,
         identifier: string,
         value: DatabaseAnnotationValue,
@@ -136,7 +150,9 @@ export interface IImbricateDatabase {
     ): PromiseLike<DatabaseEditRecord[]>;
 
     /**
-     * Delete annotation from the database
+     * Delete annotation from the database, optional
+     * 
+     * RequireFeature: DATABASE_REMOVE_ANNOTATION
      * 
      * @param namespace namespace of the annotation
      * @param identifier identifier of the annotation
@@ -146,7 +162,7 @@ export interface IImbricateDatabase {
      *  Note: if the origin supports Document Edit Record, the edit record will be added by default
      *  If you do not want to add the edit record, set `noEditRecord` to true in audit options
      */
-    deleteAnnotation(
+    deleteAnnotation?(
         namespace: string,
         identifier: string,
         auditOptions?: ImbricateDatabaseAuditOptions,
@@ -157,6 +173,8 @@ export interface IImbricateDatabase {
      *  This method is optional, if not implemented, means the origin
      *  1. The origin does not support edit records
      *  2. The origin force to add edit records when put properties
+     * 
+     * RequireFeature: DATABASE_PUT_EDIT_RECORD
      * 
      * @param records database edit records
      */
@@ -169,6 +187,8 @@ export interface IImbricateDatabase {
      *  This method is optional, if not implemented, means the origin
      *  1. The origin does not support edit records
      *  2. The origin force to add edit records when put properties
+     * 
+     * RequireFeature: DATABASE_GET_EDIT_RECORD
      * 
      * @returns a promise of the edit records of the database
      */
