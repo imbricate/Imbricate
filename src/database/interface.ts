@@ -23,11 +23,6 @@ export interface IImbricateDatabase {
     readonly databaseName: string;
 
     /**
-     * Version of the database draft
-     */
-    readonly databaseVersion: number;
-
-    /**
      * Schema of the database
      */
     readonly schema: ImbricateDatabaseSchema;
@@ -129,7 +124,7 @@ export interface IImbricateDatabase {
     ): PromiseLike<void>;
 
     /**
-     * Put annotation to the database, optional
+     * Put annotation to the database
      * 
      * RequireFeature: DATABASE_PUT_ANNOTATION
      * 
@@ -142,7 +137,7 @@ export interface IImbricateDatabase {
      *  Note: if the origin supports Document Edit Record, the edit record will be added by default
      *  If you do not want to add the edit record, set `noEditRecord` to true in audit options
      */
-    putAnnotation?(
+    putAnnotation(
         namespace: string,
         identifier: string,
         value: DatabaseAnnotationValue,
@@ -150,7 +145,7 @@ export interface IImbricateDatabase {
     ): PromiseLike<DatabaseEditRecord[]>;
 
     /**
-     * Delete annotation from the database, optional
+     * Delete annotation from the database
      * 
      * RequireFeature: DATABASE_REMOVE_ANNOTATION
      * 
@@ -162,14 +157,14 @@ export interface IImbricateDatabase {
      *  Note: if the origin supports Document Edit Record, the edit record will be added by default
      *  If you do not want to add the edit record, set `noEditRecord` to true in audit options
      */
-    deleteAnnotation?(
+    deleteAnnotation(
         namespace: string,
         identifier: string,
         auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<DatabaseEditRecord[]>;
 
     /**
-     * Add edit records to the database, optional
+     * Add edit records to the database
      *  This method is optional, if not implemented, means the origin
      *  1. The origin does not support edit records
      *  2. The origin force to add edit records when put properties
@@ -178,12 +173,12 @@ export interface IImbricateDatabase {
      * 
      * @param records database edit records
      */
-    addEditRecords?(
+    addEditRecords(
         records: DatabaseEditRecord[],
     ): PromiseLike<void>;
 
     /**
-     * Get edit records of the database, optional
+     * Get edit records of the database
      *  This method is optional, if not implemented, means the origin
      *  1. The origin does not support edit records
      *  2. The origin force to add edit records when put properties
@@ -192,5 +187,5 @@ export interface IImbricateDatabase {
      * 
      * @returns a promise of the edit records of the database
      */
-    getEditRecords?(): PromiseLike<DatabaseEditRecord[]>;
+    getEditRecords(): PromiseLike<DatabaseEditRecord[]>;
 }
