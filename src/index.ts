@@ -11,6 +11,7 @@ export * from "./database/manager";
 export * from "./database/schema";
 export * from "./database/validate";
 export * from "./document/definition";
+export * from "./document/feature";
 export * from "./document/interface";
 export * from "./document/property";
 export * from "./document/property/default-value";

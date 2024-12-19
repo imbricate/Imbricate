@@ -5,6 +5,7 @@
  */
 
 import { DocumentAnnotationValue, DocumentAnnotations, DocumentEditRecord, ImbricateDocumentAuditOptions } from "./definition";
+import { IMBRICATE_DOCUMENT_FEATURE } from "./feature";
 import { DocumentProperties, DocumentPropertyKey, DocumentPropertyValue, IMBRICATE_PROPERTY_TYPE } from "./property";
 
 export interface IImbricateDocument {
@@ -28,6 +29,11 @@ export interface IImbricateDocument {
      * Annotations of the database
      */
     readonly annotations: DocumentAnnotations;
+
+    /**
+     * Supported features of the document
+     */
+    readonly supportedFeatures: IMBRICATE_DOCUMENT_FEATURE[];
 
     /**
      * Update a property from the document
