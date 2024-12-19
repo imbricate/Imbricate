@@ -72,20 +72,35 @@ export const validateImbricateProperties = (
                 break;
             }
             case IMBRICATE_PROPERTY_TYPE.MARKDOWN: {
-                if (typeof value.value !== "string") {
-                    return `Property ${key} value must be a string of text object reference`;
+                if (!Array.isArray(value.value)) {
+                    return `Property ${key} value must be an array of string`;
+                }
+                for (const markdown of value.value) {
+                    if (typeof markdown !== "string") {
+                        return `Property ${key} markdown must be a string`;
+                    }
                 }
                 break;
             }
             case IMBRICATE_PROPERTY_TYPE.JSON: {
-                if (typeof value.value !== "string") {
-                    return `Property ${key} value must be a string of text object reference`;
+                if (!Array.isArray(value.value)) {
+                    return `Property ${key} value must be an array of string`;
+                }
+                for (const json of value.value) {
+                    if (typeof json !== "string") {
+                        return `Property ${key} json must be a string`;
+                    }
                 }
                 break;
             }
             case IMBRICATE_PROPERTY_TYPE.IMBRISCRIPT: {
-                if (typeof value.value !== "string") {
-                    return `Property ${key} value must be a string of text object reference`;
+                if (!Array.isArray(value.value)) {
+                    return `Property ${key} value must be an array of string`;
+                }
+                for (const imbriscript of value.value) {
+                    if (typeof imbriscript !== "string") {
+                        return `Property ${key} imbriscript must be a string`;
+                    }
                 }
                 break;
             }
