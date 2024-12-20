@@ -4,6 +4,7 @@
  * @description Exclude Annotation
  */
 
+import { ImbricateDatabaseFeatureNotSupportedError } from "../../error/database/feature-not-supported";
 import { DatabaseAnnotationValue, DatabaseAnnotations, DatabaseEditRecord, ImbricateDatabaseAuditOptions } from "../definition";
 import { IMBRICATE_DATABASE_FEATURE } from "../feature";
 import { IImbricateDatabase } from "../interface";
@@ -33,7 +34,9 @@ export abstract class ImbricateDatabaseExcludeAnnotationBase extends ImbricateDa
         _auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<DatabaseEditRecord[]> {
 
-        throw new Error("Not implemented");
+        throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
+            IMBRICATE_DATABASE_FEATURE.DATABASE_PUT_ANNOTATION,
+        );
     }
 
     public deleteAnnotation(
@@ -42,6 +45,8 @@ export abstract class ImbricateDatabaseExcludeAnnotationBase extends ImbricateDa
         _auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<DatabaseEditRecord[]> {
 
-        throw new Error("Not implemented");
+        throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
+            IMBRICATE_DATABASE_FEATURE.DATABASE_DELETE_ANNOTATION,
+        );
     }
 }

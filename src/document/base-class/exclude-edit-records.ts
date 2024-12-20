@@ -4,6 +4,7 @@
  * @description Exclude Edit Records
  */
 
+import { ImbricateDocumentFeatureNotSupportedError } from "../../error/document/feature-not-supported";
 import { DocumentEditRecord } from "../definition";
 import { IMBRICATE_DOCUMENT_FEATURE } from "../feature";
 import { IImbricateDocument } from "../interface";
@@ -16,18 +17,22 @@ export abstract class ImbricateDocumentExcludeEditRecordsBase extends ImbricateD
         IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_PUT_PROPERTY,
 
         IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_PUT_ANNOTATION,
-        IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_REMOVE_ANNOTATION,
+        IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_DELETE_ANNOTATION,
     ];
 
     public addEditRecords(
         _records: DocumentEditRecord[],
     ): Promise<void> {
 
-        throw new Error("Not implemented");
+        throw ImbricateDocumentFeatureNotSupportedError.withFeature(
+            IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_PUT_EDIT_RECORD,
+        );
     }
 
     public getEditRecords(): Promise<DocumentEditRecord[]> {
 
-        throw new Error("Not implemented");
+        throw ImbricateDocumentFeatureNotSupportedError.withFeature(
+            IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_GET_EDIT_RECORD,
+        );
     }
 }

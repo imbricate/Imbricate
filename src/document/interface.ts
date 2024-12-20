@@ -95,7 +95,7 @@ export interface IImbricateDocument {
     /**
      * Delete annotation from the document
      * 
-     * RequireFeature: DOCUMENT_REMOVE_ANNOTATION
+     * RequireFeature: DOCUMENT_DELETE_ANNOTATION
      * 
      * @param namespace namespace of the annotation
      * @param identifier identifier of the annotation

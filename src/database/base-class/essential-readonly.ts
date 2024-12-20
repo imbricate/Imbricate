@@ -6,6 +6,7 @@
 
 import { IImbricateDocument } from "../../document/interface";
 import { DocumentProperties } from "../../document/property";
+import { ImbricateDatabaseFeatureNotSupportedError } from "../../error/database/feature-not-supported";
 import { DatabaseEditRecord, ImbricateDatabaseAuditOptions } from "../definition";
 import { IMBRICATE_DATABASE_FEATURE } from "../feature";
 import { IImbricateDatabase } from "../interface";
@@ -24,7 +25,9 @@ export abstract class ImbricateDatabaseEssentialReadOnlyBase extends ImbricateDa
         _auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<DatabaseEditRecord[]> {
 
-        throw new Error("Not implemented");
+        throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
+            IMBRICATE_DATABASE_FEATURE.DATABASE_PUT_SCHEMA,
+        );
     }
 
     public createDocument(
@@ -32,7 +35,9 @@ export abstract class ImbricateDatabaseEssentialReadOnlyBase extends ImbricateDa
         _auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<IImbricateDocument> {
 
-        throw new Error("Not implemented");
+        throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
+            IMBRICATE_DATABASE_FEATURE.DATABASE_CREATE_DOCUMENT,
+        );
     }
 
     public removeDocument(
@@ -40,6 +45,8 @@ export abstract class ImbricateDatabaseEssentialReadOnlyBase extends ImbricateDa
         _auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<void> {
 
-        throw new Error("Not implemented");
+        throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
+            IMBRICATE_DATABASE_FEATURE.DATABASE_DELETE_DOCUMENT,
+        );
     }
 }

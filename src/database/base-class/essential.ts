@@ -4,12 +4,15 @@
  * @description Essential
  */
 
-import { DatabaseAnnotationValue, DatabaseEditRecord, ImbricateDatabaseAuditOptions } from "../definition";
+import { ImbricateDatabaseFeatureNotSupportedError } from "../../error/database/feature-not-supported";
+import { DatabaseAnnotationValue, DatabaseAnnotations, DatabaseEditRecord, ImbricateDatabaseAuditOptions } from "../definition";
 import { IMBRICATE_DATABASE_FEATURE } from "../feature";
 import { IImbricateDatabase } from "../interface";
 import { ImbricateDatabaseFullFeatureBase } from "./full-feature";
 
 export abstract class ImbricateDatabaseEssentialBase extends ImbricateDatabaseFullFeatureBase implements IImbricateDatabase {
+
+    public readonly annotations: DatabaseAnnotations = {};
 
     public readonly supportedFeatures: IMBRICATE_DATABASE_FEATURE[] = [
 
@@ -28,7 +31,9 @@ export abstract class ImbricateDatabaseEssentialBase extends ImbricateDatabaseFu
         _auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<DatabaseEditRecord[]> {
 
-        throw new Error("Not implemented");
+        throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
+            IMBRICATE_DATABASE_FEATURE.DATABASE_PUT_ANNOTATION,
+        );
     }
 
     public deleteAnnotation(
@@ -37,18 +42,24 @@ export abstract class ImbricateDatabaseEssentialBase extends ImbricateDatabaseFu
         _auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<DatabaseEditRecord[]> {
 
-        throw new Error("Not implemented");
+        throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
+            IMBRICATE_DATABASE_FEATURE.DATABASE_DELETE_ANNOTATION,
+        );
     }
 
     public addEditRecords(
         _records: DatabaseEditRecord[],
     ): PromiseLike<void> {
 
-        throw new Error("Not implemented");
+        throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
+            IMBRICATE_DATABASE_FEATURE.DATABASE_PUT_EDIT_RECORD,
+        );
     }
 
     public getEditRecords(): PromiseLike<DatabaseEditRecord[]> {
 
-        throw new Error("Not implemented");
+        throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
+            IMBRICATE_DATABASE_FEATURE.DATABASE_GET_EDIT_RECORD,
+        );
     }
 }

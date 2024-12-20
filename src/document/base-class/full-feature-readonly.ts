@@ -4,6 +4,7 @@
  * @description Full Feature Readonly
  */
 
+import { ImbricateDocumentFeatureNotSupportedError } from "../../error/document/feature-not-supported";
 import { DocumentAnnotationValue, DocumentEditRecord, ImbricateDocumentAuditOptions } from "../definition";
 import { IMBRICATE_DOCUMENT_FEATURE } from "../feature";
 import { IImbricateDocument } from "../interface";
@@ -23,7 +24,9 @@ export abstract class ImbricateDocumentFullFeatureReadonlyBase extends Imbricate
         _auditOptions?: ImbricateDocumentAuditOptions,
     ): Promise<DocumentEditRecord[]> {
 
-        throw new Error("Not implemented");
+        throw ImbricateDocumentFeatureNotSupportedError.withFeature(
+            IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_PUT_PROPERTY,
+        );
     }
 
     public putProperties(
@@ -31,7 +34,9 @@ export abstract class ImbricateDocumentFullFeatureReadonlyBase extends Imbricate
         _auditOptions?: ImbricateDocumentAuditOptions,
     ): Promise<DocumentEditRecord[]> {
 
-        throw new Error("Not implemented");
+        throw ImbricateDocumentFeatureNotSupportedError.withFeature(
+            IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_PUT_PROPERTY,
+        );
     }
 
     public putAnnotation(
@@ -41,7 +46,9 @@ export abstract class ImbricateDocumentFullFeatureReadonlyBase extends Imbricate
         _auditOptions?: ImbricateDocumentAuditOptions,
     ): Promise<DocumentEditRecord[]> {
 
-        throw new Error("Not implemented");
+        throw ImbricateDocumentFeatureNotSupportedError.withFeature(
+            IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_PUT_ANNOTATION,
+        );
     }
 
     public deleteAnnotation(
@@ -50,13 +57,17 @@ export abstract class ImbricateDocumentFullFeatureReadonlyBase extends Imbricate
         _auditOptions?: ImbricateDocumentAuditOptions,
     ): Promise<DocumentEditRecord[]> {
 
-        throw new Error("Not implemented");
+        throw ImbricateDocumentFeatureNotSupportedError.withFeature(
+            IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_DELETE_ANNOTATION,
+        );
     }
 
     public addEditRecords(
         _records: DocumentEditRecord[],
     ): Promise<void> {
 
-        throw new Error("Not implemented");
+        throw ImbricateDocumentFeatureNotSupportedError.withFeature(
+            IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_PUT_EDIT_RECORD,
+        );
     }
 }

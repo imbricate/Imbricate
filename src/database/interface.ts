@@ -147,7 +147,7 @@ export interface IImbricateDatabase {
     /**
      * Delete annotation from the database
      * 
-     * RequireFeature: DATABASE_REMOVE_ANNOTATION
+     * RequireFeature: DATABASE_DELETE_ANNOTATION
      * 
      * @param namespace namespace of the annotation
      * @param identifier identifier of the annotation

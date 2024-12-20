@@ -4,6 +4,7 @@
  * @description Essential Readonly
  */
 
+import { ImbricateDocumentFeatureNotSupportedError } from "../../error/document/feature-not-supported";
 import { DocumentAnnotations, DocumentEditRecord, ImbricateDocumentAuditOptions } from "../definition";
 import { IMBRICATE_DOCUMENT_FEATURE } from "../feature";
 import { IImbricateDocument } from "../interface";
@@ -22,7 +23,9 @@ export abstract class ImbricateDocumentEssentialReadonlyBase extends ImbricateDo
         _auditOptions?: ImbricateDocumentAuditOptions,
     ): Promise<DocumentEditRecord[]> {
 
-        throw new Error("Not implemented");
+        throw ImbricateDocumentFeatureNotSupportedError.withFeature(
+            IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_PUT_PROPERTY,
+        );
     }
 
     public putProperties(
@@ -30,6 +33,8 @@ export abstract class ImbricateDocumentEssentialReadonlyBase extends ImbricateDo
         _auditOptions?: ImbricateDocumentAuditOptions,
     ): Promise<DocumentEditRecord[]> {
 
-        throw new Error("Not implemented");
+        throw ImbricateDocumentFeatureNotSupportedError.withFeature(
+            IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_PUT_PROPERTY,
+        );
     }
 }
