@@ -1,15 +1,15 @@
 /**
  * @author WMXPY
  * @namespace Database
- * @description Exclude Edit Records
+ * @description Essential
  */
 
-import { DatabaseEditRecord } from "../definition";
+import { DatabaseAnnotationValue, DatabaseEditRecord, ImbricateDatabaseAuditOptions } from "../definition";
 import { IMBRICATE_DATABASE_FEATURE } from "../feature";
 import { IImbricateDatabase } from "../interface";
 import { ImbricateDatabaseFullFeatureBase } from "./full-feature";
 
-export abstract class ImbricateDatabaseExcludeEditRecordsBase extends ImbricateDatabaseFullFeatureBase implements IImbricateDatabase {
+export abstract class ImbricateDatabaseEssentialBase extends ImbricateDatabaseFullFeatureBase implements IImbricateDatabase {
 
     public readonly supportedFeatures: IMBRICATE_DATABASE_FEATURE[] = [
 
@@ -19,10 +19,26 @@ export abstract class ImbricateDatabaseExcludeEditRecordsBase extends ImbricateD
         IMBRICATE_DATABASE_FEATURE.DATABASE_DELETE_DOCUMENT,
 
         IMBRICATE_DATABASE_FEATURE.DATABASE_GET_DOCUMENT,
-
-        IMBRICATE_DATABASE_FEATURE.DATABASE_PUT_ANNOTATION,
-        IMBRICATE_DATABASE_FEATURE.DATABASE_REMOVE_ANNOTATION,
     ];
+
+    public putAnnotation(
+        _namespace: string,
+        _identifier: string,
+        _value: DatabaseAnnotationValue,
+        _auditOptions?: ImbricateDatabaseAuditOptions,
+    ): PromiseLike<DatabaseEditRecord[]> {
+
+        throw new Error("Not implemented");
+    }
+
+    public deleteAnnotation(
+        _namespace: string,
+        _identifier: string,
+        _auditOptions?: ImbricateDatabaseAuditOptions,
+    ): PromiseLike<DatabaseEditRecord[]> {
+
+        throw new Error("Not implemented");
+    }
 
     public addEditRecords(
         _records: DatabaseEditRecord[],
