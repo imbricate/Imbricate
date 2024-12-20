@@ -8,7 +8,8 @@ import { IImbricateDatabaseManager } from "../database/manager";
 import { IImbricateStaticManager } from "../static/manager";
 import { IImbricateTextManager } from "../text/manager";
 import { OriginPayload } from "./definition";
-import { ImbricateSearchResult } from "./search";
+import { IMBRICATE_ORIGIN_FEATURE } from "./feature";
+import { ImbricateOriginSearchOutcome } from "./outcome";
 
 export interface IImbricateOrigin {
 
@@ -21,6 +22,11 @@ export interface IImbricateOrigin {
      * Payloads to initialize the origin
      */
     readonly payloads: OriginPayload;
+
+    /**
+     * Supported features of the origin
+     */
+    readonly supportedFeatures: IMBRICATE_ORIGIN_FEATURE[];
 
     /**
      * Get the database manager of the origin
@@ -60,9 +66,11 @@ export interface IImbricateOrigin {
      * Search for items in the origin
      * 
      * @param keyword the keyword to search
+     * 
      * @returns the search
+     *  Symbol: S_Origin_Search_InvalidKeyword - if the keyword is invalid
      */
     search(
         keyword: string,
-    ): PromiseLike<ImbricateSearchResult>;
+    ): PromiseLike<ImbricateOriginSearchOutcome>;
 }

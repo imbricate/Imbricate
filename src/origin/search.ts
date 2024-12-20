@@ -58,8 +58,3 @@ export type ImbricateSearchItem = {
      */
     readonly secondaryNext?: string[];
 };
-
-export type ImbricateSearchResult = {
-
-    readonly items: ImbricateSearchItem[];
-};
