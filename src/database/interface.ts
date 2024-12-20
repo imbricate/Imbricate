@@ -4,10 +4,10 @@
  * @description Interface
  */
 
-import { IImbricateDocument } from "../document/interface";
 import { DocumentProperties } from "../document/property";
 import { DatabaseAnnotationValue, DatabaseAnnotations, DatabaseEditRecord, ImbricateDatabaseAuditOptions, ImbricateDocumentQuery } from "./definition";
 import { IMBRICATE_DATABASE_FEATURE } from "./feature";
+import { ImbricateAddEditRecordsOutcome, ImbricateCountDocumentsOutcome, ImbricateCreateDocumentOutcome, ImbricateDeleteAnnotationOutcome, ImbricateGetDocumentOutcome, ImbricateGetEditRecordsOutcome, ImbricatePutAnnotationOutcome, ImbricatePutSchemaOutcome, ImbricateQueryDocumentsOutcome, ImbricateRemoveDocumentOutcome } from "./outcome";
 import { ImbricateDatabaseSchema } from "./schema";
 
 export interface IImbricateDatabase {
@@ -21,6 +21,11 @@ export interface IImbricateDatabase {
      * Name of the database
      */
     readonly databaseName: string;
+
+    /**
+     * Version of the database
+     */
+    readonly databaseVersion: string;
 
     /**
      * Schema of the database
@@ -46,14 +51,13 @@ export interface IImbricateDatabase {
      * @param schema schema of the database
      * @param auditOptions audit options of the database 
      * 
-     * @returns a promise of the edit records of the database
-     *  Note: if the origin supports Document Edit Record, the edit record will be added by default
-     *  If you do not want to add the edit record, set `noEditRecord` to true
+     * @returns a promise of the outcome of the put schema
+     *  Symbol: S_PutSchema_VersionConflict - if the version conflict
      */
     putSchema(
         schema: ImbricateDatabaseSchema,
         auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<DatabaseEditRecord[]>;
+    ): PromiseLike<ImbricatePutSchemaOutcome>;
 
     /**
      * Create a new document in the database
@@ -64,12 +68,13 @@ export interface IImbricateDatabase {
      * @param properties properties of the document
      * @param auditOptions audit options of the document
      * 
-     * @returns a promise of the created document
+     * @returns a promise of the outcome of the create document
+     *  Symbol: S_CreateDocument_IdentifierDuplicated - if the identifier is duplicated
      */
     createDocument(
         properties: DocumentProperties,
         auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<IImbricateDocument>;
+    ): PromiseLike<ImbricateCreateDocumentOutcome>;
 
     /**
      * Get one document from the database
@@ -78,11 +83,12 @@ export interface IImbricateDatabase {
      * 
      * @param uniqueIdentifier unique identifier of the document
      * 
-     * @returns a promise of the documents in the database, null if not found
+     * @returns a promise of the outcome of the get document
+     *  Symbol: S_GetDocument_NotFound - if the document is not found
      */
     getDocument(
         uniqueIdentifier: string,
-    ): PromiseLike<IImbricateDocument | null>;
+    ): PromiseLike<ImbricateGetDocumentOutcome>;
 
     /**
      * Query documents from the database
@@ -91,11 +97,12 @@ export interface IImbricateDatabase {
      * 
      * @param query query of the documents
      * 
-     * @returns a promise of the documents in the database
+     * @returns a promise of the outcome of the query documents
+     *  Symbol: S_QueryDocuments_Stale - if the documents are stale
      */
     queryDocuments(
         query: ImbricateDocumentQuery,
-    ): PromiseLike<IImbricateDocument[]>;
+    ): PromiseLike<ImbricateQueryDocumentsOutcome>;
 
     /**
      * Count documents in the database
@@ -104,11 +111,12 @@ export interface IImbricateDatabase {
      * 
      * @param query query of the documents
      * 
-     * @returns a promise of the count of the documents in the database
+     * @returns a promise of the outcome of the count documents
+     *  Symbol: S_CountDocuments_Stale - if the documents are stale
      */
     countDocuments(
         query: ImbricateDocumentQuery,
-    ): PromiseLike<number>;
+    ): PromiseLike<ImbricateCountDocumentsOutcome>;
 
     /**
      * Remove a document from the database
@@ -117,11 +125,14 @@ export interface IImbricateDatabase {
      * 
      * @param uniqueIdentifier unique identifier of the document
      * @param auditOptions audit options of the document
+     * 
+     * @returns a promise of the outcome of the remove document
+     *  Symbol: S_RemoveDocument_NotFound - if the document is not found
      */
     removeDocument(
         uniqueIdentifier: string,
         auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<void>;
+    ): PromiseLike<ImbricateRemoveDocumentOutcome>;
 
     /**
      * Put annotation to the database
@@ -133,16 +144,16 @@ export interface IImbricateDatabase {
      * @param value value of the annotation
      * @param auditOptions audit options of the database
      * 
-     * @returns a promise of the edit records of the database
-     *  Note: if the origin supports Document Edit Record, the edit record will be added by default
-     *  If you do not want to add the edit record, set `noEditRecord` to true in audit options
+     * @returns a promise of the outcome of the put annotation
+     *  Symbol: S_PutAnnotation_InvalidNamespace - if the namespace is invalid
+     *  Symbol: S_PutAnnotation_InvalidIdentifier - if the identifier is invalid
      */
     putAnnotation(
         namespace: string,
         identifier: string,
         value: DatabaseAnnotationValue,
         auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<DatabaseEditRecord[]>;
+    ): PromiseLike<ImbricatePutAnnotationOutcome>;
 
     /**
      * Delete annotation from the database
@@ -153,15 +164,14 @@ export interface IImbricateDatabase {
      * @param identifier identifier of the annotation
      * @param auditOptions audit options of the database
      * 
-     * @returns a promise of the edit records of the database
-     *  Note: if the origin supports Document Edit Record, the edit record will be added by default
-     *  If you do not want to add the edit record, set `noEditRecord` to true in audit options
+     * @returns a promise of the outcome of the delete annotation
+     *  Symbol: S_DeleteAnnotation_NotFound - if the annotation is not found
      */
     deleteAnnotation(
         namespace: string,
         identifier: string,
         auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<DatabaseEditRecord[]>;
+    ): PromiseLike<ImbricateDeleteAnnotationOutcome>;
 
     /**
      * Add edit records to the database
@@ -172,10 +182,13 @@ export interface IImbricateDatabase {
      * RequireFeature: DATABASE_PUT_EDIT_RECORD
      * 
      * @param records database edit records
+     * 
+     * @returns a promise of the outcome of the add edit records
+     *  Symbol: S_AddEditRecords_InvalidEditRecord - if the edit record is invalid
      */
     addEditRecords(
         records: DatabaseEditRecord[],
-    ): PromiseLike<void>;
+    ): PromiseLike<ImbricateAddEditRecordsOutcome>;
 
     /**
      * Get edit records of the database
@@ -185,7 +198,8 @@ export interface IImbricateDatabase {
      * 
      * RequireFeature: DATABASE_GET_EDIT_RECORD
      * 
-     * @returns a promise of the edit records of the database
+     * @returns a promise of the outcome of the get edit records
+     *  Symbol: S_GetEditRecords_NotFound - if the edit records are not found
      */
-    getEditRecords(): PromiseLike<DatabaseEditRecord[]>;
+    getEditRecords(): PromiseLike<ImbricateGetEditRecordsOutcome>;
 }

@@ -13,6 +13,7 @@ export * from "./database/definition";
 export * from "./database/feature";
 export * from "./database/interface";
 export * from "./database/manager";
+export * from "./database/outcome";
 export * from "./database/schema";
 export * from "./database/validate";
 export * from "./document/base-class/essential";

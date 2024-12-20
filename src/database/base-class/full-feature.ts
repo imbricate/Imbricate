@@ -15,6 +15,7 @@ export abstract class ImbricateDatabaseFullFeatureBase implements IImbricateData
 
     public abstract readonly uniqueIdentifier: string;
     public abstract readonly databaseName: string;
+    public abstract readonly databaseVersion: string;
 
     public abstract readonly schema: ImbricateDatabaseSchema;
     public abstract readonly annotations: DatabaseAnnotations;

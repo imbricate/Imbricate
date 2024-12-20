@@ -12,8 +12,8 @@ import { DocumentProperties, DocumentPropertyKey, DocumentPropertyValue, IMBRICA
 export abstract class ImbricateDocumentFullFeatureBase implements IImbricateDocument {
 
     public abstract readonly uniqueIdentifier: string;
-
     public abstract readonly documentVersion: string;
+
     public abstract readonly properties: DocumentProperties;
     public abstract readonly annotations: DocumentAnnotations;
 
