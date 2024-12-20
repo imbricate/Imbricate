@@ -8,111 +8,112 @@ import { IImbricateDocument } from "../document/interface";
 import { DatabaseEditRecord } from "./definition";
 
 // Put Schema
-export const S_PutSchema_VersionConflict: unique symbol = Symbol("PutSchema_VersionConflict");
+export const S_Database_PutSchema_VersionConflict: unique symbol = Symbol("Database_PutSchema_VersionConflict");
 
-export type ImbricatePutSchemaDatabaseOutcomeSymbol =
-    | typeof S_PutSchema_VersionConflict;
+export type ImbricateDatabasePutSchemaOutcomeSymbol =
+    | typeof S_Database_PutSchema_VersionConflict;
 
-export type ImbricatePutSchemaOutcome = {
+export type ImbricateDatabasePutSchemaOutcome = {
 
     readonly editRecords: DatabaseEditRecord[];
-} | ImbricatePutSchemaDatabaseOutcomeSymbol;
+} | ImbricateDatabasePutSchemaOutcomeSymbol;
 
 // Create Document
-export const S_CreateDocument_IdentifierDuplicated: unique symbol = Symbol("CreateDocument_IdentifierDuplicated");
+export const S_Database_CreateDocument_IdentifierDuplicated: unique symbol = Symbol("Database_CreateDocument_IdentifierDuplicated");
 
-export type ImbricateCreateDocumentOutcomeSymbol =
-    | typeof S_CreateDocument_IdentifierDuplicated;
+export type ImbricateDatabaseCreateDocumentOutcomeSymbol =
+    | typeof S_Database_CreateDocument_IdentifierDuplicated;
 
-export type ImbricateCreateDocumentOutcome = {
+export type ImbricateDatabaseCreateDocumentOutcome = {
 
     readonly document: IImbricateDocument;
-} | ImbricateCreateDocumentOutcomeSymbol;
+} | ImbricateDatabaseCreateDocumentOutcomeSymbol;
 
 // Get Document
-export const S_GetDocument_NotFound: unique symbol = Symbol("GetDocument_NotFound");
+export const S_Database_GetDocument_NotFound: unique symbol = Symbol("Database_GetDocument_NotFound");
 
-export type ImbricateGetDocumentOutcomeSymbol =
-    | typeof S_GetDocument_NotFound;
+export type ImbricateDatabaseGetDocumentOutcomeSymbol =
+    | typeof S_Database_GetDocument_NotFound;
 
-export type ImbricateGetDocumentOutcome = {
+export type ImbricateDatabaseGetDocumentOutcome = {
 
     readonly document: IImbricateDocument;
-} | ImbricateGetDocumentOutcomeSymbol;
+} | ImbricateDatabaseGetDocumentOutcomeSymbol;
 
 // Query Documents
-export const S_QueryDocuments_Stale: unique symbol = Symbol("QueryDocuments_Stale");
+export const S_Database_QueryDocuments_Stale: unique symbol = Symbol("Database_QueryDocuments_Stale");
 
-export type ImbricateQueryDocumentsOutcomeSymbol =
-    | typeof S_QueryDocuments_Stale;
+export type ImbricateDatabaseQueryDocumentsOutcomeSymbol =
+    | typeof S_Database_QueryDocuments_Stale;
 
-export type ImbricateQueryDocumentsOutcome = {
+export type ImbricateDatabaseQueryDocumentsOutcome = {
     readonly documents: IImbricateDocument[];
-} | ImbricateQueryDocumentsOutcomeSymbol;
+} | ImbricateDatabaseQueryDocumentsOutcomeSymbol;
 
-export const S_CountDocuments_Stale: unique symbol = Symbol("CountDocuments_Stale");
+export const S_Database_CountDocuments_Stale: unique symbol = Symbol("Database_CountDocuments_Stale");
 
-export type ImbricateCountDocumentsOutcomeSymbol =
-    | typeof S_CountDocuments_Stale;
+export type ImbricateDatabaseCountDocumentsOutcomeSymbol =
+    | typeof S_Database_CountDocuments_Stale;
 
-export type ImbricateCountDocumentsOutcome = {
+export type ImbricateDatabaseCountDocumentsOutcome = {
 
     readonly count: number;
-} | ImbricateCountDocumentsOutcomeSymbol;
+} | ImbricateDatabaseCountDocumentsOutcomeSymbol;
 
 // Remove Document
-export const S_RemoveDocument_NotFound: unique symbol = Symbol("RemoveDocument_NotFound");
+export const S_Database_RemoveDocument_NotFound: unique symbol = Symbol("Database_RemoveDocument_NotFound");
 
-export type ImbricateRemoveDocumentOutcomeSymbol =
-    | typeof S_RemoveDocument_NotFound;
+export type ImbricateDatabaseRemoveDocumentOutcomeSymbol =
+    | typeof S_Database_RemoveDocument_NotFound;
 
-export type ImbricateRemoveDocumentOutcome = {
+export type ImbricateDatabaseRemoveDocumentOutcome = {
 
     readonly success: boolean;
-} | ImbricateRemoveDocumentOutcomeSymbol;
+} | ImbricateDatabaseRemoveDocumentOutcomeSymbol;
 
 // Put Annotation
-export const S_PutAnnotation_InvalidNamespace: unique symbol = Symbol("PutAnnotation_InvalidNamespace");
-export const S_PutAnnotation_InvalidIdentifier: unique symbol = Symbol("PutAnnotation_InvalidIdentifier");
+export const S_Database_PutAnnotation_InvalidNamespace: unique symbol = Symbol("Database_PutAnnotation_InvalidNamespace");
+export const S_Database_PutAnnotation_InvalidIdentifier: unique symbol = Symbol("Database_PutAnnotation_InvalidIdentifier");
 
-export type ImbricatePutAnnotationOutcomeSymbol =
-    | typeof S_PutAnnotation_InvalidNamespace
-    | typeof S_PutAnnotation_InvalidIdentifier;
+export type ImbricateDatabasePutAnnotationOutcomeSymbol =
+    | typeof S_Database_PutAnnotation_InvalidNamespace
+    | typeof S_Database_PutAnnotation_InvalidIdentifier;
 
-export type ImbricatePutAnnotationOutcome = {
+export type ImbricateDatabasePutAnnotationOutcome = {
 
     readonly editRecords: DatabaseEditRecord[];
-} | ImbricatePutAnnotationOutcomeSymbol;
+} | ImbricateDatabasePutAnnotationOutcomeSymbol;
 
 // Delete Annotation
-export const S_DeleteAnnotation_NotFound: unique symbol = Symbol("DeleteAnnotation_NotFound");
+export const S_Database_DeleteAnnotation_NotFound: unique symbol = Symbol("Database_DeleteAnnotation_NotFound");
 
-export type ImbricateDeleteAnnotationOutcomeSymbol =
-    | typeof S_DeleteAnnotation_NotFound;
+export type ImbricateDatabaseDeleteAnnotationOutcomeSymbol =
+    | typeof S_Database_DeleteAnnotation_NotFound;
 
-export type ImbricateDeleteAnnotationOutcome = {
+export type ImbricateDatabaseDeleteAnnotationOutcome = {
 
     readonly editRecords: DatabaseEditRecord[];
-} | ImbricateDeleteAnnotationOutcomeSymbol;
+} | ImbricateDatabaseDeleteAnnotationOutcomeSymbol;
 
 // Add Edit Records
-export const S_AddEditRecords_InvalidEditRecord: unique symbol = Symbol("AddEditRecords_InvalidEditRecord");
+export const S_Database_AddEditRecords_InvalidEditRecord: unique symbol = Symbol("Database_AddEditRecords_InvalidEditRecord");
 
-export type ImbricateAddEditRecordsOutcomeSymbol =
-    | typeof S_AddEditRecords_InvalidEditRecord;
+export type ImbricateDatabaseAddEditRecordsOutcomeSymbol =
+    | typeof S_Database_AddEditRecords_InvalidEditRecord;
 
-export type ImbricateAddEditRecordsOutcome = {
+export type ImbricateDatabaseAddEditRecordsOutcome = {
 
     readonly editRecords: DatabaseEditRecord[];
-} | ImbricateAddEditRecordsOutcomeSymbol;
+} | ImbricateDatabaseAddEditRecordsOutcomeSymbol;
 
 // Get Edit Records
-export const S_GetEditRecords_NotFound: unique symbol = Symbol("GetEditRecords_NotFound");
+export const S_Database_GetEditRecords_NotFound: unique symbol = Symbol("Database_GetEditRecords_NotFound");
 
-export type ImbricateGetEditRecordsOutcomeSymbol =
-    | typeof S_GetEditRecords_NotFound;
+export type ImbricateDatabaseGetEditRecordsOutcomeSymbol =
+    | typeof S_Database_GetEditRecords_NotFound;
 
-export type ImbricateGetEditRecordsOutcome = {
+export type ImbricateDatabaseGetEditRecordsOutcome = {
 
     readonly editRecords: DatabaseEditRecord[];
-} | ImbricateGetEditRecordsOutcomeSymbol;
+} | ImbricateDatabaseGetEditRecordsOutcomeSymbol;
+

@@ -7,7 +7,7 @@
 import { DocumentProperties } from "../document/property";
 import { DatabaseAnnotationValue, DatabaseAnnotations, DatabaseEditRecord, ImbricateDatabaseAuditOptions, ImbricateDocumentQuery } from "./definition";
 import { IMBRICATE_DATABASE_FEATURE } from "./feature";
-import { ImbricateAddEditRecordsOutcome, ImbricateCountDocumentsOutcome, ImbricateCreateDocumentOutcome, ImbricateDeleteAnnotationOutcome, ImbricateGetDocumentOutcome, ImbricateGetEditRecordsOutcome, ImbricatePutAnnotationOutcome, ImbricatePutSchemaOutcome, ImbricateQueryDocumentsOutcome, ImbricateRemoveDocumentOutcome } from "./outcome";
+import { ImbricateDatabaseAddEditRecordsOutcome, ImbricateDatabaseCountDocumentsOutcome, ImbricateDatabaseCreateDocumentOutcome, ImbricateDatabaseDeleteAnnotationOutcome, ImbricateDatabaseGetDocumentOutcome, ImbricateDatabaseGetEditRecordsOutcome, ImbricateDatabasePutAnnotationOutcome, ImbricateDatabasePutSchemaOutcome, ImbricateDatabaseQueryDocumentsOutcome, ImbricateDatabaseRemoveDocumentOutcome } from "./outcome";
 import { ImbricateDatabaseSchema } from "./schema";
 
 export interface IImbricateDatabase {
@@ -57,7 +57,7 @@ export interface IImbricateDatabase {
     putSchema(
         schema: ImbricateDatabaseSchema,
         auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<ImbricatePutSchemaOutcome>;
+    ): PromiseLike<ImbricateDatabasePutSchemaOutcome>;
 
     /**
      * Create a new document in the database
@@ -74,7 +74,7 @@ export interface IImbricateDatabase {
     createDocument(
         properties: DocumentProperties,
         auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<ImbricateCreateDocumentOutcome>;
+    ): PromiseLike<ImbricateDatabaseCreateDocumentOutcome>;
 
     /**
      * Get one document from the database
@@ -88,7 +88,7 @@ export interface IImbricateDatabase {
      */
     getDocument(
         uniqueIdentifier: string,
-    ): PromiseLike<ImbricateGetDocumentOutcome>;
+    ): PromiseLike<ImbricateDatabaseGetDocumentOutcome>;
 
     /**
      * Query documents from the database
@@ -102,7 +102,7 @@ export interface IImbricateDatabase {
      */
     queryDocuments(
         query: ImbricateDocumentQuery,
-    ): PromiseLike<ImbricateQueryDocumentsOutcome>;
+    ): PromiseLike<ImbricateDatabaseQueryDocumentsOutcome>;
 
     /**
      * Count documents in the database
@@ -116,7 +116,7 @@ export interface IImbricateDatabase {
      */
     countDocuments(
         query: ImbricateDocumentQuery,
-    ): PromiseLike<ImbricateCountDocumentsOutcome>;
+    ): PromiseLike<ImbricateDatabaseCountDocumentsOutcome>;
 
     /**
      * Remove a document from the database
@@ -132,7 +132,7 @@ export interface IImbricateDatabase {
     removeDocument(
         uniqueIdentifier: string,
         auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<ImbricateRemoveDocumentOutcome>;
+    ): PromiseLike<ImbricateDatabaseRemoveDocumentOutcome>;
 
     /**
      * Put annotation to the database
@@ -153,7 +153,7 @@ export interface IImbricateDatabase {
         identifier: string,
         value: DatabaseAnnotationValue,
         auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<ImbricatePutAnnotationOutcome>;
+    ): PromiseLike<ImbricateDatabasePutAnnotationOutcome>;
 
     /**
      * Delete annotation from the database
@@ -171,7 +171,7 @@ export interface IImbricateDatabase {
         namespace: string,
         identifier: string,
         auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<ImbricateDeleteAnnotationOutcome>;
+    ): PromiseLike<ImbricateDatabaseDeleteAnnotationOutcome>;
 
     /**
      * Add edit records to the database
@@ -188,7 +188,7 @@ export interface IImbricateDatabase {
      */
     addEditRecords(
         records: DatabaseEditRecord[],
-    ): PromiseLike<ImbricateAddEditRecordsOutcome>;
+    ): PromiseLike<ImbricateDatabaseAddEditRecordsOutcome>;
 
     /**
      * Get edit records of the database
@@ -201,5 +201,5 @@ export interface IImbricateDatabase {
      * @returns a promise of the outcome of the get edit records
      *  Symbol: S_GetEditRecords_NotFound - if the edit records are not found
      */
-    getEditRecords(): PromiseLike<ImbricateGetEditRecordsOutcome>;
+    getEditRecords(): PromiseLike<ImbricateDatabaseGetEditRecordsOutcome>;
 }

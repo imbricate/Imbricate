@@ -7,59 +7,59 @@
 import { DocumentEditRecord } from "./definition";
 
 // Put Property
-export const S_PutProperty_InvalidKey: unique symbol = Symbol("PutProperty_InvalidKey");
+export const S_Document_PutProperty_InvalidKey: unique symbol = Symbol("Document_PutProperty_InvalidKey");
 
-export type ImbricatePutPropertyOutcomeSymbol =
-    | typeof S_PutProperty_InvalidKey;
+export type ImbricateDocumentPutPropertyOutcomeSymbol =
+    | typeof S_Document_PutProperty_InvalidKey;
 
-export type ImbricatePutPropertyOutcome = {
+export type ImbricateDocumentPutPropertyOutcome = {
 
     readonly editRecords: DocumentEditRecord[];
-} | ImbricatePutPropertyOutcomeSymbol;
+} | ImbricateDocumentPutPropertyOutcomeSymbol;
 
 // Put Annotation
-export const S_PutAnnotation_InvalidNamespace: unique symbol = Symbol("PutAnnotation_InvalidNamespace");
-export const S_PutAnnotation_InvalidIdentifier: unique symbol = Symbol("PutAnnotation_InvalidIdentifier");
+export const S_Document_PutAnnotation_InvalidNamespace: unique symbol = Symbol("Document_PutAnnotation_InvalidNamespace");
+export const S_Document_PutAnnotation_InvalidIdentifier: unique symbol = Symbol("Document_PutAnnotation_InvalidIdentifier");
 
-export type ImbricatePutAnnotationOutcomeSymbol =
-    | typeof S_PutAnnotation_InvalidNamespace
-    | typeof S_PutAnnotation_InvalidIdentifier;
+export type ImbricateDocumentPutAnnotationOutcomeSymbol =
+    | typeof S_Document_PutAnnotation_InvalidNamespace
+    | typeof S_Document_PutAnnotation_InvalidIdentifier;
 
-export type ImbricatePutAnnotationOutcome = {
+export type ImbricateDocumentPutAnnotationOutcome = {
 
     readonly editRecords: DocumentEditRecord[];
-} | ImbricatePutAnnotationOutcomeSymbol;
-
+} | ImbricateDocumentPutAnnotationOutcomeSymbol;
 
 // Delete Annotation
-export const S_DeleteAnnotation_NotFound: unique symbol = Symbol("DeleteAnnotation_NotFound");
+export const S_Document_DeleteAnnotation_NotFound: unique symbol = Symbol("Document_DeleteAnnotation_NotFound");
 
-export type ImbricateDeleteAnnotationOutcomeSymbol =
-    | typeof S_DeleteAnnotation_NotFound;
+export type ImbricateDocumentDeleteAnnotationOutcomeSymbol =
+    | typeof S_Document_DeleteAnnotation_NotFound;
 
-export type ImbricateDeleteAnnotationOutcome = {
+export type ImbricateDocumentDeleteAnnotationOutcome = {
 
     readonly editRecords: DocumentEditRecord[];
-} | ImbricateDeleteAnnotationOutcomeSymbol;
+} | ImbricateDocumentDeleteAnnotationOutcomeSymbol;
 
 // Add Edit Records
-export const S_AddEditRecords_InvalidRecord: unique symbol = Symbol("AddEditRecords_InvalidRecord");
+export const S_Document_AddEditRecords_InvalidRecord: unique symbol = Symbol("Document_AddEditRecords_InvalidRecord");
 
-export type ImbricateAddEditRecordsOutcomeSymbol =
-    | typeof S_AddEditRecords_InvalidRecord;
+export type ImbricateDocumentAddEditRecordsOutcomeSymbol =
+    | typeof S_Document_AddEditRecords_InvalidRecord;
 
-export type ImbricateAddEditRecordsOutcome = {
+export type ImbricateDocumentAddEditRecordsOutcome = {
 
     readonly editRecords: DocumentEditRecord[];
-} | ImbricateAddEditRecordsOutcomeSymbol;
+} | ImbricateDocumentAddEditRecordsOutcomeSymbol;
 
 // Get Edit Records
-export const S_GetEditRecords_NotFound: unique symbol = Symbol("GetEditRecords_NotFound");
+export const S_Document_GetEditRecords_NotFound: unique symbol = Symbol("Document_GetEditRecords_NotFound");
 
-export type ImbricateGetEditRecordsOutcomeSymbol =
-    | typeof S_GetEditRecords_NotFound;
+export type ImbricateDocumentGetEditRecordsOutcomeSymbol =
+    | typeof S_Document_GetEditRecords_NotFound;
 
-export type ImbricateGetEditRecordsOutcome = {
+export type ImbricateDocumentGetEditRecordsOutcome = {
 
     readonly editRecords: DocumentEditRecord[];
-} | ImbricateGetEditRecordsOutcomeSymbol;
+} | ImbricateDocumentGetEditRecordsOutcomeSymbol;
+

@@ -6,7 +6,7 @@
 
 import { DocumentAnnotationValue, DocumentAnnotations, DocumentEditRecord, ImbricateDocumentAuditOptions } from "./definition";
 import { IMBRICATE_DOCUMENT_FEATURE } from "./feature";
-import { ImbricateAddEditRecordsOutcome, ImbricateDeleteAnnotationOutcome, ImbricateGetEditRecordsOutcome, ImbricatePutAnnotationOutcome, ImbricatePutPropertyOutcome } from "./outcome";
+import { ImbricateDocumentAddEditRecordsOutcome, ImbricateDocumentDeleteAnnotationOutcome, ImbricateDocumentGetEditRecordsOutcome, ImbricateDocumentPutAnnotationOutcome, ImbricateDocumentPutPropertyOutcome } from "./outcome";
 import { DocumentProperties, DocumentPropertyKey, DocumentPropertyValue, IMBRICATE_PROPERTY_TYPE } from "./property";
 
 export interface IImbricateDocument {
@@ -46,13 +46,13 @@ export interface IImbricateDocument {
      * @param auditOptions audit options of the document
      * 
      * @returns a promise of the outcome of the put property
-     *  Symbol: S_PutProperty_InvalidKey - if the key is invalid
+     *  Symbol: S_Document_PutProperty_InvalidKey - if the key is invalid
      */
     putProperty(
         key: DocumentPropertyKey,
         value: DocumentPropertyValue<IMBRICATE_PROPERTY_TYPE>,
         auditOptions?: ImbricateDocumentAuditOptions,
-    ): PromiseLike<ImbricatePutPropertyOutcome>;
+    ): PromiseLike<ImbricateDocumentPutPropertyOutcome>;
 
     /**
      * Put and replace all properties of the document, optional
@@ -63,12 +63,12 @@ export interface IImbricateDocument {
      * @param auditOptions audit options of the document
      * 
      * @returns a promise of the outcome of the put properties
-     *  Symbol: S_PutProperty_InvalidKey - if the key is invalid
+     *  Symbol: S_Document_PutProperty_InvalidKey - if the key is invalid
      */
     putProperties(
         properties: DocumentProperties,
         auditOptions?: ImbricateDocumentAuditOptions,
-    ): PromiseLike<ImbricatePutPropertyOutcome>;
+    ): PromiseLike<ImbricateDocumentPutPropertyOutcome>;
 
     /**
      * Put annotation to the document, optional
@@ -81,15 +81,15 @@ export interface IImbricateDocument {
      * @param auditOptions audit options of the document
      * 
      * @returns a promise of the outcome of the put annotation
-     *  Symbol: S_PutAnnotation_InvalidNamespace - if the namespace is invalid
-     *  Symbol: S_PutAnnotation_InvalidIdentifier - if the identifier is invalid
+     *  Symbol: S_Document_PutAnnotation_InvalidNamespace - if the namespace is invalid
+     *  Symbol: S_Document_PutAnnotation_InvalidIdentifier - if the identifier is invalid
      */
     putAnnotation(
         namespace: string,
         identifier: string,
         value: DocumentAnnotationValue,
         auditOptions?: ImbricateDocumentAuditOptions,
-    ): PromiseLike<ImbricatePutAnnotationOutcome>;
+    ): PromiseLike<ImbricateDocumentPutAnnotationOutcome>;
 
     /**
      * Delete annotation from the document
@@ -101,13 +101,13 @@ export interface IImbricateDocument {
      * @param auditOptions audit options of the document
      * 
      * @returns a promise of the outcome of the delete annotation
-     *  Symbol: S_DeleteAnnotation_NotFound - if the annotation is not found
+     *  Symbol: S_Document_DeleteAnnotation_NotFound - if the annotation is not found
      */
     deleteAnnotation(
         namespace: string,
         identifier: string,
         auditOptions?: ImbricateDocumentAuditOptions,
-    ): PromiseLike<ImbricateDeleteAnnotationOutcome>;
+    ): PromiseLike<ImbricateDocumentDeleteAnnotationOutcome>;
 
     /**
      * Add edit records to the document, optional
@@ -120,11 +120,11 @@ export interface IImbricateDocument {
      * @param records document edit records
      * 
      * @returns a promise of the outcome of the add edit records
-     *  Symbol: S_AddEditRecords_InvalidRecord - if the record is invalid
+     *  Symbol: S_Document_AddEditRecords_InvalidRecord - if the record is invalid
      */
     addEditRecords(
         records: DocumentEditRecord[],
-    ): PromiseLike<ImbricateAddEditRecordsOutcome>;
+    ): PromiseLike<ImbricateDocumentAddEditRecordsOutcome>;
 
     /**
      * Get edit records of the document, optional
@@ -135,7 +135,7 @@ export interface IImbricateDocument {
      * RequireFeature: DOCUMENT_GET_EDIT_RECORD
      * 
      * @returns a promise of the outcome of the get edit records
-     *  Symbol: S_GetEditRecords_NotFound - if the edit records are not found
+     *  Symbol: S_Document_GetEditRecords_NotFound - if the edit records are not found
      */
-    getEditRecords(): PromiseLike<ImbricateGetEditRecordsOutcome>;
+    getEditRecords(): PromiseLike<ImbricateDocumentGetEditRecordsOutcome>;
 }
