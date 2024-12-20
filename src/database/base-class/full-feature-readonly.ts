@@ -4,12 +4,12 @@
  * @description Full Feature Readonly
  */
 
-import { IImbricateDocument } from "../../document/interface";
 import { DocumentProperties } from "../../document/property";
 import { ImbricateDatabaseFeatureNotSupportedError } from "../../error/database/feature-not-supported";
 import { DatabaseAnnotationValue, DatabaseEditRecord, ImbricateDatabaseAuditOptions } from "../definition";
 import { IMBRICATE_DATABASE_FEATURE } from "../feature";
 import { IImbricateDatabase } from "../interface";
+import { ImbricateDatabaseAddEditRecordsOutcome, ImbricateDatabaseCreateDocumentOutcome, ImbricateDatabaseDeleteAnnotationOutcome, ImbricateDatabasePutAnnotationOutcome, ImbricateDatabasePutSchemaOutcome, ImbricateDatabaseRemoveDocumentOutcome } from "../outcome";
 import { ImbricateDatabaseSchema } from "../schema";
 import { ImbricateDatabaseFullFeatureBase } from "./full-feature";
 
@@ -25,7 +25,7 @@ export abstract class ImbricateDatabaseFullFeatureReadOnlyBase extends Imbricate
     public putSchema(
         _schema: ImbricateDatabaseSchema,
         _auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<DatabaseEditRecord[]> {
+    ): PromiseLike<ImbricateDatabasePutSchemaOutcome> {
 
         throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
             IMBRICATE_DATABASE_FEATURE.DATABASE_PUT_SCHEMA,
@@ -35,7 +35,7 @@ export abstract class ImbricateDatabaseFullFeatureReadOnlyBase extends Imbricate
     public createDocument(
         _properties: DocumentProperties,
         _auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<IImbricateDocument> {
+    ): PromiseLike<ImbricateDatabaseCreateDocumentOutcome> {
 
         throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
             IMBRICATE_DATABASE_FEATURE.DATABASE_CREATE_DOCUMENT,
@@ -45,7 +45,7 @@ export abstract class ImbricateDatabaseFullFeatureReadOnlyBase extends Imbricate
     public removeDocument(
         _uniqueIdentifier: string,
         _auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<void> {
+    ): PromiseLike<ImbricateDatabaseRemoveDocumentOutcome> {
 
         throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
             IMBRICATE_DATABASE_FEATURE.DATABASE_DELETE_DOCUMENT,
@@ -57,7 +57,7 @@ export abstract class ImbricateDatabaseFullFeatureReadOnlyBase extends Imbricate
         _identifier: string,
         _value: DatabaseAnnotationValue,
         _auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<DatabaseEditRecord[]> {
+    ): PromiseLike<ImbricateDatabasePutAnnotationOutcome> {
 
         throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
             IMBRICATE_DATABASE_FEATURE.DATABASE_PUT_ANNOTATION,
@@ -68,7 +68,7 @@ export abstract class ImbricateDatabaseFullFeatureReadOnlyBase extends Imbricate
         _namespace: string,
         _identifier: string,
         _auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<DatabaseEditRecord[]> {
+    ): PromiseLike<ImbricateDatabaseDeleteAnnotationOutcome> {
 
         throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
             IMBRICATE_DATABASE_FEATURE.DATABASE_DELETE_ANNOTATION,
@@ -77,7 +77,7 @@ export abstract class ImbricateDatabaseFullFeatureReadOnlyBase extends Imbricate
 
     public addEditRecords(
         _records: DatabaseEditRecord[],
-    ): PromiseLike<void> {
+    ): PromiseLike<ImbricateDatabaseAddEditRecordsOutcome> {
 
         throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
             IMBRICATE_DATABASE_FEATURE.DATABASE_PUT_EDIT_RECORD,

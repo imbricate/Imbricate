@@ -8,6 +8,7 @@ import { ImbricateDatabaseFeatureNotSupportedError } from "../../error/database/
 import { DatabaseEditRecord } from "../definition";
 import { IMBRICATE_DATABASE_FEATURE } from "../feature";
 import { IImbricateDatabase } from "../interface";
+import { ImbricateDatabaseAddEditRecordsOutcome, ImbricateDatabaseGetEditRecordsOutcome } from "../outcome";
 import { ImbricateDatabaseFullFeatureBase } from "./full-feature";
 
 export abstract class ImbricateDatabaseExcludeEditRecordsBase extends ImbricateDatabaseFullFeatureBase implements IImbricateDatabase {
@@ -27,14 +28,14 @@ export abstract class ImbricateDatabaseExcludeEditRecordsBase extends ImbricateD
 
     public addEditRecords(
         _records: DatabaseEditRecord[],
-    ): PromiseLike<void> {
+    ): PromiseLike<ImbricateDatabaseAddEditRecordsOutcome> {
 
         throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
             IMBRICATE_DATABASE_FEATURE.DATABASE_PUT_EDIT_RECORD,
         );
     }
 
-    public getEditRecords(): PromiseLike<DatabaseEditRecord[]> {
+    public getEditRecords(): PromiseLike<ImbricateDatabaseGetEditRecordsOutcome> {
 
         throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
             IMBRICATE_DATABASE_FEATURE.DATABASE_GET_EDIT_RECORD,

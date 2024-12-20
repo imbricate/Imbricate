@@ -8,6 +8,7 @@ import { ImbricateDatabaseFeatureNotSupportedError } from "../../error/database/
 import { DatabaseAnnotationValue, DatabaseAnnotations, DatabaseEditRecord, ImbricateDatabaseAuditOptions } from "../definition";
 import { IMBRICATE_DATABASE_FEATURE } from "../feature";
 import { IImbricateDatabase } from "../interface";
+import { ImbricateDatabaseAddEditRecordsOutcome, ImbricateDatabaseDeleteAnnotationOutcome, ImbricateDatabaseGetEditRecordsOutcome, ImbricateDatabasePutAnnotationOutcome } from "../outcome";
 import { ImbricateDatabaseFullFeatureBase } from "./full-feature";
 
 export abstract class ImbricateDatabaseEssentialBase extends ImbricateDatabaseFullFeatureBase implements IImbricateDatabase {
@@ -29,7 +30,7 @@ export abstract class ImbricateDatabaseEssentialBase extends ImbricateDatabaseFu
         _identifier: string,
         _value: DatabaseAnnotationValue,
         _auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<DatabaseEditRecord[]> {
+    ): PromiseLike<ImbricateDatabasePutAnnotationOutcome> {
 
         throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
             IMBRICATE_DATABASE_FEATURE.DATABASE_PUT_ANNOTATION,
@@ -40,7 +41,7 @@ export abstract class ImbricateDatabaseEssentialBase extends ImbricateDatabaseFu
         _namespace: string,
         _identifier: string,
         _auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<DatabaseEditRecord[]> {
+    ): PromiseLike<ImbricateDatabaseDeleteAnnotationOutcome> {
 
         throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
             IMBRICATE_DATABASE_FEATURE.DATABASE_DELETE_ANNOTATION,
@@ -49,14 +50,14 @@ export abstract class ImbricateDatabaseEssentialBase extends ImbricateDatabaseFu
 
     public addEditRecords(
         _records: DatabaseEditRecord[],
-    ): PromiseLike<void> {
+    ): PromiseLike<ImbricateDatabaseAddEditRecordsOutcome> {
 
         throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
             IMBRICATE_DATABASE_FEATURE.DATABASE_PUT_EDIT_RECORD,
         );
     }
 
-    public getEditRecords(): PromiseLike<DatabaseEditRecord[]> {
+    public getEditRecords(): PromiseLike<ImbricateDatabaseGetEditRecordsOutcome> {
 
         throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
             IMBRICATE_DATABASE_FEATURE.DATABASE_GET_EDIT_RECORD,

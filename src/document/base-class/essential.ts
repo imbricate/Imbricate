@@ -8,6 +8,7 @@ import { ImbricateDocumentFeatureNotSupportedError } from "../../error/document/
 import { DocumentAnnotationValue, DocumentAnnotations, DocumentEditRecord, ImbricateDocumentAuditOptions } from "../definition";
 import { IMBRICATE_DOCUMENT_FEATURE } from "../feature";
 import { IImbricateDocument } from "../interface";
+import { ImbricateDocumentAddEditRecordsOutcome, ImbricateDocumentDeleteAnnotationOutcome, ImbricateDocumentGetEditRecordsOutcome, ImbricateDocumentPutAnnotationOutcome } from "../outcome";
 import { ImbricateDocumentFullFeatureBase } from "./full-feature";
 
 export abstract class ImbricateDocumentEssentialBase extends ImbricateDocumentFullFeatureBase implements IImbricateDocument {
@@ -24,7 +25,7 @@ export abstract class ImbricateDocumentEssentialBase extends ImbricateDocumentFu
         _identifier: string,
         _value: DocumentAnnotationValue,
         _auditOptions?: ImbricateDocumentAuditOptions,
-    ): Promise<DocumentEditRecord[]> {
+    ): Promise<ImbricateDocumentPutAnnotationOutcome> {
 
         throw ImbricateDocumentFeatureNotSupportedError.withFeature(
             IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_PUT_ANNOTATION,
@@ -35,7 +36,7 @@ export abstract class ImbricateDocumentEssentialBase extends ImbricateDocumentFu
         _namespace: string,
         _identifier: string,
         _auditOptions?: ImbricateDocumentAuditOptions,
-    ): Promise<DocumentEditRecord[]> {
+    ): Promise<ImbricateDocumentDeleteAnnotationOutcome> {
 
         throw ImbricateDocumentFeatureNotSupportedError.withFeature(
             IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_DELETE_ANNOTATION,
@@ -44,14 +45,14 @@ export abstract class ImbricateDocumentEssentialBase extends ImbricateDocumentFu
 
     public addEditRecords(
         _records: DocumentEditRecord[],
-    ): Promise<void> {
+    ): Promise<ImbricateDocumentAddEditRecordsOutcome> {
 
         throw ImbricateDocumentFeatureNotSupportedError.withFeature(
             IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_PUT_EDIT_RECORD,
         );
     }
 
-    public getEditRecords(): Promise<DocumentEditRecord[]> {
+    public getEditRecords(): Promise<ImbricateDocumentGetEditRecordsOutcome> {
 
         throw ImbricateDocumentFeatureNotSupportedError.withFeature(
             IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_GET_EDIT_RECORD,

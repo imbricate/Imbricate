@@ -4,11 +4,11 @@
  * @description Full Feature
  */
 
-import { IImbricateDocument } from "../../document/interface";
 import { DocumentProperties } from "../../document/property";
 import { DatabaseAnnotationValue, DatabaseAnnotations, DatabaseEditRecord, ImbricateDatabaseAuditOptions, ImbricateDocumentQuery } from "../definition";
 import { IMBRICATE_DATABASE_FEATURE } from "../feature";
 import { IImbricateDatabase } from "../interface";
+import { ImbricateDatabaseAddEditRecordsOutcome, ImbricateDatabaseCountDocumentsOutcome, ImbricateDatabaseCreateDocumentOutcome, ImbricateDatabaseDeleteAnnotationOutcome, ImbricateDatabaseGetDocumentOutcome, ImbricateDatabaseGetEditRecordsOutcome, ImbricateDatabasePutAnnotationOutcome, ImbricateDatabasePutSchemaOutcome, ImbricateDatabaseQueryDocumentsOutcome, ImbricateDatabaseRemoveDocumentOutcome } from "../outcome";
 import { ImbricateDatabaseSchema } from "../schema";
 
 export abstract class ImbricateDatabaseFullFeatureBase implements IImbricateDatabase {
@@ -39,41 +39,46 @@ export abstract class ImbricateDatabaseFullFeatureBase implements IImbricateData
     public abstract putSchema(
         schema: ImbricateDatabaseSchema,
         auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<DatabaseEditRecord[]>;
+    ): PromiseLike<ImbricateDatabasePutSchemaOutcome>;
 
     public abstract createDocument(
         properties: DocumentProperties,
         auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<IImbricateDocument>;
+    ): PromiseLike<ImbricateDatabaseCreateDocumentOutcome>;
 
     public abstract getDocument(
         uniqueIdentifier: string,
-    ): PromiseLike<IImbricateDocument | null>;
+    ): PromiseLike<ImbricateDatabaseGetDocumentOutcome>;
 
     public abstract queryDocuments(
         query: ImbricateDocumentQuery,
-    ): PromiseLike<IImbricateDocument[]>;
+    ): PromiseLike<ImbricateDatabaseQueryDocumentsOutcome>;
 
     public abstract countDocuments(
         query: ImbricateDocumentQuery,
-    ): PromiseLike<number>;
+    ): PromiseLike<ImbricateDatabaseCountDocumentsOutcome>;
 
-    public abstract removeDocument(uniqueIdentifier: string, auditOptions?: ImbricateDatabaseAuditOptions): PromiseLike<void>;
+    public abstract removeDocument(
+        uniqueIdentifier: string,
+        auditOptions?: ImbricateDatabaseAuditOptions,
+    ): PromiseLike<ImbricateDatabaseRemoveDocumentOutcome>;
 
     public abstract putAnnotation(
         namespace: string,
         identifier: string,
         value: DatabaseAnnotationValue,
         auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<DatabaseEditRecord[]>;
+    ): PromiseLike<ImbricateDatabasePutAnnotationOutcome>;
 
     public abstract deleteAnnotation(
         namespace: string,
         identifier: string,
         auditOptions?: ImbricateDatabaseAuditOptions,
-    ): PromiseLike<DatabaseEditRecord[]>;
+    ): PromiseLike<ImbricateDatabaseDeleteAnnotationOutcome>;
 
-    public abstract addEditRecords(records: DatabaseEditRecord[]): PromiseLike<void>;
+    public abstract addEditRecords(
+        records: DatabaseEditRecord[],
+    ): PromiseLike<ImbricateDatabaseAddEditRecordsOutcome>;
 
-    public abstract getEditRecords(): PromiseLike<DatabaseEditRecord[]>;
+    public abstract getEditRecords(): PromiseLike<ImbricateDatabaseGetEditRecordsOutcome>;
 }

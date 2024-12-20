@@ -7,6 +7,7 @@
 import { DocumentAnnotationValue, DocumentAnnotations, DocumentEditRecord, ImbricateDocumentAuditOptions } from "../definition";
 import { IMBRICATE_DOCUMENT_FEATURE } from "../feature";
 import { IImbricateDocument } from "../interface";
+import { ImbricateDocumentAddEditRecordsOutcome, ImbricateDocumentDeleteAnnotationOutcome, ImbricateDocumentGetEditRecordsOutcome, ImbricateDocumentPutAnnotationOutcome, ImbricateDocumentPutPropertyOutcome } from "../outcome";
 import { DocumentProperties, DocumentPropertyKey, DocumentPropertyValue, IMBRICATE_PROPERTY_TYPE } from "../property";
 
 export abstract class ImbricateDocumentFullFeatureBase implements IImbricateDocument {
@@ -32,26 +33,29 @@ export abstract class ImbricateDocumentFullFeatureBase implements IImbricateDocu
         key: DocumentPropertyKey,
         value: DocumentPropertyValue<IMBRICATE_PROPERTY_TYPE>,
         auditOptions?: ImbricateDocumentAuditOptions,
-    ): Promise<DocumentEditRecord[]>;
+    ): Promise<ImbricateDocumentPutPropertyOutcome>;
 
     public abstract putProperties(
         properties: DocumentProperties,
         auditOptions?: ImbricateDocumentAuditOptions,
-    ): Promise<DocumentEditRecord[]>;
+    ): Promise<ImbricateDocumentPutPropertyOutcome>;
 
     public abstract putAnnotation(
         namespace: string,
         identifier: string,
         value: DocumentAnnotationValue,
         auditOptions?: ImbricateDocumentAuditOptions,
-    ): Promise<DocumentEditRecord[]>;
+    ): Promise<ImbricateDocumentPutAnnotationOutcome>;
 
     public abstract deleteAnnotation(
         namespace: string,
         identifier: string,
         auditOptions?: ImbricateDocumentAuditOptions,
-    ): Promise<DocumentEditRecord[]>;
+    ): Promise<ImbricateDocumentDeleteAnnotationOutcome>;
 
-    public abstract addEditRecords(records: DocumentEditRecord[]): Promise<void>;
-    public abstract getEditRecords(): Promise<DocumentEditRecord[]>;
+    public abstract addEditRecords(
+        records: DocumentEditRecord[],
+    ): Promise<ImbricateDocumentAddEditRecordsOutcome>;
+
+    public abstract getEditRecords(): Promise<ImbricateDocumentGetEditRecordsOutcome>;
 }

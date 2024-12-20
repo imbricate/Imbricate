@@ -25,6 +25,7 @@ export * from "./document/base-class/full-feature-readonly";
 export * from "./document/definition";
 export * from "./document/feature";
 export * from "./document/interface";
+export * from "./document/outcome";
 export * from "./document/property";
 export * from "./document/property/default-value";
 export * from "./document/property/definition";

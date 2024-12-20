@@ -8,6 +8,7 @@ import { ImbricateDocumentFeatureNotSupportedError } from "../../error/document/
 import { DocumentEditRecord } from "../definition";
 import { IMBRICATE_DOCUMENT_FEATURE } from "../feature";
 import { IImbricateDocument } from "../interface";
+import { ImbricateDocumentAddEditRecordsOutcome, ImbricateDocumentGetEditRecordsOutcome } from "../outcome";
 import { ImbricateDocumentFullFeatureBase } from "./full-feature";
 
 export abstract class ImbricateDocumentExcludeEditRecordsBase extends ImbricateDocumentFullFeatureBase implements IImbricateDocument {
@@ -22,14 +23,14 @@ export abstract class ImbricateDocumentExcludeEditRecordsBase extends ImbricateD
 
     public addEditRecords(
         _records: DocumentEditRecord[],
-    ): Promise<void> {
+    ): Promise<ImbricateDocumentAddEditRecordsOutcome> {
 
         throw ImbricateDocumentFeatureNotSupportedError.withFeature(
             IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_PUT_EDIT_RECORD,
         );
     }
 
-    public getEditRecords(): Promise<DocumentEditRecord[]> {
+    public getEditRecords(): Promise<ImbricateDocumentGetEditRecordsOutcome> {
 
         throw ImbricateDocumentFeatureNotSupportedError.withFeature(
             IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_GET_EDIT_RECORD,

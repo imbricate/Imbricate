@@ -8,6 +8,7 @@ import { ImbricateDocumentFeatureNotSupportedError } from "../../error/document/
 import { DocumentAnnotationValue, DocumentEditRecord, ImbricateDocumentAuditOptions } from "../definition";
 import { IMBRICATE_DOCUMENT_FEATURE } from "../feature";
 import { IImbricateDocument } from "../interface";
+import { ImbricateDocumentAddEditRecordsOutcome, ImbricateDocumentDeleteAnnotationOutcome, ImbricateDocumentPutAnnotationOutcome, ImbricateDocumentPutPropertyOutcome } from "../outcome";
 import { DocumentProperties, DocumentPropertyKey, DocumentPropertyValue, IMBRICATE_PROPERTY_TYPE } from "../property";
 import { ImbricateDocumentFullFeatureBase } from "./full-feature";
 
@@ -22,7 +23,7 @@ export abstract class ImbricateDocumentFullFeatureReadonlyBase extends Imbricate
         _key: DocumentPropertyKey,
         _value: DocumentPropertyValue<IMBRICATE_PROPERTY_TYPE>,
         _auditOptions?: ImbricateDocumentAuditOptions,
-    ): Promise<DocumentEditRecord[]> {
+    ): Promise<ImbricateDocumentPutPropertyOutcome> {
 
         throw ImbricateDocumentFeatureNotSupportedError.withFeature(
             IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_PUT_PROPERTY,
@@ -32,7 +33,7 @@ export abstract class ImbricateDocumentFullFeatureReadonlyBase extends Imbricate
     public putProperties(
         _properties: DocumentProperties,
         _auditOptions?: ImbricateDocumentAuditOptions,
-    ): Promise<DocumentEditRecord[]> {
+    ): Promise<ImbricateDocumentPutPropertyOutcome> {
 
         throw ImbricateDocumentFeatureNotSupportedError.withFeature(
             IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_PUT_PROPERTY,
@@ -44,7 +45,7 @@ export abstract class ImbricateDocumentFullFeatureReadonlyBase extends Imbricate
         _identifier: string,
         _value: DocumentAnnotationValue,
         _auditOptions?: ImbricateDocumentAuditOptions,
-    ): Promise<DocumentEditRecord[]> {
+    ): Promise<ImbricateDocumentPutAnnotationOutcome> {
 
         throw ImbricateDocumentFeatureNotSupportedError.withFeature(
             IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_PUT_ANNOTATION,
@@ -55,7 +56,7 @@ export abstract class ImbricateDocumentFullFeatureReadonlyBase extends Imbricate
         _namespace: string,
         _identifier: string,
         _auditOptions?: ImbricateDocumentAuditOptions,
-    ): Promise<DocumentEditRecord[]> {
+    ): Promise<ImbricateDocumentDeleteAnnotationOutcome> {
 
         throw ImbricateDocumentFeatureNotSupportedError.withFeature(
             IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_DELETE_ANNOTATION,
@@ -64,7 +65,7 @@ export abstract class ImbricateDocumentFullFeatureReadonlyBase extends Imbricate
 
     public addEditRecords(
         _records: DocumentEditRecord[],
-    ): Promise<void> {
+    ): Promise<ImbricateDocumentAddEditRecordsOutcome> {
 
         throw ImbricateDocumentFeatureNotSupportedError.withFeature(
             IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_PUT_EDIT_RECORD,
