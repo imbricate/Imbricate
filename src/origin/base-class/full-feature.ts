@@ -4,9 +4,9 @@
  * @description Full Feature
  */
 
-import { IImbricateDatabaseManager } from "../../database/manager";
-import { IImbricateStaticManager } from "../../static/manager";
-import { IImbricateTextManager } from "../../text/manager";
+import { IImbricateDatabaseManager } from "../../database-manager/database-manager";
+import { IImbricateStaticManager } from "../../static-manager/static-manager";
+import { IImbricateTextManager } from "../../text-manager/text-manager";
 import { OriginPayload } from "../definition";
 import { IMBRICATE_ORIGIN_FEATURE } from "../feature";
 import { IImbricateOrigin } from "../interface";

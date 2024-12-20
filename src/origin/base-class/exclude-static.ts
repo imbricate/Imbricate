@@ -5,7 +5,7 @@
  */
 
 import { ImbricateOriginFeatureNotSupportedError } from "../../error/origin/feature-not-supported";
-import { IImbricateStaticManager } from "../../static/manager";
+import { IImbricateStaticManager } from "../../static-manager/static-manager";
 import { IMBRICATE_ORIGIN_FEATURE } from "../feature";
 import { IImbricateOrigin } from "../interface";
 import { ImbricateOriginFullFeatureBase } from "./full-feature";

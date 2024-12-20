@@ -4,7 +4,7 @@
  * @description Author Only
  */
 
-import { ImbricateStaticFeatureNotSupportedError } from "../../error/static/feature-not-support";
+import { ImbricateStaticFeatureNotSupportedError } from "../../error/static/feature-not-supported";
 import { IMBRICATE_STATIC_FEATURE } from "../feature";
 import { IImbricateStatic } from "../interface";
 import { ImbricateStaticGetContentOutcome } from "../outcome";

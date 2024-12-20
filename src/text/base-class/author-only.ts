@@ -4,7 +4,7 @@
  * @description Author Only
  */
 
-import { ImbricateTextFeatureNotSupportedError } from "../../error/text/feature-not-support";
+import { ImbricateTextFeatureNotSupportedError } from "../../error/text/feature-not-supported";
 import { IMBRICATE_TEXT_FEATURE } from "../feature";
 import { IImbricateText } from "../interface";
 import { ImbricateTextGetContentOutcome } from "../outcome";

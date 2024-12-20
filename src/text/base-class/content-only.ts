@@ -5,7 +5,7 @@
  */
 
 import { ImbricateAuthor } from "../../author/definition";
-import { ImbricateTextFeatureNotSupportedError } from "../../error/text/feature-not-support";
+import { ImbricateTextFeatureNotSupportedError } from "../../error/text/feature-not-supported";
 import { IMBRICATE_TEXT_FEATURE } from "../feature";
 import { ImbricateTextFullFeatureBase } from "./full-feature";
 
