@@ -45,9 +45,17 @@ export abstract class ImbricateDatabaseFullFeatureBase implements IImbricateData
         auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<IImbricateDocument>;
 
-    public abstract getDocument(uniqueIdentifier: string): PromiseLike<IImbricateDocument | null>;
-    public abstract queryDocuments(query: ImbricateDocumentQuery): PromiseLike<IImbricateDocument[]>;
-    public abstract countDocuments(query: ImbricateDocumentQuery): PromiseLike<number>;
+    public abstract getDocument(
+        uniqueIdentifier: string,
+    ): PromiseLike<IImbricateDocument | null>;
+
+    public abstract queryDocuments(
+        query: ImbricateDocumentQuery,
+    ): PromiseLike<IImbricateDocument[]>;
+
+    public abstract countDocuments(
+        query: ImbricateDocumentQuery,
+    ): PromiseLike<number>;
 
     public abstract removeDocument(uniqueIdentifier: string, auditOptions?: ImbricateDatabaseAuditOptions): PromiseLike<void>;
 
@@ -57,6 +65,7 @@ export abstract class ImbricateDatabaseFullFeatureBase implements IImbricateData
         value: DatabaseAnnotationValue,
         auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<DatabaseEditRecord[]>;
+
     public abstract deleteAnnotation(
         namespace: string,
         identifier: string,
@@ -64,5 +73,6 @@ export abstract class ImbricateDatabaseFullFeatureBase implements IImbricateData
     ): PromiseLike<DatabaseEditRecord[]>;
 
     public abstract addEditRecords(records: DatabaseEditRecord[]): PromiseLike<void>;
+
     public abstract getEditRecords(): PromiseLike<DatabaseEditRecord[]>;
 }

@@ -18,7 +18,7 @@ export interface IImbricateDocument {
     /**
      * Version of the document draft
      */
-    readonly documentVersion: number;
+    readonly documentVersion: string;
 
     /**
      * Properties of the document
@@ -85,7 +85,7 @@ export interface IImbricateDocument {
      *  Note: if the origin supports Document Edit Record, the edit record will be added by default
      *  If you do not want to add the edit record, set `noEditRecord` to true in audit options
      */
-    putAnnotation?(
+    putAnnotation(
         namespace: string,
         identifier: string,
         value: DocumentAnnotationValue,
@@ -105,7 +105,7 @@ export interface IImbricateDocument {
      *  Note: if the origin supports Document Edit Record, the edit record will be added by default
      *  If you do not want to add the edit record, set `noEditRecord` to true in audit options
      */
-    deleteAnnotation?(
+    deleteAnnotation(
         namespace: string,
         identifier: string,
         auditOptions?: ImbricateDocumentAuditOptions,
@@ -121,7 +121,7 @@ export interface IImbricateDocument {
      * 
      * @param records document edit records
      */
-    addEditRecords?(
+    addEditRecords(
         records: DocumentEditRecord[],
     ): PromiseLike<void>;
 
@@ -135,5 +135,5 @@ export interface IImbricateDocument {
      * 
      * @returns a promise of the edit records of the document
      */
-    getEditRecords?(): PromiseLike<DocumentEditRecord[]>;
+    getEditRecords(): PromiseLike<DocumentEditRecord[]>;
 }
