@@ -4,6 +4,8 @@
  */
 
 export * from "./author/definition";
+export * from "./database-manager/database-manager";
+export * from "./database-manager/outcome";
 export * from "./database/base-class/essential";
 export * from "./database/base-class/essential-readonly";
 export * from "./database/base-class/exclude-annotation";
@@ -12,7 +14,6 @@ export * from "./database/base-class/full-feature-readonly";
 export * from "./database/definition";
 export * from "./database/feature";
 export * from "./database/interface";
-export * from "./database/manager";
 export * from "./database/outcome";
 export * from "./database/schema";
 export * from "./database/validate";

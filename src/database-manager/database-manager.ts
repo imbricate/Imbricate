@@ -1,14 +1,20 @@
 /**
  * @author WMXPY
- * @namespace Database
- * @description Manager
+ * @namespace DatabaseManager
+ * @description Database Manager
  */
 
-import { ImbricateDatabaseAuditOptions } from "./definition";
+import { ImbricateDatabaseAuditOptions } from "../database/definition";
+import { ImbricateDatabaseSchemaForCreation } from "../database/schema";
+import { IMBRICATE_DATABASE_MANAGER_FEATURE } from "./feature";
 import { ImbricateDatabaseManagerCreateDatabaseOutcome, ImbricateDatabaseManagerGetDatabaseOutcome, ImbricateDatabaseManagerListDatabasesOutcome, ImbricateDatabaseManagerRemoveDatabaseOutcome } from "./outcome";
-import { ImbricateDatabaseSchemaForCreation } from "./schema";
 
 export interface IImbricateDatabaseManager {
+
+    /**
+     * Supported features of the database manager
+     */
+    readonly supportedFeatures: IMBRICATE_DATABASE_MANAGER_FEATURE[];
 
     /**
      * List all databases in the origin

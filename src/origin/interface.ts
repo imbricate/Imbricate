@@ -4,7 +4,7 @@
  * @description Interface
  */
 
-import { IImbricateDatabaseManager } from "../database/manager";
+import { IImbricateDatabaseManager } from "../database-manager/database-manager";
 import { IImbricateStaticManager } from "../static/manager";
 import { IImbricateTextManager } from "../text/manager";
 import { OriginPayload } from "./definition";
