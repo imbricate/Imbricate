@@ -55,8 +55,8 @@ export type DocumentEditRecord = {
     readonly uniqueIdentifier: string;
     readonly editAt: Date;
 
-    readonly beforeVersion: number;
-    readonly afterVersion: number;
+    readonly beforeVersion: string;
+    readonly afterVersion: string;
 
     readonly operations: Array<DocumentEditOperation<IMBRICATE_DOCUMENT_EDIT_TYPE>>;
 
