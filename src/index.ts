@@ -14,4 +14,5 @@ export * from "./static-manager/export";
 export * from "./static/export";
 export * from "./text-manager/export";
 export * from "./text/export";
+export * from "./util/rebuild-symbol";
 

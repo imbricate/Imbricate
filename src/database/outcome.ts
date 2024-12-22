@@ -5,6 +5,7 @@
  */
 
 import { IImbricateDocument } from "../document/interface";
+import { createRebuildImbricateSymbolFunction } from "../util/rebuild-symbol";
 import { DatabaseEditRecord } from "./definition";
 
 // Put Schema
@@ -16,6 +17,17 @@ export type ImbricateDatabasePutSchemaOutcomeSymbol =
     | typeof S_Database_PutSchema_VersionConflict
     | typeof S_Database_PutSchema_InvalidSchema
     | typeof S_Database_PutSchema_Unknown;
+
+export const ImbricateDatabasePutSchemaOutcomeSymbolList: ImbricateDatabasePutSchemaOutcomeSymbol[] = [
+    S_Database_PutSchema_VersionConflict,
+    S_Database_PutSchema_InvalidSchema,
+    S_Database_PutSchema_Unknown,
+];
+
+export const rebuildImbricateDatabasePutSchemaSymbol = createRebuildImbricateSymbolFunction(
+    ImbricateDatabasePutSchemaOutcomeSymbolList,
+    S_Database_PutSchema_Unknown,
+);
 
 export type ImbricateDatabasePutSchemaOutcome = {
 
