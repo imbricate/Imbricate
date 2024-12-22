@@ -42,6 +42,16 @@ export type ImbricateDatabaseCreateDocumentOutcomeSymbol =
     | typeof S_Database_CreateDocument_IdentifierDuplicated
     | typeof S_Database_CreateDocument_Unknown;
 
+export const ImbricateDatabaseCreateDocumentOutcomeSymbolList: ImbricateDatabaseCreateDocumentOutcomeSymbol[] = [
+    S_Database_CreateDocument_IdentifierDuplicated,
+    S_Database_CreateDocument_Unknown,
+];
+
+export const rebuildImbricateDatabaseCreateDocumentSymbol = createRebuildImbricateSymbolFunction(
+    ImbricateDatabaseCreateDocumentOutcomeSymbolList,
+    S_Database_CreateDocument_Unknown,
+);
+
 export type ImbricateDatabaseCreateDocumentOutcome = {
 
     readonly document: IImbricateDocument;
@@ -54,6 +64,16 @@ export const S_Database_GetDocument_Unknown: unique symbol = Symbol("Database_Ge
 export type ImbricateDatabaseGetDocumentOutcomeSymbol =
     | typeof S_Database_GetDocument_NotFound
     | typeof S_Database_GetDocument_Unknown;
+
+export const ImbricateDatabaseGetDocumentOutcomeSymbolList: ImbricateDatabaseGetDocumentOutcomeSymbol[] = [
+    S_Database_GetDocument_NotFound,
+    S_Database_GetDocument_Unknown,
+];
+
+export const rebuildImbricateDatabaseGetDocumentSymbol = createRebuildImbricateSymbolFunction(
+    ImbricateDatabaseGetDocumentOutcomeSymbolList,
+    S_Database_GetDocument_Unknown,
+);
 
 export type ImbricateDatabaseGetDocumentOutcome = {
 
@@ -68,16 +88,37 @@ export type ImbricateDatabaseQueryDocumentsOutcomeSymbol =
     | typeof S_Database_QueryDocuments_Stale
     | typeof S_Database_QueryDocuments_Unknown;
 
+export const ImbricateDatabaseQueryDocumentsOutcomeSymbolList: ImbricateDatabaseQueryDocumentsOutcomeSymbol[] = [
+    S_Database_QueryDocuments_Stale,
+    S_Database_QueryDocuments_Unknown,
+];
+
+export const rebuildImbricateDatabaseQueryDocumentsSymbol = createRebuildImbricateSymbolFunction(
+    ImbricateDatabaseQueryDocumentsOutcomeSymbolList,
+    S_Database_QueryDocuments_Unknown,
+);
+
 export type ImbricateDatabaseQueryDocumentsOutcome = {
     readonly documents: IImbricateDocument[];
 } | ImbricateDatabaseQueryDocumentsOutcomeSymbol;
 
+// Count Documents
 export const S_Database_CountDocuments_Stale: unique symbol = Symbol("Database_CountDocuments_Stale");
 export const S_Database_CountDocuments_Unknown: unique symbol = Symbol("Database_CountDocuments_Unknown");
 
 export type ImbricateDatabaseCountDocumentsOutcomeSymbol =
     | typeof S_Database_CountDocuments_Stale
     | typeof S_Database_CountDocuments_Unknown;
+
+export const ImbricateDatabaseCountDocumentsOutcomeSymbolList: ImbricateDatabaseCountDocumentsOutcomeSymbol[] = [
+    S_Database_CountDocuments_Stale,
+    S_Database_CountDocuments_Unknown,
+];
+
+export const rebuildImbricateDatabaseCountDocumentsSymbol = createRebuildImbricateSymbolFunction(
+    ImbricateDatabaseCountDocumentsOutcomeSymbolList,
+    S_Database_CountDocuments_Unknown,
+);
 
 export type ImbricateDatabaseCountDocumentsOutcome = {
 
@@ -91,6 +132,16 @@ export const S_Database_RemoveDocument_Unknown: unique symbol = Symbol("Database
 export type ImbricateDatabaseRemoveDocumentOutcomeSymbol =
     | typeof S_Database_RemoveDocument_NotFound
     | typeof S_Database_RemoveDocument_Unknown;
+
+export const ImbricateDatabaseRemoveDocumentOutcomeSymbolList: ImbricateDatabaseRemoveDocumentOutcomeSymbol[] = [
+    S_Database_RemoveDocument_NotFound,
+    S_Database_RemoveDocument_Unknown,
+];
+
+export const rebuildImbricateDatabaseRemoveDocumentSymbol = createRebuildImbricateSymbolFunction(
+    ImbricateDatabaseRemoveDocumentOutcomeSymbolList,
+    S_Database_RemoveDocument_Unknown,
+);
 
 export type ImbricateDatabaseRemoveDocumentOutcome = {
 
@@ -107,6 +158,17 @@ export type ImbricateDatabasePutAnnotationOutcomeSymbol =
     | typeof S_Database_PutAnnotation_InvalidIdentifier
     | typeof S_Database_PutAnnotation_Unknown;
 
+export const ImbricateDatabasePutAnnotationOutcomeSymbolList: ImbricateDatabasePutAnnotationOutcomeSymbol[] = [
+    S_Database_PutAnnotation_InvalidNamespace,
+    S_Database_PutAnnotation_InvalidIdentifier,
+    S_Database_PutAnnotation_Unknown,
+];
+
+export const rebuildImbricateDatabasePutAnnotationSymbol = createRebuildImbricateSymbolFunction(
+    ImbricateDatabasePutAnnotationOutcomeSymbolList,
+    S_Database_PutAnnotation_Unknown,
+);
+
 export type ImbricateDatabasePutAnnotationOutcome = {
 
     readonly editRecords: DatabaseEditRecord[];
@@ -119,6 +181,16 @@ export const S_Database_DeleteAnnotation_Unknown: unique symbol = Symbol("Databa
 export type ImbricateDatabaseDeleteAnnotationOutcomeSymbol =
     | typeof S_Database_DeleteAnnotation_NotFound
     | typeof S_Database_DeleteAnnotation_Unknown;
+
+export const ImbricateDatabaseDeleteAnnotationOutcomeSymbolList: ImbricateDatabaseDeleteAnnotationOutcomeSymbol[] = [
+    S_Database_DeleteAnnotation_NotFound,
+    S_Database_DeleteAnnotation_Unknown,
+];
+
+export const rebuildImbricateDatabaseDeleteAnnotationSymbol = createRebuildImbricateSymbolFunction(
+    ImbricateDatabaseDeleteAnnotationOutcomeSymbolList,
+    S_Database_DeleteAnnotation_Unknown,
+);
 
 export type ImbricateDatabaseDeleteAnnotationOutcome = {
 
@@ -133,6 +205,16 @@ export type ImbricateDatabaseAddEditRecordsOutcomeSymbol =
     | typeof S_Database_AddEditRecords_InvalidEditRecord
     | typeof S_Database_AddEditRecords_Unknown;
 
+export const ImbricateDatabaseAddEditRecordsOutcomeSymbolList: ImbricateDatabaseAddEditRecordsOutcomeSymbol[] = [
+    S_Database_AddEditRecords_InvalidEditRecord,
+    S_Database_AddEditRecords_Unknown,
+];
+
+export const rebuildImbricateDatabaseAddEditRecordsSymbol = createRebuildImbricateSymbolFunction(
+    ImbricateDatabaseAddEditRecordsOutcomeSymbolList,
+    S_Database_AddEditRecords_Unknown,
+);
+
 export type ImbricateDatabaseAddEditRecordsOutcome = {
 
     readonly editRecords: DatabaseEditRecord[];
@@ -145,6 +227,16 @@ export const S_Database_GetEditRecords_Unknown: unique symbol = Symbol("Database
 export type ImbricateDatabaseGetEditRecordsOutcomeSymbol =
     | typeof S_Database_GetEditRecords_NotFound
     | typeof S_Database_GetEditRecords_Unknown;
+
+export const ImbricateDatabaseGetEditRecordsOutcomeSymbolList: ImbricateDatabaseGetEditRecordsOutcomeSymbol[] = [
+    S_Database_GetEditRecords_NotFound,
+    S_Database_GetEditRecords_Unknown,
+];
+
+export const rebuildImbricateDatabaseGetEditRecordsSymbol = createRebuildImbricateSymbolFunction(
+    ImbricateDatabaseGetEditRecordsOutcomeSymbolList,
+    S_Database_GetEditRecords_Unknown,
+);
 
 export type ImbricateDatabaseGetEditRecordsOutcome = {
 

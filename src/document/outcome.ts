@@ -4,6 +4,7 @@
  * @description Outcome
  */
 
+import { createRebuildImbricateSymbolFunction } from "../util/rebuild-symbol";
 import { DocumentEditRecord } from "./definition";
 
 // Put Property
@@ -13,6 +14,16 @@ export const S_Document_PutProperty_Unknown: unique symbol = Symbol("Document_Pu
 export type ImbricateDocumentPutPropertyOutcomeSymbol =
     | typeof S_Document_PutProperty_InvalidKey
     | typeof S_Document_PutProperty_Unknown;
+
+export const ImbricateDocumentPutPropertyOutcomeSymbolList: ImbricateDocumentPutPropertyOutcomeSymbol[] = [
+    S_Document_PutProperty_InvalidKey,
+    S_Document_PutProperty_Unknown,
+];
+
+export const rebuildImbricateDocumentPutPropertySymbol = createRebuildImbricateSymbolFunction(
+    ImbricateDocumentPutPropertyOutcomeSymbolList,
+    S_Document_PutProperty_Unknown,
+);
 
 export type ImbricateDocumentPutPropertyOutcome = {
 
@@ -29,6 +40,17 @@ export type ImbricateDocumentPutAnnotationOutcomeSymbol =
     | typeof S_Document_PutAnnotation_InvalidIdentifier
     | typeof S_Document_PutAnnotation_Unknown;
 
+export const ImbricateDocumentPutAnnotationOutcomeSymbolList: ImbricateDocumentPutAnnotationOutcomeSymbol[] = [
+    S_Document_PutAnnotation_InvalidNamespace,
+    S_Document_PutAnnotation_InvalidIdentifier,
+    S_Document_PutAnnotation_Unknown,
+];
+
+export const rebuildImbricateDocumentPutAnnotationSymbol = createRebuildImbricateSymbolFunction(
+    ImbricateDocumentPutAnnotationOutcomeSymbolList,
+    S_Document_PutAnnotation_Unknown,
+);
+
 export type ImbricateDocumentPutAnnotationOutcome = {
 
     readonly editRecords: DocumentEditRecord[];
@@ -41,6 +63,16 @@ export const S_Document_DeleteAnnotation_Unknown: unique symbol = Symbol("Docume
 export type ImbricateDocumentDeleteAnnotationOutcomeSymbol =
     | typeof S_Document_DeleteAnnotation_NotFound
     | typeof S_Document_DeleteAnnotation_Unknown;
+
+export const ImbricateDocumentDeleteAnnotationOutcomeSymbolList: ImbricateDocumentDeleteAnnotationOutcomeSymbol[] = [
+    S_Document_DeleteAnnotation_NotFound,
+    S_Document_DeleteAnnotation_Unknown,
+];
+
+export const rebuildImbricateDocumentDeleteAnnotationSymbol = createRebuildImbricateSymbolFunction(
+    ImbricateDocumentDeleteAnnotationOutcomeSymbolList,
+    S_Document_DeleteAnnotation_Unknown,
+);
 
 export type ImbricateDocumentDeleteAnnotationOutcome = {
 
@@ -55,6 +87,16 @@ export type ImbricateDocumentAddEditRecordsOutcomeSymbol =
     | typeof S_Document_AddEditRecords_InvalidRecord
     | typeof S_Document_AddEditRecords_Unknown;
 
+export const ImbricateDocumentAddEditRecordsOutcomeSymbolList: ImbricateDocumentAddEditRecordsOutcomeSymbol[] = [
+    S_Document_AddEditRecords_InvalidRecord,
+    S_Document_AddEditRecords_Unknown,
+];
+
+export const rebuildImbricateDocumentAddEditRecordsSymbol = createRebuildImbricateSymbolFunction(
+    ImbricateDocumentAddEditRecordsOutcomeSymbolList,
+    S_Document_AddEditRecords_Unknown,
+);
+
 export type ImbricateDocumentAddEditRecordsOutcome = {
 
     readonly editRecords: DocumentEditRecord[];
@@ -67,6 +109,16 @@ export const S_Document_GetEditRecords_Unknown: unique symbol = Symbol("Document
 export type ImbricateDocumentGetEditRecordsOutcomeSymbol =
     | typeof S_Document_GetEditRecords_NotFound
     | typeof S_Document_GetEditRecords_Unknown;
+
+export const ImbricateDocumentGetEditRecordsOutcomeSymbolList: ImbricateDocumentGetEditRecordsOutcomeSymbol[] = [
+    S_Document_GetEditRecords_NotFound,
+    S_Document_GetEditRecords_Unknown,
+];
+
+export const rebuildImbricateDocumentGetEditRecordsSymbol = createRebuildImbricateSymbolFunction(
+    ImbricateDocumentGetEditRecordsOutcomeSymbolList,
+    S_Document_GetEditRecords_Unknown,
+);
 
 export type ImbricateDocumentGetEditRecordsOutcome = {
 

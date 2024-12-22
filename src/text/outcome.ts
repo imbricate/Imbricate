@@ -4,6 +4,8 @@
  * @description Outcome
  */
 
+import { createRebuildImbricateSymbolFunction } from "../util/rebuild-symbol";
+
 // Get Content
 export const S_Text_GetContent_NotFound: unique symbol = Symbol("Text_GetContent_NotFound");
 export const S_Text_GetContent_Unknown: unique symbol = Symbol("Text_GetContent_Unknown");
@@ -11,6 +13,16 @@ export const S_Text_GetContent_Unknown: unique symbol = Symbol("Text_GetContent_
 export type ImbricateTextGetContentOutcomeSymbol =
     | typeof S_Text_GetContent_NotFound
     | typeof S_Text_GetContent_Unknown;
+
+export const ImbricateTextGetContentOutcomeSymbolList: ImbricateTextGetContentOutcomeSymbol[] = [
+    S_Text_GetContent_NotFound,
+    S_Text_GetContent_Unknown,
+];
+
+export const rebuildImbricateTextGetContentSymbol = createRebuildImbricateSymbolFunction(
+    ImbricateTextGetContentOutcomeSymbolList,
+    S_Text_GetContent_Unknown,
+);
 
 export type ImbricateTextGetContentOutcome = {
 
