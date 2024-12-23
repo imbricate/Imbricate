@@ -15,6 +15,8 @@ export enum IMBRICATE_DOCUMENT_EDIT_TYPE {
     PUT_PROPERTY = "PUT_PROPERTY",
     PUT_ANNOTATION = "PUT_ANNOTATION",
     DELETE_ANNOTATION = "DELETE_ANNOTATION",
+
+    RESOLVE_CONFLICT = "RESOLVE_CONFLICT",
 }
 
 export type DocumentEditOperationValuePutProperty = {
@@ -37,11 +39,17 @@ export type DocumentEditOperationDeleteAnnotation = {
     readonly annotationIdentifier: string;
 };
 
+export type DocumentEditOperationResolveConflict = {
+
+    readonly conflicetedEditRecords: string[];
+};
+
 // IMBRICATE_DOCUMENT_EDIT_TYPE SWITCH
 export type DocumentEditOperationValue<T extends IMBRICATE_DOCUMENT_EDIT_TYPE> =
     T extends IMBRICATE_DOCUMENT_EDIT_TYPE.PUT_PROPERTY ? DocumentEditOperationValuePutProperty :
     T extends IMBRICATE_DOCUMENT_EDIT_TYPE.PUT_ANNOTATION ? DocumentEditOperationPutAnnotation :
     T extends IMBRICATE_DOCUMENT_EDIT_TYPE.DELETE_ANNOTATION ? DocumentEditOperationDeleteAnnotation :
+    T extends IMBRICATE_DOCUMENT_EDIT_TYPE.RESOLVE_CONFLICT ? DocumentEditOperationResolveConflict :
     never;
 
 export type DocumentEditOperation<T extends IMBRICATE_DOCUMENT_EDIT_TYPE> = {

@@ -67,6 +67,8 @@ export enum IMBRICATE_DATABASE_EDIT_TYPE {
     PUT_SCHEMA = "PUT_SCHEMA",
     PUT_ANNOTATION = "PUT_ANNOTATION",
     DELETE_ANNOTATION = "DELETE_ANNOTATION",
+
+    RESOLVE_CONFLICT = "RESOLVE_CONFLICT",
 }
 
 export type DatabaseEditOperationPutAnnotation = {
@@ -83,11 +85,17 @@ export type DatabaseEditOperationDeleteAnnotation = {
     readonly annotationIdentifier: string;
 };
 
+export type DatabaseEditOperationResolveConflict = {
+
+    readonly conflicetedEditRecords: string[];
+};
+
 // IMBRICATE_DATABASE_EDIT_TYPE SWITCH
 export type DatabaseEditOperationValue<T extends IMBRICATE_DATABASE_EDIT_TYPE> =
     T extends IMBRICATE_DATABASE_EDIT_TYPE.PUT_SCHEMA ? ImbricateDatabaseSchema :
     T extends IMBRICATE_DATABASE_EDIT_TYPE.PUT_ANNOTATION ? DatabaseEditOperationPutAnnotation :
     T extends IMBRICATE_DATABASE_EDIT_TYPE.DELETE_ANNOTATION ? DatabaseEditOperationDeleteAnnotation :
+    T extends IMBRICATE_DATABASE_EDIT_TYPE.RESOLVE_CONFLICT ? DatabaseEditOperationResolveConflict :
     never;
 
 /**
