@@ -36,10 +36,12 @@ export type ImbricateDatabasePutSchemaOutcome = {
 
 // Create Document
 export const S_Database_CreateDocument_IdentifierDuplicated: unique symbol = Symbol("Database_CreateDocument_IdentifierDuplicated");
+export const S_Database_CreateDocument_InvalidProperties: unique symbol = Symbol("Database_CreateDocument_InvalidProperties");
 export const S_Database_CreateDocument_Unknown: unique symbol = Symbol("Database_CreateDocument_Unknown");
 
 export type ImbricateDatabaseCreateDocumentOutcomeSymbol =
     | typeof S_Database_CreateDocument_IdentifierDuplicated
+    | typeof S_Database_CreateDocument_InvalidProperties
     | typeof S_Database_CreateDocument_Unknown;
 
 export const ImbricateDatabaseCreateDocumentOutcomeSymbolList: ImbricateDatabaseCreateDocumentOutcomeSymbol[] = [
@@ -82,10 +84,12 @@ export type ImbricateDatabaseGetDocumentOutcome = {
 
 // Query Documents
 export const S_Database_QueryDocuments_Stale: unique symbol = Symbol("Database_QueryDocuments_Stale");
+export const S_Database_QueryDocuments_InvalidQuery: unique symbol = Symbol("Database_QueryDocuments_InvalidQuery");
 export const S_Database_QueryDocuments_Unknown: unique symbol = Symbol("Database_QueryDocuments_Unknown");
 
 export type ImbricateDatabaseQueryDocumentsOutcomeSymbol =
     | typeof S_Database_QueryDocuments_Stale
+    | typeof S_Database_QueryDocuments_InvalidQuery
     | typeof S_Database_QueryDocuments_Unknown;
 
 export const ImbricateDatabaseQueryDocumentsOutcomeSymbolList: ImbricateDatabaseQueryDocumentsOutcomeSymbol[] = [

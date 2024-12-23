@@ -41,7 +41,7 @@ export type DocumentEditOperationDeleteAnnotation = {
 
 export type DocumentEditOperationResolveConflict = {
 
-    readonly conflicetedEditRecords: string[];
+    readonly conflictedEditRecords: string[];
 };
 
 // IMBRICATE_DOCUMENT_EDIT_TYPE SWITCH

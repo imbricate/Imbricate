@@ -55,10 +55,14 @@ export type ImbricateDatabaseManagerGetDatabaseOutcome = {
 
 // Manager Create Database
 export const S_DatabaseManager_CreateDatabase_IdentifierDuplicated: unique symbol = Symbol("DatabaseManager_CreateDatabase_IdentifierDuplicated");
+export const S_DatabaseManager_CreateDatabase_DatabaseNameDuplicated: unique symbol = Symbol("DatabaseManager_CreateDatabase_DatabaseNameDuplicated");
+export const S_DatabaseManager_CreateDatabase_InvalidSchema: unique symbol = Symbol("DatabaseManager_CreateDatabase_InvalidSchema");
 export const S_DatabaseManager_CreateDatabase_Unknown: unique symbol = Symbol("DatabaseManager_CreateDatabase_Unknown");
 
 export type ImbricateDatabaseManagerCreateDatabaseOutcomeSymbol =
     | typeof S_DatabaseManager_CreateDatabase_IdentifierDuplicated
+    | typeof S_DatabaseManager_CreateDatabase_DatabaseNameDuplicated
+    | typeof S_DatabaseManager_CreateDatabase_InvalidSchema
     | typeof S_DatabaseManager_CreateDatabase_Unknown;
 
 export const ImbricateDatabaseManagerCreateDatabaseOutcomeSymbolList: ImbricateDatabaseManagerCreateDatabaseOutcomeSymbol[] = [
