@@ -11,7 +11,7 @@ import { ImbricateStaticFullFeatureBase } from "./full-feature";
 
 export abstract class ImbricateStaticContentOnlyBase extends ImbricateStaticFullFeatureBase {
 
-    public readonly features: IMBRICATE_STATIC_FEATURE[] = [
+    public readonly supportedFeatures: IMBRICATE_STATIC_FEATURE[] = [
         IMBRICATE_STATIC_FEATURE.STATIC_GET_CONTENT,
     ];
 

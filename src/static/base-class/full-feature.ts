@@ -13,7 +13,7 @@ export abstract class ImbricateStaticFullFeatureBase implements IImbricateStatic
 
     public abstract readonly uniqueIdentifier: string;
 
-    public readonly features: IMBRICATE_STATIC_FEATURE[] = [
+    public readonly supportedFeatures: IMBRICATE_STATIC_FEATURE[] = [
 
         IMBRICATE_STATIC_FEATURE.STATIC_GET_AUTHOR,
         IMBRICATE_STATIC_FEATURE.STATIC_GET_CONTENT,

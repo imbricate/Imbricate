@@ -18,7 +18,7 @@ export interface IImbricateText {
     /**
      * Features supported by the text object
      */
-    readonly features: IMBRICATE_TEXT_FEATURE[];
+    readonly supportedFeatures: IMBRICATE_TEXT_FEATURE[];
 
     /**
      * Author of the text object

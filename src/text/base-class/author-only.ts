@@ -12,7 +12,7 @@ import { ImbricateTextFullFeatureBase } from "./full-feature";
 
 export abstract class ImbricateTextAuthorOnlyBase extends ImbricateTextFullFeatureBase implements IImbricateText {
 
-    public readonly features: IMBRICATE_TEXT_FEATURE[] = [
+    public readonly supportedFeatures: IMBRICATE_TEXT_FEATURE[] = [
         IMBRICATE_TEXT_FEATURE.TEXT_GET_AUTHOR,
     ];
 

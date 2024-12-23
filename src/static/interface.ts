@@ -18,7 +18,7 @@ export interface IImbricateStatic {
     /**
      * Features supported by the static object
      */
-    readonly features: IMBRICATE_STATIC_FEATURE[];
+    readonly supportedFeatures: IMBRICATE_STATIC_FEATURE[];
 
     /**
      * Author of the text object

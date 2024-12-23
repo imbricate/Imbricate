@@ -13,7 +13,7 @@ export abstract class ImbricateTextFullFeatureBase implements IImbricateText {
 
     public abstract readonly uniqueIdentifier: string;
 
-    public readonly features: IMBRICATE_TEXT_FEATURE[] = [
+    public readonly supportedFeatures: IMBRICATE_TEXT_FEATURE[] = [
 
         IMBRICATE_TEXT_FEATURE.TEXT_GET_AUTHOR,
         IMBRICATE_TEXT_FEATURE.TEXT_GET_CONTENT,
