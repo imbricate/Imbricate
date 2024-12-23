@@ -81,9 +81,9 @@ export type DocumentPropertyValueObject<T extends IMBRICATE_PROPERTY_TYPE> =
     T extends IMBRICATE_PROPERTY_TYPE.BOOLEAN ? boolean :
     T extends IMBRICATE_PROPERTY_TYPE.STRING ? string :
     T extends IMBRICATE_PROPERTY_TYPE.NUMBER ? number :
-    T extends IMBRICATE_PROPERTY_TYPE.MARKDOWN ? string[] :
-    T extends IMBRICATE_PROPERTY_TYPE.JSON ? string[] :
-    T extends IMBRICATE_PROPERTY_TYPE.IMBRISCRIPT ? string[] :
+    T extends IMBRICATE_PROPERTY_TYPE.MARKDOWN ? string :
+    T extends IMBRICATE_PROPERTY_TYPE.JSON ? string :
+    T extends IMBRICATE_PROPERTY_TYPE.IMBRISCRIPT ? string :
     T extends IMBRICATE_PROPERTY_TYPE.DATE ? string :
     T extends IMBRICATE_PROPERTY_TYPE.LABEL ? string[] :
     T extends IMBRICATE_PROPERTY_TYPE.REFERENCE ? DocumentPropertyValueObjectReference[] :
