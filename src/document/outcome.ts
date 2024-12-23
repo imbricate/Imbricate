@@ -9,14 +9,17 @@ import { DocumentEditRecord } from "./definition";
 
 // Put Property
 export const S_Document_PutProperty_InvalidKey: unique symbol = Symbol("Document_PutProperty_InvalidKey");
+export const S_Document_PutProperty_InvalidValue: unique symbol = Symbol("Document_PutProperty_InvalidValue");
 export const S_Document_PutProperty_Unknown: unique symbol = Symbol("Document_PutProperty_Unknown");
 
 export type ImbricateDocumentPutPropertyOutcomeSymbol =
     | typeof S_Document_PutProperty_InvalidKey
+    | typeof S_Document_PutProperty_InvalidValue
     | typeof S_Document_PutProperty_Unknown;
 
 export const ImbricateDocumentPutPropertyOutcomeSymbolList: ImbricateDocumentPutPropertyOutcomeSymbol[] = [
     S_Document_PutProperty_InvalidKey,
+    S_Document_PutProperty_InvalidValue,
     S_Document_PutProperty_Unknown,
 ];
 
