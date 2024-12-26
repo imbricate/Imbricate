@@ -4,6 +4,7 @@
  * @description Outcome
  */
 
+import { CommonOutcomeSymbol } from "../common/outcome";
 import { IImbricateDocument } from "../document/interface";
 import { createRebuildImbricateSymbolFunction } from "../util/rebuild-symbol";
 import { DatabaseEditRecord } from "./definition";
@@ -32,7 +33,7 @@ export const rebuildImbricateDatabasePutSchemaSymbol = createRebuildImbricateSym
 export type ImbricateDatabasePutSchemaOutcome = {
 
     readonly editRecords: DatabaseEditRecord[];
-} | ImbricateDatabasePutSchemaOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateDatabasePutSchemaOutcomeSymbol;
 
 // Create Document
 export const S_Database_CreateDocument_IdentifierDuplicated: unique symbol = Symbol("Database_CreateDocument_IdentifierDuplicated");
@@ -57,7 +58,7 @@ export const rebuildImbricateDatabaseCreateDocumentSymbol = createRebuildImbrica
 export type ImbricateDatabaseCreateDocumentOutcome = {
 
     readonly document: IImbricateDocument;
-} | ImbricateDatabaseCreateDocumentOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateDatabaseCreateDocumentOutcomeSymbol;
 
 // Get Document
 export const S_Database_GetDocument_NotFound: unique symbol = Symbol("Database_GetDocument_NotFound");
@@ -80,7 +81,7 @@ export const rebuildImbricateDatabaseGetDocumentSymbol = createRebuildImbricateS
 export type ImbricateDatabaseGetDocumentOutcome = {
 
     readonly document: IImbricateDocument;
-} | ImbricateDatabaseGetDocumentOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateDatabaseGetDocumentOutcomeSymbol;
 
 // Query Documents
 export const S_Database_QueryDocuments_Stale: unique symbol = Symbol("Database_QueryDocuments_Stale");
@@ -104,7 +105,7 @@ export const rebuildImbricateDatabaseQueryDocumentsSymbol = createRebuildImbrica
 
 export type ImbricateDatabaseQueryDocumentsOutcome = {
     readonly documents: IImbricateDocument[];
-} | ImbricateDatabaseQueryDocumentsOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateDatabaseQueryDocumentsOutcomeSymbol;
 
 // Count Documents
 export const S_Database_CountDocuments_Stale: unique symbol = Symbol("Database_CountDocuments_Stale");
@@ -127,7 +128,7 @@ export const rebuildImbricateDatabaseCountDocumentsSymbol = createRebuildImbrica
 export type ImbricateDatabaseCountDocumentsOutcome = {
 
     readonly count: number;
-} | ImbricateDatabaseCountDocumentsOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateDatabaseCountDocumentsOutcomeSymbol;
 
 // Remove Document
 export const S_Database_RemoveDocument_NotFound: unique symbol = Symbol("Database_RemoveDocument_NotFound");
@@ -150,7 +151,7 @@ export const rebuildImbricateDatabaseRemoveDocumentSymbol = createRebuildImbrica
 export type ImbricateDatabaseRemoveDocumentOutcome = {
 
     readonly success: boolean;
-} | ImbricateDatabaseRemoveDocumentOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateDatabaseRemoveDocumentOutcomeSymbol;
 
 // Put Annotation
 export const S_Database_PutAnnotation_InvalidNamespace: unique symbol = Symbol("Database_PutAnnotation_InvalidNamespace");
@@ -176,7 +177,7 @@ export const rebuildImbricateDatabasePutAnnotationSymbol = createRebuildImbricat
 export type ImbricateDatabasePutAnnotationOutcome = {
 
     readonly editRecords: DatabaseEditRecord[];
-} | ImbricateDatabasePutAnnotationOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateDatabasePutAnnotationOutcomeSymbol;
 
 // Delete Annotation
 export const S_Database_DeleteAnnotation_NotFound: unique symbol = Symbol("Database_DeleteAnnotation_NotFound");
@@ -199,7 +200,7 @@ export const rebuildImbricateDatabaseDeleteAnnotationSymbol = createRebuildImbri
 export type ImbricateDatabaseDeleteAnnotationOutcome = {
 
     readonly editRecords: DatabaseEditRecord[];
-} | ImbricateDatabaseDeleteAnnotationOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateDatabaseDeleteAnnotationOutcomeSymbol;
 
 // Add Edit Records
 export const S_Database_AddEditRecords_InvalidEditRecord: unique symbol = Symbol("Database_AddEditRecords_InvalidEditRecord");
@@ -222,7 +223,7 @@ export const rebuildImbricateDatabaseAddEditRecordsSymbol = createRebuildImbrica
 export type ImbricateDatabaseAddEditRecordsOutcome = {
 
     readonly editRecords: DatabaseEditRecord[];
-} | ImbricateDatabaseAddEditRecordsOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateDatabaseAddEditRecordsOutcomeSymbol;
 
 // Get Edit Records
 export const S_Database_GetEditRecords_NotFound: unique symbol = Symbol("Database_GetEditRecords_NotFound");
@@ -245,5 +246,5 @@ export const rebuildImbricateDatabaseGetEditRecordsSymbol = createRebuildImbrica
 export type ImbricateDatabaseGetEditRecordsOutcome = {
 
     readonly editRecords: DatabaseEditRecord[];
-} | ImbricateDatabaseGetEditRecordsOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateDatabaseGetEditRecordsOutcomeSymbol;
 

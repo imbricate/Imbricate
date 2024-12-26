@@ -4,6 +4,7 @@
  */
 
 export * from "./author/export";
+export * from "./common/outcome";
 export * from "./database-manager/export";
 export * from "./database/export";
 export * from "./document/export";
