@@ -4,6 +4,7 @@
  * @description Outcome
  */
 
+import { CommonOutcomeSymbol } from "../common/outcome";
 import { createRebuildImbricateSymbolFunction } from "../util/rebuild-symbol";
 
 // Get Content
@@ -27,4 +28,4 @@ export const rebuildImbricateTextGetContentSymbol = createRebuildImbricateSymbol
 export type ImbricateTextGetContentOutcome = {
 
     readonly content: string;
-} | ImbricateTextGetContentOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateTextGetContentOutcomeSymbol;

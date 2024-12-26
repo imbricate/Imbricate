@@ -4,6 +4,7 @@
  * @description Outcome
  */
 
+import { CommonOutcomeSymbol } from "../common/outcome";
 import { createRebuildImbricateSymbolFunction } from "../util/rebuild-symbol";
 import { DocumentEditRecord } from "./definition";
 
@@ -31,7 +32,7 @@ export const rebuildImbricateDocumentPutPropertySymbol = createRebuildImbricateS
 export type ImbricateDocumentPutPropertyOutcome = {
 
     readonly editRecords: DocumentEditRecord[];
-} | ImbricateDocumentPutPropertyOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateDocumentPutPropertyOutcomeSymbol;
 
 // Put Annotation
 export const S_Document_PutAnnotation_InvalidNamespace: unique symbol = Symbol("Document_PutAnnotation_InvalidNamespace");
@@ -57,7 +58,7 @@ export const rebuildImbricateDocumentPutAnnotationSymbol = createRebuildImbricat
 export type ImbricateDocumentPutAnnotationOutcome = {
 
     readonly editRecords: DocumentEditRecord[];
-} | ImbricateDocumentPutAnnotationOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateDocumentPutAnnotationOutcomeSymbol;
 
 // Delete Annotation
 export const S_Document_DeleteAnnotation_NotFound: unique symbol = Symbol("Document_DeleteAnnotation_NotFound");
@@ -80,7 +81,7 @@ export const rebuildImbricateDocumentDeleteAnnotationSymbol = createRebuildImbri
 export type ImbricateDocumentDeleteAnnotationOutcome = {
 
     readonly editRecords: DocumentEditRecord[];
-} | ImbricateDocumentDeleteAnnotationOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateDocumentDeleteAnnotationOutcomeSymbol;
 
 // Add Edit Records
 export const S_Document_AddEditRecords_InvalidRecord: unique symbol = Symbol("Document_AddEditRecords_InvalidRecord");
@@ -103,7 +104,7 @@ export const rebuildImbricateDocumentAddEditRecordsSymbol = createRebuildImbrica
 export type ImbricateDocumentAddEditRecordsOutcome = {
 
     readonly editRecords: DocumentEditRecord[];
-} | ImbricateDocumentAddEditRecordsOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateDocumentAddEditRecordsOutcomeSymbol;
 
 // Get Edit Records
 export const S_Document_GetEditRecords_NotFound: unique symbol = Symbol("Document_GetEditRecords_NotFound");
@@ -126,5 +127,5 @@ export const rebuildImbricateDocumentGetEditRecordsSymbol = createRebuildImbrica
 export type ImbricateDocumentGetEditRecordsOutcome = {
 
     readonly editRecords: DocumentEditRecord[];
-} | ImbricateDocumentGetEditRecordsOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateDocumentGetEditRecordsOutcomeSymbol;
 

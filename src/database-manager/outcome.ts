@@ -4,6 +4,7 @@
  * @description Outcome
  */
 
+import { CommonOutcomeSymbol } from "../common/outcome";
 import { IImbricateDatabase } from "../database/interface";
 import { createRebuildImbricateSymbolFunction } from "../util/rebuild-symbol";
 
@@ -28,7 +29,7 @@ export const rebuildImbricateDatabaseManagerListDatabasesSymbol = createRebuildI
 export type ImbricateDatabaseManagerListDatabasesOutcome = {
 
     readonly databases: IImbricateDatabase[];
-} | ImbricateDatabaseManagerListDatabasesOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateDatabaseManagerListDatabasesOutcomeSymbol;
 
 // Manager Get Database
 export const S_DatabaseManager_GetDatabase_NotFound: unique symbol = Symbol("DatabaseManager_GetDatabase_NotFound");
@@ -51,7 +52,7 @@ export const rebuildImbricateDatabaseManagerGetDatabaseSymbol = createRebuildImb
 export type ImbricateDatabaseManagerGetDatabaseOutcome = {
 
     readonly database: IImbricateDatabase;
-} | ImbricateDatabaseManagerGetDatabaseOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateDatabaseManagerGetDatabaseOutcomeSymbol;
 
 // Manager Create Database
 export const S_DatabaseManager_CreateDatabase_IdentifierDuplicated: unique symbol = Symbol("DatabaseManager_CreateDatabase_IdentifierDuplicated");
@@ -78,7 +79,7 @@ export const rebuildImbricateDatabaseManagerCreateDatabaseSymbol = createRebuild
 export type ImbricateDatabaseManagerCreateDatabaseOutcome = {
 
     readonly database: IImbricateDatabase;
-} | ImbricateDatabaseManagerCreateDatabaseOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateDatabaseManagerCreateDatabaseOutcomeSymbol;
 
 // Manager Remove Database
 export const S_DatabaseManager_RemoveDatabase_NotFound: unique symbol = Symbol("DatabaseManager_RemoveDatabase_NotFound");
@@ -101,4 +102,4 @@ export const rebuildImbricateDatabaseManagerRemoveDatabaseSymbol = createRebuild
 export type ImbricateDatabaseManagerRemoveDatabaseOutcome = {
 
     readonly success: boolean;
-} | ImbricateDatabaseManagerRemoveDatabaseOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateDatabaseManagerRemoveDatabaseOutcomeSymbol;

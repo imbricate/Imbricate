@@ -4,6 +4,7 @@
  * @description Outcome
  */
 
+import { CommonOutcomeSymbol } from "../common/outcome";
 import { createRebuildImbricateSymbolFunction } from "../util/rebuild-symbol";
 import { ImbricateSearchItem } from "./search";
 
@@ -28,4 +29,4 @@ export const rebuildImbricateOriginSearchSymbol = createRebuildImbricateSymbolFu
 export type ImbricateOriginSearchOutcome = {
 
     readonly items: ImbricateSearchItem[];
-} | ImbricateOriginSearchOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateOriginSearchOutcomeSymbol;

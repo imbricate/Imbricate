@@ -4,6 +4,7 @@
  * @description Outcome
  */
 
+import { CommonOutcomeSymbol } from "../common/outcome";
 import { IImbricateText } from "../text/interface";
 import { createRebuildImbricateSymbolFunction } from "../util/rebuild-symbol";
 
@@ -28,7 +29,7 @@ export const rebuildImbricateTextManagerGetTextSymbol = createRebuildImbricateSy
 export type ImbricateTextManagerGetTextOutcome = {
 
     readonly text: IImbricateText;
-} | ImbricateTextManagerGetTextOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateTextManagerGetTextOutcomeSymbol;
 
 // Manager Create Text
 export const S_TextManager_CreateText_IdentifierDuplicated: unique symbol = Symbol("TextManager_CreateText_IdentifierDuplicated");
@@ -51,4 +52,4 @@ export const rebuildImbricateTextManagerCreateTextSymbol = createRebuildImbricat
 export type ImbricateTextManagerCreateTextOutcome = {
 
     readonly text: IImbricateText;
-} | ImbricateTextManagerCreateTextOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateTextManagerCreateTextOutcomeSymbol;

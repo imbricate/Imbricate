@@ -4,6 +4,7 @@
  * @description Outcome
  */
 
+import { CommonOutcomeSymbol } from "../common/outcome";
 import { IImbricateStatic } from "../static/interface";
 import { createRebuildImbricateSymbolFunction } from "../util/rebuild-symbol";
 
@@ -28,7 +29,7 @@ export const rebuildImbricateStaticManagerGetStaticSymbol = createRebuildImbrica
 export type ImbricateStaticManagerGetStaticOutcome = {
 
     readonly static: IImbricateStatic;
-} | ImbricateStaticManagerGetStaticOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateStaticManagerGetStaticOutcomeSymbol;
 
 // Manager Create Static
 export const S_StaticManager_CreateStatic_IdentifierDuplicated: unique symbol = Symbol("StaticManager_CreateStatic_IdentifierDuplicated");
@@ -51,4 +52,4 @@ export const rebuildImbricateStaticManagerCreateStaticSymbol = createRebuildImbr
 export type ImbricateStaticManagerCreateStaticOutcome = {
 
     readonly static: IImbricateStatic;
-} | ImbricateStaticManagerCreateStaticOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateStaticManagerCreateStaticOutcomeSymbol;
