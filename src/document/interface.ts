@@ -7,7 +7,7 @@
 import { DocumentAnnotationValue, DocumentAnnotations, DocumentEditRecord, ImbricateDocumentAuditOptions } from "./definition";
 import { IMBRICATE_DOCUMENT_FEATURE } from "./feature";
 import { ImbricateDocumentAddEditRecordsOutcome, ImbricateDocumentDeleteAnnotationOutcome, ImbricateDocumentGetEditRecordsOutcome, ImbricateDocumentPutAnnotationOutcome, ImbricateDocumentPutPropertyOutcome } from "./outcome";
-import { DocumentProperties, DocumentPropertyKey, DocumentPropertyValue, IMBRICATE_PROPERTY_TYPE } from "./property";
+import { DocumentProperties } from "./property";
 
 export interface IImbricateDocument {
 
@@ -37,25 +37,23 @@ export interface IImbricateDocument {
     readonly supportedFeatures: IMBRICATE_DOCUMENT_FEATURE[];
 
     /**
-     * Update a property from the document
+     * Merge a property to the document
      * 
      * RequireFeature: DOCUMENT_PUT_PROPERTY
      * 
-     * @param key key of the property
-     * @param value value of the property
+     * @param properties properties of the document
      * @param auditOptions audit options of the document
      * 
      * @returns a promise of the outcome of the put property
      *  Symbol: S_Document_PutProperty_InvalidKey - if the key is invalid
      */
-    putProperty(
-        key: DocumentPropertyKey,
-        value: DocumentPropertyValue<IMBRICATE_PROPERTY_TYPE>,
+    mergeProperties(
+        properties: DocumentProperties,
         auditOptions?: ImbricateDocumentAuditOptions,
     ): PromiseLike<ImbricateDocumentPutPropertyOutcome>;
 
     /**
-     * Put and replace all properties of the document, optional
+     * Replace all properties of the document
      * 
      * RequireFeature: DOCUMENT_PUT_PROPERTIES
      * 
@@ -65,7 +63,7 @@ export interface IImbricateDocument {
      * @returns a promise of the outcome of the put properties
      *  Symbol: S_Document_PutProperty_InvalidKey - if the key is invalid
      */
-    putProperties(
+    replaceProperties(
         properties: DocumentProperties,
         auditOptions?: ImbricateDocumentAuditOptions,
     ): PromiseLike<ImbricateDocumentPutPropertyOutcome>;
