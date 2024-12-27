@@ -8,7 +8,7 @@ import { DocumentAnnotationValue, DocumentAnnotations, DocumentEditRecord, Imbri
 import { IMBRICATE_DOCUMENT_FEATURE } from "../feature";
 import { IImbricateDocument } from "../interface";
 import { ImbricateDocumentAddEditRecordsOutcome, ImbricateDocumentDeleteAnnotationOutcome, ImbricateDocumentGetEditRecordsOutcome, ImbricateDocumentPutAnnotationOutcome, ImbricateDocumentPutPropertyOutcome } from "../outcome";
-import { DocumentProperties, DocumentPropertyKey, DocumentPropertyValue, IMBRICATE_PROPERTY_TYPE } from "../property";
+import { DocumentProperties } from "../property";
 
 export abstract class ImbricateDocumentFullFeatureBase implements IImbricateDocument {
 
@@ -29,13 +29,12 @@ export abstract class ImbricateDocumentFullFeatureBase implements IImbricateDocu
         IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_GET_EDIT_RECORD,
     ];
 
-    public abstract putProperty(
-        key: DocumentPropertyKey,
-        value: DocumentPropertyValue<IMBRICATE_PROPERTY_TYPE>,
+    public abstract mergeProperties(
+        properties: DocumentProperties,
         auditOptions?: ImbricateDocumentAuditOptions,
     ): Promise<ImbricateDocumentPutPropertyOutcome>;
 
-    public abstract putProperties(
+    public abstract replaceProperties(
         properties: DocumentProperties,
         auditOptions?: ImbricateDocumentAuditOptions,
     ): Promise<ImbricateDocumentPutPropertyOutcome>;

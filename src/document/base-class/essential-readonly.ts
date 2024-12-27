@@ -9,7 +9,7 @@ import { DocumentAnnotations, ImbricateDocumentAuditOptions } from "../definitio
 import { IMBRICATE_DOCUMENT_FEATURE } from "../feature";
 import { IImbricateDocument } from "../interface";
 import { ImbricateDocumentPutPropertyOutcome } from "../outcome";
-import { DocumentProperties, DocumentPropertyKey, DocumentPropertyValue, IMBRICATE_PROPERTY_TYPE } from "../property";
+import { DocumentProperties } from "../property";
 import { ImbricateDocumentEssentialBase } from "./essential";
 
 export abstract class ImbricateDocumentEssentialReadonlyBase extends ImbricateDocumentEssentialBase implements IImbricateDocument {
@@ -18,9 +18,8 @@ export abstract class ImbricateDocumentEssentialReadonlyBase extends ImbricateDo
 
     public readonly supportedFeatures: IMBRICATE_DOCUMENT_FEATURE[] = [];
 
-    public putProperty(
-        _key: DocumentPropertyKey,
-        _value: DocumentPropertyValue<IMBRICATE_PROPERTY_TYPE>,
+    public mergeProperty(
+        _properties: DocumentProperties,
         _auditOptions?: ImbricateDocumentAuditOptions,
     ): Promise<ImbricateDocumentPutPropertyOutcome> {
 
@@ -29,7 +28,7 @@ export abstract class ImbricateDocumentEssentialReadonlyBase extends ImbricateDo
         );
     }
 
-    public putProperties(
+    public replaceProperties(
         _properties: DocumentProperties,
         _auditOptions?: ImbricateDocumentAuditOptions,
     ): Promise<ImbricateDocumentPutPropertyOutcome> {

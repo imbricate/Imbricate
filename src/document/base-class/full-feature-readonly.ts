@@ -9,7 +9,7 @@ import { DocumentAnnotationValue, DocumentEditRecord, ImbricateDocumentAuditOpti
 import { IMBRICATE_DOCUMENT_FEATURE } from "../feature";
 import { IImbricateDocument } from "../interface";
 import { ImbricateDocumentAddEditRecordsOutcome, ImbricateDocumentDeleteAnnotationOutcome, ImbricateDocumentPutAnnotationOutcome, ImbricateDocumentPutPropertyOutcome } from "../outcome";
-import { DocumentProperties, DocumentPropertyKey, DocumentPropertyValue, IMBRICATE_PROPERTY_TYPE } from "../property";
+import { DocumentProperties } from "../property";
 import { ImbricateDocumentFullFeatureBase } from "./full-feature";
 
 export abstract class ImbricateDocumentFullFeatureReadonlyBase extends ImbricateDocumentFullFeatureBase implements IImbricateDocument {
@@ -19,9 +19,8 @@ export abstract class ImbricateDocumentFullFeatureReadonlyBase extends Imbricate
         IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_GET_EDIT_RECORD,
     ];
 
-    public putProperty(
-        _key: DocumentPropertyKey,
-        _value: DocumentPropertyValue<IMBRICATE_PROPERTY_TYPE>,
+    public mergeProperties(
+        _properties: DocumentProperties,
         _auditOptions?: ImbricateDocumentAuditOptions,
     ): Promise<ImbricateDocumentPutPropertyOutcome> {
 
@@ -30,7 +29,7 @@ export abstract class ImbricateDocumentFullFeatureReadonlyBase extends Imbricate
         );
     }
 
-    public putProperties(
+    public replaceProperties(
         _properties: DocumentProperties,
         _auditOptions?: ImbricateDocumentAuditOptions,
     ): Promise<ImbricateDocumentPutPropertyOutcome> {
