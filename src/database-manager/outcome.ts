@@ -8,28 +8,28 @@ import { CommonOutcomeSymbol } from "../common/outcome";
 import { IImbricateDatabase } from "../database/interface";
 import { createRebuildImbricateSymbolFunction } from "../util/rebuild-symbol";
 
-// Manager List Databases
-export const S_DatabaseManager_ListDatabases_Stale: unique symbol = Symbol("DatabaseManager_ListDatabases_Stale");
-export const S_DatabaseManager_ListDatabases_Unknown: unique symbol = Symbol("DatabaseManager_ListDatabases_Unknown");
+// Manager Query Databases
+export const S_DatabaseManager_QueryDatabases_Stale: unique symbol = Symbol("DatabaseManager_QueryDatabases_Stale");
+export const S_DatabaseManager_QueryDatabases_Unknown: unique symbol = Symbol("DatabaseManager_QueryDatabases_Unknown");
 
-export type ImbricateDatabaseManagerListDatabasesOutcomeSymbol =
-    | typeof S_DatabaseManager_ListDatabases_Stale
-    | typeof S_DatabaseManager_ListDatabases_Unknown;
+export type ImbricateDatabaseManagerQueryDatabasesOutcomeSymbol =
+    | typeof S_DatabaseManager_QueryDatabases_Stale
+    | typeof S_DatabaseManager_QueryDatabases_Unknown;
 
-export const ImbricateDatabaseManagerListDatabasesOutcomeSymbolList: ImbricateDatabaseManagerListDatabasesOutcomeSymbol[] = [
-    S_DatabaseManager_ListDatabases_Stale,
-    S_DatabaseManager_ListDatabases_Unknown,
+export const ImbricateDatabaseManagerQueryDatabasesOutcomeSymbolList: ImbricateDatabaseManagerQueryDatabasesOutcomeSymbol[] = [
+    S_DatabaseManager_QueryDatabases_Stale,
+    S_DatabaseManager_QueryDatabases_Unknown,
 ];
 
-export const rebuildImbricateDatabaseManagerListDatabasesSymbol = createRebuildImbricateSymbolFunction(
-    ImbricateDatabaseManagerListDatabasesOutcomeSymbolList,
-    S_DatabaseManager_ListDatabases_Unknown,
+export const rebuildImbricateDatabaseManagerQueryDatabasesSymbol = createRebuildImbricateSymbolFunction(
+    ImbricateDatabaseManagerQueryDatabasesOutcomeSymbolList,
+    S_DatabaseManager_QueryDatabases_Unknown,
 );
 
-export type ImbricateDatabaseManagerListDatabasesOutcome = {
+export type ImbricateDatabaseManagerQueryDatabasesOutcome = {
 
     readonly databases: IImbricateDatabase[];
-} | CommonOutcomeSymbol | ImbricateDatabaseManagerListDatabasesOutcomeSymbol;
+} | CommonOutcomeSymbol | ImbricateDatabaseManagerQueryDatabasesOutcomeSymbol;
 
 // Manager Get Database
 export const S_DatabaseManager_GetDatabase_NotFound: unique symbol = Symbol("DatabaseManager_GetDatabase_NotFound");

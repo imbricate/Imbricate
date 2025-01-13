@@ -4,11 +4,11 @@
  * @description Full Feature
  */
 
-import { ImbricateDatabaseAuditOptions } from "../../database/definition";
+import { ImbricateDatabaseAuditOptions, ImbricateDocumentQuery } from "../../database/definition";
 import { ImbricateDatabaseSchemaForCreation } from "../../database/schema";
 import { IImbricateDatabaseManager } from "../database-manager";
 import { IMBRICATE_DATABASE_MANAGER_FEATURE } from "../feature";
-import { ImbricateDatabaseManagerCreateDatabaseOutcome, ImbricateDatabaseManagerGetDatabaseOutcome, ImbricateDatabaseManagerListDatabasesOutcome, ImbricateDatabaseManagerRemoveDatabaseOutcome } from "../outcome";
+import { ImbricateDatabaseManagerCreateDatabaseOutcome, ImbricateDatabaseManagerGetDatabaseOutcome, ImbricateDatabaseManagerQueryDatabasesOutcome, ImbricateDatabaseManagerRemoveDatabaseOutcome } from "../outcome";
 
 export abstract class ImbricateDatabaseManagerFullFeatureBase implements IImbricateDatabaseManager {
 
@@ -19,7 +19,9 @@ export abstract class ImbricateDatabaseManagerFullFeatureBase implements IImbric
         IMBRICATE_DATABASE_MANAGER_FEATURE.DATABASE_MANAGER_DELETE_DATABASE,
     ];
 
-    public abstract listDatabases(): PromiseLike<ImbricateDatabaseManagerListDatabasesOutcome>;
+    public abstract queryDatabases(
+        query: ImbricateDocumentQuery,
+    ): PromiseLike<ImbricateDatabaseManagerQueryDatabasesOutcome>;
 
     public abstract getDatabase(
         uniqueIdentifier: string,

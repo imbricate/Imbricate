@@ -4,7 +4,8 @@
  * @description Validate
  */
 
-import { IMBRICATE_QUERY_ATTRIBUTE, IMBRICATE_QUERY_COMPARE_CONDITION, IMBRICATE_QUERY_PROPERTY_CONDITION_TARGET, ImbricateDocumentQuery } from "./definition";
+import { IMBRICATE_QUERY_ATTRIBUTE, IMBRICATE_QUERY_COMPARE_CONDITION, IMBRICATE_QUERY_PROPERTY_CONDITION_TARGET } from "../common/definition";
+import { ImbricateDocumentQuery } from "./definition";
 
 /**
  * Validate imbricate document query

@@ -5,24 +5,8 @@
  */
 
 import { ImbricateAuthor } from "../author/definition";
+import { IMBRICATE_QUERY_ATTRIBUTE, IMBRICATE_QUERY_COMPARE_CONDITION, IMBRICATE_QUERY_PROPERTY_CONDITION_TARGET } from "../common/definition";
 import { ImbricateDatabaseSchema } from "./schema";
-
-export enum IMBRICATE_QUERY_COMPARE_CONDITION {
-
-    EQUAL = "EQUAL",
-    EXIST = "EXIST",
-}
-
-export enum IMBRICATE_QUERY_ATTRIBUTE {
-
-    VALUE = "VALUE",
-}
-
-export enum IMBRICATE_QUERY_PROPERTY_CONDITION_TARGET {
-
-    PROPERTY_TYPE = "PROPERTY_TYPE",
-    PROPERTY_VALUE = "PROPERTY_VALUE",
-}
 
 export type ImbricateDocumentQueryPropertyFilter = {
 

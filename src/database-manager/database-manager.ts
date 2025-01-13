@@ -6,8 +6,9 @@
 
 import { ImbricateDatabaseAuditOptions } from "../database/definition";
 import { ImbricateDatabaseSchemaForCreation } from "../database/schema";
+import { ImbricateDatabaseQuery } from "./definition";
 import { IMBRICATE_DATABASE_MANAGER_FEATURE } from "./feature";
-import { ImbricateDatabaseManagerCreateDatabaseOutcome, ImbricateDatabaseManagerGetDatabaseOutcome, ImbricateDatabaseManagerListDatabasesOutcome, ImbricateDatabaseManagerRemoveDatabaseOutcome } from "./outcome";
+import { ImbricateDatabaseManagerCreateDatabaseOutcome, ImbricateDatabaseManagerGetDatabaseOutcome, ImbricateDatabaseManagerQueryDatabasesOutcome, ImbricateDatabaseManagerRemoveDatabaseOutcome } from "./outcome";
 
 export interface IImbricateDatabaseManager {
 
@@ -22,7 +23,9 @@ export interface IImbricateDatabaseManager {
      * @returns a promise of the databases in the origin
      *  Symbol: S_DatabaseManager_ListDatabases_Stale - if the databases are stale
      */
-    listDatabases(): PromiseLike<ImbricateDatabaseManagerListDatabasesOutcome>;
+    queryDatabases(
+        query: ImbricateDatabaseQuery,
+    ): PromiseLike<ImbricateDatabaseManagerQueryDatabasesOutcome>;
 
     /**
      * Get one database from the origin
