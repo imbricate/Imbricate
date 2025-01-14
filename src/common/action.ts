@@ -22,7 +22,10 @@ export type ImbricateOriginActionParameterType = {
 export type ImbricateOriginActionParameter = {
 
     readonly parameterKey: string;
-    readonly getParameterName: (locale: IETF_LOCALE) => string;
+
+    readonly parameterName: Record<IETF_LOCALE, string>;
+    readonly parameterDescription: Record<IETF_LOCALE, string>;
+
     readonly parameterType: ImbricateOriginActionParameterType;
 };
 
@@ -38,7 +41,9 @@ export enum IMBRICATE_ORIGIN_ACTION_APPEARANCE {
 export type ImbricateOriginAction = {
 
     readonly actionIdentifier: string;
-    readonly getActionName: (locale: IETF_LOCALE) => string;
+
+    readonly actionName: Record<IETF_LOCALE, string>;
+    readonly actionDescription: Record<IETF_LOCALE, string>;
 
     readonly parameters: ImbricateOriginActionParameter[];
 
