@@ -15,9 +15,9 @@ export abstract class ImbricateOriginFullFeatureBase extends ImbricateOriginFull
 
     public readonly supportedFeatures: IMBRICATE_ORIGIN_FEATURE[] = [
 
-        IMBRICATE_ORIGIN_FEATURE.DATABASE_MANAGER,
-        IMBRICATE_ORIGIN_FEATURE.TEXT_MANAGER,
-        IMBRICATE_ORIGIN_FEATURE.STATIC_MANAGER,
+        IMBRICATE_ORIGIN_FEATURE.ORIGIN_DATABASE_MANAGER,
+        IMBRICATE_ORIGIN_FEATURE.ORIGIN_TEXT_MANAGER,
+        IMBRICATE_ORIGIN_FEATURE.ORIGIN_STATIC_MANAGER,
 
         IMBRICATE_ORIGIN_FEATURE.ORIGIN_SEARCH,
     ];
@@ -29,7 +29,7 @@ export abstract class ImbricateOriginFullFeatureBase extends ImbricateOriginFull
     public getOriginActions(): ImbricateOriginAction[] {
 
         throw ImbricateOriginFeatureNotSupportedError.withFeature(
-            IMBRICATE_ORIGIN_FEATURE.GET_ORIGIN_ACTIONS,
+            IMBRICATE_ORIGIN_FEATURE.ORIGIN_GET_ORIGIN_ACTIONS,
         );
     }
 
@@ -38,7 +38,7 @@ export abstract class ImbricateOriginFullFeatureBase extends ImbricateOriginFull
     ): PromiseLike<ImbricateOriginActionOutcome> {
 
         throw ImbricateOriginFeatureNotSupportedError.withFeature(
-            IMBRICATE_ORIGIN_FEATURE.EXECUTE_ORIGIN_ACTION,
+            IMBRICATE_ORIGIN_FEATURE.ORIGIN_EXECUTE_ORIGIN_ACTION,
         );
     }
 }

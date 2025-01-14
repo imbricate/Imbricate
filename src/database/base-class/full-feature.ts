@@ -88,7 +88,7 @@ export abstract class ImbricateDatabaseFullFeatureBase extends ImbricateDatabase
     public getOriginActions(): ImbricateOriginAction[] {
 
         throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
-            IMBRICATE_DATABASE_FEATURE.GET_ORIGIN_ACTIONS,
+            IMBRICATE_DATABASE_FEATURE.DATABASE_GET_ORIGIN_ACTIONS,
         );
     }
 
@@ -97,7 +97,7 @@ export abstract class ImbricateDatabaseFullFeatureBase extends ImbricateDatabase
     ): PromiseLike<ImbricateOriginActionOutcome> {
 
         throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
-            IMBRICATE_DATABASE_FEATURE.EXECUTE_ORIGIN_ACTION,
+            IMBRICATE_DATABASE_FEATURE.DATABASE_EXECUTE_ORIGIN_ACTION,
         );
     }
 }

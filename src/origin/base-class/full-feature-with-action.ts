@@ -4,7 +4,7 @@
  * @description Full Feature
  */
 
-import { ImbricateOriginAction, ImbricateOriginActionInput, ImbricateOriginActionResult } from "../../common/action";
+import { ImbricateOriginAction, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../../common/action";
 import { IImbricateDatabaseManager } from "../../database-manager/database-manager";
 import { IImbricateStaticManager } from "../../static-manager/static-manager";
 import { IImbricateTextManager } from "../../text-manager/text-manager";
@@ -20,14 +20,14 @@ export abstract class ImbricateOriginFullFeatureWithActionBase implements IImbri
 
     public readonly supportedFeatures: IMBRICATE_ORIGIN_FEATURE[] = [
 
-        IMBRICATE_ORIGIN_FEATURE.DATABASE_MANAGER,
-        IMBRICATE_ORIGIN_FEATURE.TEXT_MANAGER,
-        IMBRICATE_ORIGIN_FEATURE.STATIC_MANAGER,
+        IMBRICATE_ORIGIN_FEATURE.ORIGIN_DATABASE_MANAGER,
+        IMBRICATE_ORIGIN_FEATURE.ORIGIN_TEXT_MANAGER,
+        IMBRICATE_ORIGIN_FEATURE.ORIGIN_STATIC_MANAGER,
 
         IMBRICATE_ORIGIN_FEATURE.ORIGIN_SEARCH,
 
-        IMBRICATE_ORIGIN_FEATURE.GET_ORIGIN_ACTIONS,
-        IMBRICATE_ORIGIN_FEATURE.EXECUTE_ORIGIN_ACTION,
+        IMBRICATE_ORIGIN_FEATURE.ORIGIN_GET_ORIGIN_ACTIONS,
+        IMBRICATE_ORIGIN_FEATURE.ORIGIN_EXECUTE_ORIGIN_ACTION,
     ];
 
     public abstract getDatabaseManager(): IImbricateDatabaseManager;
@@ -41,5 +41,5 @@ export abstract class ImbricateOriginFullFeatureWithActionBase implements IImbri
     public abstract getOriginActions(): ImbricateOriginAction[];
     public abstract executeOriginAction(
         input: ImbricateOriginActionInput,
-    ): PromiseLike<ImbricateOriginActionResult>;
+    ): PromiseLike<ImbricateOriginActionOutcome>;
 }

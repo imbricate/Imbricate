@@ -15,14 +15,14 @@ export abstract class ImbricateOriginEssentialBase extends ImbricateOriginFullFe
 
     public readonly supportedFeatures: IMBRICATE_ORIGIN_FEATURE[] = [
 
-        IMBRICATE_ORIGIN_FEATURE.DATABASE_MANAGER,
-        IMBRICATE_ORIGIN_FEATURE.TEXT_MANAGER,
+        IMBRICATE_ORIGIN_FEATURE.ORIGIN_DATABASE_MANAGER,
+        IMBRICATE_ORIGIN_FEATURE.ORIGIN_TEXT_MANAGER,
     ];
 
     public getStaticManager(): IImbricateStaticManager {
 
         throw ImbricateOriginFeatureNotSupportedError.withFeature(
-            IMBRICATE_ORIGIN_FEATURE.STATIC_MANAGER,
+            IMBRICATE_ORIGIN_FEATURE.ORIGIN_STATIC_MANAGER,
         );
     }
 

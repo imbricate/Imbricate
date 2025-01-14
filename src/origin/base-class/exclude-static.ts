@@ -14,8 +14,8 @@ export abstract class ImbricateOriginExcludeStaticBase extends ImbricateOriginFu
 
     public readonly supportedFeatures: IMBRICATE_ORIGIN_FEATURE[] = [
 
-        IMBRICATE_ORIGIN_FEATURE.DATABASE_MANAGER,
-        IMBRICATE_ORIGIN_FEATURE.TEXT_MANAGER,
+        IMBRICATE_ORIGIN_FEATURE.ORIGIN_DATABASE_MANAGER,
+        IMBRICATE_ORIGIN_FEATURE.ORIGIN_TEXT_MANAGER,
 
         IMBRICATE_ORIGIN_FEATURE.ORIGIN_SEARCH,
     ];
@@ -23,7 +23,7 @@ export abstract class ImbricateOriginExcludeStaticBase extends ImbricateOriginFu
     public getStaticManager(): IImbricateStaticManager {
 
         throw ImbricateOriginFeatureNotSupportedError.withFeature(
-            IMBRICATE_ORIGIN_FEATURE.STATIC_MANAGER,
+            IMBRICATE_ORIGIN_FEATURE.ORIGIN_STATIC_MANAGER,
         );
     }
 }
