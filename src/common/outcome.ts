@@ -18,3 +18,15 @@ export const CommonOutcomeSymbolList: CommonOutcomeSymbol[] = [
     S_Common_Origin_ConnectionTimeout,
     S_Common_Origin_NotAuthorized,
 ];
+
+export const S_Action_ActionNotFound: unique symbol = Symbol("Action_ActionNotFound");
+export const S_Action_ActionParameterNotFound: unique symbol = Symbol("Action_ActionParameterNotFound");
+
+export type CommonActionOutcomeSymbol =
+    | typeof S_Action_ActionNotFound
+    | typeof S_Action_ActionParameterNotFound;
+
+export const CommonActionOutcomeSymbolList: CommonActionOutcomeSymbol[] = [
+    S_Action_ActionNotFound,
+    S_Action_ActionParameterNotFound,
+];
