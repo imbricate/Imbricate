@@ -5,15 +5,13 @@
  */
 
 import { ImbricateOriginAction, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../../common/action";
-import { ImbricateDocumentFeatureNotSupportedError } from "../../error/document/feature-not-supported";
 import { DocumentAnnotationValue, DocumentAnnotations, DocumentEditRecord, ImbricateDocumentAuditOptions } from "../definition";
 import { IMBRICATE_DOCUMENT_FEATURE } from "../feature";
 import { IImbricateDocument } from "../interface";
 import { ImbricateDocumentAddEditRecordsOutcome, ImbricateDocumentDeleteAnnotationOutcome, ImbricateDocumentGetEditRecordsOutcome, ImbricateDocumentPutAnnotationOutcome, ImbricateDocumentPutPropertyOutcome } from "../outcome";
 import { DocumentProperties } from "../property";
-import { ImbricateDocumentFullFeatureWithActionBase } from "./full-feature-with-action";
 
-export abstract class ImbricateDocumentFullFeatureBase extends ImbricateDocumentFullFeatureWithActionBase implements IImbricateDocument {
+export abstract class ImbricateDocumentFullFeatureWithActionBase implements IImbricateDocument {
 
     public abstract readonly uniqueIdentifier: string;
     public abstract readonly documentVersion: string;
@@ -30,6 +28,9 @@ export abstract class ImbricateDocumentFullFeatureBase extends ImbricateDocument
 
         IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_PUT_EDIT_RECORD,
         IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_GET_EDIT_RECORD,
+
+        IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_GET_ORIGIN_ACTIONS,
+        IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_EXECUTE_ORIGIN_ACTION,
     ];
 
     public abstract mergeProperties(
@@ -61,19 +62,8 @@ export abstract class ImbricateDocumentFullFeatureBase extends ImbricateDocument
 
     public abstract getEditRecords(): Promise<ImbricateDocumentGetEditRecordsOutcome>;
 
-    public getOriginActions(): ImbricateOriginAction[] {
-
-        throw ImbricateDocumentFeatureNotSupportedError.withFeature(
-            IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_GET_ORIGIN_ACTIONS,
-        );
-    }
-
-    public executeOriginAction(
-        _input: ImbricateOriginActionInput,
-    ): Promise<ImbricateOriginActionOutcome> {
-
-        throw ImbricateDocumentFeatureNotSupportedError.withFeature(
-            IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_EXECUTE_ORIGIN_ACTION,
-        );
-    }
+    public abstract getOriginActions(): ImbricateOriginAction[];
+    public abstract executeOriginAction(
+        input: ImbricateOriginActionInput,
+    ): Promise<ImbricateOriginActionOutcome>;
 }

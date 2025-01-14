@@ -4,6 +4,7 @@
  * @description Interface
  */
 
+import { ImbricateOriginAction, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../common/action";
 import { DocumentAnnotationValue, DocumentAnnotations, DocumentEditRecord, ImbricateDocumentAuditOptions } from "./definition";
 import { IMBRICATE_DOCUMENT_FEATURE } from "./feature";
 import { ImbricateDocumentAddEditRecordsOutcome, ImbricateDocumentDeleteAnnotationOutcome, ImbricateDocumentGetEditRecordsOutcome, ImbricateDocumentPutAnnotationOutcome, ImbricateDocumentPutPropertyOutcome } from "./outcome";
@@ -136,4 +137,22 @@ export interface IImbricateDocument {
      *  Symbol: S_Document_GetEditRecords_NotFound - if the edit records are not found
      */
     getEditRecords(): PromiseLike<ImbricateDocumentGetEditRecordsOutcome>;
+
+    /**
+     * Get the document actions
+     * 
+     * @returns the document actions
+     */
+    getOriginActions(): ImbricateOriginAction[];
+
+    /**
+     * Execute the document action
+     * 
+     * @param input the input of the action
+     * 
+     * @returns the result of the action
+     */
+    executeOriginAction(
+        input: ImbricateOriginActionInput,
+    ): PromiseLike<ImbricateOriginActionOutcome>;
 }

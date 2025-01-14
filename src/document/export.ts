@@ -10,6 +10,7 @@ export * from "./base-class/exclude-annotation";
 export * from "./base-class/exclude-edit-records";
 export * from "./base-class/full-feature";
 export * from "./base-class/full-feature-readonly";
+export * from "./base-class/full-feature-with-action";
 export * from "./definition";
 export * from "./feature";
 export * from "./interface";
@@ -21,3 +22,4 @@ export * from "./property/primary";
 export * from "./property/triage";
 export * from "./property/triage-manager";
 export * from "./validate";
+
