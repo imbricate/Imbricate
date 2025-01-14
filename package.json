@@ -41,5 +41,9 @@
     "jest": "^29.7.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@sudoo/locale": "^2.0.0",
+    "@sudoo/magic": "^1.9.0"
   }
 }
