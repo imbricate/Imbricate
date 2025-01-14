@@ -4,18 +4,14 @@
  * @description Full Feature
  */
 
-import { IImbricateDatabaseManager } from "../../database-manager/database-manager";
-import { IImbricateStaticManager } from "../../static-manager/static-manager";
-import { IImbricateTextManager } from "../../text-manager/text-manager";
-import { OriginPayload } from "../definition";
+import { ImbricateOriginAction, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../../common/action";
+import { ImbricateOriginFeatureNotSupportedError } from "../../error/origin/feature-not-supported";
 import { IMBRICATE_ORIGIN_FEATURE } from "../feature";
 import { IImbricateOrigin } from "../interface";
 import { ImbricateOriginSearchOutcome } from "../outcome";
+import { ImbricateOriginFullFeatureWithActionBase } from "./full-feature-with-action";
 
-export abstract class ImbricateOriginFullFeatureBase implements IImbricateOrigin {
-
-    public abstract readonly uniqueIdentifier: string;
-    public abstract readonly payloads: OriginPayload;
+export abstract class ImbricateOriginFullFeatureBase extends ImbricateOriginFullFeatureWithActionBase implements IImbricateOrigin {
 
     public readonly supportedFeatures: IMBRICATE_ORIGIN_FEATURE[] = [
 
@@ -26,9 +22,23 @@ export abstract class ImbricateOriginFullFeatureBase implements IImbricateOrigin
         IMBRICATE_ORIGIN_FEATURE.ORIGIN_SEARCH,
     ];
 
-    public abstract getDatabaseManager(): IImbricateDatabaseManager;
-    public abstract getTextManager(): IImbricateTextManager;
-    public abstract getStaticManager(): IImbricateStaticManager;
+    public abstract search(
+        keyword: string,
+    ): PromiseLike<ImbricateOriginSearchOutcome>;
 
-    public abstract search(keyword: string): PromiseLike<ImbricateOriginSearchOutcome>;
+    public getOriginActions(): ImbricateOriginAction[] {
+
+        throw ImbricateOriginFeatureNotSupportedError.withFeature(
+            IMBRICATE_ORIGIN_FEATURE.GET_ORIGIN_ACTIONS,
+        );
+    }
+
+    public executeOriginAction(
+        _input: ImbricateOriginActionInput,
+    ): PromiseLike<ImbricateOriginActionOutcome> {
+
+        throw ImbricateOriginFeatureNotSupportedError.withFeature(
+            IMBRICATE_ORIGIN_FEATURE.EXECUTE_ORIGIN_ACTION,
+        );
+    }
 }

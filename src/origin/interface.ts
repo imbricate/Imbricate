@@ -4,6 +4,7 @@
  * @description Interface
  */
 
+import { ImbricateOriginAction, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../common/action";
 import { IImbricateDatabaseManager } from "../database-manager/database-manager";
 import { IImbricateStaticManager } from "../static-manager/static-manager";
 import { IImbricateTextManager } from "../text-manager/text-manager";
@@ -73,4 +74,22 @@ export interface IImbricateOrigin {
     search(
         keyword: string,
     ): PromiseLike<ImbricateOriginSearchOutcome>;
+
+    /**
+     * Get the origin actions
+     * 
+     * @returns the origin actions
+     */
+    getOriginActions(): ImbricateOriginAction[];
+
+    /**
+     * Execute the origin action
+     * 
+     * @param input the input of the action
+     * 
+     * @returns the result of the action
+     */
+    executeOriginAction(
+        input: ImbricateOriginActionInput,
+    ): PromiseLike<ImbricateOriginActionOutcome>;
 }
