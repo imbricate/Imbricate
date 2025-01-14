@@ -25,12 +25,24 @@ export type ImbricateOriginActionParameter = {
     readonly parameterType: ImbricateOriginActionParameterType;
 };
 
+export enum IMBRICATE_ORIGIN_ACTION_APPEARANCE {
+
+    DEFAULT = "DEFAULT",
+    IMPORTANT = "IMPORTANT",
+    SUCCESS = "SUCCESS",
+    WARNING = "WARNING",
+    DANGER = "DANGER",
+}
+
 export type ImbricateOriginAction = {
 
     readonly actionIdentifier: string;
     readonly getActionName: (locale: IETF_LOCALE) => string;
 
     readonly parameters: ImbricateOriginActionParameter[];
+
+    readonly appearance?: IMBRICATE_ORIGIN_ACTION_APPEARANCE;
+    readonly disabled?: boolean;
 };
 
 export type ImbricateOriginActionInput = {
