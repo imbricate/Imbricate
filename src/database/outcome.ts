@@ -104,7 +104,9 @@ export const rebuildImbricateDatabaseQueryDocumentsSymbol = createRebuildImbrica
 );
 
 export type ImbricateDatabaseQueryDocumentsOutcome = {
+
     readonly documents: IImbricateDocument[];
+    readonly count: number;
 } | CommonOutcomeSymbol | ImbricateDatabaseQueryDocumentsOutcomeSymbol;
 
 // Count Documents

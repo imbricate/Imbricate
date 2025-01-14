@@ -29,6 +29,7 @@ export const rebuildImbricateDatabaseManagerQueryDatabasesSymbol = createRebuild
 export type ImbricateDatabaseManagerQueryDatabasesOutcome = {
 
     readonly databases: IImbricateDatabase[];
+    readonly count: number;
 } | CommonOutcomeSymbol | ImbricateDatabaseManagerQueryDatabasesOutcomeSymbol;
 
 // Manager Get Database
