@@ -4,7 +4,7 @@
  * @description Full Feature
  */
 
-import { ImbricateOriginAction, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../../common/action";
+import { ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginActionsQuery, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../../common/action";
 import { DocumentAnnotationValue, DocumentAnnotations, DocumentEditRecord, ImbricateDocumentAuditOptions } from "../definition";
 import { IMBRICATE_DOCUMENT_FEATURE } from "../feature";
 import { IImbricateDocument } from "../interface";
@@ -62,7 +62,9 @@ export abstract class ImbricateDocumentFullFeatureWithActionBase implements IImb
 
     public abstract getEditRecords(): Promise<ImbricateDocumentGetEditRecordsOutcome>;
 
-    public abstract getOriginActions(): ImbricateOriginAction[];
+    public abstract queryOriginActions(
+        query: ImbricateCommonQueryOriginActionsQuery,
+    ): PromiseLike<ImbricateCommonQueryOriginActionsOutcome>;
     public abstract executeOriginAction(
         input: ImbricateOriginActionInput,
     ): Promise<ImbricateOriginActionOutcome>;

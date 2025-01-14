@@ -4,7 +4,7 @@
  * @description Full Feature
  */
 
-import { ImbricateOriginAction, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../../common/action";
+import { ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginActionsQuery, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../../common/action";
 import { ImbricateDocumentFeatureNotSupportedError } from "../../error/document/feature-not-supported";
 import { DocumentAnnotationValue, DocumentAnnotations, DocumentEditRecord, ImbricateDocumentAuditOptions } from "../definition";
 import { IMBRICATE_DOCUMENT_FEATURE } from "../feature";
@@ -61,7 +61,9 @@ export abstract class ImbricateDocumentFullFeatureBase extends ImbricateDocument
 
     public abstract getEditRecords(): Promise<ImbricateDocumentGetEditRecordsOutcome>;
 
-    public getOriginActions(): ImbricateOriginAction[] {
+    public queryOriginActions(
+        _query: ImbricateCommonQueryOriginActionsQuery,
+    ): PromiseLike<ImbricateCommonQueryOriginActionsOutcome> {
 
         throw ImbricateDocumentFeatureNotSupportedError.withFeature(
             IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_GET_ORIGIN_ACTIONS,

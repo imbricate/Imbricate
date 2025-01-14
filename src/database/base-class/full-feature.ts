@@ -4,7 +4,7 @@
  * @description Full Feature
  */
 
-import { ImbricateOriginAction, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../../common/action";
+import { ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginActionsQuery, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../../common/action";
 import { DocumentProperties } from "../../document/property";
 import { ImbricateDatabaseFeatureNotSupportedError } from "../../error/database/feature-not-supported";
 import { DatabaseAnnotationValue, DatabaseAnnotations, DatabaseEditRecord, ImbricateDatabaseAuditOptions, ImbricateDocumentQuery } from "../definition";
@@ -85,7 +85,9 @@ export abstract class ImbricateDatabaseFullFeatureBase extends ImbricateDatabase
 
     public abstract getEditRecords(): PromiseLike<ImbricateDatabaseGetEditRecordsOutcome>;
 
-    public getOriginActions(): ImbricateOriginAction[] {
+    public queryOriginActions(
+        _query: ImbricateCommonQueryOriginActionsQuery,
+    ): PromiseLike<ImbricateCommonQueryOriginActionsOutcome> {
 
         throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
             IMBRICATE_DATABASE_FEATURE.DATABASE_GET_ORIGIN_ACTIONS,

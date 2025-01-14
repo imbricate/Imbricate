@@ -4,7 +4,7 @@
  * @description Interface
  */
 
-import { ImbricateOriginAction, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../common/action";
+import { ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginActionsQuery, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../common/action";
 import { DocumentProperties } from "../document/property";
 import { DatabaseAnnotationValue, DatabaseAnnotations, DatabaseEditRecord, ImbricateDatabaseAuditOptions, ImbricateDocumentQuery } from "./definition";
 import { IMBRICATE_DATABASE_FEATURE } from "./feature";
@@ -205,11 +205,17 @@ export interface IImbricateDatabase {
     getEditRecords(): PromiseLike<ImbricateDatabaseGetEditRecordsOutcome>;
 
     /**
-     * Get the database actions
+     * Query the database actions
+     * 
+     * @param query the query of the database actions
      * 
      * @returns the database actions
+     *  Symbol: S_Common_QueryOriginActions_Stale - if the database actions are stale
+     *  Symbol: S_Common_QueryOriginActions_Unknown - if the database actions are unknown
      */
-    getOriginActions(): ImbricateOriginAction[];
+    queryOriginActions(
+        query: ImbricateCommonQueryOriginActionsQuery,
+    ): PromiseLike<ImbricateCommonQueryOriginActionsOutcome>;
 
     /**
      * Execute the database action
