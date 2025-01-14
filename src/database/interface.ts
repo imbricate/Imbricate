@@ -4,6 +4,7 @@
  * @description Interface
  */
 
+import { ImbricateOriginAction, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../common/action";
 import { DocumentProperties } from "../document/property";
 import { DatabaseAnnotationValue, DatabaseAnnotations, DatabaseEditRecord, ImbricateDatabaseAuditOptions, ImbricateDocumentQuery } from "./definition";
 import { IMBRICATE_DATABASE_FEATURE } from "./feature";
@@ -202,4 +203,22 @@ export interface IImbricateDatabase {
      *  Symbol: S_GetEditRecords_NotFound - if the edit records are not found
      */
     getEditRecords(): PromiseLike<ImbricateDatabaseGetEditRecordsOutcome>;
+
+    /**
+     * Get the database actions
+     * 
+     * @returns the database actions
+     */
+    getOriginActions(): ImbricateOriginAction[];
+
+    /**
+     * Execute the database action
+     * 
+     * @param input the input of the action
+     * 
+     * @returns the result of the action
+     */
+    executeOriginAction(
+        input: ImbricateOriginActionInput,
+    ): PromiseLike<ImbricateOriginActionOutcome>;
 }

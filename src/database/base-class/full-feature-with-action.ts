@@ -1,20 +1,18 @@
 /**
  * @author WMXPY
  * @namespace Database_BaseClass
- * @description Full Feature
+ * @description Full Feature With Action
  */
 
 import { ImbricateOriginAction, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../../common/action";
 import { DocumentProperties } from "../../document/property";
-import { ImbricateDatabaseFeatureNotSupportedError } from "../../error/database/feature-not-supported";
 import { DatabaseAnnotationValue, DatabaseAnnotations, DatabaseEditRecord, ImbricateDatabaseAuditOptions, ImbricateDocumentQuery } from "../definition";
 import { IMBRICATE_DATABASE_FEATURE } from "../feature";
 import { IImbricateDatabase } from "../interface";
 import { ImbricateDatabaseAddEditRecordsOutcome, ImbricateDatabaseCountDocumentsOutcome, ImbricateDatabaseCreateDocumentOutcome, ImbricateDatabaseDeleteAnnotationOutcome, ImbricateDatabaseGetDocumentOutcome, ImbricateDatabaseGetEditRecordsOutcome, ImbricateDatabasePutAnnotationOutcome, ImbricateDatabasePutSchemaOutcome, ImbricateDatabaseQueryDocumentsOutcome, ImbricateDatabaseRemoveDocumentOutcome } from "../outcome";
 import { ImbricateDatabaseSchema } from "../schema";
-import { ImbricateDatabaseFullFeatureWithActionBase } from "./full-feature-with-action";
 
-export abstract class ImbricateDatabaseFullFeatureBase extends ImbricateDatabaseFullFeatureWithActionBase implements IImbricateDatabase {
+export abstract class ImbricateDatabaseFullFeatureWithActionBase implements IImbricateDatabase {
 
     public abstract readonly uniqueIdentifier: string;
     public abstract readonly databaseName: string;
@@ -37,6 +35,9 @@ export abstract class ImbricateDatabaseFullFeatureBase extends ImbricateDatabase
 
         IMBRICATE_DATABASE_FEATURE.DATABASE_PUT_EDIT_RECORD,
         IMBRICATE_DATABASE_FEATURE.DATABASE_GET_EDIT_RECORD,
+
+        IMBRICATE_DATABASE_FEATURE.GET_ORIGIN_ACTIONS,
+        IMBRICATE_DATABASE_FEATURE.EXECUTE_ORIGIN_ACTION,
     ];
 
     public abstract putSchema(
@@ -85,19 +86,8 @@ export abstract class ImbricateDatabaseFullFeatureBase extends ImbricateDatabase
 
     public abstract getEditRecords(): PromiseLike<ImbricateDatabaseGetEditRecordsOutcome>;
 
-    public getOriginActions(): ImbricateOriginAction[] {
-
-        throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
-            IMBRICATE_DATABASE_FEATURE.GET_ORIGIN_ACTIONS,
-        );
-    }
-
-    public executeOriginAction(
-        _input: ImbricateOriginActionInput,
-    ): PromiseLike<ImbricateOriginActionOutcome> {
-
-        throw ImbricateDatabaseFeatureNotSupportedError.withFeature(
-            IMBRICATE_DATABASE_FEATURE.EXECUTE_ORIGIN_ACTION,
-        );
-    }
+    public abstract getOriginActions(): ImbricateOriginAction[];
+    public abstract executeOriginAction(
+        input: ImbricateOriginActionInput,
+    ): PromiseLike<ImbricateOriginActionOutcome>;
 }

@@ -71,7 +71,7 @@ export type DatabaseEditOperationDeleteAnnotation = {
 
 export type DatabaseEditOperationResolveConflict = {
 
-    readonly conflicetedEditRecords: string[];
+    readonly conflictedEditRecords: string[];
 };
 
 // IMBRICATE_DATABASE_EDIT_TYPE SWITCH
