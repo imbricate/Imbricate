@@ -4,7 +4,7 @@
  * @description Interface
  */
 
-import { ImbricateOriginAction, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../common/action";
+import { ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginActionsQuery, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../common/action";
 import { IImbricateDatabaseManager } from "../database-manager/database-manager";
 import { IImbricateStaticManager } from "../static-manager/static-manager";
 import { IImbricateTextManager } from "../text-manager/text-manager";
@@ -76,11 +76,17 @@ export interface IImbricateOrigin {
     ): PromiseLike<ImbricateOriginSearchOutcome>;
 
     /**
-     * Get the origin actions
+     * Query the origin actions
+     * 
+     * @param query the query of the origin actions
      * 
      * @returns the origin actions
+     *  Symbol: S_Common_QueryOriginActions_Stale - if the origin actions are stale
+     *  Symbol: S_Common_QueryOriginActions_Unknown - if the origin actions are unknown
      */
-    getOriginActions(): ImbricateOriginAction[];
+    queryOriginActions(
+        query: ImbricateCommonQueryOriginActionsQuery,
+    ): PromiseLike<ImbricateCommonQueryOriginActionsOutcome>;
 
     /**
      * Execute the origin action

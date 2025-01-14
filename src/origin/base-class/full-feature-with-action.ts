@@ -4,7 +4,7 @@
  * @description Full Feature
  */
 
-import { ImbricateOriginAction, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../../common/action";
+import { ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginActionsQuery, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../../common/action";
 import { IImbricateDatabaseManager } from "../../database-manager/database-manager";
 import { IImbricateStaticManager } from "../../static-manager/static-manager";
 import { IImbricateTextManager } from "../../text-manager/text-manager";
@@ -38,7 +38,9 @@ export abstract class ImbricateOriginFullFeatureWithActionBase implements IImbri
         keyword: string,
     ): PromiseLike<ImbricateOriginSearchOutcome>;
 
-    public abstract getOriginActions(): ImbricateOriginAction[];
+    public abstract queryOriginActions(
+        query: ImbricateCommonQueryOriginActionsQuery,
+    ): PromiseLike<ImbricateCommonQueryOriginActionsOutcome>;
     public abstract executeOriginAction(
         input: ImbricateOriginActionInput,
     ): PromiseLike<ImbricateOriginActionOutcome>;

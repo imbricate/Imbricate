@@ -4,7 +4,7 @@
  * @description Full Feature
  */
 
-import { ImbricateOriginAction, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../../common/action";
+import { ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginActionsQuery, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../../common/action";
 import { ImbricateOriginFeatureNotSupportedError } from "../../error/origin/feature-not-supported";
 import { IMBRICATE_ORIGIN_FEATURE } from "../feature";
 import { IImbricateOrigin } from "../interface";
@@ -26,7 +26,9 @@ export abstract class ImbricateOriginFullFeatureBase extends ImbricateOriginFull
         keyword: string,
     ): PromiseLike<ImbricateOriginSearchOutcome>;
 
-    public getOriginActions(): ImbricateOriginAction[] {
+    public queryOriginActions(
+        _query: ImbricateCommonQueryOriginActionsQuery,
+    ): PromiseLike<ImbricateCommonQueryOriginActionsOutcome> {
 
         throw ImbricateOriginFeatureNotSupportedError.withFeature(
             IMBRICATE_ORIGIN_FEATURE.ORIGIN_GET_ORIGIN_ACTIONS,
