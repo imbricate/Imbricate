@@ -1,13 +1,13 @@
 {
   "name": "@imbricate/core",
   "packageManager": "yarn@4.5.3",
-  "version": "3.17.0",
+  "version": "3.18.0",
   "description": "Imbricate Core, Notebook for Engineers",
   "scripts": {
     "clean": "rm -rf app",
     "test": "jest",
     "coverage": "jest --coverage",
-    "lint": "eslint src",
+    "lint": "eslint src test",
     "build": "tsc --project typescript/tsconfig.build.json",
     "license": "sdb license",
     "release": "yarn lint && yarn test && yarn license && yarn build",
