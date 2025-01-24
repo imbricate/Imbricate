@@ -6,7 +6,7 @@
  */
 
 import { validateImbricateSchema } from "../../../src/database/schema";
-import { IMBRICATE_PROPERTY_TYPE } from "../../../src/document/property";
+import { IMBRICATE_PROPERTY_TYPE } from "../../../src/property/type";
 
 describe("Given [Database Schema] methods", (): void => {
 

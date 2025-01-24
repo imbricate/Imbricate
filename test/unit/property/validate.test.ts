@@ -1,11 +1,12 @@
 /**
  * @author WMXPY
- * @namespace Document
+ * @namespace Property
  * @description Validate
  * @override Unit Test
  */
 
 import { IMBRICATE_PROPERTY_TYPE, validateImbricateProperties } from "../../../src";
+import { MockProperty } from "../../mock/property";
 
 describe("Given [Document Validate] methods", (): void => {
 
@@ -22,10 +23,10 @@ describe("Given [Document Validate] methods", (): void => {
         };
 
         const result: string | null = validateImbricateProperties({
-            test: {
-                type: IMBRICATE_PROPERTY_TYPE.STRING,
-                value: "test",
-            },
+            test: MockProperty.create(
+                IMBRICATE_PROPERTY_TYPE.STRING,
+                "test",
+            ),
         }, testSchema as any);
 
         expect(result).toBeNull();
@@ -61,10 +62,10 @@ describe("Given [Document Validate] methods", (): void => {
         };
 
         const result: string | null = validateImbricateProperties({
-            notExist: {
-                type: IMBRICATE_PROPERTY_TYPE.STRING,
-                value: "test",
-            },
+            notExist: MockProperty.create(
+                IMBRICATE_PROPERTY_TYPE.STRING,
+                "test",
+            ),
         }, testSchema as any);
 
         expect(typeof result).toStrictEqual("string");
@@ -83,10 +84,10 @@ describe("Given [Document Validate] methods", (): void => {
         };
 
         const result: string | null = validateImbricateProperties({
-            test: {
-                type: "INVALID" as any,
-                value: "test",
-            },
+            test: MockProperty.create(
+                "INVALID" as any,
+                "test",
+            ),
         }, testSchema as any);
 
         expect(typeof result).toStrictEqual("string");
@@ -105,10 +106,10 @@ describe("Given [Document Validate] methods", (): void => {
         };
 
         const result: string | null = validateImbricateProperties({
-            test: {
-                type: IMBRICATE_PROPERTY_TYPE.STRING,
-                value: 123 as any,
-            },
+            test: MockProperty.create(
+                IMBRICATE_PROPERTY_TYPE.STRING,
+                123 as any,
+            ),
         }, testSchema as any);
 
         expect(typeof result).toStrictEqual("string");
@@ -127,10 +128,10 @@ describe("Given [Document Validate] methods", (): void => {
         };
 
         const result: string | null = validateImbricateProperties({
-            test: {
-                type: IMBRICATE_PROPERTY_TYPE.STRING,
-                value: 123 as any,
-            },
+            test: MockProperty.create(
+                IMBRICATE_PROPERTY_TYPE.STRING,
+                123 as any,
+            ),
         }, testSchema as any);
 
         expect(typeof result).toStrictEqual("string");
