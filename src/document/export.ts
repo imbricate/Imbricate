@@ -15,11 +15,9 @@ export * from "./definition";
 export * from "./feature";
 export * from "./interface";
 export * from "./outcome";
-export * from "./property";
 export * from "./property/default-value";
 export * from "./property/definition";
 export * from "./property/primary";
 export * from "./property/triage";
 export * from "./property/triage-manager";
-export * from "./validate";
 

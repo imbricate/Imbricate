@@ -4,10 +4,10 @@
  * @description Default Value
  */
 
-import { DocumentPropertyValueObject, IMBRICATE_PROPERTY_TYPE } from "../property";
+import { IMBRICATE_PROPERTY_TYPE, ImbricatePropertyValueObject } from "../../property/type";
 
 // IMBRICATE_PROPERTY_TYPE SWITCH
-export const getImbricateDefaultValueOfProperty = (type: IMBRICATE_PROPERTY_TYPE): DocumentPropertyValueObject<IMBRICATE_PROPERTY_TYPE> => {
+export const getImbricateDefaultValueOfProperty = (type: IMBRICATE_PROPERTY_TYPE): ImbricatePropertyValueObject<IMBRICATE_PROPERTY_TYPE> => {
 
     switch (type) {
 

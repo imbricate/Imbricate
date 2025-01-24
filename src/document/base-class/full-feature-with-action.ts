@@ -5,18 +5,18 @@
  */
 
 import { ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginActionsQuery, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../../common/action";
+import { ImbricatePropertyKey } from "../../property/definition";
+import { ImbricatePropertyRecord } from "../../property/map";
 import { DocumentAnnotationValue, DocumentAnnotations, DocumentEditRecord, ImbricateDocumentAuditOptions } from "../definition";
 import { IMBRICATE_DOCUMENT_FEATURE } from "../feature";
 import { IImbricateDocument } from "../interface";
-import { ImbricateDocumentAddEditRecordsOutcome, ImbricateDocumentDeleteAnnotationOutcome, ImbricateDocumentGetEditRecordsOutcome, ImbricateDocumentPutAnnotationOutcome, ImbricateDocumentPutPropertyOutcome } from "../outcome";
-import { DocumentProperties } from "../property";
+import { ImbricateDocumentAddEditRecordsOutcome, ImbricateDocumentDeleteAnnotationOutcome, ImbricateDocumentGetEditRecordsOutcome, ImbricateDocumentGetPropertiesOutcome, ImbricateDocumentGetPropertyOutcome, ImbricateDocumentPutAnnotationOutcome, ImbricateDocumentPutPropertyOutcome } from "../outcome";
 
 export abstract class ImbricateDocumentFullFeatureWithActionBase implements IImbricateDocument {
 
     public abstract readonly uniqueIdentifier: string;
     public abstract readonly documentVersion: string;
 
-    public abstract readonly properties: DocumentProperties;
     public abstract readonly annotations: DocumentAnnotations;
 
     public readonly supportedFeatures: IMBRICATE_DOCUMENT_FEATURE[] = [
@@ -33,13 +33,19 @@ export abstract class ImbricateDocumentFullFeatureWithActionBase implements IImb
         IMBRICATE_DOCUMENT_FEATURE.DOCUMENT_EXECUTE_ORIGIN_ACTION,
     ];
 
+    public abstract getProperties(): ImbricateDocumentGetPropertiesOutcome;
+
+    public abstract getProperty(
+        key: ImbricatePropertyKey,
+    ): ImbricateDocumentGetPropertyOutcome;
+
     public abstract mergeProperties(
-        properties: DocumentProperties,
+        properties: ImbricatePropertyRecord,
         auditOptions?: ImbricateDocumentAuditOptions,
     ): Promise<ImbricateDocumentPutPropertyOutcome>;
 
     public abstract replaceProperties(
-        properties: DocumentProperties,
+        properties: ImbricatePropertyRecord,
         auditOptions?: ImbricateDocumentAuditOptions,
     ): Promise<ImbricateDocumentPutPropertyOutcome>;
 

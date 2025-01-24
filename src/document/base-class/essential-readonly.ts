@@ -5,11 +5,11 @@
  */
 
 import { ImbricateDocumentFeatureNotSupportedError } from "../../error/document/feature-not-supported";
+import { ImbricatePropertyRecord } from "../../property/map";
 import { DocumentAnnotations, ImbricateDocumentAuditOptions } from "../definition";
 import { IMBRICATE_DOCUMENT_FEATURE } from "../feature";
 import { IImbricateDocument } from "../interface";
 import { ImbricateDocumentPutPropertyOutcome } from "../outcome";
-import { DocumentProperties } from "../property";
 import { ImbricateDocumentEssentialBase } from "./essential";
 
 export abstract class ImbricateDocumentEssentialReadonlyBase extends ImbricateDocumentEssentialBase implements IImbricateDocument {
@@ -19,7 +19,7 @@ export abstract class ImbricateDocumentEssentialReadonlyBase extends ImbricateDo
     public readonly supportedFeatures: IMBRICATE_DOCUMENT_FEATURE[] = [];
 
     public mergeProperty(
-        _properties: DocumentProperties,
+        _properties: ImbricatePropertyRecord,
         _auditOptions?: ImbricateDocumentAuditOptions,
     ): Promise<ImbricateDocumentPutPropertyOutcome> {
 
@@ -29,7 +29,7 @@ export abstract class ImbricateDocumentEssentialReadonlyBase extends ImbricateDo
     }
 
     public replaceProperties(
-        _properties: DocumentProperties,
+        _properties: ImbricatePropertyRecord,
         _auditOptions?: ImbricateDocumentAuditOptions,
     ): Promise<ImbricateDocumentPutPropertyOutcome> {
 

@@ -7,13 +7,13 @@
 import { ImbricatePropertyKey } from "../../property/definition";
 import { ImbricatePropertyRecord } from "../../property/map";
 import { IMBRICATE_PROPERTY_TYPE } from "../../property/type";
-import { DocumentPropertyTriageFunction } from "./definition";
+import { ImbricatePropertyTriageFunction } from "./definition";
 
 // IMBRICATE_PROPERTY_TYPE SWITCH
 export class ImbricateDocumentPropertyTriageBase<Result> {
 
-    private readonly _triageFunctionsByKey: Map<string, DocumentPropertyTriageFunction<any, Result>>;
-    private readonly _triageFunctionsByType: Map<IMBRICATE_PROPERTY_TYPE, DocumentPropertyTriageFunction<any, Result>>;
+    private readonly _triageFunctionsByKey: Map<string, ImbricatePropertyTriageFunction<any, Result>>;
+    private readonly _triageFunctionsByType: Map<IMBRICATE_PROPERTY_TYPE, ImbricatePropertyTriageFunction<any, Result>>;
 
     protected constructor() {
 
@@ -31,7 +31,7 @@ export class ImbricateDocumentPropertyTriageBase<Result> {
      */
     public forPropertyKey<T extends IMBRICATE_PROPERTY_TYPE>(
         propertyKey: ImbricatePropertyKey,
-        triageFunction: DocumentPropertyTriageFunction<T, Result>,
+        triageFunction: ImbricatePropertyTriageFunction<T, Result>,
     ): this {
 
         this._triageFunctionsByKey.set(propertyKey, triageFunction);
@@ -39,7 +39,7 @@ export class ImbricateDocumentPropertyTriageBase<Result> {
     }
 
     public forBoolean(
-        triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.BOOLEAN, Result>,
+        triageFunction: ImbricatePropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.BOOLEAN, Result>,
     ): this {
 
         this._triageFunctionsByType.set(IMBRICATE_PROPERTY_TYPE.BOOLEAN, triageFunction);
@@ -47,7 +47,7 @@ export class ImbricateDocumentPropertyTriageBase<Result> {
     }
 
     public forString(
-        triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.STRING, Result>,
+        triageFunction: ImbricatePropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.STRING, Result>,
     ): this {
 
         this._triageFunctionsByType.set(IMBRICATE_PROPERTY_TYPE.STRING, triageFunction);
@@ -55,7 +55,7 @@ export class ImbricateDocumentPropertyTriageBase<Result> {
     }
 
     public forNumber(
-        triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.NUMBER, Result>,
+        triageFunction: ImbricatePropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.NUMBER, Result>,
     ): this {
 
         this._triageFunctionsByType.set(IMBRICATE_PROPERTY_TYPE.NUMBER, triageFunction);
@@ -63,7 +63,7 @@ export class ImbricateDocumentPropertyTriageBase<Result> {
     }
 
     public forMarkdown(
-        triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.MARKDOWN, Result>,
+        triageFunction: ImbricatePropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.MARKDOWN, Result>,
     ): this {
 
         this._triageFunctionsByType.set(IMBRICATE_PROPERTY_TYPE.MARKDOWN, triageFunction);
@@ -71,7 +71,7 @@ export class ImbricateDocumentPropertyTriageBase<Result> {
     }
 
     public forJson(
-        triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.JSON, Result>,
+        triageFunction: ImbricatePropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.JSON, Result>,
     ): this {
 
         this._triageFunctionsByType.set(IMBRICATE_PROPERTY_TYPE.JSON, triageFunction);
@@ -79,7 +79,7 @@ export class ImbricateDocumentPropertyTriageBase<Result> {
     }
 
     public forImbriscript(
-        triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.IMBRISCRIPT, Result>,
+        triageFunction: ImbricatePropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.IMBRISCRIPT, Result>,
     ): this {
 
         this._triageFunctionsByType.set(IMBRICATE_PROPERTY_TYPE.IMBRISCRIPT, triageFunction);
@@ -87,7 +87,7 @@ export class ImbricateDocumentPropertyTriageBase<Result> {
     }
 
     public forDate(
-        triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.DATE, Result>,
+        triageFunction: ImbricatePropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.DATE, Result>,
     ): this {
 
         this._triageFunctionsByType.set(IMBRICATE_PROPERTY_TYPE.DATE, triageFunction);
@@ -95,7 +95,7 @@ export class ImbricateDocumentPropertyTriageBase<Result> {
     }
 
     public forLabel(
-        triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.LABEL, Result>,
+        triageFunction: ImbricatePropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.LABEL, Result>,
     ): this {
 
         this._triageFunctionsByType.set(IMBRICATE_PROPERTY_TYPE.LABEL, triageFunction);
@@ -103,7 +103,7 @@ export class ImbricateDocumentPropertyTriageBase<Result> {
     }
 
     public forReference(
-        triageFunction: DocumentPropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.REFERENCE, Result>,
+        triageFunction: ImbricatePropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.REFERENCE, Result>,
     ): this {
 
         this._triageFunctionsByType.set(IMBRICATE_PROPERTY_TYPE.REFERENCE, triageFunction);

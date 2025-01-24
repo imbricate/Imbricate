@@ -4,8 +4,8 @@
  * @description Essential Readonly
  */
 
-import { DocumentProperties } from "../../document/property";
 import { ImbricateDatabaseFeatureNotSupportedError } from "../../error/database/feature-not-supported";
+import { ImbricatePropertyRecord } from "../../property/map";
 import { ImbricateDatabaseAuditOptions } from "../definition";
 import { IMBRICATE_DATABASE_FEATURE } from "../feature";
 import { IImbricateDatabase } from "../interface";
@@ -31,7 +31,7 @@ export abstract class ImbricateDatabaseEssentialReadOnlyBase extends ImbricateDa
     }
 
     public createDocument(
-        _properties: DocumentProperties,
+        _properties: ImbricatePropertyRecord,
         _auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<ImbricateDatabaseCreateDocumentOutcome> {
 

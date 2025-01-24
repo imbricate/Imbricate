@@ -5,9 +5,11 @@
  */
 
 import { ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginActionsQuery, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../common/action";
+import { ImbricatePropertyKey } from "../property/definition";
+import { ImbricatePropertyRecord } from "../property/map";
 import { DocumentAnnotationValue, DocumentAnnotations, DocumentEditRecord, ImbricateDocumentAuditOptions } from "./definition";
 import { IMBRICATE_DOCUMENT_FEATURE } from "./feature";
-import { ImbricateDocumentAddEditRecordsOutcome, ImbricateDocumentDeleteAnnotationOutcome, ImbricateDocumentGetEditRecordsOutcome, ImbricateDocumentPutAnnotationOutcome, ImbricateDocumentPutPropertyOutcome } from "./outcome";
+import { ImbricateDocumentAddEditRecordsOutcome, ImbricateDocumentDeleteAnnotationOutcome, ImbricateDocumentGetEditRecordsOutcome, ImbricateDocumentGetPropertiesOutcome, ImbricateDocumentGetPropertyOutcome, ImbricateDocumentPutAnnotationOutcome, ImbricateDocumentPutPropertyOutcome } from "./outcome";
 
 export interface IImbricateDocument {
 
@@ -32,6 +34,22 @@ export interface IImbricateDocument {
     readonly supportedFeatures: IMBRICATE_DOCUMENT_FEATURE[];
 
     /**
+     * Get properties of the document
+     */
+    getProperties(): ImbricateDocumentGetPropertiesOutcome;
+
+    /**
+     * Get a property of the document
+     * 
+     * @param propertyKey the key of the property
+     * 
+     * @returns the property of the document
+     */
+    getProperty(
+        propertyKey: ImbricatePropertyKey,
+    ): ImbricateDocumentGetPropertyOutcome;
+
+    /**
      * Merge a property to the document
      * 
      * RequireFeature: DOCUMENT_PUT_PROPERTY
@@ -43,7 +61,7 @@ export interface IImbricateDocument {
      *  Symbol: S_Document_PutProperty_InvalidKey - if the key is invalid
      */
     mergeProperties(
-        properties: DocumentProperties,
+        properties: ImbricatePropertyRecord,
         auditOptions?: ImbricateDocumentAuditOptions,
     ): PromiseLike<ImbricateDocumentPutPropertyOutcome>;
 
@@ -59,7 +77,7 @@ export interface IImbricateDocument {
      *  Symbol: S_Document_PutProperty_InvalidKey - if the key is invalid
      */
     replaceProperties(
-        properties: DocumentProperties,
+        properties: ImbricatePropertyRecord,
         auditOptions?: ImbricateDocumentAuditOptions,
     ): PromiseLike<ImbricateDocumentPutPropertyOutcome>;
 

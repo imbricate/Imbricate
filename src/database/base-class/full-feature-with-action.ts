@@ -5,7 +5,7 @@
  */
 
 import { ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginActionsQuery, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../../common/action";
-import { DocumentProperties } from "../../document/property";
+import { ImbricatePropertyRecord } from "../../property/map";
 import { DatabaseAnnotationValue, DatabaseAnnotations, DatabaseEditRecord, ImbricateDatabaseAuditOptions, ImbricateDocumentQuery } from "../definition";
 import { IMBRICATE_DATABASE_FEATURE } from "../feature";
 import { IImbricateDatabase } from "../interface";
@@ -46,7 +46,7 @@ export abstract class ImbricateDatabaseFullFeatureWithActionBase implements IImb
     ): PromiseLike<ImbricateDatabasePutSchemaOutcome>;
 
     public abstract createDocument(
-        properties: DocumentProperties,
+        properties: ImbricatePropertyRecord,
         auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<ImbricateDatabaseCreateDocumentOutcome>;
 

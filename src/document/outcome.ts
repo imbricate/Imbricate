@@ -5,8 +5,54 @@
  */
 
 import { CommonOutcomeSymbol } from "../common/outcome";
+import { IImbricateProperty } from "../property/interface";
+import { ImbricatePropertyRecord } from "../property/map";
+import { IMBRICATE_PROPERTY_TYPE } from "../property/type";
 import { createRebuildImbricateSymbolFunction } from "../util/rebuild-symbol";
 import { DocumentEditRecord } from "./definition";
+
+// Get Properties
+export const S_Document_GetProperties_Unknown: unique symbol = Symbol("Document_GetProperties_Unknown");
+
+export type ImbricateDocumentGetPropertiesOutcomeSymbol =
+    | typeof S_Document_GetProperties_Unknown;
+
+export const ImbricateDocumentGetPropertiesOutcomeSymbolList: ImbricateDocumentGetPropertiesOutcomeSymbol[] = [
+    S_Document_GetProperties_Unknown,
+];
+
+export const rebuildImbricateDocumentGetPropertiesSymbol = createRebuildImbricateSymbolFunction(
+    ImbricateDocumentGetPropertiesOutcomeSymbolList,
+    S_Document_GetProperties_Unknown,
+);
+
+export type ImbricateDocumentGetPropertiesOutcome = {
+
+    readonly properties: ImbricatePropertyRecord;
+} | CommonOutcomeSymbol | ImbricateDocumentGetPropertiesOutcomeSymbol;
+
+// Get Property
+export const S_Document_GetProperty_NotFound: unique symbol = Symbol("Document_GetProperty_NotFound");
+export const S_Document_GetProperty_Unknown: unique symbol = Symbol("Document_GetProperty_Unknown");
+
+export type ImbricateDocumentGetPropertyOutcomeSymbol =
+    | typeof S_Document_GetProperty_NotFound
+    | typeof S_Document_GetProperty_Unknown;
+
+export const ImbricateDocumentGetPropertyOutcomeSymbolList: ImbricateDocumentGetPropertyOutcomeSymbol[] = [
+    S_Document_GetProperty_NotFound,
+    S_Document_GetProperty_Unknown,
+];
+
+export const rebuildImbricateDocumentGetPropertySymbol = createRebuildImbricateSymbolFunction(
+    ImbricateDocumentGetPropertyOutcomeSymbolList,
+    S_Document_GetProperty_Unknown,
+);
+
+export type ImbricateDocumentGetPropertyOutcome = {
+
+    readonly property: IImbricateProperty<IMBRICATE_PROPERTY_TYPE>;
+} | CommonOutcomeSymbol | ImbricateDocumentGetPropertyOutcomeSymbol;
 
 // Put Property
 export const S_Document_PutProperty_InvalidKey: unique symbol = Symbol("Document_PutProperty_InvalidKey");

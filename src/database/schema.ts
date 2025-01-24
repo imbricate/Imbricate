@@ -4,7 +4,7 @@
  * @description Schema
  */
 
-import { IMBRICATE_PROPERTY_TYPE } from "../document/property";
+import { IMBRICATE_PROPERTY_TYPE } from "../property/type";
 
 export type ImbricateDatabaseSchemaProperty<T extends IMBRICATE_PROPERTY_TYPE> = {
 
