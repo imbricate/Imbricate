@@ -4,9 +4,9 @@
  * @description Property
  */
 
-import { IImbricateProperty, IMBRICATE_PROPERTY_FEATURE, IMBRICATE_PROPERTY_TYPE, ImbricatePropertyKey } from "../../src";
+import { IImbricateProperty, IMBRICATE_PROPERTY_TYPE, ImbricatePropertyFullFeatureBase, ImbricatePropertyKey } from "../../src";
 
-export class MockProperty implements IImbricateProperty<IMBRICATE_PROPERTY_TYPE> {
+export class MockProperty extends ImbricatePropertyFullFeatureBase<IMBRICATE_PROPERTY_TYPE> implements IImbricateProperty<IMBRICATE_PROPERTY_TYPE> {
 
     public static create(
         type: IMBRICATE_PROPERTY_TYPE,
@@ -23,13 +23,13 @@ export class MockProperty implements IImbricateProperty<IMBRICATE_PROPERTY_TYPE>
     private readonly _type: IMBRICATE_PROPERTY_TYPE;
     private readonly _value: any;
 
-    public readonly supportedFeatures: IMBRICATE_PROPERTY_FEATURE[] = [];
-
     private constructor(
         key: ImbricatePropertyKey,
         type: IMBRICATE_PROPERTY_TYPE,
         value: any,
     ) {
+
+        super();
 
         this._key = key;
         this._type = type;
