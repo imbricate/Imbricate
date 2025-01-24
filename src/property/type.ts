@@ -1,11 +1,11 @@
 /**
  * @author WMXPY
- * @namespace Document
- * @description Property
+ * @namespace Property
+ * @description Type
  */
 
 /**
- * Document properties
+ * Property type
  */
 export enum IMBRICATE_PROPERTY_TYPE {
 
@@ -51,25 +51,7 @@ export enum IMBRICATE_PROPERTY_TYPE {
     REFERENCE = "REFERENCE",
 }
 
-/**
- * Document properties
- * 
- * Key - Property key, which should match schema properties unique identifier
- * Value - Property value, which should match schema properties type
- */
-export type DocumentProperties = Record<DocumentPropertyKey, DocumentPropertyValue<IMBRICATE_PROPERTY_TYPE>>;
-
-/**
- * Document property key, which should match schema properties unique identifier
- */
-export type DocumentPropertyKey = string;
-export type DocumentPropertyValue<T extends IMBRICATE_PROPERTY_TYPE> = {
-
-    readonly type: T;
-    readonly value: DocumentPropertyValueObject<T>;
-};
-
-export type DocumentPropertyValueObjectReference = {
+export type ImbricatePropertyValueObjectReference = {
 
     readonly originUniqueIdentifier: string;
     readonly databaseUniqueIdentifier: string;
@@ -77,7 +59,7 @@ export type DocumentPropertyValueObjectReference = {
 };
 
 // IMBRICATE_PROPERTY_TYPE SWITCH
-export type DocumentPropertyValueObject<T extends IMBRICATE_PROPERTY_TYPE> =
+export type ImbricatePropertyValueObject<T extends IMBRICATE_PROPERTY_TYPE> =
     T extends IMBRICATE_PROPERTY_TYPE.BOOLEAN ? boolean :
     T extends IMBRICATE_PROPERTY_TYPE.STRING ? string :
     T extends IMBRICATE_PROPERTY_TYPE.NUMBER ? number :
@@ -86,5 +68,5 @@ export type DocumentPropertyValueObject<T extends IMBRICATE_PROPERTY_TYPE> =
     T extends IMBRICATE_PROPERTY_TYPE.IMBRISCRIPT ? string :
     T extends IMBRICATE_PROPERTY_TYPE.DATE ? string :
     T extends IMBRICATE_PROPERTY_TYPE.LABEL ? string[] :
-    T extends IMBRICATE_PROPERTY_TYPE.REFERENCE ? DocumentPropertyValueObjectReference[] :
+    T extends IMBRICATE_PROPERTY_TYPE.REFERENCE ? ImbricatePropertyValueObjectReference[] :
     never;
