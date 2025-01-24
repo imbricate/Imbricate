@@ -132,6 +132,9 @@ export const validateImbricateProperties = (
                 }
                 break;
             }
+            default: {
+                return `Property ${key} type ${property.propertyType} is not supported`;
+            }
         }
     }
 

@@ -9,6 +9,7 @@
     "coverage": "jest --coverage",
     "lint": "eslint src test",
     "build": "tsc --project typescript/tsconfig.build.json",
+    "compile": "tsc --project typescript/tsconfig.compile.json",
     "license": "sdb license",
     "release": "yarn lint && yarn test && yarn license && yarn build",
     "publish-dry-run": "yarn release && sdb --only publish-dry-run",

@@ -5,17 +5,18 @@
  * @override Unit Test
  */
 
-import { DocumentProperties, IMBRICATE_PROPERTY_TYPE, triageImbricateDocumentProperties } from "../../../../src";
+import { IMBRICATE_PROPERTY_TYPE, ImbricatePropertyRecord, triageImbricateDocumentProperties } from "../../../../src";
+import { MockProperty } from "../../../mock/property";
 
 describe("Given [Document-Property-Triage] helper methods", (): void => {
 
     it("should be able to triage single property", (): void => {
 
-        const properties: DocumentProperties = {
-            test: {
-                type: IMBRICATE_PROPERTY_TYPE.STRING,
-                value: "test",
-            },
+        const properties: ImbricatePropertyRecord = {
+            test: MockProperty.create(
+                IMBRICATE_PROPERTY_TYPE.STRING,
+                "test",
+            ),
         };
 
         const result = triageImbricateDocumentProperties(properties)
@@ -27,11 +28,11 @@ describe("Given [Document-Property-Triage] helper methods", (): void => {
 
     it("should be able to triage single property - not match", (): void => {
 
-        const properties: DocumentProperties = {
-            test: {
-                type: IMBRICATE_PROPERTY_TYPE.STRING,
-                value: "test",
-            },
+        const properties: ImbricatePropertyRecord = {
+            test: MockProperty.create(
+                IMBRICATE_PROPERTY_TYPE.STRING,
+                "test",
+            ),
         };
 
         const result = triageImbricateDocumentProperties(properties)
@@ -43,15 +44,15 @@ describe("Given [Document-Property-Triage] helper methods", (): void => {
 
     it("should be able to triage multiple property", (): void => {
 
-        const properties: DocumentProperties = {
-            test: {
-                type: IMBRICATE_PROPERTY_TYPE.STRING,
-                value: "test",
-            },
-            number: {
-                type: IMBRICATE_PROPERTY_TYPE.NUMBER,
-                value: 1,
-            },
+        const properties: ImbricatePropertyRecord = {
+            test: MockProperty.create(
+                IMBRICATE_PROPERTY_TYPE.STRING,
+                "test",
+            ),
+            number: MockProperty.create(
+                IMBRICATE_PROPERTY_TYPE.NUMBER,
+                1,
+            ),
         };
 
         const result = triageImbricateDocumentProperties(properties)
