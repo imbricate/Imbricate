@@ -8,7 +8,6 @@ import { ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginAct
 import { DocumentAnnotationValue, DocumentAnnotations, DocumentEditRecord, ImbricateDocumentAuditOptions } from "./definition";
 import { IMBRICATE_DOCUMENT_FEATURE } from "./feature";
 import { ImbricateDocumentAddEditRecordsOutcome, ImbricateDocumentDeleteAnnotationOutcome, ImbricateDocumentGetEditRecordsOutcome, ImbricateDocumentPutAnnotationOutcome, ImbricateDocumentPutPropertyOutcome } from "./outcome";
-import { DocumentProperties } from "./property";
 
 export interface IImbricateDocument {
 
@@ -21,11 +20,6 @@ export interface IImbricateDocument {
      * Version of the document draft
      */
     readonly documentVersion: string;
-
-    /**
-     * Properties of the document
-     */
-    readonly properties: DocumentProperties;
 
     /**
      * Annotations of the database

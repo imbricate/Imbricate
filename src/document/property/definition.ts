@@ -4,9 +4,11 @@
  * @description Definition
  */
 
-import { DocumentPropertyKey, DocumentPropertyValue, IMBRICATE_PROPERTY_TYPE } from "../property";
+import { ImbricatePropertyKey } from "../../property/definition";
+import { IImbricateProperty } from "../../property/interface";
+import { IMBRICATE_PROPERTY_TYPE } from "../../property/type";
 
-export type DocumentPropertyTriageFunction<T extends IMBRICATE_PROPERTY_TYPE, Result> = (
-    propertyKey: DocumentPropertyKey,
-    value: DocumentPropertyValue<T>
+export type ImbricatePropertyTriageFunction<T extends IMBRICATE_PROPERTY_TYPE, Result> = (
+    propertyKey: ImbricatePropertyKey,
+    value: IImbricateProperty<T>
 ) => Result;

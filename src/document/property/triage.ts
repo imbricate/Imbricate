@@ -4,11 +4,11 @@
  * @description Triage
  */
 
-import { DocumentProperties } from "../property";
+import { ImbricatePropertyRecord } from "../../property/map";
 import { ImbricateDocumentPropertyTriageManager } from "./triage-manager";
 
 export const triageImbricateDocumentProperties = <Result>(
-    properties: DocumentProperties,
+    properties: ImbricatePropertyRecord,
 ): ImbricateDocumentPropertyTriageManager<Result> => {
 
     return ImbricateDocumentPropertyTriageManager.create<Result>(properties);

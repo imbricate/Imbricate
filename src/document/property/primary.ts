@@ -5,18 +5,20 @@
  */
 
 import { ImbricateDatabaseSchema } from "../../database/schema";
-import { DocumentProperties, DocumentPropertyValue, IMBRICATE_PROPERTY_TYPE } from "../property";
+import { IImbricateProperty } from "../../property/interface";
+import { ImbricatePropertyRecord } from "../../property/map";
+import { IMBRICATE_PROPERTY_TYPE } from "../../property/type";
 
 export const findPrimaryProperty = (
     schema: ImbricateDatabaseSchema,
-    properties: DocumentProperties,
-): DocumentPropertyValue<IMBRICATE_PROPERTY_TYPE> | null => {
+    properties: ImbricatePropertyRecord,
+): IImbricateProperty<IMBRICATE_PROPERTY_TYPE> | null => {
 
     for (const property of schema.properties) {
 
         if (property.isPrimaryKey) {
 
-            const value: DocumentPropertyValue<IMBRICATE_PROPERTY_TYPE> | undefined =
+            const value: IImbricateProperty<IMBRICATE_PROPERTY_TYPE> | undefined =
                 properties[property.propertyIdentifier];
 
             if (value) {

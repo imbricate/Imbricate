@@ -4,7 +4,9 @@
  * @description Triage Base
  */
 
-import { DocumentProperties, DocumentPropertyKey, IMBRICATE_PROPERTY_TYPE } from "../property";
+import { ImbricatePropertyKey } from "../../property/definition";
+import { ImbricatePropertyRecord } from "../../property/map";
+import { IMBRICATE_PROPERTY_TYPE } from "../../property/type";
 import { DocumentPropertyTriageFunction } from "./definition";
 
 // IMBRICATE_PROPERTY_TYPE SWITCH
@@ -28,7 +30,7 @@ export class ImbricateDocumentPropertyTriageBase<Result> {
      * @returns triage manager
      */
     public forPropertyKey<T extends IMBRICATE_PROPERTY_TYPE>(
-        propertyKey: DocumentPropertyKey,
+        propertyKey: ImbricatePropertyKey,
         triageFunction: DocumentPropertyTriageFunction<T, Result>,
     ): this {
 
@@ -108,10 +110,10 @@ export class ImbricateDocumentPropertyTriageBase<Result> {
         return this;
     }
 
-    protected _collect(properties: DocumentProperties): Map<DocumentPropertyKey, Result> {
+    protected _collect(properties: ImbricatePropertyRecord): Map<ImbricatePropertyKey, Result> {
 
-        const keys: DocumentPropertyKey[] = Object.keys(properties);
-        const result: Map<DocumentPropertyKey, Result> = new Map();
+        const keys: ImbricatePropertyKey[] = Object.keys(properties);
+        const result: Map<ImbricatePropertyKey, Result> = new Map();
         for (const key of keys) {
 
             const property = properties[key];
@@ -124,7 +126,7 @@ export class ImbricateDocumentPropertyTriageBase<Result> {
                 continue;
             }
 
-            const typeFunction = this._triageFunctionsByType.get(property.type);
+            const typeFunction = this._triageFunctionsByType.get(property.propertyType);
             if (typeof typeFunction === "function") {
 
                 const value: Result = typeFunction(key, property);

@@ -4,22 +4,23 @@
  * @description Triage Manager
  */
 
-import { DocumentProperties, DocumentPropertyKey } from "../property";
+import { ImbricatePropertyKey } from "../../property/definition";
+import { ImbricatePropertyRecord } from "../../property/map";
 import { ImbricateDocumentPropertyTriageBase } from "./triage-base";
 
 export class ImbricateDocumentPropertyTriageManager<Result> extends ImbricateDocumentPropertyTriageBase<Result> {
 
     public static create<Result>(
-        properties: DocumentProperties,
+        properties: ImbricatePropertyRecord,
     ): ImbricateDocumentPropertyTriageManager<Result> {
 
         return new ImbricateDocumentPropertyTriageManager<Result>(properties);
     }
 
-    private readonly _properties: DocumentProperties;
+    private readonly _properties: ImbricatePropertyRecord;
 
     private constructor(
-        properties: DocumentProperties,
+        properties: ImbricatePropertyRecord,
     ) {
 
         super();
@@ -33,7 +34,7 @@ export class ImbricateDocumentPropertyTriageManager<Result> extends ImbricateDoc
      */
     public collectAsArray(): Result[] {
 
-        const result: Map<DocumentPropertyKey, Result> = super._collect(this._properties);
+        const result: Map<ImbricatePropertyKey, Result> = super._collect(this._properties);
         return Array.from(result.values());
     }
 
@@ -42,7 +43,7 @@ export class ImbricateDocumentPropertyTriageManager<Result> extends ImbricateDoc
      * 
      * @returns collected result as map
      */
-    public collectAsMap(): Map<DocumentPropertyKey, Result> {
+    public collectAsMap(): Map<ImbricatePropertyKey, Result> {
 
         return super._collect(this._properties);
     }
@@ -52,12 +53,12 @@ export class ImbricateDocumentPropertyTriageManager<Result> extends ImbricateDoc
      * 
      * @returns collected result as object
      */
-    public collectAsObject(): Record<DocumentPropertyKey, Result> {
+    public collectAsObject(): Record<ImbricatePropertyKey, Result> {
 
-        const result: Map<DocumentPropertyKey, Result> = super._collect(this._properties);
-        const keys: DocumentPropertyKey[] = Array.from(result.keys());
+        const result: Map<ImbricatePropertyKey, Result> = super._collect(this._properties);
+        const keys: ImbricatePropertyKey[] = Array.from(result.keys());
 
-        const object: Record<DocumentPropertyKey, Result> = {} as Record<DocumentPropertyKey, Result>;
+        const object: Record<ImbricatePropertyKey, Result> = {} as Record<ImbricatePropertyKey, Result>;
         for (const key of keys) {
 
             object[key] = result.get(key) as Result;
