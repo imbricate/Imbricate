@@ -31,7 +31,6 @@ export interface IImbricateProperty<T extends IMBRICATE_PROPERTY_TYPE> {
      */
     readonly supportedFeatures: IMBRICATE_PROPERTY_FEATURE[];
 
-
     /**
      * Query the property actions
      * 

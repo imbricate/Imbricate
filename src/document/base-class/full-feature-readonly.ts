@@ -5,7 +5,7 @@
  */
 
 import { ImbricateDocumentFeatureNotSupportedError } from "../../error/document/feature-not-supported";
-import { ImbricatePropertyRecord } from "../../property/map";
+import { ImbricatePropertiesDrafter } from "../../property/map";
 import { DocumentAnnotationValue, DocumentEditRecord, ImbricateDocumentAuditOptions } from "../definition";
 import { IMBRICATE_DOCUMENT_FEATURE } from "../feature";
 import { IImbricateDocument } from "../interface";
@@ -20,7 +20,7 @@ export abstract class ImbricateDocumentFullFeatureReadonlyBase extends Imbricate
     ];
 
     public mergeProperties(
-        _properties: ImbricatePropertyRecord,
+        _propertiesDrafter: ImbricatePropertiesDrafter,
         _auditOptions?: ImbricateDocumentAuditOptions,
     ): Promise<ImbricateDocumentPutPropertyOutcome> {
 
@@ -30,7 +30,7 @@ export abstract class ImbricateDocumentFullFeatureReadonlyBase extends Imbricate
     }
 
     public replaceProperties(
-        _properties: ImbricatePropertyRecord,
+        _propertiesDrafter: ImbricatePropertiesDrafter,
         _auditOptions?: ImbricateDocumentAuditOptions,
     ): Promise<ImbricateDocumentPutPropertyOutcome> {
 

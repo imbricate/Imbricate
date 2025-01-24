@@ -6,7 +6,7 @@
 
 import { ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginActionsQuery, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../../common/action";
 import { ImbricateDatabaseFeatureNotSupportedError } from "../../error/database/feature-not-supported";
-import { ImbricatePropertyRecord } from "../../property/map";
+import { ImbricatePropertiesDrafter } from "../../property/map";
 import { DatabaseAnnotationValue, DatabaseAnnotations, DatabaseEditRecord, ImbricateDatabaseAuditOptions, ImbricateDocumentQuery } from "../definition";
 import { IMBRICATE_DATABASE_FEATURE } from "../feature";
 import { IImbricateDatabase } from "../interface";
@@ -45,7 +45,7 @@ export abstract class ImbricateDatabaseFullFeatureBase extends ImbricateDatabase
     ): PromiseLike<ImbricateDatabasePutSchemaOutcome>;
 
     public abstract createDocument(
-        properties: ImbricatePropertyRecord,
+        propertiesDrafter: ImbricatePropertiesDrafter,
         auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<ImbricateDatabaseCreateDocumentOutcome>;
 

@@ -6,8 +6,7 @@
 
 import { ImbricateAuthor } from "../author/definition";
 import { ImbricatePropertyKey } from "../property/definition";
-import { IImbricateProperty } from "../property/interface";
-import { IMBRICATE_PROPERTY_TYPE } from "../property/type";
+import { IMBRICATE_PROPERTY_TYPE, ImbricatePropertyValueObject } from "../property/type";
 
 /**
  * Edit record type of the document
@@ -21,10 +20,11 @@ export enum IMBRICATE_DOCUMENT_EDIT_TYPE {
     RESOLVE_CONFLICT = "RESOLVE_CONFLICT",
 }
 
-export type DocumentEditOperationValuePutProperty = {
+export type DocumentEditOperationValuePutProperty<T extends IMBRICATE_PROPERTY_TYPE> = {
 
     readonly key: ImbricatePropertyKey;
-    readonly value: IImbricateProperty<IMBRICATE_PROPERTY_TYPE>;
+    readonly type: T;
+    readonly value: ImbricatePropertyValueObject<T>;
 };
 
 export type DocumentEditOperationPutAnnotation = {
@@ -48,7 +48,7 @@ export type DocumentEditOperationResolveConflict = {
 
 // IMBRICATE_DOCUMENT_EDIT_TYPE SWITCH
 export type DocumentEditOperationValue<T extends IMBRICATE_DOCUMENT_EDIT_TYPE> =
-    T extends IMBRICATE_DOCUMENT_EDIT_TYPE.PUT_PROPERTY ? DocumentEditOperationValuePutProperty :
+    T extends IMBRICATE_DOCUMENT_EDIT_TYPE.PUT_PROPERTY ? DocumentEditOperationValuePutProperty<IMBRICATE_PROPERTY_TYPE> :
     T extends IMBRICATE_DOCUMENT_EDIT_TYPE.PUT_ANNOTATION ? DocumentEditOperationPutAnnotation :
     T extends IMBRICATE_DOCUMENT_EDIT_TYPE.DELETE_ANNOTATION ? DocumentEditOperationDeleteAnnotation :
     T extends IMBRICATE_DOCUMENT_EDIT_TYPE.RESOLVE_CONFLICT ? DocumentEditOperationResolveConflict :

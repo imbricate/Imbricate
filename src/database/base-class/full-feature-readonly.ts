@@ -5,7 +5,7 @@
  */
 
 import { ImbricateDatabaseFeatureNotSupportedError } from "../../error/database/feature-not-supported";
-import { ImbricatePropertyRecord } from "../../property/map";
+import { ImbricatePropertiesDrafter } from "../../property/map";
 import { DatabaseAnnotationValue, DatabaseEditRecord, ImbricateDatabaseAuditOptions } from "../definition";
 import { IMBRICATE_DATABASE_FEATURE } from "../feature";
 import { IImbricateDatabase } from "../interface";
@@ -33,7 +33,7 @@ export abstract class ImbricateDatabaseFullFeatureReadOnlyBase extends Imbricate
     }
 
     public createDocument(
-        _properties: ImbricatePropertyRecord,
+        _propertiesDrafter: ImbricatePropertiesDrafter,
         _auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<ImbricateDatabaseCreateDocumentOutcome> {
 

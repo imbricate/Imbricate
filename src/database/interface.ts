@@ -5,7 +5,7 @@
  */
 
 import { ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginActionsQuery, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../common/action";
-import { ImbricatePropertyRecord } from "../property/map";
+import { ImbricatePropertiesDrafter } from "../property/map";
 import { DatabaseAnnotationValue, DatabaseAnnotations, DatabaseEditRecord, ImbricateDatabaseAuditOptions, ImbricateDocumentQuery } from "./definition";
 import { IMBRICATE_DATABASE_FEATURE } from "./feature";
 import { ImbricateDatabaseAddEditRecordsOutcome, ImbricateDatabaseCountDocumentsOutcome, ImbricateDatabaseCreateDocumentOutcome, ImbricateDatabaseDeleteAnnotationOutcome, ImbricateDatabaseGetDocumentOutcome, ImbricateDatabaseGetEditRecordsOutcome, ImbricateDatabasePutAnnotationOutcome, ImbricateDatabasePutSchemaOutcome, ImbricateDatabaseQueryDocumentsOutcome, ImbricateDatabaseRemoveDocumentOutcome } from "./outcome";
@@ -66,14 +66,14 @@ export interface IImbricateDatabase {
      * 
      * RequireFeature: DATABASE_CREATE_DOCUMENT
      * 
-     * @param properties properties of the document
+     * @param propertiesDrafter properties drafter of the document
      * @param auditOptions audit options of the document
      * 
      * @returns a promise of the outcome of the create document
      *  Symbol: S_CreateDocument_IdentifierDuplicated - if the identifier is duplicated
      */
     createDocument(
-        properties: ImbricatePropertyRecord,
+        propertiesDrafter: ImbricatePropertiesDrafter,
         auditOptions?: ImbricateDatabaseAuditOptions,
     ): PromiseLike<ImbricateDatabaseCreateDocumentOutcome>;
 

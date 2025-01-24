@@ -13,7 +13,6 @@ import { ImbricatePropertyFullFeatureWithActionBase } from "./full-feature-with-
 
 export abstract class ImbricatePropertyFullFeatureBase<T extends IMBRICATE_PROPERTY_TYPE> extends ImbricatePropertyFullFeatureWithActionBase<T> implements IImbricateProperty<T> {
 
-
     public readonly supportedFeatures: IMBRICATE_PROPERTY_FEATURE[] = [];
 
     public queryOriginActions(

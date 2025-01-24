@@ -6,7 +6,7 @@
 
 import { ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginActionsQuery, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../common/action";
 import { ImbricatePropertyKey } from "../property/definition";
-import { ImbricatePropertyRecord } from "../property/map";
+import { ImbricatePropertiesDrafter } from "../property/map";
 import { DocumentAnnotationValue, DocumentAnnotations, DocumentEditRecord, ImbricateDocumentAuditOptions } from "./definition";
 import { IMBRICATE_DOCUMENT_FEATURE } from "./feature";
 import { ImbricateDocumentAddEditRecordsOutcome, ImbricateDocumentDeleteAnnotationOutcome, ImbricateDocumentGetEditRecordsOutcome, ImbricateDocumentGetPropertiesOutcome, ImbricateDocumentGetPropertyOutcome, ImbricateDocumentPutAnnotationOutcome, ImbricateDocumentPutPropertyOutcome } from "./outcome";
@@ -61,7 +61,7 @@ export interface IImbricateDocument {
      *  Symbol: S_Document_PutProperty_InvalidKey - if the key is invalid
      */
     mergeProperties(
-        properties: ImbricatePropertyRecord,
+        propertiesDrafter: ImbricatePropertiesDrafter,
         auditOptions?: ImbricateDocumentAuditOptions,
     ): PromiseLike<ImbricateDocumentPutPropertyOutcome>;
 
@@ -70,14 +70,14 @@ export interface IImbricateDocument {
      * 
      * RequireFeature: DOCUMENT_PUT_PROPERTIES
      * 
-     * @param properties properties of the document
+     * @param propertiesDrafter properties drafter of the document
      * @param auditOptions audit options of the document
      * 
      * @returns a promise of the outcome of the put properties
      *  Symbol: S_Document_PutProperty_InvalidKey - if the key is invalid
      */
     replaceProperties(
-        properties: ImbricatePropertyRecord,
+        propertiesDrafter: ImbricatePropertiesDrafter,
         auditOptions?: ImbricateDocumentAuditOptions,
     ): PromiseLike<ImbricateDocumentPutPropertyOutcome>;
 

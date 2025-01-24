@@ -6,7 +6,7 @@
 
 import { ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginActionsQuery, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../../common/action";
 import { ImbricatePropertyKey } from "../../property/definition";
-import { ImbricatePropertyRecord } from "../../property/map";
+import { ImbricatePropertiesDrafter } from "../../property/map";
 import { DocumentAnnotationValue, DocumentAnnotations, DocumentEditRecord, ImbricateDocumentAuditOptions } from "../definition";
 import { IMBRICATE_DOCUMENT_FEATURE } from "../feature";
 import { IImbricateDocument } from "../interface";
@@ -40,12 +40,12 @@ export abstract class ImbricateDocumentFullFeatureWithActionBase implements IImb
     ): ImbricateDocumentGetPropertyOutcome;
 
     public abstract mergeProperties(
-        properties: ImbricatePropertyRecord,
+        propertiesDrafter: ImbricatePropertiesDrafter,
         auditOptions?: ImbricateDocumentAuditOptions,
     ): Promise<ImbricateDocumentPutPropertyOutcome>;
 
     public abstract replaceProperties(
-        properties: ImbricatePropertyRecord,
+        propertiesDrafter: ImbricatePropertiesDrafter,
         auditOptions?: ImbricateDocumentAuditOptions,
     ): Promise<ImbricateDocumentPutPropertyOutcome>;
 
