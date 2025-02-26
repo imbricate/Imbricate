@@ -53,3 +53,26 @@ export type ImbricateStaticManagerCreateStaticOutcome = {
 
     readonly static: IImbricateStatic;
 } | CommonOutcomeSymbol | ImbricateStaticManagerCreateStaticOutcomeSymbol;
+
+// Manager Get Static URI
+export const S_StaticManager_GetStaticUri_NotFound: unique symbol = Symbol("StaticManager_GetStaticUri_NotFound");
+export const S_StaticManager_GetStaticUri_Unknown: unique symbol = Symbol("StaticManager_GetStaticUri_Unknown");
+
+export type ImbricateStaticManagerGetStaticUriOutcomeSymbol =
+    | typeof S_StaticManager_GetStaticUri_NotFound
+    | typeof S_StaticManager_GetStaticUri_Unknown;
+
+export const ImbricateStaticManagerGetStaticUriOutcomeSymbolList: ImbricateStaticManagerGetStaticUriOutcomeSymbol[] = [
+    S_StaticManager_GetStaticUri_NotFound,
+    S_StaticManager_GetStaticUri_Unknown,
+];
+
+export const rebuildImbricateStaticManagerGetStaticUri = createRebuildImbricateSymbolFunction(
+    ImbricateStaticManagerGetStaticUriOutcomeSymbolList,
+    S_StaticManager_GetStaticUri_Unknown,
+);
+
+export type ImbricateStaticManagerGetStaticUriOutcome = {
+
+    readonly uri: string;
+} | CommonOutcomeSymbol | ImbricateStaticManagerGetStaticUriOutcomeSymbol;

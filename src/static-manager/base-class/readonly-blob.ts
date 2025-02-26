@@ -1,7 +1,7 @@
 /**
  * @author WMXPY
  * @namespace StaticManager
- * @description Readonly
+ * @description Readonly Blob
  */
 
 import { ImbricateStaticManagerFeatureNotSupportedError } from "../../error/static-manager/feature-not-supported";
@@ -9,15 +9,13 @@ import { IMBRICATE_STATIC_MIME_TYPE, ImbricateStaticAuditOptions } from "../../s
 import { IMBRICATE_STATIC_MANAGER_FEATURE } from "../feature";
 import { ImbricateStaticManagerCreateStaticOutcome } from "../outcome";
 import { IImbricateStaticManager } from "../static-manager";
-import { ImbricateStaticManagerFullFeatureBase } from "./full-feature";
+import { ImbricateStaticManagerFullFeatureBlobBase } from "./full-feature-blob";
 
-export abstract class ImbricateStaticManagerReadonlyBase extends ImbricateStaticManagerFullFeatureBase implements IImbricateStaticManager {
+export abstract class ImbricateStaticManagerReadonlyBlobBase extends ImbricateStaticManagerFullFeatureBlobBase implements IImbricateStaticManager {
 
     public readonly supportedFeatures: IMBRICATE_STATIC_MANAGER_FEATURE[] = [
 
         IMBRICATE_STATIC_MANAGER_FEATURE.STATIC_MANAGER_GET_STATIC,
-
-        IMBRICATE_STATIC_MANAGER_FEATURE.STATIC_MANAGER_GET_STATIC_URI,
     ];
 
     public createInBase64(

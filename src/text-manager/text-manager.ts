@@ -5,17 +5,27 @@
  */
 
 import { ImbricateTextAuditOptions } from "../text/definition";
+import { IMBRICATE_TEXT_MANAGER_FEATURE } from "./feature";
 import { ImbricateTextManagerCreateTextOutcome, ImbricateTextManagerGetTextOutcome } from "./outcome";
 
 export interface IImbricateTextManager {
 
     /**
+     * Supported features of the text manager
+     */
+    readonly supportedFeatures: IMBRICATE_TEXT_MANAGER_FEATURE[];
+
+    /**
      * Get the text object from the origin
+     * 
+     * @param uniqueIdentifier unique identifier of the text
      * 
      * @returns a promise of the text object, null if not found
      *  Symbol: S_TextManager_GetText_NotFound - if the text is not found
      */
-    getText(uniqueIdentifier: string): PromiseLike<ImbricateTextManagerGetTextOutcome>;
+    getText(
+        textUniqueIdentifier: string,
+    ): PromiseLike<ImbricateTextManagerGetTextOutcome>;
 
     /**
      * Create a new text object in the origin
