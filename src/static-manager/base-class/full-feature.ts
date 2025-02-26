@@ -4,7 +4,7 @@
  * @description Full Feature
  */
 
-import { ImbricateStaticAuditOptions } from "../../static/definition";
+import { IMBRICATE_STATIC_MIME_TYPE, ImbricateStaticAuditOptions } from "../../static/definition";
 import { IMBRICATE_STATIC_MANAGER_FEATURE } from "../feature";
 import { ImbricateStaticManagerCreateStaticOutcome, ImbricateStaticManagerGetStaticOutcome } from "../outcome";
 import { IImbricateStaticManager } from "../static-manager";
@@ -23,6 +23,7 @@ export abstract class ImbricateStaticManagerFullFeatureBase implements IImbricat
 
     public abstract createInBase64(
         content: string,
+        mimeType: IMBRICATE_STATIC_MIME_TYPE,
         auditOptions?: ImbricateStaticAuditOptions,
     ): PromiseLike<ImbricateStaticManagerCreateStaticOutcome>;
 }

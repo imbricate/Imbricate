@@ -5,6 +5,7 @@
  */
 
 import { ImbricateAuthor } from "../author/definition";
+import { IMBRICATE_STATIC_MIME_TYPE } from "./definition";
 import { IMBRICATE_STATIC_FEATURE } from "./feature";
 import { ImbricateStaticGetContentOutcome } from "./outcome";
 
@@ -14,6 +15,11 @@ export interface IImbricateStatic {
      * Unique identifier of the static object
      */
     readonly uniqueIdentifier: string;
+
+    /**
+     * Mime type of the static object
+     */
+    readonly mimeType: IMBRICATE_STATIC_MIME_TYPE;
 
     /**
      * Features supported by the static object

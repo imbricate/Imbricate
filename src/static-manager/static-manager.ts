@@ -4,7 +4,7 @@
  * @description Static Manager
  */
 
-import { ImbricateStaticAuditOptions } from "../static/definition";
+import { IMBRICATE_STATIC_MIME_TYPE, ImbricateStaticAuditOptions } from "../static/definition";
 import { ImbricateStaticManagerCreateStaticOutcome, ImbricateStaticManagerGetStaticOutcome } from "./outcome";
 
 export interface IImbricateStaticManager {
@@ -23,6 +23,7 @@ export interface IImbricateStaticManager {
      *  Patch a new static object if you want to change the content
      * 
      * @param content content of the static object, encoded in base64
+     * @param mimeType mime type of the static object
      * @param auditOptions audit options of the static object
      * 
      * @returns a promise of the created static object
@@ -30,6 +31,7 @@ export interface IImbricateStaticManager {
      */
     createInBase64(
         content: string,
+        mimeType: IMBRICATE_STATIC_MIME_TYPE,
         auditOptions?: ImbricateStaticAuditOptions,
     ): PromiseLike<ImbricateStaticManagerCreateStaticOutcome>;
 }

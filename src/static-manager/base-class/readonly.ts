@@ -5,7 +5,7 @@
  */
 
 import { ImbricateStaticManagerFeatureNotSupportedError } from "../../error/static-manager/feature-not-supported";
-import { ImbricateStaticAuditOptions } from "../../static/definition";
+import { IMBRICATE_STATIC_MIME_TYPE, ImbricateStaticAuditOptions } from "../../static/definition";
 import { IMBRICATE_STATIC_MANAGER_FEATURE } from "../feature";
 import { ImbricateStaticManagerCreateStaticOutcome } from "../outcome";
 import { IImbricateStaticManager } from "../static-manager";
@@ -20,6 +20,7 @@ export abstract class ImbricateStaticManagerReadonlyBase extends ImbricateStatic
 
     public createInBase64(
         _content: string,
+        _mimeType: IMBRICATE_STATIC_MIME_TYPE,
         _auditOptions?: ImbricateStaticAuditOptions,
     ): PromiseLike<ImbricateStaticManagerCreateStaticOutcome> {
 
