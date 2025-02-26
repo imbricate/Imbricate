@@ -5,7 +5,6 @@
  */
 
 import { IETF_LOCALE } from "@sudoo/locale";
-import { HTTP_RESPONSE_CODE } from "@sudoo/magic";
 import { createRebuildImbricateSymbolFunction } from "../util/rebuild-symbol";
 import { CommonActionOutcomeSymbol, CommonOutcomeSymbol } from "./outcome";
 
@@ -65,9 +64,16 @@ export type ImbricateOriginActionResultOutput = {
     readonly content: string;
 };
 
+export enum IMBRICATE_ORIGIN_ACTION_RESULT_STATUS {
+
+    SUCCESS = "SUCCESS",
+    BAD_INPUT = "BAD_INPUT",
+    INTERNAL_ERROR = "INTERNAL_ERROR",
+}
+
 export type ImbricateOriginActionOutcome = {
 
-    readonly response: HTTP_RESPONSE_CODE;
+    readonly response: IMBRICATE_ORIGIN_ACTION_RESULT_STATUS;
 
     readonly outputs: ImbricateOriginActionResultOutput[];
     readonly references: ImbricateOriginActionResultReference[];

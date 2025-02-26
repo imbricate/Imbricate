@@ -1634,7 +1634,6 @@ __metadata:
     "@babel/preset-env": "npm:^7.26.9"
     "@babel/preset-typescript": "npm:^7.26.0"
     "@sudoo/locale": "npm:^2.0.0"
-    "@sudoo/magic": "npm:^1.9.0"
     "@types/jest": "npm:^29.5.14"
     "@typescript-eslint/eslint-plugin": "npm:^8.25.0"
     "@typescript-eslint/parser": "npm:^8.25.0"
@@ -2056,13 +2055,6 @@ __metadata:
   version: 2.0.0
   resolution: "@sudoo/locale@npm:2.0.0"
   checksum: 10c0/889d5e03c36f029b26d5267578191ead6e3da9b27955338af4e809358882c65b3518736b2c9850208fa44e76dc2a86c0ba1aadd7a60def1a6fc9f1bb6ad9199b
-  languageName: node
-  linkType: hard
-
-"@sudoo/magic@npm:^1.9.0":
-  version: 1.9.0
-  resolution: "@sudoo/magic@npm:1.9.0"
-  checksum: 10c0/8c596684ea28e5de28d73000f18ae085e091accd58001d987bcbd7b4ad9ce784545229d6be2d24d11fc6fa9a2598cc72f5e6263c0964969867d432b62088446d
   languageName: node
   linkType: hard
 
