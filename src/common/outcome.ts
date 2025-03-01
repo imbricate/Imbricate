@@ -4,8 +4,6 @@
  * @description Outcome
  */
 
-import { createRebuildImbricateSymbolFunction } from "../util/rebuild-symbol";
-
 export const S_Common_Origin_ConnectionFail: unique symbol = Symbol("Common_Origin_ConnectionFail");
 export const S_Common_Origin_ConnectionTimeout: unique symbol = Symbol("Common_Origin_ConnectionTimeout");
 export const S_Common_Origin_NotAuthorized: unique symbol = Symbol("Common_Origin_NotAuthorized");
@@ -20,11 +18,6 @@ export const CommonOutcomeSymbolList: CommonOutcomeSymbol[] = [
     S_Common_Origin_ConnectionTimeout,
     S_Common_Origin_NotAuthorized,
 ];
-
-export const rebuildCommonOutcomeSymbol = createRebuildImbricateSymbolFunction(
-    CommonOutcomeSymbolList,
-    S_Common_Origin_NotAuthorized,
-);
 
 export const S_Action_ActionNotFound: unique symbol = Symbol("Action_ActionNotFound");
 export const S_Action_ActionParameterNotFound: unique symbol = Symbol("Action_ActionParameterNotFound");
