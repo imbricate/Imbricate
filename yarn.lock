@@ -1642,6 +1642,9 @@ __metadata:
     jest: "npm:^29.7.0"
     ts-node: "npm:^10.9.2"
     typescript: "npm:^5.8.2"
+  dependenciesMeta:
+    "@sudoo/locale":
+      optional: true
   languageName: unknown
   linkType: soft
 
