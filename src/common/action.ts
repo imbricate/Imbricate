@@ -4,7 +4,7 @@
  * @description Action
  */
 
-import { IETF_LOCALE } from "@sudoo/locale";
+import type { IETF_LOCALE } from "@sudoo/locale";
 import { createRebuildImbricateSymbolFunction } from "../util/rebuild-symbol";
 import { CommonActionOutcomeSymbol, CommonOutcomeSymbol } from "./outcome";
 
