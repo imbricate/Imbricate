@@ -6,7 +6,7 @@
 
 import type { IETF_LOCALE } from "@sudoo/locale";
 import { createRebuildImbricateSymbolFunction } from "../util/rebuild-symbol";
-import { CommonActionOutcomeSymbol, CommonOutcomeSymbol } from "./outcome";
+import { CommonActionOutcomeSymbol, CommonActionOutcomeSymbolList, CommonOutcomeSymbol, S_Action_ActionResultStatusUnknown } from "./outcome";
 
 export enum IMBRICATE_ORIGIN_ACTION_PARAMETER_TYPE {
 
@@ -71,6 +71,11 @@ export enum IMBRICATE_ORIGIN_ACTION_RESULT_STATUS {
     BAD_INPUT = "BAD_INPUT",
     INTERNAL_ERROR = "INTERNAL_ERROR",
 }
+
+export const rebuildImbricateOriginActionOutcomeSymbol = createRebuildImbricateSymbolFunction(
+    CommonActionOutcomeSymbolList,
+    S_Action_ActionResultStatusUnknown,
+);
 
 export type ImbricateOriginActionOutcome = {
 
