@@ -41,8 +41,9 @@ export type ImbricateOriginAction = {
 
     readonly actionIdentifier: string;
 
-    readonly actionName: Record<IETF_LOCALE, string>;
-    readonly actionDescription: Record<IETF_LOCALE, string>;
+    readonly defaultLocale: IETF_LOCALE;
+    readonly actionName: Partial<Record<IETF_LOCALE, string>>;
+    readonly actionDescription: Partial<Record<IETF_LOCALE, string>>;
 
     readonly parameters: ImbricateOriginActionParameter[];
 
