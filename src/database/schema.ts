@@ -4,6 +4,7 @@
  * @description Schema
  */
 
+import { ImbricatePropertyVariant } from "../property/definition";
 import { IMBRICATE_PROPERTY_TYPE } from "../property/type";
 
 export type ImbricateDatabaseSchemaProperty<T extends IMBRICATE_PROPERTY_TYPE> = {
@@ -67,6 +68,7 @@ export type ImbricateDatabaseSchemaPropertyForCreation<T extends IMBRICATE_PROPE
 
     readonly propertyName: string;
     readonly propertyType: T;
+    readonly propertyVariant: ImbricatePropertyVariant;
     readonly propertyOptions: ImbricateDatabaseSchemaPropertyOptions<T>;
 
     readonly isPrimaryKey?: boolean;
