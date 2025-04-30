@@ -4,7 +4,7 @@
  * @description Property
  */
 
-import { IImbricateProperty, IMBRICATE_PROPERTY_TYPE, ImbricatePropertyFullFeatureBase, ImbricatePropertyKey } from "../../src";
+import { IImbricateProperty, IMBRICATE_PROPERTY_TYPE, ImbricatePropertyFullFeatureBase, ImbricatePropertyKey, ImbricatePropertyVariant } from "../../src";
 
 export class MockProperty extends ImbricatePropertyFullFeatureBase<IMBRICATE_PROPERTY_TYPE> implements IImbricateProperty<IMBRICATE_PROPERTY_TYPE> {
 
@@ -22,6 +22,7 @@ export class MockProperty extends ImbricatePropertyFullFeatureBase<IMBRICATE_PRO
     private readonly _key: ImbricatePropertyKey;
     private readonly _type: IMBRICATE_PROPERTY_TYPE;
     private readonly _value: any;
+    private readonly _variant: ImbricatePropertyVariant;
 
     private constructor(
         key: ImbricatePropertyKey,
@@ -34,6 +35,7 @@ export class MockProperty extends ImbricatePropertyFullFeatureBase<IMBRICATE_PRO
         this._key = key;
         this._type = type;
         this._value = value;
+        this._variant = null;
     }
 
     public get propertyKey(): ImbricatePropertyKey {
@@ -49,5 +51,10 @@ export class MockProperty extends ImbricatePropertyFullFeatureBase<IMBRICATE_PRO
     public get propertyValue(): any {
 
         return this._value;
+    }
+
+    public get propertyVariant(): ImbricatePropertyVariant {
+
+        return this._variant;
     }
 }
