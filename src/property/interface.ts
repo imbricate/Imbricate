@@ -5,7 +5,7 @@
  */
 
 import { ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginActionsQuery, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../common/action";
-import { ImbricatePropertyKey } from "./definition";
+import { ImbricatePropertyKey, ImbricatePropertyVariant } from "./definition";
 import { IMBRICATE_PROPERTY_FEATURE } from "./feature";
 import { IMBRICATE_PROPERTY_TYPE, ImbricatePropertyValueObject } from "./type";
 
@@ -25,6 +25,11 @@ export interface IImbricateProperty<T extends IMBRICATE_PROPERTY_TYPE> {
      * Property value
      */
     readonly propertyValue: ImbricatePropertyValueObject<T>;
+
+    /**
+     * Property variant
+     */
+    readonly propertyVariant: ImbricatePropertyVariant;
 
     /**
      * Supported features of the property

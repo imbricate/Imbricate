@@ -5,7 +5,7 @@
  */
 
 import { ImbricateAuthor } from "../author/definition";
-import { ImbricatePropertyKey } from "../property/definition";
+import { ImbricatePropertyKey, ImbricatePropertyVariant } from "../property/definition";
 import { IMBRICATE_PROPERTY_TYPE, ImbricatePropertyValueObject } from "../property/type";
 
 /**
@@ -25,6 +25,7 @@ export type DocumentEditOperationValuePutProperty<T extends IMBRICATE_PROPERTY_T
     readonly key: ImbricatePropertyKey;
     readonly type: T;
     readonly value: ImbricatePropertyValueObject<T>;
+    readonly variant: ImbricatePropertyVariant;
 };
 
 export type DocumentEditOperationPutAnnotation = {

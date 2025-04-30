@@ -5,7 +5,7 @@
  */
 
 import { ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginActionsQuery, ImbricateOriginActionInput, ImbricateOriginActionOutcome } from "../../common/action";
-import { ImbricatePropertyKey } from "../definition";
+import { ImbricatePropertyKey, ImbricatePropertyVariant } from "../definition";
 import { IMBRICATE_PROPERTY_FEATURE } from "../feature";
 import { IImbricateProperty } from "../interface";
 import { IMBRICATE_PROPERTY_TYPE, ImbricatePropertyValueObject } from "../type";
@@ -16,6 +16,7 @@ export abstract class ImbricatePropertyFullFeatureWithActionBase<T extends IMBRI
 
     public abstract readonly propertyType: T;
     public abstract readonly propertyValue: ImbricatePropertyValueObject<T>;
+    public abstract readonly propertyVariant: ImbricatePropertyVariant;
 
     public readonly supportedFeatures: IMBRICATE_PROPERTY_FEATURE[] = [
 

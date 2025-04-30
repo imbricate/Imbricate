@@ -4,7 +4,7 @@
  * @description Map
  */
 
-import { ImbricatePropertyKey } from "./definition";
+import { ImbricatePropertyKey, ImbricatePropertyVariant } from "./definition";
 import { IImbricateProperty } from "./interface";
 import { IMBRICATE_PROPERTY_TYPE, ImbricatePropertyValueObject } from "./type";
 
@@ -14,6 +14,7 @@ export type ImbricatePropertyGenerator<T extends IMBRICATE_PROPERTY_TYPE> = (
     propertyKey: ImbricatePropertyKey,
     propertyType: T,
     propertyValue: ImbricatePropertyValueObject<T>,
+    propertyVariant: ImbricatePropertyVariant,
 ) => IImbricateProperty<T>;
 
 export type ImbricatePropertiesDrafter = (
