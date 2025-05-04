@@ -26,6 +26,14 @@ export type ImbricateDatabaseSchemaPropertyOptionsLabelOption = {
     readonly labelColor: string;
 };
 
+export type ImbricateDatabaseSchemaPropertyOptionsBinary = {
+
+    /**
+     * Allow multiple binary files
+     */
+    readonly allowMultiple: boolean;
+};
+
 export type ImbricateDatabaseSchemaPropertyOptionsLabel = {
 
     /**
@@ -53,6 +61,7 @@ export type ImbricateDatabaseSchemaPropertyOptionsReference = {
 
 // IMBRICATE_PROPERTY_TYPE SWITCH
 export type ImbricateDatabaseSchemaPropertyOptions<T extends IMBRICATE_PROPERTY_TYPE> =
+    T extends IMBRICATE_PROPERTY_TYPE.BINARY ? ImbricateDatabaseSchemaPropertyOptionsBinary :
     T extends IMBRICATE_PROPERTY_TYPE.BOOLEAN ? {} :
     T extends IMBRICATE_PROPERTY_TYPE.STRING ? {} :
     T extends IMBRICATE_PROPERTY_TYPE.NUMBER ? {} :

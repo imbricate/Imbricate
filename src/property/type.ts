@@ -14,6 +14,10 @@ export enum IMBRICATE_PROPERTY_TYPE {
      */
     BOOLEAN = "BOOLEAN",
     /**
+     * BINARY - binary, store as binary file
+     */
+    BINARY = "BINARY",
+    /**
      * STRING - string, store as plain text
      */
     STRING = "STRING",
@@ -60,6 +64,7 @@ export type ImbricatePropertyValueObjectReference = {
 
 // IMBRICATE_PROPERTY_TYPE SWITCH
 export type ImbricatePropertyValueObject<T extends IMBRICATE_PROPERTY_TYPE> =
+    T extends IMBRICATE_PROPERTY_TYPE.BINARY ? string[] :
     T extends IMBRICATE_PROPERTY_TYPE.BOOLEAN ? boolean :
     T extends IMBRICATE_PROPERTY_TYPE.STRING ? string :
     T extends IMBRICATE_PROPERTY_TYPE.NUMBER ? number :

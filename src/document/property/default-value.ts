@@ -11,6 +11,7 @@ export const getImbricateDefaultValueOfProperty = (type: IMBRICATE_PROPERTY_TYPE
 
     switch (type) {
 
+        case IMBRICATE_PROPERTY_TYPE.BINARY: return [];
         case IMBRICATE_PROPERTY_TYPE.BOOLEAN: return false;
         case IMBRICATE_PROPERTY_TYPE.STRING: return "";
         case IMBRICATE_PROPERTY_TYPE.NUMBER: return 0;

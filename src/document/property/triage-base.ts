@@ -38,6 +38,14 @@ export class ImbricateDocumentPropertyTriageBase<Result> {
         return this;
     }
 
+    public forBinary(
+        triageFunction: ImbricatePropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.BINARY, Result>,
+    ): this {
+
+        this._triageFunctionsByType.set(IMBRICATE_PROPERTY_TYPE.BINARY, triageFunction);
+        return this;
+    }
+
     public forBoolean(
         triageFunction: ImbricatePropertyTriageFunction<IMBRICATE_PROPERTY_TYPE.BOOLEAN, Result>,
     ): this {

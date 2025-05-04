@@ -55,6 +55,12 @@ export const validateImbricateProperties = (
         // IMBRICATE_PROPERTY_TYPE SWITCH
         switch (property.propertyType) {
 
+            case IMBRICATE_PROPERTY_TYPE.BINARY: {
+                if (!Array.isArray(property.propertyValue)) {
+                    return `Property ${key} value must be an array of string`;
+                }
+                break;
+            }
             case IMBRICATE_PROPERTY_TYPE.BOOLEAN: {
                 if (typeof property.propertyValue !== "boolean") {
                     return `Property ${key} value must be a boolean`;
