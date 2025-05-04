@@ -119,22 +119,41 @@ export const validateImbricateSchemaProperty = (
     switch (property.propertyType) {
 
         case IMBRICATE_PROPERTY_TYPE.BINARY: {
+
             if (typeof property.propertyOptions !== "object") {
                 return "Property options must be an object";
             }
-            if (typeof (property.propertyOptions as any).allowMultiple !== "boolean") {
+
+            const propertyOptions: ImbricateDatabaseSchemaPropertyOptionsBinary = property.propertyOptions as ImbricateDatabaseSchemaPropertyOptionsBinary;
+
+            if (typeof propertyOptions.allowMultiple !== "boolean") {
                 return "Property options allowMultiple must be a boolean";
             }
             break;
         }
 
         case IMBRICATE_PROPERTY_TYPE.LABEL: {
+
             if (typeof property.propertyOptions !== "object") {
                 return "Property options must be an object";
             }
-            if (typeof (property.propertyOptions as any).allowMultiple !== "boolean") {
+
+            const propertyOptions: ImbricateDatabaseSchemaPropertyOptionsLabel = property.propertyOptions as ImbricateDatabaseSchemaPropertyOptionsLabel;
+
+            if (typeof propertyOptions.allowMultiple !== "boolean") {
                 return "Property options allowMultiple must be a boolean";
             }
+
+            if (!Array.isArray(propertyOptions.labelOptions)) {
+                return "Property options labelOptions must be an array";
+            }
+
+            for (const labelOption of propertyOptions.labelOptions) {
+                if (typeof labelOption.labelIdentifier !== "string") {
+                    return "Property options labelOptions labelIdentifier must be a string";
+                }
+            }
+
             break;
         }
 
@@ -142,13 +161,17 @@ export const validateImbricateSchemaProperty = (
             if (typeof property.propertyOptions !== "object") {
                 return "Property options must be an object";
             }
-            if (typeof (property.propertyOptions as any).allowMultiple !== "boolean") {
+
+            const propertyOptions: ImbricateDatabaseSchemaPropertyOptionsReference = property.propertyOptions as ImbricateDatabaseSchemaPropertyOptionsReference;
+
+            if (typeof propertyOptions.allowMultiple !== "boolean") {
                 return "Property options allowMultiple must be a boolean";
             }
-            if (!Array.isArray((property.propertyOptions as any).databases)) {
+            if (!Array.isArray(propertyOptions.databases)) {
                 return "Property options databases must be an array";
             }
-            for (const database of (property.propertyOptions as any).databases) {
+
+            for (const database of propertyOptions.databases) {
                 if (typeof database.originUniqueIdentifier !== "string") {
                     return "Database originUniqueIdentifier must be a string";
                 }
