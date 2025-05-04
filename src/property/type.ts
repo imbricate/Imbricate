@@ -14,7 +14,8 @@ export enum IMBRICATE_PROPERTY_TYPE {
      */
     BOOLEAN = "BOOLEAN",
     /**
-     * BINARY - binary, store as binary file
+     * BINARY - binary, store as a list of static object unique identifier
+     *  Note: Binary is always stored as an array, even if it is a single static object identifier
      */
     BINARY = "BINARY",
     /**
