@@ -12,6 +12,7 @@ export enum IMBRICATE_QUERY_COMPARE_CONDITION {
 
 export enum IMBRICATE_QUERY_ATTRIBUTE {
 
+    KEY = "KEY",
     VALUE = "VALUE",
 }
 
