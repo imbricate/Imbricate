@@ -28,6 +28,27 @@ export type ImbricateDocumentQueryAnnotationFilter = {
     readonly value: any;
 };
 
+export enum IMBRICATE_QUERY_SORT_DIRECTION {
+
+    ASCENDING = "ASCENDING",
+    DESCENDING = "DESCENDING",
+}
+
+export enum IMBRICATE_QUERY_SORT_TYPE {
+
+    PROPERTY = "PROPERTY",
+}
+
+export type ImbricateDocumentQuerySortProperty = {
+
+    readonly type: IMBRICATE_QUERY_SORT_TYPE.PROPERTY;
+
+    readonly propertyIdentifier: string;
+    readonly direction: IMBRICATE_QUERY_SORT_DIRECTION;
+};
+
+export type ImbricateDocumentQuerySort = ImbricateDocumentQuerySortProperty;
+
 /**
  * Query of the document
  * 
