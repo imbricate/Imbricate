@@ -62,6 +62,8 @@ export type ImbricateDocumentQuery = {
 
     readonly propertyFilters?: ImbricateDocumentQueryPropertyFilter[];
     readonly annotationFilters?: ImbricateDocumentQueryAnnotationFilter[];
+
+    readonly sorts?: ImbricateDocumentQuerySort[];
 };
 
 /**
