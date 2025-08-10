@@ -1,0 +1,9 @@
+{
+  "name": "@imbricate/eslint-config",
+  "version": "1.0.0",
+  "description": "Imbricate ESLint Config",
+  "private": true,
+  "exports": {
+    "./eslint.common.config": "./eslint.common.config.mjs"
+  }
+}
