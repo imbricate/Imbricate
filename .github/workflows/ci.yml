@@ -46,7 +46,8 @@ jobs:
       - name: Test
         run: |
           pnpm coverage
-      # - name: Codecov
-      #   uses: codecov/codecov-action@v4
-      #   with:
-      #     token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: packages/**/coverage/**
+          token: ${{ secrets.CODECOV_TOKEN }}

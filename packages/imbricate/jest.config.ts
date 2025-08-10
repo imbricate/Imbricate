@@ -9,6 +9,7 @@ export default async (): Promise<Config> => {
 
     return {
         verbose: true,
+        rootDir: "./",
         collectCoverageFrom: [
             "src/**/*.ts",
         ],

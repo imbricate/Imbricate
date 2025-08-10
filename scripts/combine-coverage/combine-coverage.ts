@@ -3,8 +3,7 @@
  * @description Combine Coverage
  */
 
-import type { Stats } from "node:fs";
-import { readdir, access } from "node:fs/promises";
+import { access, readdir } from "node:fs/promises";
 import { join } from "node:path";
 
 (async () => {
@@ -19,7 +18,11 @@ import { join } from "node:path";
         const packagePath: string = join(packagesPath, folder);
         const coveragePath: string = join(packagePath, "coverage");
 
-        await access(coveragePath);
+        try {
+            await access(coveragePath);
+        } catch (error) {
+            continue;
+        }
 
         console.log(`Found coverage for ${folder}`);
     }
