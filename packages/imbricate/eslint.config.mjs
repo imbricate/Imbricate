@@ -3,7 +3,7 @@
  * @description ESLint Config
  */
 
-import eslintCommonConfig from "@imbricate-hummingbird/config/eslint.common.config";
+import eslintCommonConfig from "@imbricate/eslint-config/eslint.common.config";
 
 export default [
     {

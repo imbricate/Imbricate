@@ -9,10 +9,8 @@ export default async (): Promise<Config> => {
 
     return {
         verbose: true,
-        testEnvironment: "jsdom",
         collectCoverageFrom: [
             "src/**/*.ts",
-            "src/**/*.tsx",
         ],
         coverageReporters: [
             "json",

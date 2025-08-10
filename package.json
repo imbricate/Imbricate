@@ -1,6 +1,11 @@
 {
   "packageManager": "pnpm@10.14.0",
-  "scripts": {},
+  "scripts": {
+    "lint": "pnpm -r lint",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "coverage": "pnpm -r coverage"
+  },
   "devDependencies": {},
   "optionalDependencies": {}
 }
