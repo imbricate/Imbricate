@@ -4,7 +4,8 @@
     "lint": "pnpm -r lint",
     "build": "pnpm -r build",
     "test": "pnpm -r test",
-    "coverage": "pnpm -r coverage"
+    "coverage": "pnpm -r coverage",
+    "combine-coverage": "sh scripts/combine-coverage/combine-coverage.sh"
   },
   "devDependencies": {
     "@babel/core": "7.28.0",
@@ -16,6 +17,7 @@
     "@typescript-eslint/parser": "8.39.0",
     "babel-jest": "30.0.5",
     "jest": "30.0.5",
+    "nyc": "17.1.0",
     "ts-node": "10.9.2",
     "typescript": "5.9.2"
   }
