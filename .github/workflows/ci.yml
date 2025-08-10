@@ -15,33 +15,37 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - windows-latest
-          - macos-latest
         node-version:
-          - 18
-          - 20
+          - 22
+          - 24
         architecture:
           - x64
+          - arm64
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
       - name: Use Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           architecture: ${{ matrix.architecture }}
-          cache: yarn
+          cache: pnpm
       - name: Install Dependencies
         run: |
-          yarn
+          pnpm install
       - name: Lint
         run: |
-          yarn lint
+          pnpm lint
       - name: Build
         run: |
-          yarn build
+          pnpm build
       - name: Test
         run: |
-          yarn coverage
+          pnpm coverage
       - name: Codecov
         uses: codecov/codecov-action@v4
         with:
