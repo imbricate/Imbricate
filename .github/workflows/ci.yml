@@ -49,5 +49,7 @@ jobs:
       - name: Codecov
         uses: codecov/codecov-action@v4
         with:
-          files: packages/**/coverage/**
+          fail_ci_if_error: true
+          verbose: true
+          files: ./packages/imbricate/coverage/coverage-final.json
           token: ${{ secrets.CODECOV_TOKEN }}
