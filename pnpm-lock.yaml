@@ -6,11 +6,7 @@ settings:
 
 importers:
 
-  .: {}
-
-  packages/config: {}
-
-  packages/imbricate:
+  .:
     devDependencies:
       '@babel/core':
         specifier: 7.28.0
@@ -21,12 +17,12 @@ importers:
       '@babel/preset-typescript':
         specifier: 7.27.1
         version: 7.27.1(@babel/core@7.28.0)
-      '@imbricate/eslint-config':
-        specifier: workspace:*
-        version: link:../config
       '@types/jest':
         specifier: 30.0.0
         version: 30.0.0
+      '@types/node':
+        specifier: 24.2.1
+        version: 24.2.1
       '@typescript-eslint/eslint-plugin':
         specifier: 8.39.0
         version: 8.39.0(@typescript-eslint/parser@8.39.0(eslint@9.33.0)(typescript@5.9.2))(eslint@9.33.0)(typescript@5.9.2)
@@ -36,9 +32,6 @@ importers:
       babel-jest:
         specifier: 30.0.5
         version: 30.0.5(@babel/core@7.28.0)
-      eslint:
-        specifier: 9.33.0
-        version: 9.33.0
       jest:
         specifier: 30.0.5
         version: 30.0.5(@types/node@24.2.1)(ts-node@10.9.2(@types/node@24.2.1)(typescript@5.9.2))
@@ -48,6 +41,17 @@ importers:
       typescript:
         specifier: 5.9.2
         version: 5.9.2
+
+  packages/config: {}
+
+  packages/imbricate:
+    devDependencies:
+      '@imbricate/eslint-config':
+        specifier: workspace:*
+        version: link:../config
+      eslint:
+        specifier: 9.33.0
+        version: 9.33.0
     optionalDependencies:
       '@sudoo/locale':
         specifier: 2.0.0

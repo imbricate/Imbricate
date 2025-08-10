@@ -6,6 +6,17 @@
     "test": "pnpm -r test",
     "coverage": "pnpm -r coverage"
   },
-  "devDependencies": {},
-  "optionalDependencies": {}
+  "devDependencies": {
+    "@babel/core": "7.28.0",
+    "@babel/preset-env": "7.28.0",
+    "@babel/preset-typescript": "7.27.1",
+    "@types/jest": "30.0.0",
+    "@types/node": "24.2.1",
+    "@typescript-eslint/eslint-plugin": "8.39.0",
+    "@typescript-eslint/parser": "8.39.0",
+    "babel-jest": "30.0.5",
+    "jest": "30.0.5",
+    "ts-node": "10.9.2",
+    "typescript": "5.9.2"
+  }
 }
