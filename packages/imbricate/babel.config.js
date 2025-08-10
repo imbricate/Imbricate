@@ -1,3 +1,8 @@
+/**
+ * @author WMXPY
+ * @description Babel Config
+ */
+
 module.exports = {
     presets: [
         [
@@ -9,6 +14,7 @@ module.exports = {
                 },
             },
         ],
+        "@babel/preset-react",
         "@babel/preset-typescript",
     ],
 };
