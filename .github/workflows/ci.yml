@@ -51,5 +51,6 @@ jobs:
         with:
           fail_ci_if_error: true
           verbose: true
+          flags: imbricate
           files: ./packages/imbricate/coverage/coverage-final.json
           token: ${{ secrets.CODECOV_TOKEN }}
