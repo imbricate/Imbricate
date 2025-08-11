@@ -1,8 +1,3 @@
-/**
- * @author WMXPY
- * @description Babel Config
- */
-
 module.exports = {
     presets: [
         [

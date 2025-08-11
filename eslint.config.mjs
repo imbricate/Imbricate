@@ -1,13 +1,9 @@
-/**
- * @author WMXPY
- * @description ESLint Config
- */
-
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
 import typescriptParser from "@typescript-eslint/parser";
 
 export default [
     {
+        files: ["**/*.{ts,tsx}"],
         languageOptions: {
             parser: typescriptParser,
             parserOptions: {
