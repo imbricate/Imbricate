@@ -7,7 +7,7 @@ import { ImbricateGenerativeAIManagerStream } from "./stream";
 
 export interface IImbricateGenerativeAIManager {
 
-    completeText(
+    streamTextCompletion(
         prompt: string,
     ): ImbricateGenerativeAIManagerStream;
 }
