@@ -1,5 +1,4 @@
 /**
- * @author WMXPY
  * @description Index
  */
 

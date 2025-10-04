@@ -1,5 +1,4 @@
 /**
- * @author WMXPY
  * @namespace Text
  * @description Base Class
  */

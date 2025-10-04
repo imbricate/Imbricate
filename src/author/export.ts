@@ -1,5 +1,4 @@
 /**
- * @author WMXPY
  * @namespace Author
  * @description Export
  */

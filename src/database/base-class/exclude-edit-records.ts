@@ -1,5 +1,4 @@
 /**
- * @author WMXPY
  * @namespace Database
  * @description Exclude Edit Records
  */

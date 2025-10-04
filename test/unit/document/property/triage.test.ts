@@ -1,5 +1,4 @@
 /**
- * @author WMXPY
  * @namespace Document_Property
  * @description Triage
  * @override Unit Test

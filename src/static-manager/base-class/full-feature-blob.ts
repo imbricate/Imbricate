@@ -1,5 +1,4 @@
 /**
- * @author WMXPY
  * @namespace StaticManager
  * @description Full Feature Blob
  */

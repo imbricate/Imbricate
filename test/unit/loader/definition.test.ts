@@ -1,5 +1,4 @@
 /**
- * @author WMXPY
  * @namespace Loader
  * @description Definition
  * @override Unit Test

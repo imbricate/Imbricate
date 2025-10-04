@@ -1,5 +1,4 @@
 /**
- * @author WMXPY
  * @namespace Origin
  * @description Exclude Static
  */

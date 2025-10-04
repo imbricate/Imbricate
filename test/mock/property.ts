@@ -1,5 +1,4 @@
 /**
- * @author WMXPY
  * @namespace Mock
  * @description Property
  */

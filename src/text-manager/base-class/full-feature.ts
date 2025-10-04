@@ -1,5 +1,4 @@
 /**
- * @author WMXPY
  * @namespace TextManager
  * @description Full Feature
  */

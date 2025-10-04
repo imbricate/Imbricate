@@ -1,5 +1,4 @@
 /**
- * @author WMXPY
  * @namespace Static
  * @description Author Only
  */

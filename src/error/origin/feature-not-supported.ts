@@ -1,5 +1,4 @@
 /**
- * @author WMXPY
  * @namespace Error_Origin
  * @description Feature Not Supported
  */

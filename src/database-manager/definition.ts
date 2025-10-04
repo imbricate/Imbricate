@@ -1,5 +1,4 @@
 /**
- * @author WMXPY
  * @namespace DatabaseManager
  * @description Definition
  */

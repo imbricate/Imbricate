@@ -1,5 +1,4 @@
 /**
- * @author WMXPY
  * @namespace Property
  * @description Validate
  * @override Unit Test

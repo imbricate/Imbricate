@@ -1,5 +1,4 @@
 /**
- * @author WMXPY
  * @namespace Error
  * @description Database Manager Error
  */

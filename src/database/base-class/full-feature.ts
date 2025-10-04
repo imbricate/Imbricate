@@ -1,5 +1,4 @@
 /**
- * @author WMXPY
  * @namespace Database_BaseClass
  * @description Full Feature
  */

@@ -1,5 +1,4 @@
 /**
- * @author WMXPY
  * @namespace Util
  * @description Rebuild Symbol
  */
