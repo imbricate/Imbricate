@@ -1,5 +1,5 @@
 /**
  * @author WMXPY
- * @namespace GenerativeAI
+ * @namespace GenerativeAIManager
  * @description Export
  */
