@@ -19,3 +19,6 @@ catalog:
 fetchRetryMaxtimeout: 10000
 
 fetchRetryMintimeout: 1000
+
+onlyBuiltDependencies:
+  - unrs-resolver
