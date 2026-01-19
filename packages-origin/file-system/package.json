@@ -1,0 +1,57 @@
+{
+  "name": "@imbricate/origin-file-system",
+  "version": "3.16.1",
+  "description": "File System Origin Implementation for Imbricate",
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "lint": "eslint src",
+    "build": "tsc --project typescript/tsconfig.build.json",
+    "lock-dedupe": "yarn dedupe --strategy highest",
+    "license": "sdb license",
+    "release": "pnpm lint && pnpm test && pnpm license && pnpm build",
+    "publish-dry-run": "pnpm release && sdb --only publish-dry-run",
+    "publish": "pnpm release && sdb --only publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Imbricate/Imbricate.git"
+  },
+  "keywords": [
+    "imbricate",
+    "note",
+    "file-system"
+  ],
+  "author": "WMXPY",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Imbricate/Imbricate/issues"
+  },
+  "homepage": "https://imbricate.io",
+  "dependencies": {
+    "@sudoo/asynchronous": "^2.4.0",
+    "@sudoo/io": "^1.8.0",
+    "@sudoo/uuid": "^1.1.0"
+  },
+  "peerDependencies": {
+    "@imbricate/core": "*",
+    "@sudoo/locale": "*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.3",
+    "@babel/preset-env": "^7.28.3",
+    "@babel/preset-typescript": "^7.27.1",
+    "@imbricate/core": "^3.32.0",
+    "@imbricate/test-origin-jest": "^3.12.0",
+    "@sudoo/locale": "^2.0.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.41.0",
+    "@typescript-eslint/parser": "^8.41.0",
+    "babel-jest": "^30.1.1",
+    "eslint": "^9.34.0",
+    "jest": "^30.1.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
