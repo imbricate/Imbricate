@@ -2,6 +2,7 @@
   "name": "@imbricate/core",
   "version": "3.32.0",
   "description": "Imbricate Core, Notebook for Engineers",
+  "main": "src/index.ts",
   "scripts": {
     "clean": "rm -rf app",
     "test": "jest",

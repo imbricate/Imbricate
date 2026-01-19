@@ -2,6 +2,7 @@
   "name": "@imbricate/origin-file-system",
   "version": "3.16.1",
   "description": "File System Origin Implementation for Imbricate",
+  "main": "src/index.ts",
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
