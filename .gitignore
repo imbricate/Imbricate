@@ -12,6 +12,9 @@ app/
 build/
 build-dev/
 
+# Turbo
+.turbo/
+
 # Assets
 assets-temp/
 

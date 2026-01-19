@@ -6,7 +6,7 @@
     "coverage": "jest --coverage",
     "lint": "eslint src test",
     "build": "tsc --project typescript/tsconfig.build.json",
-    "compile": "tsc --project typescript/tsconfig.compile.json"
+    "compile": "turbo compile"
   },
   "devDependencies": {
     "@babel/core": "catalog:",
@@ -19,6 +19,7 @@
     "eslint": "catalog:",
     "jest": "catalog:",
     "ts-node": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "turbo": "catalog:"
   }
 }

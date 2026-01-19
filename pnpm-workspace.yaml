@@ -15,6 +15,7 @@ catalog:
   jest: 30.2.0
   ts-node: 10.9.2
   typescript: 5.9.3
+  turbo: 2.7.5
 
 fetchRetryMaxtimeout: 10000
 
