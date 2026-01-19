@@ -8,7 +8,9 @@
     "lint": "turbo lint",
     "build": "turbo build",
     "compile": "turbo compile",
-    "validate": "turbo lint && turbo compile && turbo coverage"
+    "validate": "turbo lint && turbo compile && turbo coverage",
+    "publish-dry-run:core": "pnpm --filter @imbricate/core run publish-dry-run",
+    "publish-dry-run:origin-file-system": "pnpm --filter @imbricate/origin-file-system run publish-dry-run"
   },
   "devDependencies": {
     "@babel/core": "catalog:",
