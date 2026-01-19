@@ -1,6 +1,5 @@
 {
   "name": "@imbricate/core",
-  "packageManager": "yarn@4.10.3",
   "version": "3.32.0",
   "description": "Imbricate Core, Notebook for Engineers",
   "scripts": {
