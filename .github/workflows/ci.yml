@@ -18,31 +18,39 @@ jobs:
           - windows-latest
           - macos-latest
         node-version:
-          - 22
-          - 24
+          - 22 # Latest LTS
+          - 24 # Current
         architecture:
           - x64
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Current Repo
+        uses: actions/checkout@v5
+      - name: Cache turbo
+        uses: actions/cache@v5
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
       - name: Use Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: ${{ matrix.node-version }}
           architecture: ${{ matrix.architecture }}
-          cache: yarn
+          cache: pnpm
       - name: Install Dependencies
         run: |
-          yarn
+          pnpm install
       - name: Lint
         run: |
-          yarn lint
-      - name: Build
+          pnpm lint
+      - name: Compile
         run: |
-          yarn build
+          pnpm compile
       - name: Test
         run: |
-          yarn coverage
-      - name: Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          pnpm coverage
