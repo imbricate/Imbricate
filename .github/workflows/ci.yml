@@ -54,3 +54,11 @@ jobs:
       - name: Test
         run: |
           pnpm coverage
+      - name: Core Package Coverage
+        uses: codecov/codecov-action@v5
+        with:
+          fail_ci_if_error: true
+          files: ./packages/core/coverage/coverage-final.json
+          flags: unit-tests
+          name: imbricate-core
+          token: ${{ secrets.CODECOV_TOKEN }}
