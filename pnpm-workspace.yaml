@@ -5,7 +5,10 @@ catalog:
   '@babel/core': 7.28.6
   '@babel/preset-env': 7.28.6
   '@babel/preset-typescript': 7.28.5
+  '@sudoo/asynchronous': 2.4.0
+  '@sudoo/io': 1.8.0
   '@sudoo/locale': 2.0.0
+  '@sudoo/uuid': 1.1.0
   '@types/jest': 30.0.0
   '@types/node': 25.0.9
   '@typescript-eslint/eslint-plugin': 8.53.0
