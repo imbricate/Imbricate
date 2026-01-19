@@ -1,3 +1,8 @@
+/**
+ * @namespace Root
+ * @description Babel Configuration
+ */
+
 module.exports = {
     presets: [
         [
