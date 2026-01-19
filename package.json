@@ -1,0 +1,24 @@
+{
+  "packageManager": "pnpm@10.28.0",
+  "description": "Imbricate Monorepo",
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "lint": "eslint src test",
+    "build": "tsc --project typescript/tsconfig.build.json",
+    "compile": "tsc --project typescript/tsconfig.compile.json"
+  },
+  "devDependencies": {
+    "@babel/core": "catalog:",
+    "@babel/preset-env": "catalog:",
+    "@babel/preset-typescript": "catalog:",
+    "@types/jest": "catalog:",
+    "@typescript-eslint/eslint-plugin": "catalog:",
+    "@typescript-eslint/parser": "catalog:",
+    "babel-jest": "catalog:",
+    "eslint": "catalog:",
+    "jest": "catalog:",
+    "ts-node": "catalog:",
+    "typescript": "catalog:"
+  }
+}
