@@ -1,0 +1,40 @@
+{
+  "name": "@imbricate/origin-mock",
+  "version": "1.0.0",
+  "description": "The Mock origin for Imbricate",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "lint": "eslint src",
+    "build": "tsc --project typescript/tsconfig.build.json",
+    "license": "sdb license",
+    "release": "pnpm lint && pnpm test && pnpm license && pnpm build",
+    "publish-dry-run": "pnpm release && sdb --only publish-dry-run",
+    "publish": "pnpm release && sdb --only publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Imbricate/Imbricate.git"
+  },
+  "keywords": [
+    "imbricate",
+    "note",
+    "mock"
+  ],
+  "author": "WMXPY",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Imbricate/Imbricate/issues"
+  },
+  "homepage": "https://imbricate.io",
+  "dependencies": {},
+  "peerDependencies": {
+    "@imbricate/core": "*"
+  },
+  "devDependencies": {
+    "@imbricate/core": "workspace:*",
+    "@imbricate/test-origin-jest": "workspace:*",
+    "@imbricate-internal/eslint-config": "workspace:*"
+  }
+}
