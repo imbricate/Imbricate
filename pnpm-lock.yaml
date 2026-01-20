@@ -99,6 +99,18 @@ importers:
         specifier: 'catalog:'
         version: 5.9.3
 
+  packages-origin/cloud:
+    devDependencies:
+      '@imbricate-internal/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@imbricate/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@imbricate/test-origin-jest':
+        specifier: workspace:*
+        version: link:../../packages/test-origin-jest
+
   packages-origin/file-system:
     dependencies:
       '@sudoo/asynchronous':
