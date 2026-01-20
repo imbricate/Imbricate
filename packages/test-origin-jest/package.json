@@ -4,8 +4,6 @@
   "description": "Jest test kit for Imbricate Origin Testing",
   "main": "src/index.ts",
   "scripts": {
-    "test": "jest",
-    "coverage": "jest --coverage",
     "lint": "eslint src",
     "build": "tsc --project typescript/tsconfig.build.json",
     "license": "sdb license",
