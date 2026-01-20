@@ -115,8 +115,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/core
       '@imbricate/test-origin-jest':
-        specifier: ^3.12.0
-        version: 3.12.0(@imbricate/core@packages+core)
+        specifier: workspace:*
+        version: link:../../packages/test-origin-jest
 
   packages/core:
     optionalDependencies:
@@ -789,11 +789,6 @@ packages:
   '@humanwhocodes/retry@0.4.3':
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
-
-  '@imbricate/test-origin-jest@3.12.0':
-    resolution: {integrity: sha512-tHZoZYf0zCxRIVCjkttsSSyg403968tHccPYFEN6IOXhnVBGTOgMMlrd4lcPihIFOLelqoPifxBZx/KbiEN4wQ==}
-    peerDependencies:
-      '@imbricate/core': '*'
 
   '@isaacs/cliui@8.0.2':
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -3153,10 +3148,6 @@ snapshots:
   '@humanwhocodes/module-importer@1.0.1': {}
 
   '@humanwhocodes/retry@0.4.3': {}
-
-  '@imbricate/test-origin-jest@3.12.0(@imbricate/core@packages+core)':
-    dependencies:
-      '@imbricate/core': link:packages/core
 
   '@isaacs/cliui@8.0.2':
     dependencies:

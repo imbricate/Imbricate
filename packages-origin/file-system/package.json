@@ -40,6 +40,6 @@
   },
   "devDependencies": {
     "@imbricate/core": "workspace:*",
-    "@imbricate/test-origin-jest": "^3.12.0"
+    "@imbricate/test-origin-jest": "workspace:*"
   }
 }
