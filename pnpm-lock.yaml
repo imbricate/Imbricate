@@ -124,6 +124,8 @@ importers:
         specifier: 'catalog:'
         version: 2.0.0
 
+  packages/eslint-config: {}
+
   packages/test-origin-jest:
     devDependencies:
       '@imbricate/core':

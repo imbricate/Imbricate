@@ -1,0 +1,8 @@
+{
+  "name": "@imbricate-internal/eslint-config",
+  "description": "Common configuration for Imbricate",
+  "private": true,
+  "exports": {
+    "./eslint.common.config": "./eslint.common.config.mjs"
+  }
+}
