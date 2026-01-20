@@ -1,17 +1,15 @@
 {
-  "name": "@imbricate/core",
-  "version": "3.32.0",
-  "description": "Imbricate Core, Notebook for Engineers",
+  "name": "@imbricate/test-origin-jest",
+  "version": "3.12.0",
+  "description": "Jest test kit for Imbricate Origin Testing",
   "main": "src/index.ts",
   "scripts": {
-    "clean": "rm -rf app",
     "test": "jest",
     "coverage": "jest --coverage",
-    "lint": "eslint src test",
+    "lint": "eslint src",
     "build": "tsc --project typescript/tsconfig.build.json",
-    "compile": "tsc --project typescript/tsconfig.compile.json",
     "license": "sdb license",
-    "release": "pnpm lint && pnpm test && pnpm license && pnpm build",
+    "release": "pnpm lint && pnpm license && pnpm build",
     "publish-dry-run": "pnpm release && sdb --only publish-dry-run",
     "publish": "pnpm release && sdb --only publish"
   },
@@ -20,8 +18,6 @@
     "url": "git+https://github.com/Imbricate/Imbricate.git"
   },
   "keywords": [
-    "Notebook",
-    "Engineer",
     "API"
   ],
   "author": "WMXPY",
@@ -30,7 +26,7 @@
     "url": "https://github.com/Imbricate/Imbricate/issues"
   },
   "homepage": "https://imbricate.io",
-  "optionalDependencies": {
-    "@sudoo/locale": "catalog:"
+  "peerDependencies": {
+    "@imbricate/core": "*"
   }
 }
