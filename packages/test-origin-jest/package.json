@@ -30,6 +30,7 @@
     "@imbricate/core": "*"
   },
   "devDependencies": {
-    "@imbricate/core": "workspace:*"
+    "@imbricate/core": "workspace:*",
+    "@imbricate-internal/eslint-config": "workspace:*"
   }
 }

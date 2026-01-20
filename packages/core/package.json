@@ -32,5 +32,8 @@
   "homepage": "https://imbricate.io",
   "optionalDependencies": {
     "@sudoo/locale": "catalog:"
+  },
+  "devDependencies": {
+    "@imbricate-internal/eslint-config": "workspace:*"
   }
 }

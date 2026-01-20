@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "@imbricate/core": "workspace:*",
-    "@imbricate/test-origin-jest": "workspace:*"
+    "@imbricate/test-origin-jest": "workspace:*",
+    "@imbricate-internal/eslint-config": "workspace:*"
   }
 }
