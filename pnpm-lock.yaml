@@ -124,6 +124,12 @@ importers:
         specifier: 'catalog:'
         version: 2.0.0
 
+  packages/test-origin-jest:
+    devDependencies:
+      '@imbricate/core':
+        specifier: workspace:*
+        version: link:../core
+
 packages:
 
   '@babel/code-frame@7.28.6':

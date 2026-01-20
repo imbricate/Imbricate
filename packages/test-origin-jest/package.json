@@ -28,5 +28,8 @@
   "homepage": "https://imbricate.io",
   "peerDependencies": {
     "@imbricate/core": "*"
+  },
+  "devDependencies": {
+    "@imbricate/core": "workspace:*"
   }
 }
