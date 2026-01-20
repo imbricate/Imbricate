@@ -28,13 +28,10 @@
   },
   "homepage": "https://imbricate.io",
   "dependencies": {
-    "@sudoo/asynchronous": "catalog:",
-    "@sudoo/io": "catalog:",
-    "@sudoo/uuid": "catalog:"
+    "axios": "catalog:"
   },
   "peerDependencies": {
-    "@imbricate/core": "*",
-    "@sudoo/locale": "*"
+    "@imbricate/core": "*"
   },
   "devDependencies": {
     "@imbricate/core": "workspace:*",
