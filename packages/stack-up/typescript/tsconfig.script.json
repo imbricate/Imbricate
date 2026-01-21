@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "lib": [
+            "esnext"
+        ],
+        "skipLibCheck": true,
+        "strict": true,
+        "esModuleInterop": true,
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "isolatedModules": true
+    }
+}
