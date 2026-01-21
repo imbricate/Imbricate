@@ -16,7 +16,11 @@ catalog:
   '@typescript-eslint/parser': 8.53.1
   axios: 1.13.2
   babel-jest: 30.2.0
+  body-parser: 2.2.2
+  commander: 14.0.2
+  cors: 2.8.5
   eslint: 9.39.2
+  express: 5.2.1
   jest: 30.2.0
   ts-node: 10.9.2
   typescript: 5.9.3
