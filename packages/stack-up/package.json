@@ -40,6 +40,8 @@
     "express": "catalog:"
   },
   "devDependencies": {
-    "@imbricate-internal/eslint-config": "workspace:*"
+    "@imbricate-internal/eslint-config": "workspace:*",
+    "@types/cors": "catalog:",
+    "@types/express": "catalog:"
   }
 }
