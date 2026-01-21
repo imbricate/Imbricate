@@ -1,7 +1,7 @@
 {
   "name": "@imbricate/stack-up",
   "version": "1.19.0",
-  "description": "File System Origin Implementation for Imbricate",
+  "description": "Convert Imbricate origin to a local HTTP server",
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
@@ -9,16 +9,16 @@
     "clean": "rm -rf app",
     "build": "tsc --project typescript/tsconfig.build.json",
     "license": "sdb license",
-    "lock-dedupe": "yarn dedupe --strategy highest",
+    "lock-dedupe": "pnpm dedupe --strategy highest",
     "add-bin": "ts-node --project typescript/tsconfig.script.json scripts/add-bin.ts",
     "replace-version": "ts-node --project typescript/tsconfig.script.json scripts/replace-version.ts",
-    "release": "yarn lint && yarn test && yarn license && yarn build && yarn replace-version && yarn add-bin",
-    "publish-dry-run": "yarn release && sdb --only publish-dry-run",
-    "publish": "yarn release && sdb --only publish"
+    "release": "pnpm lint && pnpm test && pnpm license && pnpm build && pnpm replace-version && pnpm add-bin",
+    "publish-dry-run": "pnpm release && sdb --only publish-dry-run",
+    "publish": "pnpm release && sdb --only publish"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Imbricate/Imbricate-Stack-Up.git"
+    "url": "git+https://github.com/Imbricate/Imbricate.git"
   },
   "keywords": [
     "imbricate",
@@ -28,11 +28,11 @@
   "author": "WMXPY",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Imbricate/Imbricate-Stack-Up/issues"
+    "url": "https://github.com/Imbricate/Imbricate/issues"
   },
   "homepage": "https://imbricate.io",
   "dependencies": {
-    "@imbricate/core": "^3.32.0",
+    "@imbricate/core": "workspace:*",
     "@sudoo/io": "^1.8.0",
     "body-parser": "^2.2.0",
     "commander": "^14.0.1",
