@@ -10,6 +10,7 @@
     "compile": "turbo compile",
     "validate": "turbo lint && turbo compile && turbo coverage",
     "publish-dry-run:core": "pnpm --filter @imbricate/core run publish-dry-run",
+    "publish-dry-run:stack-up": "pnpm --filter @imbricate/stack-up run publish-dry-run",
     "publish-dry-run:origin-file-system": "pnpm --filter @imbricate/origin-file-system run publish-dry-run"
   },
   "devDependencies": {

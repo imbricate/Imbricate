@@ -208,6 +208,10 @@ importers:
       express:
         specifier: 'catalog:'
         version: 5.2.1
+    devDependencies:
+      '@imbricate-internal/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
 
   packages/test-origin-jest:
     devDependencies:
