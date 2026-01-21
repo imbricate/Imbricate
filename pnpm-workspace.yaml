@@ -10,6 +10,7 @@ catalog:
   '@sudoo/io': 1.8.0
   '@sudoo/locale': 2.0.0
   '@sudoo/uuid': 1.1.0
+  '@types/body-parser': 1.19.6
   '@types/cors': 2.8.19
   '@types/express': 5.0.6
   '@types/jest': 30.0.0

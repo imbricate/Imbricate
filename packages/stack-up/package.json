@@ -41,6 +41,7 @@
   },
   "devDependencies": {
     "@imbricate-internal/eslint-config": "workspace:*",
+    "@types/body-parser": "catalog:",
     "@types/cors": "catalog:",
     "@types/express": "catalog:"
   }
