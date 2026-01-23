@@ -8,6 +8,7 @@
     "lint": "eslint src",
     "clean": "rm -rf app",
     "build": "tsc --project typescript/tsconfig.build.json",
+    "compile": "tsc --project typescript/tsconfig.compile.json",
     "license": "sdb license",
     "lock-dedupe": "pnpm dedupe --strategy highest",
     "add-bin": "ts-node --project typescript/tsconfig.script.json scripts/add-bin.ts",
