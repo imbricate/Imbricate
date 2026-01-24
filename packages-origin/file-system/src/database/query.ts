@@ -8,6 +8,7 @@ import { IImbricateDocument, IMBRICATE_QUERY_COMPARE_CONDITION, IMBRICATE_QUERY_
 import { getDocumentList } from "../document/action";
 import { ImbricateFileSystemDocumentInstance } from "../document/definition";
 import { ImbricateFileSystemDocument } from "../document/document";
+import { sortDocuments } from "../document/sort-documents";
 
 export type QueryDocumentsResult = {
 
@@ -22,7 +23,7 @@ export const queryDocuments = async (
     query: ImbricateDocumentQuery,
 ): Promise<QueryDocumentsResult> => {
 
-    const documents: ImbricateFileSystemDocumentInstance[] = await getDocumentList(
+    const rawDocuments: ImbricateFileSystemDocumentInstance[] = await getDocumentList(
         basePath,
         databaseUniqueIdentifier,
     );
@@ -31,10 +32,15 @@ export const queryDocuments = async (
     let limitFilled: number = 0;
     const results: IImbricateDocument[] = [];
 
-    let restSkips: number = query.skip ?? 0;
-    documents: for (let i = 0; i < documents.length; i++) {
+    const sortedDocuments: ImbricateFileSystemDocumentInstance[] = sortDocuments(
+        rawDocuments,
+        query.sorts,
+    );
 
-        const documentInstance: ImbricateFileSystemDocumentInstance = documents[i];
+    let restSkips: number = query.skip ?? 0;
+    documentsLoop: for (let i = 0; i < sortedDocuments.length; i++) {
+
+        const documentInstance: ImbricateFileSystemDocumentInstance = sortedDocuments[i];
         const document = ImbricateFileSystemDocument.fromInstance(
             schema,
             basePath,
@@ -48,7 +54,7 @@ export const queryDocuments = async (
 
                 const property = document.properties[filter.propertyIdentifier];
                 if (!property) {
-                    continue documents;
+                    continue documentsLoop;
                 }
 
                 if (filter.target === IMBRICATE_QUERY_PROPERTY_CONDITION_TARGET.PROPERTY_TYPE) {
@@ -56,11 +62,11 @@ export const queryDocuments = async (
                     if (filter.condition === IMBRICATE_QUERY_COMPARE_CONDITION.EQUAL) {
 
                         if (!property) {
-                            continue documents;
+                            continue documentsLoop;
                         }
 
                         if (property.propertyType !== filter.value) {
-                            continue documents;
+                            continue documentsLoop;
                         }
                     }
                 }
@@ -70,46 +76,45 @@ export const queryDocuments = async (
                     if (filter.condition === IMBRICATE_QUERY_COMPARE_CONDITION.EQUAL) {
 
                         if (!property) {
-                            continue documents;
+                            continue documentsLoop;
                         }
 
                         if (Array.isArray(property.propertyValue) && Array.isArray(filter.value)) {
 
                             if (property.propertyValue.length !== filter.value.length) {
-                                continue documents;
+                                continue documentsLoop;
                             }
 
                             for (const value of filter.value) {
 
                                 if (!property.propertyValue.includes(value)) {
-                                    continue documents;
+                                    continue documentsLoop;
                                 }
                             }
                         } else if (property.propertyValue !== filter.value) {
-                            continue documents;
+                            continue documentsLoop;
                         }
                     }
 
                     if (filter.condition === IMBRICATE_QUERY_COMPARE_CONDITION.EXIST) {
 
                         if (filter.value && typeof property === "undefined") {
-                            continue documents;
+                            continue documentsLoop;
                         }
 
                         if (!filter.value && typeof property !== "undefined") {
-                            continue documents;
+                            continue documentsLoop;
                         }
                     }
                 }
             }
         }
 
-
         count++;
 
         if (restSkips > 0) {
             restSkips--;
-            continue documents;
+            continue documentsLoop;
         }
 
         if (typeof query.limit !== "number" || limitFilled < query.limit) {
