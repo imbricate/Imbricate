@@ -4,7 +4,8 @@
  * @description Sort Documents
  */
 
-import { IMBRICATE_QUERY_SORT_TYPE, ImbricateDocumentQuerySort } from "@imbricate/core";
+import { IMBRICATE_QUERY_SORT_DIRECTION, IMBRICATE_QUERY_SORT_TYPE, ImbricateDocumentQuerySort } from "@imbricate/core";
+import { comparePropertyValue } from "../property/compare-value";
 import { ImbricateFileSystemDocumentInstance, ImbricateFileSystemDocumentInstanceProperty } from "./definition";
 
 /**
@@ -53,7 +54,19 @@ const sortSingleDocument = (
                     continue sortLoop;
                 }
 
+                const comparisonResult: number = comparePropertyValue(
+                    leftTargetProperty,
+                    rightTargetProperty,
+                );
 
+                if (comparisonResult !== 0) {
+
+                    return sort.direction === IMBRICATE_QUERY_SORT_DIRECTION.ASCENDING
+                        ? comparisonResult
+                        : -comparisonResult;
+                }
+
+                continue sortLoop;
             }
         }
     }
