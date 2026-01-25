@@ -10,6 +10,7 @@ import { propertyRecordToInstanceRecord } from "../property/parse";
 export type ImbricateFileSystemDocumentInstanceProperty = {
 
     readonly type: IMBRICATE_PROPERTY_TYPE;
+
     readonly value: ImbricatePropertyValueObject<IMBRICATE_PROPERTY_TYPE>;
     readonly variant: ImbricatePropertyVariant;
 };

@@ -3,16 +3,31 @@
  * @description Compare Value
  */
 
+import { IMBRICATE_PROPERTY_TYPE, ImbricateFileSystemDocumentInstanceProperty } from "../document/definition";
+
+/**
+ * 
+ * @param leftValue The left value
+ * @param rightValue The right value
+ * 
+ * @returns The comparison result
+ *  if leftValue is less than rightValue, return a negative number
+ *  if leftValue is equal to rightValue, return 0
+ *  if leftValue is greater than rightValue, return a positive number
+ */
 export const comparePropertyValue = (
-    leftValue: any,
-    rightValue: any,
+    leftValue: ImbricateFileSystemDocumentInstanceProperty,
+    rightValue: ImbricateFileSystemDocumentInstanceProperty,
 ): number => {
 
-    if (leftValue < rightValue) {
-        return -1;
+    if (leftValue.type !== rightValue.type) {
+        return 0;
     }
-    if (leftValue > rightValue) {
-        return 1;
+
+    const targetType: IMBRICATE_PROPERTY_TYPE = leftValue.type;
+
+    // IMBRICATE_PROPERTY_TYPE SWITCH
+    switch (targetType) {
+
     }
-    return 0;
 };
