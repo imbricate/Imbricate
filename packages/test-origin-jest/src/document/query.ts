@@ -4,7 +4,7 @@
  * @description Query
  */
 
-import { IImbricateOrigin, IMBRICATE_PROPERTY_TYPE } from "@imbricate/core";
+import { IImbricateOrigin, IMBRICATE_PROPERTY_TYPE, IMBRICATE_QUERY_SORT_DIRECTION, IMBRICATE_QUERY_SORT_TYPE } from "@imbricate/core";
 import { ImbricateOriginTestingTarget } from "../testing-target";
 import assert from "node:assert";
 
@@ -103,6 +103,58 @@ export const startImbricateOriginDocumentQueryTest = (
             expect(skipDocuments.documents).toHaveLength(1);
 
             expect(limitDocuments.documents[0].uniqueIdentifier).not.toEqual(skipDocuments.documents[0].uniqueIdentifier);
+        });
+
+        it("should be able to query documents with single sort - ascending", async (): Promise<void> => {
+
+            const origin: IImbricateOrigin = testingTarget.ensureOrigin();
+            const databaseManager = origin.getDatabaseManager();
+
+            const database = await databaseManager.getDatabase(identifierMap.database);
+
+            assert(typeof database !== "symbol");
+
+            const documents = await database.database.queryDocuments({
+                sorts: [
+                    {
+                        type: IMBRICATE_QUERY_SORT_TYPE.PROPERTY,
+                        propertyIdentifier: database.database.schema.properties[0].propertyIdentifier,
+                        direction: IMBRICATE_QUERY_SORT_DIRECTION.ASCENDING,
+                    },
+                ],
+            });
+
+            assert(typeof documents !== "symbol");
+
+            expect(documents.documents).toHaveLength(2);
+            expect(documents.documents[0].uniqueIdentifier).toEqual(identifierMap.first);
+            expect(documents.documents[1].uniqueIdentifier).toEqual(identifierMap.second);
+        });
+
+        it("should be able to query documents with single sort - descending", async (): Promise<void> => {
+
+            const origin: IImbricateOrigin = testingTarget.ensureOrigin();
+            const databaseManager = origin.getDatabaseManager();
+
+            const database = await databaseManager.getDatabase(identifierMap.database);
+
+            assert(typeof database !== "symbol");
+
+            const documents = await database.database.queryDocuments({
+                sorts: [
+                    {
+                        type: IMBRICATE_QUERY_SORT_TYPE.PROPERTY,
+                        propertyIdentifier: database.database.schema.properties[0].propertyIdentifier,
+                        direction: IMBRICATE_QUERY_SORT_DIRECTION.DESCENDING,
+                    },
+                ],
+            });
+
+            assert(typeof documents !== "symbol");
+
+            expect(documents.documents).toHaveLength(2);
+            expect(documents.documents[0].uniqueIdentifier).toEqual(identifierMap.second);
+            expect(documents.documents[1].uniqueIdentifier).toEqual(identifierMap.first);
         });
     });
 };
