@@ -1,6 +1,6 @@
 {
   "name": "@imbricate/origin-file-system",
-  "version": "3.16.1",
+  "version": "3.17.0",
   "description": "File System Origin Implementation for Imbricate",
   "main": "src/index.ts",
   "scripts": {
