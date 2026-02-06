@@ -5,8 +5,8 @@
  */
 
 import { IImbricateOrigin, IMBRICATE_PROPERTY_TYPE } from "@imbricate/core";
+import assert from "node:assert";
 import { ImbricateOriginTestingTarget } from "../testing-target";
-import assert from "assert";
 
 export const startImbricateOriginDatabaseCreateTest = (
     testingTarget: ImbricateOriginTestingTarget,

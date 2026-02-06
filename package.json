@@ -17,6 +17,7 @@
     "@babel/core": "catalog:",
     "@babel/preset-env": "catalog:",
     "@babel/preset-typescript": "catalog:",
+    "@types/node": "catalog:",
     "@types/jest": "catalog:",
     "@typescript-eslint/eslint-plugin": "catalog:",
     "@typescript-eslint/parser": "catalog:",
