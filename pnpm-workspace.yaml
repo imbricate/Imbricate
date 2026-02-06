@@ -14,7 +14,7 @@ catalog:
   '@types/cors': 2.8.19
   '@types/express': 5.0.6
   '@types/jest': 30.0.0
-  '@types/node': 25.0.9
+  '@types/node': 25.2.1
   '@typescript-eslint/eslint-plugin': 8.54.0
   '@typescript-eslint/parser': 8.54.0
   axios: 1.13.4
