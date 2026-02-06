@@ -175,6 +175,18 @@ importers:
         specifier: workspace:*
         version: link:../../packages/test-origin-jest
 
+  packages-origin/quick-action:
+    devDependencies:
+      '@imbricate-internal/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@imbricate/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@imbricate/test-origin-jest':
+        specifier: workspace:*
+        version: link:../../packages/test-origin-jest
+
   packages-origin/stack-api:
     dependencies:
       axios:
