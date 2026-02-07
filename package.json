@@ -7,11 +7,17 @@
     "coverage": "turbo coverage",
     "lint": "turbo lint",
     "build": "turbo build",
+    "build:quick-action": "turbo build --filter @imbricate/origin-quick-action",
     "compile": "turbo compile",
     "validate": "turbo lint && turbo compile && turbo coverage",
+    "publish:core": "pnpm --filter @imbricate/core run publish",
+    "publish:stack-up": "pnpm --filter @imbricate/stack-up run publish",
+    "publish:origin-file-system": "pnpm --filter @imbricate/origin-file-system run publish",
+    "publish:origin-quick-action": "pnpm --filter @imbricate/origin-quick-action run publish",
     "publish-dry-run:core": "pnpm --filter @imbricate/core run publish-dry-run",
     "publish-dry-run:stack-up": "pnpm --filter @imbricate/stack-up run publish-dry-run",
-    "publish-dry-run:origin-file-system": "pnpm --filter @imbricate/origin-file-system run publish-dry-run"
+    "publish-dry-run:origin-file-system": "pnpm --filter @imbricate/origin-file-system run publish-dry-run",
+    "publish-dry-run:origin-quick-action": "pnpm --filter @imbricate/origin-quick-action run publish-dry-run"
   },
   "devDependencies": {
     "@babel/core": "catalog:",
