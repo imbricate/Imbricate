@@ -4,6 +4,7 @@
  */
 
 import { IImbricateOrigin } from "../origin/interface";
+import { loadImbricateOriginFromBuiltInOrigin } from "./built-in-origin-loader";
 import { IMBRICATE_ORIGIN_LOAD_TYPE, ImbricateOriginPersistence, ImbricateOriginPersistenceOrigin } from "./persistence";
 
 /**
@@ -22,6 +23,10 @@ export const loadImbricateOriginFromPersistenceOrigin = async (
 
     switch (origin.originLoadType) {
 
+        case IMBRICATE_ORIGIN_LOAD_TYPE.BUILT_IN: {
+
+            return loadImbricateOriginFromBuiltInOrigin(origin);
+        }
         case IMBRICATE_ORIGIN_LOAD_TYPE.NPM_PACKAGE: {
 
             const originPackage = await import(origin.originLoadValue);
