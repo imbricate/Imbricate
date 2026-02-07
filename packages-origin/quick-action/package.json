@@ -28,7 +28,10 @@
     "url": "https://github.com/Imbricate/Imbricate/issues"
   },
   "homepage": "https://imbricate.io",
-  "dependencies": {},
+  "dependencies": {
+    "@sudoo/asynchronous": "catalog:",
+    "@sudoo/io": "catalog:"
+  },
   "peerDependencies": {
     "@imbricate/core": "*"
   },
