@@ -31,6 +31,8 @@
   },
   "homepage": "https://imbricate.io",
   "optionalDependencies": {
+    "@imbricate/origin-file-system": "workspace:*",
+    "@imbricate/origin-quick-action": "workspace:*",
     "@sudoo/locale": "catalog:"
   },
   "devDependencies": {

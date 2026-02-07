@@ -216,6 +216,12 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
     optionalDependencies:
+      '@imbricate/origin-file-system':
+        specifier: workspace:*
+        version: link:../../packages-origin/file-system
+      '@imbricate/origin-quick-action':
+        specifier: workspace:*
+        version: link:../../packages-origin/quick-action
       '@sudoo/locale':
         specifier: 'catalog:'
         version: 2.0.0
