@@ -1,6 +1,6 @@
 {
   "name": "@imbricate/origin-quick-action",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "The Quick Action origin for Imbricate",
   "main": "src/index.ts",
   "scripts": {
@@ -10,8 +10,8 @@
     "build": "tsc --project typescript/tsconfig.build.json",
     "license": "sdb license",
     "release": "pnpm lint && pnpm test && pnpm license && pnpm build",
-    "publish-dry-run": "pnpm release && sdb --only publish-dry-run",
-    "publish": "pnpm release && sdb --only publish"
+    "publish-dry-run": "pnpm release && cd app && pnpm publish --dry-run --no-git-checks --access=public",
+    "publish": "pnpm release && cd app && pnpm publish --no-git-checks --access=public"
   },
   "repository": {
     "type": "git",
