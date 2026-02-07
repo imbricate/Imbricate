@@ -11,8 +11,8 @@
     "lock-dedupe": "yarn dedupe --strategy highest",
     "license": "sdb license",
     "release": "pnpm lint && pnpm test && pnpm license && pnpm build",
-    "publish-dry-run": "pnpm release && sdb --only publish-dry-run",
-    "publish": "pnpm release && sdb --only publish"
+    "publish-dry-run": "pnpm release && cd app && pnpm publish --dry-run --no-git-checks --access=public",
+    "publish": "pnpm release && cd app && pnpm publish --no-git-checks --access=public"
   },
   "repository": {
     "type": "git",
