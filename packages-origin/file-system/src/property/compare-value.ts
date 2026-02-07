@@ -60,11 +60,7 @@ export const comparePropertyValue = (
             const fixedLeftValue: number = leftValue.value as number;
             const fixedRightValue: number = rightValue.value as number;
 
-            return fixedLeftValue === fixedRightValue
-                ? 0
-                : fixedLeftValue
-                    ? 1
-                    : -1;
+            return fixedLeftValue - fixedRightValue;
         }
         case IMBRICATE_PROPERTY_TYPE.MARKDOWN: {
 
@@ -86,22 +82,20 @@ export const comparePropertyValue = (
             const parsedLeftValue: Date = new Date(fixedLeftValue);
             const parsedRightValue: Date = new Date(fixedRightValue);
 
-            return parsedLeftValue.getTime() === parsedRightValue.getTime()
-                ? 0
-                : parsedLeftValue.getTime()
-                    ? 1
-                    : -1;
+            const leftTime: number = parsedLeftValue.getTime();
+            const rightTime: number = parsedRightValue.getTime();
+
+            return leftTime - rightTime;
         }
         case IMBRICATE_PROPERTY_TYPE.LABEL: {
 
             const fixedLeftValue: string[] = leftValue.value as string[];
             const fixedRightValue: string[] = rightValue.value as string[];
 
-            return fixedLeftValue.length === fixedRightValue.length
-                ? 0
-                : fixedLeftValue.length
-                    ? 1
-                    : -1;
+            const leftLength: number = fixedLeftValue.length;
+            const rightLength: number = fixedRightValue.length;
+
+            return leftLength - rightLength;
         }
         case IMBRICATE_PROPERTY_TYPE.REFERENCE: {
 
@@ -110,11 +104,10 @@ export const comparePropertyValue = (
             const fixedRightValue: ImbricatePropertyValueObjectReference[] =
                 rightValue.value as ImbricatePropertyValueObjectReference[];
 
-            return fixedLeftValue.length === fixedRightValue.length
-                ? 0
-                : fixedLeftValue.length
-                    ? 1
-                    : -1;
+            const leftLength: number = fixedLeftValue.length;
+            const rightLength: number = fixedRightValue.length;
+
+            return leftLength - rightLength;
         }
     }
 };
