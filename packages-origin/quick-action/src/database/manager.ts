@@ -32,7 +32,11 @@ export class ImbricateQuickActionDatabaseManager extends ImbricateDatabaseManage
         _query: ImbricateDocumentQuery,
     ): Promise<ImbricateDatabaseManagerQueryDatabasesOutcome> {
 
-        throw new Error("Method not implemented.");
+        return {
+
+            databases: [],
+            count: 0,
+        };
     }
 
     public async getDatabase(
