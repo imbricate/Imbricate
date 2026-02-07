@@ -12,6 +12,9 @@ export default async (): Promise<Config> => {
         collectCoverageFrom: [
             "src/**/*.ts",
         ],
+        setupFilesAfterEnv: [
+            "<rootDir>/test/setup.ts",
+        ],
         coverageReporters: [
             "json",
             "text-summary",
