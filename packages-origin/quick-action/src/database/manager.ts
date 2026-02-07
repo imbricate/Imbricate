@@ -8,9 +8,24 @@ import { IImbricateDatabaseManager, ImbricateDatabaseManagerGetDatabaseOutcome, 
 
 export class ImbricateQuickActionDatabaseManager extends ImbricateDatabaseManagerReadonlyBase implements IImbricateDatabaseManager {
 
-    public static create(): ImbricateQuickActionDatabaseManager {
+    public static create(
+        basePath: string,
+    ): ImbricateQuickActionDatabaseManager {
 
-        return new ImbricateQuickActionDatabaseManager();
+        return new ImbricateQuickActionDatabaseManager(
+            basePath,
+        );
+    }
+
+    private readonly _basePath: string;
+
+    private constructor(
+        basePath: string,
+    ) {
+
+        super();
+
+        this._basePath = basePath;
     }
 
     public async queryDatabases(

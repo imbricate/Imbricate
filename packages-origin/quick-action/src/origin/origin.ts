@@ -37,7 +37,9 @@ export class ImbricateQuickActionOrigin extends ImbricateOriginEssentialBase imp
 
     public getDatabaseManager(): IImbricateDatabaseManager {
 
-        return ImbricateQuickActionDatabaseManager.create();
+        return ImbricateQuickActionDatabaseManager.create(
+            this.payloads.basePath,
+        );
     }
 
     public getTextManager(): IImbricateTextManager {

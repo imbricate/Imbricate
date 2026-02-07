@@ -7,4 +7,6 @@
 export type QuickActionOriginPayload = {
 
     readonly uniqueIdentifier: string;
+
+    readonly basePath: string;
 };
