@@ -6,14 +6,14 @@
 
 import { listFileFromDirectory } from "../util/io";
 
-export const getQuickActionFilesList = async (
+export const getQuickActionFoldersList = async (
     basePath: string,
 ): Promise<string[]> => {
 
-    const files: string[] = await listFileFromDirectory(
+    const folders: string[] = await listFileFromDirectory(
         basePath,
         ["quick-action"],
     );
 
-    return files;
+    return folders;
 };

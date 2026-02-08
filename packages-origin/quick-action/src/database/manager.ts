@@ -5,7 +5,7 @@
  */
 
 import { IImbricateDatabaseManager, ImbricateDatabaseManagerGetDatabaseOutcome, ImbricateDatabaseManagerQueryDatabasesOutcome, ImbricateDatabaseManagerReadonlyBase, ImbricateDocumentQuery } from "@imbricate/core";
-import { getQuickActionFilesList } from "./action";
+import { getQuickActionFoldersList } from "./action";
 
 export class ImbricateQuickActionDatabaseManager extends ImbricateDatabaseManagerReadonlyBase implements IImbricateDatabaseManager {
 
@@ -33,10 +33,11 @@ export class ImbricateQuickActionDatabaseManager extends ImbricateDatabaseManage
         _query: ImbricateDocumentQuery,
     ): Promise<ImbricateDatabaseManagerQueryDatabasesOutcome> {
 
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const files: string[] = await getQuickActionFilesList(
+        const folders: string[] = await getQuickActionFoldersList(
             this._basePath,
         );
+
+        console.log(folders);
 
         return {
 

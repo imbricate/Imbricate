@@ -4,7 +4,7 @@
  * @description Database
  */
 
-import { IImbricateDatabase, ImbricateDatabaseCountDocumentsOutcome, ImbricateDatabaseEssentialReadOnlyBase, ImbricateDatabaseGetDatabaseOutcome, ImbricateDatabaseGetDocumentOutcome, ImbricateDatabaseQueryDatabasesOutcome, ImbricateDatabaseQueryDocumentsOutcome, ImbricateDatabaseReadonlyBase, ImbricateDatabaseSchema, ImbricateDocumentQuery } from "@imbricate/core";
+import { IImbricateDatabase, IMBRICATE_PROPERTY_TYPE, ImbricateDatabaseCountDocumentsOutcome, ImbricateDatabaseEssentialReadOnlyBase, ImbricateDatabaseGetDocumentOutcome, ImbricateDatabaseQueryDocumentsOutcome, ImbricateDatabaseSchema, ImbricateDocumentQuery } from "@imbricate/core";
 
 export class ImbricateQuickActionDatabase extends ImbricateDatabaseEssentialReadOnlyBase implements IImbricateDatabase {
 
@@ -12,28 +12,25 @@ export class ImbricateQuickActionDatabase extends ImbricateDatabaseEssentialRead
         basePath: string,
         uniqueIdentifier: string,
         databaseName: string,
-        schema: ImbricateDatabaseSchema,
     ): ImbricateQuickActionDatabase {
 
         return new ImbricateQuickActionDatabase(
             basePath,
             uniqueIdentifier,
             databaseName,
-            schema,
         );
     }
 
     private readonly _basePath: string;
 
     public readonly uniqueIdentifier: string;
+
     public readonly databaseName: string;
-    public schema: ImbricateDatabaseSchema;
 
     private constructor(
         basePath: string,
         uniqueIdentifier: string,
         databaseName: string,
-        schema: ImbricateDatabaseSchema,
     ) {
         super();
 
@@ -41,7 +38,6 @@ export class ImbricateQuickActionDatabase extends ImbricateDatabaseEssentialRead
 
         this.uniqueIdentifier = uniqueIdentifier;
         this.databaseName = databaseName;
-        this.schema = schema;
     }
 
     public get databaseVersion(): string {
@@ -49,15 +45,40 @@ export class ImbricateQuickActionDatabase extends ImbricateDatabaseEssentialRead
         return "Default";
     }
 
-    public getDocument(uniqueIdentifier: string): PromiseLike<ImbricateDatabaseGetDocumentOutcome> {
+    public get schema(): ImbricateDatabaseSchema {
+
+        return {
+            properties: [
+                {
+                    propertyIdentifier: "action-name",
+                    propertyName: "Action Name",
+                    propertyType: IMBRICATE_PROPERTY_TYPE.STRING,
+                    propertyVariant: null,
+                    propertyOptions: {},
+                    isPrimaryKey: true,
+                },
+            ],
+        };
+    }
+
+    public async getDocument(
+        _uniqueIdentifier: string,
+    ): Promise<ImbricateDatabaseGetDocumentOutcome> {
+
         throw new Error("Method not implemented.");
     }
 
-    public queryDocuments(query: ImbricateDocumentQuery): PromiseLike<ImbricateDatabaseQueryDocumentsOutcome> {
+    public async queryDocuments(
+        _query: ImbricateDocumentQuery,
+    ): Promise<ImbricateDatabaseQueryDocumentsOutcome> {
+
         throw new Error("Method not implemented.");
     }
 
-    public countDocuments(query: ImbricateDocumentQuery): PromiseLike<ImbricateDatabaseCountDocumentsOutcome> {
+    public async countDocuments(
+        _query: ImbricateDocumentQuery,
+    ): Promise<ImbricateDatabaseCountDocumentsOutcome> {
+
         throw new Error("Method not implemented.");
     }
 }
