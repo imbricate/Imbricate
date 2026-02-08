@@ -10,34 +10,33 @@ export class ImbricateQuickActionDatabase extends ImbricateDatabaseEssentialRead
 
     public static create(
         basePath: string,
-        uniqueIdentifier: string,
         databaseName: string,
     ): ImbricateQuickActionDatabase {
 
         return new ImbricateQuickActionDatabase(
             basePath,
-            uniqueIdentifier,
             databaseName,
         );
     }
 
     private readonly _basePath: string;
 
-    public readonly uniqueIdentifier: string;
-
     public readonly databaseName: string;
 
     private constructor(
         basePath: string,
-        uniqueIdentifier: string,
         databaseName: string,
     ) {
         super();
 
         this._basePath = basePath;
 
-        this.uniqueIdentifier = uniqueIdentifier;
         this.databaseName = databaseName;
+    }
+
+    public get uniqueIdentifier(): string {
+
+        return this.databaseName;
     }
 
     public get databaseVersion(): string {

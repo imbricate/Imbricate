@@ -6,6 +6,7 @@
 
 import { IImbricateDatabaseManager, ImbricateDatabaseManagerGetDatabaseOutcome, ImbricateDatabaseManagerQueryDatabasesOutcome, ImbricateDatabaseManagerReadonlyBase, ImbricateDocumentQuery } from "@imbricate/core";
 import { getQuickActionFoldersList } from "./action";
+import { ImbricateQuickActionDatabase } from "./database";
 
 export class ImbricateQuickActionDatabaseManager extends ImbricateDatabaseManagerReadonlyBase implements IImbricateDatabaseManager {
 
@@ -37,12 +38,18 @@ export class ImbricateQuickActionDatabaseManager extends ImbricateDatabaseManage
             this._basePath,
         );
 
-        console.log(folders);
-
         return {
 
-            databases: [],
-            count: 0,
+            databases: folders.map((
+                folder: string,
+            ) => {
+
+                return ImbricateQuickActionDatabase.create(
+                    this._basePath,
+                    folder,
+                );
+            }),
+            count: folders.length,
         };
     }
 
