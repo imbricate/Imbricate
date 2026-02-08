@@ -35,6 +35,7 @@
   "homepage": "https://imbricate.io",
   "dependencies": {
     "@imbricate/core": "workspace:*",
+    "@imbricate/origin-loader": "workspace:*",
     "@sudoo/io": "catalog:",
     "body-parser": "catalog:",
     "commander": "catalog:",

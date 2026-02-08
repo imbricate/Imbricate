@@ -10,6 +10,7 @@
     "build:quick-action": "turbo build --filter @imbricate/origin-quick-action",
     "compile": "turbo compile",
     "validate": "turbo lint && turbo compile && turbo coverage",
+    "run:stack-up": "pnpm --filter @imbricate/stack-up run start",
     "publish:core": "pnpm --filter @imbricate/core run publish",
     "publish:stack-up": "pnpm --filter @imbricate/stack-up run publish",
     "publish:origin-file-system": "pnpm --filter @imbricate/origin-file-system run publish",

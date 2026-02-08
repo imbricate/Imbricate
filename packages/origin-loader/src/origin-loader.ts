@@ -1,10 +1,11 @@
 /**
- * @namespace Loader
+ * @author WMXPY
+ * @namespace OriginLoader
  * @description Origin Loader
  */
 
-import { IImbricateOrigin } from "../origin/interface";
-import { IMBRICATE_ORIGIN_LOAD_TYPE, ImbricateOriginPersistence, ImbricateOriginPersistenceOrigin } from "./persistence";
+import { IImbricateOrigin, IMBRICATE_ORIGIN_LOAD_TYPE, ImbricateOriginPersistence, ImbricateOriginPersistenceOrigin } from "@imbricate/core";
+import { loadImbricateOriginFromBuiltInOrigin } from "./built-in-origin-loader";
 
 /**
  * Load imbricate origin from persistence origin
@@ -15,9 +16,6 @@ import { IMBRICATE_ORIGIN_LOAD_TYPE, ImbricateOriginPersistence, ImbricateOrigin
  * 
  * @returns a promise of the loaded origin
  *  if the origin is not found, return null
- * 
- * @deprecated Use loadImbricateOriginFromPersistenceOrigin from @imbricate/origin-loader instead.
- *  This function does not support BUILT_IN origins.
  */
 export const loadImbricateOriginFromPersistenceOrigin = async (
     origin: ImbricateOriginPersistenceOrigin,
@@ -27,8 +25,7 @@ export const loadImbricateOriginFromPersistenceOrigin = async (
 
         case IMBRICATE_ORIGIN_LOAD_TYPE.BUILT_IN: {
 
-            // BUILT_IN origins are handled by @imbricate/origin-loader
-            return null;
+            return loadImbricateOriginFromBuiltInOrigin(origin);
         }
         case IMBRICATE_ORIGIN_LOAD_TYPE.NPM_PACKAGE: {
 
@@ -75,9 +72,6 @@ export const loadImbricateOriginFromPersistenceOrigin = async (
  * @param persistence persistence to load origins
  *  
  * @returns a promise of the loaded origins, if the origin is not found, return empty array
- * 
- * @deprecated Use loadImbricateOriginsFromPersistence from @imbricate/origin-loader instead.
- *  This function does not support BUILT_IN origins.
  */
 export const loadImbricateOriginsFromPersistence = async (
     persistence: ImbricateOriginPersistence,
@@ -96,4 +90,3 @@ export const loadImbricateOriginsFromPersistence = async (
 
     return origins;
 };
-

@@ -1,12 +1,12 @@
 /**
- * @namespace Loader
+ * @author WMXPY
+ * @namespace OriginLoader
  * @description Built-in Origin Loader
  */
 
 import fileSystemOriginLoader from "@imbricate/origin-file-system";
 import quickActionOriginLoader from "@imbricate/origin-quick-action";
-import { IImbricateOrigin } from "../origin/interface";
-import { IMBRICATE_ORIGIN_BUILT_IN, IMBRICATE_ORIGIN_LOAD_TYPE, ImbricateOriginPersistenceOrigin } from "./persistence";
+import { IImbricateOrigin, IMBRICATE_ORIGIN_BUILT_IN, IMBRICATE_ORIGIN_LOAD_TYPE, ImbricateOriginPersistenceOrigin } from "@imbricate/core";
 
 /**
  * Load imbricate origin from built-in origin

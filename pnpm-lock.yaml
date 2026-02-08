@@ -216,23 +216,36 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
     optionalDependencies:
-      '@imbricate/origin-file-system':
-        specifier: workspace:*
-        version: link:../../packages-origin/file-system
-      '@imbricate/origin-quick-action':
-        specifier: workspace:*
-        version: link:../../packages-origin/quick-action
       '@sudoo/locale':
         specifier: 'catalog:'
         version: 2.0.0
 
   packages/eslint-config: {}
 
+  packages/origin-loader:
+    dependencies:
+      '@imbricate/origin-file-system':
+        specifier: workspace:*
+        version: link:../../packages-origin/file-system
+      '@imbricate/origin-quick-action':
+        specifier: workspace:*
+        version: link:../../packages-origin/quick-action
+    devDependencies:
+      '@imbricate-internal/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@imbricate/core':
+        specifier: workspace:*
+        version: link:../core
+
   packages/stack-up:
     dependencies:
       '@imbricate/core':
         specifier: workspace:*
         version: link:../core
+      '@imbricate/origin-loader':
+        specifier: workspace:*
+        version: link:../origin-loader
       '@sudoo/io':
         specifier: 'catalog:'
         version: 1.8.0

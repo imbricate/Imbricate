@@ -4,7 +4,8 @@
  * @description Loader
  */
 
-import { IImbricateOrigin, loadImbricateOriginFromPersistenceOrigin } from "@imbricate/core";
+import { IImbricateOrigin } from "@imbricate/core";
+import { loadImbricateOriginFromPersistenceOrigin } from "@imbricate/origin-loader";
 import { StackUpConfig } from "../definition";
 
 export const loadOriginsFromConfig = async (
