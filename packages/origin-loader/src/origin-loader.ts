@@ -4,7 +4,7 @@
  * @description Origin Loader
  */
 
-import { IImbricateOrigin, IMBRICATE_ORIGIN_LOAD_TYPE, ImbricateOriginPersistence, ImbricateOriginPersistenceOrigin } from "@imbricate/core";
+import { IImbricateOrigin, IMBRICATE_ORIGIN_LOAD_TYPE, ImbricateOriginLoadTypeList, ImbricateOriginPersistence, ImbricateOriginPersistenceOrigin } from "@imbricate/core";
 import { loadImbricateOriginFromBuiltInOrigin } from "./built-in-origin-loader";
 
 /**
@@ -57,6 +57,17 @@ export const loadImbricateOriginFromPersistenceOrigin = async (
                 return initialized;
             }
             break;
+        }
+        default: {
+
+            console.log(
+                `Origin load type ${origin.originLoadType} is not found`,
+            );
+            console.log(
+                `Available origin load types: ${ImbricateOriginLoadTypeList.join(", ")}`,
+            );
+
+            return null;
         }
     }
 
