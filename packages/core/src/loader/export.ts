@@ -4,6 +4,5 @@
  */
 
 export * from "./definition";
-export * from "./origin-loader";
 export * from "./persistence";
 

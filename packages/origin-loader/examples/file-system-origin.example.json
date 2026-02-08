@@ -1,0 +1,12 @@
+{
+    "origins": [
+        {
+            "originLoadType": "BUILT_IN",
+            "originLoadValue": "origin-file-system",
+            "originName": "my-file-system-origin",
+            "originPayloads": {
+                "basePath": "/path/to/your/notes"
+            }
+        }
+    ]
+}

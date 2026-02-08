@@ -1,0 +1,10 @@
+{
+    "origins": [
+        {
+            "originLoadType": "BUILT_IN",
+            "originLoadValue": "origin-quick-action",
+            "originName": "my-quick-action-origin",
+            "originPayloads": {}
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "origins": [
+        {
+            "originLoadType": "BUILT_IN",
+            "originLoadValue": "origin-file-system",
+            "originName": "notes",
+            "originPayloads": {
+                "basePath": "/path/to/notes"
+            }
+        },
+        {
+            "originLoadType": "BUILT_IN",
+            "originLoadValue": "origin-file-system",
+            "originName": "projects",
+            "originPayloads": {
+                "basePath": "/path/to/projects"
+            }
+        },
+        {
+            "originLoadType": "NPM_PACKAGE",
+            "originLoadValue": "@imbricate/origin-custom",
+            "originName": "custom",
+            "originPayloads": {}
+        }
+    ]
+}

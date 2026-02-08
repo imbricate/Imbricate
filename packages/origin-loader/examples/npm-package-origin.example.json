@@ -1,0 +1,12 @@
+{
+    "origins": [
+        {
+            "originLoadType": "NPM_PACKAGE",
+            "originLoadValue": "@imbricate/origin-custom",
+            "originName": "my-custom-npm-origin",
+            "originPayloads": {
+                "customOption": "value"
+            }
+        }
+    ]
+}
