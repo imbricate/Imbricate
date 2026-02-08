@@ -19,11 +19,22 @@ export enum IMBRICATE_ORIGIN_LOAD_TYPE {
     FILE_SYSTEM = "FILE_SYSTEM",
 }
 
+export const ImbricateOriginLoadTypeList: ReadonlyArray<IMBRICATE_ORIGIN_LOAD_TYPE> = [
+    IMBRICATE_ORIGIN_LOAD_TYPE.BUILT_IN,
+    IMBRICATE_ORIGIN_LOAD_TYPE.NPM_PACKAGE,
+    IMBRICATE_ORIGIN_LOAD_TYPE.FILE_SYSTEM,
+];
+
 export enum IMBRICATE_ORIGIN_BUILT_IN {
 
     ORIGIN_FILE_SYSTEM = "origin-file-system",
     ORIGIN_QUICK_ACTION = "origin-quick-action",
 }
+
+export const ImbricateOriginBuiltInList: ReadonlyArray<IMBRICATE_ORIGIN_BUILT_IN> = [
+    IMBRICATE_ORIGIN_BUILT_IN.ORIGIN_FILE_SYSTEM,
+    IMBRICATE_ORIGIN_BUILT_IN.ORIGIN_QUICK_ACTION,
+];
 
 export type ImbricateOriginPersistenceOrigin = {
 

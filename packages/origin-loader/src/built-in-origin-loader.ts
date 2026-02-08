@@ -4,9 +4,9 @@
  * @description Built-in Origin Loader
  */
 
+import { IImbricateOrigin, IMBRICATE_ORIGIN_BUILT_IN, IMBRICATE_ORIGIN_LOAD_TYPE, ImbricateOriginBuiltInList, ImbricateOriginPersistenceOrigin } from "@imbricate/core";
 import fileSystemOriginLoader from "@imbricate/origin-file-system";
 import quickActionOriginLoader from "@imbricate/origin-quick-action";
-import { IImbricateOrigin, IMBRICATE_ORIGIN_BUILT_IN, IMBRICATE_ORIGIN_LOAD_TYPE, ImbricateOriginPersistenceOrigin } from "@imbricate/core";
 
 /**
  * Load imbricate origin from built-in origin
@@ -23,6 +23,7 @@ export const loadImbricateOriginFromBuiltInOrigin = async (
 ): Promise<IImbricateOrigin | null> => {
 
     if (origin.originLoadType !== IMBRICATE_ORIGIN_LOAD_TYPE.BUILT_IN) {
+
         return null;
     }
 
@@ -37,6 +38,14 @@ export const loadImbricateOriginFromBuiltInOrigin = async (
             return quickActionOriginLoader(origin.originPayloads);
         }
         default: {
+
+            console.log(
+                `Origin load value ${origin.originLoadValue} is not found`,
+            );
+            console.log(
+                `Available built-in origin load values: ${ImbricateOriginBuiltInList.join(", ")}`,
+            );
+
             return null;
         }
     }
