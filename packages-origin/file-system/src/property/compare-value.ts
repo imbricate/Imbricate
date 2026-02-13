@@ -5,6 +5,7 @@
 
 import { IMBRICATE_PROPERTY_TYPE, ImbricatePropertyValueObjectReference } from "@imbricate/core";
 import { ImbricateFileSystemDocumentInstanceProperty } from "../document/definition";
+import { comparePropertyLabelValue } from "./compare-value/compare-label";
 
 /**
  * 
@@ -76,6 +77,10 @@ export const comparePropertyValue = (
         }
         case IMBRICATE_PROPERTY_TYPE.DATE: {
 
+            if (leftValue.value === null || rightValue.value === null) {
+                return 0;
+            }
+
             const fixedLeftValue: string = leftValue.value as string;
             const fixedRightValue: string = rightValue.value as string;
 
@@ -89,13 +94,10 @@ export const comparePropertyValue = (
         }
         case IMBRICATE_PROPERTY_TYPE.LABEL: {
 
-            const fixedLeftValue: string[] = leftValue.value as string[];
-            const fixedRightValue: string[] = rightValue.value as string[];
-
-            const leftLength: number = fixedLeftValue.length;
-            const rightLength: number = fixedRightValue.length;
-
-            return leftLength - rightLength;
+            return comparePropertyLabelValue(
+                leftValue,
+                rightValue,
+            );
         }
         case IMBRICATE_PROPERTY_TYPE.REFERENCE: {
 
