@@ -12,8 +12,8 @@
     "compile": "tsc --project typescript/tsconfig.compile.json",
     "license": "sdb license",
     "release": "pnpm lint && pnpm test && pnpm license && pnpm build",
-    "publish-dry-run": "pnpm release && sdb --only publish-dry-run",
-    "publish": "pnpm release && sdb --only publish"
+    "publish-dry-run": "pnpm release && node ../../script/update-catalog-version.js && sdb --only publish-dry-run",
+    "publish": "pnpm release && node ../../script/update-catalog-version.js && sdb --only publish"
   },
   "repository": {
     "type": "git",

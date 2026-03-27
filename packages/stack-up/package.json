@@ -15,8 +15,8 @@
     "add-bin": "ts-node --project typescript/tsconfig.script.json scripts/add-bin.ts",
     "replace-version": "ts-node --project typescript/tsconfig.script.json scripts/replace-version.ts",
     "release": "pnpm lint && pnpm test && pnpm license && pnpm build && pnpm replace-version && pnpm add-bin",
-    "publish-dry-run": "pnpm release && sdb --only publish-dry-run",
-    "publish": "pnpm release && sdb --only publish"
+    "publish-dry-run": "pnpm release && node ../../script/update-catalog-version.js && sdb --only publish-dry-run",
+    "publish": "pnpm release && node ../../script/update-catalog-version.js && sdb --only publish"
   },
   "repository": {
     "type": "git",
