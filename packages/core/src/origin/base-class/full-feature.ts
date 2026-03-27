@@ -12,7 +12,7 @@ import { ImbricateOriginFullFeatureWithActionBase } from "./full-feature-with-ac
 
 export abstract class ImbricateOriginFullFeatureBase extends ImbricateOriginFullFeatureWithActionBase implements IImbricateOrigin {
 
-    public readonly supportedFeatures: IMBRICATE_ORIGIN_FEATURE[] = [
+    protected readonly supportedFeatures: IMBRICATE_ORIGIN_FEATURE[] = [
 
         IMBRICATE_ORIGIN_FEATURE.ORIGIN_DATABASE_MANAGER,
         IMBRICATE_ORIGIN_FEATURE.ORIGIN_TEXT_MANAGER,

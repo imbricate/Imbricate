@@ -10,14 +10,14 @@ import { IImbricateTextManager } from "../../text-manager/text-manager";
 import { OriginPayload } from "../definition";
 import { IMBRICATE_ORIGIN_FEATURE } from "../feature";
 import { IImbricateOrigin } from "../interface";
-import { ImbricateOriginSearchOutcome } from "../outcome";
+import { ImbricateOriginGetSupportedFeaturesOutcome, ImbricateOriginSearchOutcome } from "../outcome";
 
 export abstract class ImbricateOriginFullFeatureWithActionBase implements IImbricateOrigin {
 
     public abstract readonly uniqueIdentifier: string;
     public abstract readonly payloads: OriginPayload;
 
-    public readonly supportedFeatures: IMBRICATE_ORIGIN_FEATURE[] = [
+    protected readonly supportedFeatures: IMBRICATE_ORIGIN_FEATURE[] = [
 
         IMBRICATE_ORIGIN_FEATURE.ORIGIN_DATABASE_MANAGER,
         IMBRICATE_ORIGIN_FEATURE.ORIGIN_TEXT_MANAGER,
@@ -28,6 +28,13 @@ export abstract class ImbricateOriginFullFeatureWithActionBase implements IImbri
         IMBRICATE_ORIGIN_FEATURE.ORIGIN_GET_ORIGIN_ACTIONS,
         IMBRICATE_ORIGIN_FEATURE.ORIGIN_EXECUTE_ORIGIN_ACTION,
     ];
+
+    public getSupportedFeatures(): PromiseLike<ImbricateOriginGetSupportedFeaturesOutcome> {
+
+        return Promise.resolve({
+            features: this.supportedFeatures,
+        });
+    }
 
     public abstract getDatabaseManager(): IImbricateDatabaseManager;
     public abstract getTextManager(): IImbricateTextManager;

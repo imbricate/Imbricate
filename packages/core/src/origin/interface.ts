@@ -8,8 +8,7 @@ import { IImbricateDatabaseManager } from "../database-manager/database-manager"
 import { IImbricateStaticManager } from "../static-manager/static-manager";
 import { IImbricateTextManager } from "../text-manager/text-manager";
 import { OriginPayload } from "./definition";
-import { IMBRICATE_ORIGIN_FEATURE } from "./feature";
-import { ImbricateOriginSearchOutcome } from "./outcome";
+import { ImbricateOriginGetSupportedFeaturesOutcome, ImbricateOriginSearchOutcome } from "./outcome";
 
 export interface IImbricateOrigin {
 
@@ -24,9 +23,11 @@ export interface IImbricateOrigin {
     readonly payloads: OriginPayload;
 
     /**
-     * Supported features of the origin
+     * Get supported features of the origin
+     * 
+     * @returns the supported features
      */
-    readonly supportedFeatures: IMBRICATE_ORIGIN_FEATURE[];
+    getSupportedFeatures(): PromiseLike<ImbricateOriginGetSupportedFeaturesOutcome>;
 
     /**
      * Get the database manager of the origin

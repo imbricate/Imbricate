@@ -11,7 +11,7 @@ import { ImbricateOriginFullFeatureBase } from "./full-feature";
 
 export abstract class ImbricateOriginExcludeStaticBase extends ImbricateOriginFullFeatureBase implements IImbricateOrigin {
 
-    public readonly supportedFeatures: IMBRICATE_ORIGIN_FEATURE[] = [
+    protected readonly supportedFeatures: IMBRICATE_ORIGIN_FEATURE[] = [
 
         IMBRICATE_ORIGIN_FEATURE.ORIGIN_DATABASE_MANAGER,
         IMBRICATE_ORIGIN_FEATURE.ORIGIN_TEXT_MANAGER,
