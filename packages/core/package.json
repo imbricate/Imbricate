@@ -1,6 +1,6 @@
 {
   "name": "@imbricate/core",
-  "version": "3.32.0",
+  "version": "3.40.0",
   "description": "Imbricate Core, Notebook for Engineers",
   "main": "src/index.ts",
   "scripts": {
