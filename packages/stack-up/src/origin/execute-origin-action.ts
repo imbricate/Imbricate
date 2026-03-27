@@ -27,8 +27,17 @@ export const attachOriginExecuteOriginActionRoute = async (
             return;
         }
 
+        const supportedFeatures = await origin.getSupportedFeatures();
+
+        if (typeof supportedFeatures === "symbol") {
+
+            console.error("Origin Not Supported", originUniqueIdentifier);
+            res.status(404).send(supportedFeatures.description);
+            return;
+        }
+
         if (!checkImbricateOriginFeatureSupported(
-            origin.supportedFeatures,
+            supportedFeatures.features,
             IMBRICATE_ORIGIN_FEATURE.ORIGIN_EXECUTE_ORIGIN_ACTION,
         )) {
 

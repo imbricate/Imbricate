@@ -24,6 +24,7 @@ import { attachDocumentQueryRoute } from "./document/query";
 import { attachDocumentQueryOriginActionsRoute } from "./document/query-origin-action";
 import { attachDocumentRemoveRoute } from "./document/remove";
 import { attachOriginExecuteOriginActionRoute } from "./origin/execute-origin-action";
+import { attachOriginGetSupportedFeaturesRoute } from "./origin/get-supported-features";
 import { attachOriginQueryOriginActionsRoute } from "./origin/query-origin-action";
 import { attachSearchSearchRoute } from "./search/search";
 import { attachStaticCreateBase64Route } from "./static/create-base64";
@@ -113,6 +114,7 @@ export const createStackUpServer = async (
     attachDocumentExecuteOriginActionRoute(application, originMap);
 
     attachOriginQueryOriginActionsRoute(application, originMap);
+    attachOriginGetSupportedFeaturesRoute(application, originMap);
     attachOriginExecuteOriginActionRoute(application, originMap);
 
     attachSearchSearchRoute(application, originMap);
