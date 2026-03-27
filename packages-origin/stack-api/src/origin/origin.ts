@@ -4,7 +4,7 @@
  * @description Origin
  */
 
-import { IImbricateDatabaseManager, IImbricateOrigin, IImbricateStaticManager, ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginActionsQuery, ImbricateOriginActionInput, ImbricateOriginActionOutcome, ImbricateOriginFullFeatureWithActionBase, ImbricateOriginSearchOutcome, rebuildImbricateCommonQueryOriginActionsSymbol, rebuildImbricateOriginActionOutcomeSymbol, rebuildImbricateOriginSearchSymbol } from "@imbricate/core";
+import { IImbricateDatabaseManager, IImbricateOrigin, IImbricateStaticManager, ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginActionsQuery, ImbricateOriginActionInput, ImbricateOriginActionOutcome, ImbricateOriginFullFeatureWithActionBase, ImbricateOriginGetSupportedFeaturesOutcome, ImbricateOriginSearchOutcome, rebuildImbricateCommonQueryOriginActionsSymbol, rebuildImbricateOriginActionOutcomeSymbol, rebuildImbricateOriginGetSupportedFeaturesSymbol, rebuildImbricateOriginSearchSymbol } from "@imbricate/core";
 import { ImbricateStackAPIDatabaseManager } from "../database/manager";
 import { ImbricateStackAPIStaticManager } from "../static/manager";
 import { ImbricateStackAPITextManager } from "../text/manager";
@@ -39,6 +39,29 @@ export class ImbricateStackAPIOrigin extends ImbricateOriginFullFeatureWithActio
     public get uniqueIdentifier(): string {
 
         return digestString(this.payloads.basePath);
+    }
+
+    public async getSupportedFeatures(): Promise<ImbricateOriginGetSupportedFeaturesOutcome> {
+
+        try {
+
+            const response = await axiosClient.post(joinUrl(
+                this.payloads.basePath,
+                "get-supported-features",
+            ), {}, {
+                headers: buildHeader(this.payloads.authentication),
+            });
+
+            return {
+
+                features: response.data.features,
+            };
+        } catch (error) {
+
+            return rebuildImbricateOriginGetSupportedFeaturesSymbol(
+                getAxiosErrorSymbol(error),
+            );
+        }
     }
 
     public getDatabaseManager(): IImbricateDatabaseManager {
