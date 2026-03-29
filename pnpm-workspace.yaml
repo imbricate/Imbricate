@@ -35,3 +35,7 @@ fetchRetryMintimeout: 1000
 
 onlyBuiltDependencies:
   - unrs-resolver
+
+updateConfig:
+  ignoreDependencies:
+    - typescript
