@@ -17,7 +17,7 @@ catalog:
   '@types/node': 25.5.0
   '@typescript-eslint/eslint-plugin': 8.57.2
   '@typescript-eslint/parser': 8.57.2
-  axios: 1.13.6
+  axios: 1.14.0
   babel-jest: 30.3.0
   body-parser: 2.2.2
   commander: 14.0.3
@@ -26,7 +26,7 @@ catalog:
   express: 5.2.1
   jest: 30.3.0
   ts-node: 10.9.2
-  turbo: 2.8.20
+  turbo: 2.8.21
   typescript: 5.9.3
 
 fetchRetryMaxtimeout: 10000
