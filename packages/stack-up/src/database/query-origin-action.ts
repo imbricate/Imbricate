@@ -4,12 +4,13 @@
  * @description Query Origin Action
  */
 
-import { IImbricateOrigin, IMBRICATE_DATABASE_FEATURE, ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginActionsQuery, ImbricateDatabaseManagerGetDatabaseOutcome, ImbricateOriginAction, S_Common_QueryOriginActions_Unknown, checkImbricateDatabaseFeatureSupported } from "@imbricate/core";
+import { IMBRICATE_DATABASE_FEATURE, ImbricateCommonQueryOriginActionsOutcome, ImbricateCommonQueryOriginActionsQuery, ImbricateDatabaseManagerGetDatabaseOutcome, ImbricateOriginAction, S_Common_QueryOriginActions_Unknown, checkImbricateDatabaseFeatureSupported } from "@imbricate/core";
 import express from "express";
+import { LoadedOrigin } from "../util/load";
 
 export const attachDatabaseQueryOriginActionsRoute = async (
     application: express.Express,
-    originMap: Map<string, IImbricateOrigin>,
+    originMap: Map<string, LoadedOrigin>,
 ): Promise<void> => {
 
     application.post("/:origin/database/:database/query-origin-actions", async (req, res) => {
@@ -19,19 +20,21 @@ export const attachDatabaseQueryOriginActionsRoute = async (
 
         const body: any = req.body;
 
-        const origin: IImbricateOrigin | null =
+        const loadedOrigin: LoadedOrigin | null =
             originMap.get(originUniqueIdentifier) ?? null;
 
-        if (!origin) {
+        if (!loadedOrigin) {
 
             console.error("Origin Not Found", originUniqueIdentifier);
             res.status(404).send(S_Common_QueryOriginActions_Unknown.description);
             return;
         }
 
-        const database: ImbricateDatabaseManagerGetDatabaseOutcome = await origin.getDatabaseManager().getDatabase(
-            databaseUniqueIdentifier,
-        );
+        const database: ImbricateDatabaseManagerGetDatabaseOutcome = await loadedOrigin
+            .origin.getDatabaseManager()
+            .getDatabase(
+                databaseUniqueIdentifier,
+            );
 
         if (typeof database === "symbol") {
 

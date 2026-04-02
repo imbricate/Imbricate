@@ -4,8 +4,9 @@
  * @description Edit Records
  */
 
-import { DocumentEditRecord, IImbricateOrigin, IMBRICATE_DOCUMENT_FEATURE, ImbricateDatabaseGetDocumentOutcome, ImbricateDatabaseManagerGetDatabaseOutcome, ImbricateDocumentGetEditRecordsOutcome, S_Document_GetEditRecords_Unknown, checkImbricateDocumentFeatureSupported } from "@imbricate/core";
+import { DocumentEditRecord, IMBRICATE_DOCUMENT_FEATURE, ImbricateDatabaseGetDocumentOutcome, ImbricateDatabaseManagerGetDatabaseOutcome, ImbricateDocumentGetEditRecordsOutcome, S_Document_GetEditRecords_Unknown, checkImbricateDocumentFeatureSupported } from "@imbricate/core";
 import express from "express";
+import { LoadedOrigin } from "../util/load";
 
 export type ImbricateDocumentGetEditRecordsResponse = {
 
@@ -17,7 +18,7 @@ export type ImbricateDocumentGetEditRecordsResponse = {
 
 export const attachDocumentGetEditRecordsRoute = async (
     application: express.Express,
-    originMap: Map<string, IImbricateOrigin>,
+    originMap: Map<string, LoadedOrigin>,
 ): Promise<void> => {
 
     application.get("/:origin/database/:database/document/:document/edit-records", async (req, res) => {
@@ -26,10 +27,10 @@ export const attachDocumentGetEditRecordsRoute = async (
         const databaseUniqueIdentifier: string = req.params.database;
         const documentUniqueIdentifier: string = req.params.document;
 
-        const origin: IImbricateOrigin | null =
+        const loadedOrigin: LoadedOrigin | null =
             originMap.get(originUniqueIdentifier) ?? null;
 
-        if (!origin) {
+        if (!loadedOrigin) {
 
             console.error("Origin Not Found", originUniqueIdentifier);
             res.status(404).send(S_Document_GetEditRecords_Unknown.description);
@@ -37,9 +38,11 @@ export const attachDocumentGetEditRecordsRoute = async (
         }
 
         const database: ImbricateDatabaseManagerGetDatabaseOutcome =
-            await origin.getDatabaseManager().getDatabase(
-                databaseUniqueIdentifier,
-            );
+            await loadedOrigin
+                .origin.getDatabaseManager()
+                .getDatabase(
+                    databaseUniqueIdentifier,
+                );
 
         if (typeof database === "symbol") {
 

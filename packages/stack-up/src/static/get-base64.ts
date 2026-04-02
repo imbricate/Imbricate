@@ -4,8 +4,9 @@
  * @description Get Base64
  */
 
-import { IImbricateOrigin, IMBRICATE_STATIC_FEATURE, ImbricateAuthor, ImbricateStaticGetContentOutcome, ImbricateStaticManagerGetStaticOutcome, S_TextManager_GetText_Unknown, checkImbricateStaticFeatureSupported } from "@imbricate/core";
+import { IMBRICATE_STATIC_FEATURE, ImbricateAuthor, ImbricateStaticGetContentOutcome, ImbricateStaticManagerGetStaticOutcome, S_TextManager_GetText_Unknown, checkImbricateStaticFeatureSupported } from "@imbricate/core";
 import express from "express";
+import { LoadedOrigin } from "../util/load";
 
 export type ImbricateStaticGetBase64Response = {
 
@@ -19,7 +20,7 @@ export type ImbricateStaticGetBase64Response = {
 
 export const attachStaticGetBase64Route = async (
     application: express.Express,
-    originMap: Map<string, IImbricateOrigin>,
+    originMap: Map<string, LoadedOrigin>,
 ): Promise<void> => {
 
     application.get("/:origin/static/:static/base64", async (req, res) => {
@@ -27,10 +28,10 @@ export const attachStaticGetBase64Route = async (
         const originUniqueIdentifier: string = req.params.origin;
         const staticUniqueIdentifier: string = req.params.static;
 
-        const origin: IImbricateOrigin | null =
+        const loadedOrigin: LoadedOrigin | null =
             originMap.get(originUniqueIdentifier) ?? null;
 
-        if (!origin) {
+        if (!loadedOrigin) {
 
             console.error("Origin Not Found", originUniqueIdentifier);
             res.status(404).send(S_TextManager_GetText_Unknown.description);
@@ -38,9 +39,10 @@ export const attachStaticGetBase64Route = async (
         }
 
         const staticInstance: ImbricateStaticManagerGetStaticOutcome =
-            await origin.getStaticManager().getStatic(
-                staticUniqueIdentifier,
-            );
+            await loadedOrigin
+                .origin
+                .getStaticManager()
+                .getStatic(staticUniqueIdentifier);
 
         if (typeof staticInstance === "symbol") {
 

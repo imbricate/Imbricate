@@ -4,8 +4,9 @@
  * @description Create
  */
 
-import { IImbricateOrigin, IMBRICATE_DATABASE_FEATURE, ImbricateAuthor, ImbricateDatabaseManagerCreateDatabaseOutcome, S_DatabaseManager_CreateDatabase_Unknown } from "@imbricate/core";
+import { IMBRICATE_DATABASE_FEATURE, ImbricateAuthor, ImbricateDatabaseManagerCreateDatabaseOutcome, S_DatabaseManager_CreateDatabase_Unknown } from "@imbricate/core";
 import express from "express";
+import { LoadedOrigin } from "../util/load";
 
 export type ImbricateDatabaseCreateResponse = {
 
@@ -17,7 +18,7 @@ export type ImbricateDatabaseCreateResponse = {
 
 export const attachDatabaseCreateRoute = async (
     application: express.Express,
-    originMap: Map<string, IImbricateOrigin>,
+    originMap: Map<string, LoadedOrigin>,
     author: ImbricateAuthor,
 ): Promise<void> => {
 
@@ -26,10 +27,10 @@ export const attachDatabaseCreateRoute = async (
         const originUniqueIdentifier: string = req.params.origin;
         const body: any = req.body;
 
-        const origin: IImbricateOrigin | null =
+        const loadedOrigin: LoadedOrigin | null =
             originMap.get(originUniqueIdentifier) ?? null;
 
-        if (!origin) {
+        if (!loadedOrigin) {
 
             console.error("Origin Not Found", originUniqueIdentifier);
             res.status(404).send(S_DatabaseManager_CreateDatabase_Unknown.description);
@@ -38,8 +39,8 @@ export const attachDatabaseCreateRoute = async (
 
         try {
 
-            const database: ImbricateDatabaseManagerCreateDatabaseOutcome = await origin
-                .getDatabaseManager()
+            const database: ImbricateDatabaseManagerCreateDatabaseOutcome = await loadedOrigin
+                .origin.getDatabaseManager()
                 .createDatabase(
                     body.databaseName,
                     body.schema,

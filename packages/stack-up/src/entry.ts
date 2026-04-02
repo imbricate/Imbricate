@@ -3,7 +3,6 @@
  * @description Entry
  */
 
-import { IImbricateOrigin } from "@imbricate/core";
 import { json } from "body-parser";
 import cors from "cors";
 import express from "express";
@@ -32,7 +31,7 @@ import { attachStaticGetRoute } from "./static/get";
 import { attachStaticGetBase64Route } from "./static/get-base64";
 import { attachTextCreateRoute } from "./text/create";
 import { attachTextGetRoute } from "./text/get";
-import { loadOriginsFromConfig } from "./util/load";
+import { LoadedOrigin, loadOriginsFromConfig } from "./util/load";
 import { validateStackUpConfig } from "./util/validate";
 
 export const createStackUpServer = async (
@@ -51,7 +50,7 @@ export const createStackUpServer = async (
     const authenticationSecret: string = config.authenticationSecret;
     const author = config.author;
 
-    const originMap: Map<string, IImbricateOrigin> =
+    const originMap: Map<string, LoadedOrigin> =
         await loadOriginsFromConfig(config, port);
 
     const corsAllowList = [

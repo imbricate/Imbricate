@@ -4,8 +4,9 @@
  * @description Get
  */
 
-import { DatabaseAnnotations, IImbricateOrigin, IMBRICATE_DATABASE_FEATURE, ImbricateDatabaseManagerGetDatabaseOutcome, ImbricateDatabaseSchema, S_DatabaseManager_GetDatabase_Unknown } from "@imbricate/core";
+import { DatabaseAnnotations, IMBRICATE_DATABASE_FEATURE, ImbricateDatabaseManagerGetDatabaseOutcome, ImbricateDatabaseSchema, S_DatabaseManager_GetDatabase_Unknown } from "@imbricate/core";
 import express from "express";
+import { LoadedOrigin } from "../util/load";
 
 export type ImbricateDatabaseGetResponse = {
 
@@ -20,7 +21,7 @@ export type ImbricateDatabaseGetResponse = {
 
 export const attachDatabaseGetRoute = async (
     application: express.Express,
-    originMap: Map<string, IImbricateOrigin>,
+    originMap: Map<string, LoadedOrigin>,
 ): Promise<void> => {
 
     application.get("/:origin/database/:database", async (req, res) => {
@@ -28,19 +29,20 @@ export const attachDatabaseGetRoute = async (
         const originUniqueIdentifier: string = req.params.origin;
         const databaseUniqueIdentifier: string = req.params.database;
 
-        const origin: IImbricateOrigin | null =
+        const loadedOrigin: LoadedOrigin | null =
             originMap.get(originUniqueIdentifier) ?? null;
 
-        if (!origin) {
+        if (!loadedOrigin) {
 
             console.error("Origin Not Found", originUniqueIdentifier);
             res.status(404).send(S_DatabaseManager_GetDatabase_Unknown.description);
             return;
         }
 
-        const database: ImbricateDatabaseManagerGetDatabaseOutcome = await origin.getDatabaseManager().getDatabase(
-            databaseUniqueIdentifier,
-        );
+        const database: ImbricateDatabaseManagerGetDatabaseOutcome = await loadedOrigin
+            .origin.getDatabaseManager().getDatabase(
+                databaseUniqueIdentifier,
+            );
 
         if (typeof database === "symbol") {
 

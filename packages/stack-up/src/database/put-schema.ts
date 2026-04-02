@@ -4,8 +4,9 @@
  * @description Put Schema
  */
 
-import { IImbricateOrigin, ImbricateAuthor, ImbricateDatabaseManagerGetDatabaseOutcome, ImbricateDatabasePutSchemaOutcome, S_Database_PutSchema_Unknown } from "@imbricate/core";
+import { ImbricateAuthor, ImbricateDatabaseManagerGetDatabaseOutcome, ImbricateDatabasePutSchemaOutcome, S_Database_PutSchema_Unknown } from "@imbricate/core";
 import express from "express";
+import { LoadedOrigin } from "../util/load";
 
 export type ImbricateDatabasePutSchemaResponse = {
 
@@ -15,7 +16,7 @@ export type ImbricateDatabasePutSchemaResponse = {
 
 export const attachDatabasePutSchemaRoute = async (
     application: express.Express,
-    originMap: Map<string, IImbricateOrigin>,
+    originMap: Map<string, LoadedOrigin>,
     author: ImbricateAuthor,
 ): Promise<void> => {
 
@@ -26,19 +27,21 @@ export const attachDatabasePutSchemaRoute = async (
 
         const body: any = req.body;
 
-        const origin: IImbricateOrigin | null =
+        const loadedOrigin: LoadedOrigin | null =
             originMap.get(originUniqueIdentifier) ?? null;
 
-        if (!origin) {
+        if (!loadedOrigin) {
 
             console.error("Origin Not Found", originUniqueIdentifier);
             res.status(404).send(S_Database_PutSchema_Unknown.description);
             return;
         }
 
-        const database: ImbricateDatabaseManagerGetDatabaseOutcome = await origin.getDatabaseManager().getDatabase(
-            databaseUniqueIdentifier,
-        );
+        const database: ImbricateDatabaseManagerGetDatabaseOutcome = await loadedOrigin
+            .origin.getDatabaseManager()
+            .getDatabase(
+                databaseUniqueIdentifier,
+            );
 
         if (typeof database === "symbol") {
 

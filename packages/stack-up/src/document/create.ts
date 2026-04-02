@@ -4,9 +4,10 @@
  * @description Create
  */
 
-import { IImbricateOrigin, IImbricateProperty, IMBRICATE_DOCUMENT_FEATURE, IMBRICATE_PROPERTY_TYPE, ImbricateAuthor, ImbricateDatabaseCreateDocumentOutcome, ImbricateDatabaseManagerGetDatabaseOutcome, S_Database_CreateDocument_Unknown } from "@imbricate/core";
+import { IImbricateProperty, IMBRICATE_DOCUMENT_FEATURE, IMBRICATE_PROPERTY_TYPE, ImbricateAuthor, ImbricateDatabaseCreateDocumentOutcome, ImbricateDatabaseManagerGetDatabaseOutcome, S_Database_CreateDocument_Unknown } from "@imbricate/core";
 import express from "express";
 import { DocumentPropertyInstance } from "../common/properties";
+import { LoadedOrigin } from "../util/load";
 
 export type ImbricateDocumentCreateResponse = {
 
@@ -18,7 +19,7 @@ export type ImbricateDocumentCreateResponse = {
 
 export const attachDocumentCreateRoute = async (
     application: express.Express,
-    originMap: Map<string, IImbricateOrigin>,
+    originMap: Map<string, LoadedOrigin>,
     author: ImbricateAuthor,
 ): Promise<void> => {
 
@@ -29,17 +30,19 @@ export const attachDocumentCreateRoute = async (
 
         const body: any = req.body;
 
-        const origin: IImbricateOrigin | null =
+        const loadedOrigin: LoadedOrigin | null =
             originMap.get(originUniqueIdentifier) ?? null;
 
-        if (!origin) {
+        if (!loadedOrigin) {
             res.status(404).send(S_Database_CreateDocument_Unknown.description);
             return;
         }
 
-        const database: ImbricateDatabaseManagerGetDatabaseOutcome = await origin.getDatabaseManager().getDatabase(
-            databaseUniqueIdentifier,
-        );
+        const database: ImbricateDatabaseManagerGetDatabaseOutcome = await loadedOrigin
+            .origin.getDatabaseManager()
+            .getDatabase(
+                databaseUniqueIdentifier,
+            );
 
         if (typeof database === "symbol") {
 

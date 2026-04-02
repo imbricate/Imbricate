@@ -4,12 +4,13 @@
  * @description Get
  */
 
-import { IImbricateOrigin, ImbricateStaticGetContentOutcome, ImbricateStaticManagerGetStaticOutcome, S_TextManager_GetText_Unknown } from "@imbricate/core";
+import { ImbricateStaticGetContentOutcome, ImbricateStaticManagerGetStaticOutcome, S_TextManager_GetText_Unknown } from "@imbricate/core";
 import express from "express";
+import { LoadedOrigin } from "../util/load";
 
 export const attachStaticGetRoute = async (
     application: express.Express,
-    originMap: Map<string, IImbricateOrigin>,
+    originMap: Map<string, LoadedOrigin>,
 ): Promise<void> => {
 
     application.get("/:origin/static/:static", async (req, res) => {
@@ -17,20 +18,20 @@ export const attachStaticGetRoute = async (
         const originUniqueIdentifier: string = req.params.origin;
         const staticUniqueIdentifier: string = req.params.static;
 
-        const origin: IImbricateOrigin | null =
+        const loadedOrigin: LoadedOrigin | null =
             originMap.get(originUniqueIdentifier) ?? null;
 
-        if (!origin) {
+        if (!loadedOrigin) {
 
             console.error("Origin Not Found", originUniqueIdentifier);
             res.status(404).send(S_TextManager_GetText_Unknown.description);
             return;
         }
 
-        const staticInstance: ImbricateStaticManagerGetStaticOutcome =
-            await origin.getStaticManager().getStatic(
-                staticUniqueIdentifier,
-            );
+        const staticInstance: ImbricateStaticManagerGetStaticOutcome = await loadedOrigin
+            .origin
+            .getStaticManager()
+            .getStatic(staticUniqueIdentifier);
 
         if (typeof staticInstance === "symbol") {
 

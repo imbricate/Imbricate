@@ -4,12 +4,13 @@
  * @description Execute Origin Action
  */
 
-import { IImbricateOrigin, IMBRICATE_ORIGIN_FEATURE, ImbricateOriginActionInput, ImbricateOriginActionOutcome, S_Common_QueryOriginActions_Unknown, checkImbricateOriginFeatureSupported } from "@imbricate/core";
+import { IMBRICATE_ORIGIN_FEATURE, ImbricateOriginActionInput, ImbricateOriginActionOutcome, S_Common_QueryOriginActions_Unknown, checkImbricateOriginFeatureSupported } from "@imbricate/core";
 import express from "express";
+import { LoadedOrigin } from "../util/load";
 
 export const attachOriginExecuteOriginActionRoute = async (
     application: express.Express,
-    originMap: Map<string, IImbricateOrigin>,
+    originMap: Map<string, LoadedOrigin>,
 ): Promise<void> => {
 
     application.post("/:origin/execute-origin-action", async (req, res) => {
@@ -17,17 +18,19 @@ export const attachOriginExecuteOriginActionRoute = async (
         const originUniqueIdentifier: string = req.params.origin;
         const body: any = req.body;
 
-        const origin: IImbricateOrigin | null =
+        const loadedOrigin: LoadedOrigin | null =
             originMap.get(originUniqueIdentifier) ?? null;
 
-        if (!origin) {
+        if (!loadedOrigin) {
 
             console.error("Origin Not Found", originUniqueIdentifier);
             res.status(404).send(S_Common_QueryOriginActions_Unknown.description);
             return;
         }
 
-        const supportedFeatures = await origin.getSupportedFeatures();
+        const supportedFeatures = await loadedOrigin
+            .origin
+            .getSupportedFeatures();
 
         if (typeof supportedFeatures === "symbol") {
 
@@ -52,7 +55,9 @@ export const attachOriginExecuteOriginActionRoute = async (
             parameters: body.parameters,
         };
 
-        const result: ImbricateOriginActionOutcome = await origin.executeOriginAction(input);
+        const result: ImbricateOriginActionOutcome = await loadedOrigin
+            .origin
+            .executeOriginAction(input);
 
         if (typeof result === "symbol") {
 

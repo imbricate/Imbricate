@@ -4,8 +4,9 @@
  * @description Create
  */
 
-import { IImbricateOrigin, IMBRICATE_TEXT_FEATURE, ImbricateAuthor, ImbricateTextManagerCreateTextOutcome, S_TextManager_CreateText_Unknown, checkImbricateTextFeatureSupported } from "@imbricate/core";
+import { IMBRICATE_TEXT_FEATURE, ImbricateAuthor, ImbricateTextManagerCreateTextOutcome, S_TextManager_CreateText_Unknown, checkImbricateTextFeatureSupported } from "@imbricate/core";
 import express from "express";
+import { LoadedOrigin } from "../util/load";
 
 export type ImbricateTextCreateResponse = {
 
@@ -17,7 +18,7 @@ export type ImbricateTextCreateResponse = {
 
 export const attachTextCreateRoute = async (
     application: express.Express,
-    originMap: Map<string, IImbricateOrigin>,
+    originMap: Map<string, LoadedOrigin>,
     author: ImbricateAuthor,
 ): Promise<void> => {
 
@@ -27,20 +28,23 @@ export const attachTextCreateRoute = async (
 
         const body: any = req.body;
 
-        const origin: IImbricateOrigin | null =
+        const loadedOrigin: LoadedOrigin | null =
             originMap.get(originUniqueIdentifier) ?? null;
 
-        if (!origin) {
+        if (!loadedOrigin) {
             res.status(404).send(S_TextManager_CreateText_Unknown.description);
             return;
         }
 
-        const text: ImbricateTextManagerCreateTextOutcome = await origin.getTextManager().createText(
-            body.content,
-            {
-                author,
-            },
-        );
+        const text: ImbricateTextManagerCreateTextOutcome = await loadedOrigin
+            .origin
+            .getTextManager()
+            .createText(
+                body.content,
+                {
+                    author,
+                },
+            );
 
         if (typeof text === "symbol") {
 

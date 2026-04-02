@@ -4,8 +4,9 @@
  * @description Search
  */
 
-import { IImbricateOrigin, ImbricateOriginSearchOutcome, S_Origin_Search_Unknown } from "@imbricate/core";
+import { ImbricateOriginSearchOutcome, S_Origin_Search_Unknown } from "@imbricate/core";
 import express from "express";
+import { LoadedOrigin } from "../util/load";
 
 export type ImbricateSearchSearchResponse = {
 
@@ -14,7 +15,7 @@ export type ImbricateSearchSearchResponse = {
 
 export const attachSearchSearchRoute = async (
     application: express.Express,
-    originMap: Map<string, IImbricateOrigin>,
+    originMap: Map<string, LoadedOrigin>,
 ): Promise<void> => {
 
     application.post("/:origin/search", async (req, res) => {
@@ -23,17 +24,19 @@ export const attachSearchSearchRoute = async (
 
         const body: any = req.body;
 
-        const origin: IImbricateOrigin | null =
+        const loadedOrigin: LoadedOrigin | null =
             originMap.get(originUniqueIdentifier) ?? null;
 
-        if (!origin) {
+        if (!loadedOrigin) {
 
             console.log("Origin Not Found", originUniqueIdentifier);
             res.status(404).send(S_Origin_Search_Unknown.description);
             return;
         }
 
-        const searchResult: ImbricateOriginSearchOutcome = await origin.search(body.keyword);
+        const searchResult: ImbricateOriginSearchOutcome = await loadedOrigin
+            .origin
+            .search(body.keyword);
 
         if (typeof searchResult === "symbol") {
 

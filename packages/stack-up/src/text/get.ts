@@ -4,8 +4,9 @@
  * @description Get
  */
 
-import { IImbricateOrigin, IMBRICATE_TEXT_FEATURE, ImbricateAuthor, ImbricateTextGetContentOutcome, ImbricateTextManagerGetTextOutcome, S_TextManager_GetText_Unknown, checkImbricateTextFeatureSupported } from "@imbricate/core";
+import { IMBRICATE_TEXT_FEATURE, ImbricateAuthor, ImbricateTextGetContentOutcome, ImbricateTextManagerGetTextOutcome, S_TextManager_GetText_Unknown, checkImbricateTextFeatureSupported } from "@imbricate/core";
 import express from "express";
+import { LoadedOrigin } from "../util/load";
 
 export type ImbricateTextGetResponse = {
 
@@ -18,7 +19,7 @@ export type ImbricateTextGetResponse = {
 
 export const attachTextGetRoute = async (
     application: express.Express,
-    originMap: Map<string, IImbricateOrigin>,
+    originMap: Map<string, LoadedOrigin>,
 ): Promise<void> => {
 
     application.get("/:origin/text/:text", async (req, res) => {
@@ -26,20 +27,20 @@ export const attachTextGetRoute = async (
         const originUniqueIdentifier: string = req.params.origin;
         const textUniqueIdentifier: string = req.params.text;
 
-        const origin: IImbricateOrigin | null =
+        const loadedOrigin: LoadedOrigin | null =
             originMap.get(originUniqueIdentifier) ?? null;
 
-        if (!origin) {
+        if (!loadedOrigin) {
 
             console.error("Origin Not Found", originUniqueIdentifier);
             res.status(404).send(S_TextManager_GetText_Unknown.description);
             return;
         }
 
-        const text: ImbricateTextManagerGetTextOutcome =
-            await origin.getTextManager().getText(
-                textUniqueIdentifier,
-            );
+        const text: ImbricateTextManagerGetTextOutcome = await loadedOrigin
+            .origin
+            .getTextManager()
+            .getText(textUniqueIdentifier);
 
         if (typeof text === "symbol") {
 

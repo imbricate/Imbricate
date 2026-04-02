@@ -4,9 +4,10 @@
  * @description Query
  */
 
-import { IImbricateOrigin, ImbricateDatabaseManagerGetDatabaseOutcome, ImbricateDatabaseQueryDocumentsOutcome, ImbricateDocumentQuery, S_Database_QueryDocuments_Unknown } from "@imbricate/core";
+import { ImbricateDatabaseManagerGetDatabaseOutcome, ImbricateDatabaseQueryDocumentsOutcome, ImbricateDocumentQuery, S_Database_QueryDocuments_Unknown } from "@imbricate/core";
 import express from "express";
 import { recordToInstanceRecord } from "../common/properties";
+import { LoadedOrigin } from "../util/load";
 import { ImbricateDocumentGetResponse } from "./get";
 
 export type ImbricateDocumentQueryResponse = {
@@ -16,7 +17,7 @@ export type ImbricateDocumentQueryResponse = {
 
 export const attachDocumentQueryRoute = async (
     application: express.Express,
-    originMap: Map<string, IImbricateOrigin>,
+    originMap: Map<string, LoadedOrigin>,
 ): Promise<void> => {
 
     application.post("/:origin/database/:database/query-documents", async (req, res) => {
@@ -26,19 +27,21 @@ export const attachDocumentQueryRoute = async (
 
         const body: any = req.body;
 
-        const origin: IImbricateOrigin | null =
+        const loadedOrigin: LoadedOrigin | null =
             originMap.get(originUniqueIdentifier) ?? null;
 
-        if (!origin) {
+        if (!loadedOrigin) {
 
             console.error("Origin Not Found", originUniqueIdentifier);
             res.status(404).send(S_Database_QueryDocuments_Unknown.description);
             return;
         }
 
-        const database: ImbricateDatabaseManagerGetDatabaseOutcome = await origin.getDatabaseManager().getDatabase(
-            databaseUniqueIdentifier,
-        );
+        const database: ImbricateDatabaseManagerGetDatabaseOutcome = await loadedOrigin
+            .origin.getDatabaseManager()
+            .getDatabase(
+                databaseUniqueIdentifier,
+            );
 
         if (typeof database === "symbol") {
 

@@ -4,9 +4,10 @@
  * @description Get
  */
 
-import { DocumentAnnotations, IImbricateOrigin, IMBRICATE_DOCUMENT_FEATURE, ImbricateDatabaseGetDocumentOutcome, ImbricateDatabaseManagerGetDatabaseOutcome, S_Database_GetDocument_Unknown } from "@imbricate/core";
+import { DocumentAnnotations, IMBRICATE_DOCUMENT_FEATURE, ImbricateDatabaseGetDocumentOutcome, ImbricateDatabaseManagerGetDatabaseOutcome, S_Database_GetDocument_Unknown } from "@imbricate/core";
 import express from "express";
 import { DocumentPropertyInstanceRecord, recordToInstanceRecord } from "../common/properties";
+import { LoadedOrigin } from "../util/load";
 
 export type ImbricateDocumentGetResponse = {
 
@@ -20,7 +21,7 @@ export type ImbricateDocumentGetResponse = {
 
 export const attachDocumentGetRoute = async (
     application: express.Express,
-    originMap: Map<string, IImbricateOrigin>,
+    originMap: Map<string, LoadedOrigin>,
 ): Promise<void> => {
 
     application.get("/:origin/database/:database/document/:document", async (req, res) => {
@@ -29,19 +30,21 @@ export const attachDocumentGetRoute = async (
         const databaseUniqueIdentifier: string = req.params.database;
         const documentUniqueIdentifier: string = req.params.document;
 
-        const origin: IImbricateOrigin | null =
+        const loadedOrigin: LoadedOrigin | null =
             originMap.get(originUniqueIdentifier) ?? null;
 
-        if (!origin) {
+        if (!loadedOrigin) {
 
             console.error("Origin Not Found", originUniqueIdentifier);
             res.status(404).send(S_Database_GetDocument_Unknown.description);
             return;
         }
 
-        const database: ImbricateDatabaseManagerGetDatabaseOutcome = await origin.getDatabaseManager().getDatabase(
-            databaseUniqueIdentifier,
-        );
+        const database: ImbricateDatabaseManagerGetDatabaseOutcome = await loadedOrigin
+            .origin.getDatabaseManager()
+            .getDatabase(
+                databaseUniqueIdentifier,
+            );
 
         if (typeof database === "symbol") {
 

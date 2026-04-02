@@ -4,8 +4,9 @@
  * @description Query
  */
 
-import { DatabaseAnnotations, IImbricateDatabase, IImbricateOrigin, IMBRICATE_DATABASE_FEATURE, ImbricateDatabaseManagerQueryDatabasesOutcome, ImbricateDatabaseQuery, ImbricateDatabaseSchema, S_DatabaseManager_QueryDatabases_Unknown } from "@imbricate/core";
+import { DatabaseAnnotations, IImbricateDatabase, IMBRICATE_DATABASE_FEATURE, ImbricateDatabaseManagerQueryDatabasesOutcome, ImbricateDatabaseQuery, ImbricateDatabaseSchema, S_DatabaseManager_QueryDatabases_Unknown } from "@imbricate/core";
 import express from "express";
+import { LoadedOrigin } from "../util/load";
 
 export type ImbricateDatabaseQueryResponse = {
 
@@ -23,7 +24,7 @@ export type ImbricateDatabaseQueryResponse = {
 
 export const attachDatabaseQueryRoute = async (
     application: express.Express,
-    originMap: Map<string, IImbricateOrigin>,
+    originMap: Map<string, LoadedOrigin>,
 ): Promise<void> => {
 
     application.post("/:origin/query-database", async (req, res) => {
@@ -31,10 +32,10 @@ export const attachDatabaseQueryRoute = async (
         const originUniqueIdentifier: string = req.params.origin;
         const body: any = req.body;
 
-        const origin: IImbricateOrigin | null =
+        const loadedOrigin: LoadedOrigin | null =
             originMap.get(originUniqueIdentifier) ?? null;
 
-        if (!origin) {
+        if (!loadedOrigin) {
 
             console.error("Origin Not Found", originUniqueIdentifier);
             res.status(404).send(S_DatabaseManager_QueryDatabases_Unknown.description);
@@ -42,7 +43,9 @@ export const attachDatabaseQueryRoute = async (
         }
 
         const query: ImbricateDatabaseQuery = body.query ?? {};
-        const databases: ImbricateDatabaseManagerQueryDatabasesOutcome = await origin.getDatabaseManager().queryDatabases(query);
+        const databases: ImbricateDatabaseManagerQueryDatabasesOutcome = await loadedOrigin
+            .origin.getDatabaseManager()
+            .queryDatabases(query);
 
         if (typeof databases === "symbol") {
 
