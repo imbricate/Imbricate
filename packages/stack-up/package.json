@@ -1,6 +1,6 @@
 {
   "name": "@imbricate/stack-up",
-  "version": "1.20.1",
+  "version": "1.21.0",
   "description": "Convert Imbricate origin to a local HTTP server",
   "scripts": {
     "test": "jest",
